@@ -1,7 +1,36 @@
-# Repositório do Squad 6
+# Repositório do SQUAD3
 
-# Projeto
+## Projeto 
+Página Web Responsiva realizada na intenção de auxiliar na organização de filas para jogos de vídeo game.
 
-# Links
+Tecnologias usadas: 
+- HTML5
+- CSS3
+- Javascript 
+- PHP
+- MySQL
 
-# Participantes
+## links
+- [Trello](https://trello.com/b/mb3iVsww/squad-6)
+
+## Participantes
+- Luiz
+  - [GitHub](https://github.com/luizera-36)
+  - [Linkedin](https://www.linkedin.com/in/luizgomesdev/)
+- Marcus
+  - [GitHub]
+  - [Linkedin]
+- Allison
+  - [GitHub]
+  - [Linkedin]
+- Carlos
+  - [GitHub]
+  - [Linkedin]
+- Diogo
+  - [GitHub]
+  - [Linkedin]
+- Guilherme 
+  - [GitHub]
+  - [Linkedin]
+
+
