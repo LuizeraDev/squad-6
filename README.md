@@ -17,9 +17,6 @@ Tecnologias usadas:
 - Luiz
   - [GitHub](https://github.com/luizera-36)
   - [Linkedin](https://www.linkedin.com/in/luizgomesdev/)
-- Marcus
-  - [GitHub]
-  - [Linkedin]
 - Allison
   - [GitHub](https://github.com/alisson199)
   - [Linkedin](https://www.linkedin.com/in/alisson-santos-de-freitas-00a975156/)
@@ -27,10 +24,12 @@ Tecnologias usadas:
   - [GitHub]
   - [Linkedin]
 - Diogo
-  - [GitHub]
-  - [Linkedin]
+  - [GitHub](https://github.com/gaspar-d)
+  - [Linkedin](https://www.linkedin.com/in/gaspar-diogo/)
 - Guilherme 
   - [GitHub]
   - [Linkedin]
+- Marcus
+  - [Linkedin](https://www.linkedin.com/in/marcus-mazza-5a6497190/)
 
 
