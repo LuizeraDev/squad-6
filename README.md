@@ -15,21 +15,20 @@ Tecnologias usadas:
 - [Trello](https://trello.com/b/mb3iVsww/squad-6)
 
 ## Participantes
-- Luiz (Backend / Banco)
+- Luiz (Front-end / Back-end / Banco)
   - [GitHub](https://github.com/luizera-36)
   - [Linkedin](https://www.linkedin.com/in/luizgomesdev/)
-- Allison (Backend / Banco)
+- Allison (Back-end / Banco)
   - [GitHub](https://github.com/alisson199)
   - [Linkedin](https://www.linkedin.com/in/alisson-santos-de-freitas-00a975156/)
-- Carlos (Frontend)
+- Carlos (Front-end)
   - [GitHub](https://github.com/Carlos-kaspa)
-  - [Linkedin]
-- Diogo (Frontend)
+- Diogo (Front-end)
   - [GitHub](https://github.com/gaspar-d)
   - [Linkedin](https://www.linkedin.com/in/gaspar-diogo/)
-- Guilherme 
-  - [GitHub]
-  - [Linkedin]
+- Guilherme (Back-end / Banco)
+  - [GitHub](https://github.com/GuilhermeFabio500)
+  - [Linkedin](http://linkedin.com/in/guilherme-fábio-g-366786106)
 - Marcus (Ux / Designer)
   - [Linkedin](https://www.linkedin.com/in/marcus-mazza-5a6497190/)
 
