@@ -23,6 +23,7 @@ Tecnologias usadas:
   - [Linkedin](https://www.linkedin.com/in/alisson-santos-de-freitas-00a975156/)
 - Carlos (Front-end)
   - [GitHub](https://github.com/Carlos-kaspa)
+  - [Linkedin](https://www.linkedin.com/in/carlos-augusto-gomes-de-lima-000a7ab2)
 - Diogo (Front-end)
   - [GitHub](https://github.com/gaspar-d)
   - [Linkedin](https://www.linkedin.com/in/gaspar-diogo/)
