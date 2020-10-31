@@ -1,7 +1,7 @@
 # Repositório do Squad 6
 
-# projeto
+# Projeto
 
-# links
+# Links
 
-# participantes
+# Participantes
