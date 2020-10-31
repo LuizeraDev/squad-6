@@ -8,7 +8,7 @@ Tecnologias usadas:
 - CSS3
 - Javascript 
 - PHP
-- MySQL
+- Firebase
 - AJAX
 
 ## links
