@@ -11,7 +11,7 @@ Tecnologias usadas:
 - AJAX
 - Banco de dados (Firebase)
 
-## links
+## Links
 - [Trello](https://trello.com/b/mb3iVsww/squad-6)
 
 ## Participantes
