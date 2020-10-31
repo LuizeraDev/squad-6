@@ -8,29 +8,29 @@ Tecnologias usadas:
 - CSS3
 - Javascript 
 - PHP
-- Firebase
 - AJAX
+- Banco de dados (Firebase)
 
 ## links
 - [Trello](https://trello.com/b/mb3iVsww/squad-6)
 
 ## Participantes
-- Luiz
+- Luiz (Backend / Banco)
   - [GitHub](https://github.com/luizera-36)
   - [Linkedin](https://www.linkedin.com/in/luizgomesdev/)
-- Allison
+- Allison (Backend / Banco)
   - [GitHub](https://github.com/alisson199)
   - [Linkedin](https://www.linkedin.com/in/alisson-santos-de-freitas-00a975156/)
-- Carlos
-  - [GitHub]
+- Carlos (Frontend)
+  - [GitHub](https://github.com/Carlos-kaspa)
   - [Linkedin]
-- Diogo
+- Diogo (Frontend)
   - [GitHub](https://github.com/gaspar-d)
   - [Linkedin](https://www.linkedin.com/in/gaspar-diogo/)
 - Guilherme 
   - [GitHub]
   - [Linkedin]
-- Marcus
+- Marcus (Ux / Designer)
   - [Linkedin](https://www.linkedin.com/in/marcus-mazza-5a6497190/)
 
 
