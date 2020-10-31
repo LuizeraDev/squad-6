@@ -21,8 +21,8 @@ Tecnologias usadas:
   - [GitHub]
   - [Linkedin]
 - Allison
-  - [GitHub]
-  - [Linkedin]
+  - [GitHub](https://github.com/alisson199)
+  - [Linkedin](https://www.linkedin.com/in/alisson-santos-de-freitas-00a975156/)
 - Carlos
   - [GitHub]
   - [Linkedin]
