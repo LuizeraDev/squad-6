@@ -9,6 +9,7 @@ Tecnologias usadas:
 - Javascript 
 - PHP
 - MySQL
+- AJAX
 
 ## links
 - [Trello](https://trello.com/b/mb3iVsww/squad-6)
