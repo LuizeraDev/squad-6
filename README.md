@@ -1,4 +1,4 @@
-# squad-6
+# Repositório do Squad 6
 
 # projeto
 
