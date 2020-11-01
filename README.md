@@ -9,7 +9,7 @@ Tecnologias usadas:
 - Javascript 
 - PHP
 - AJAX
-- Banco de dados (Firebase)
+- Banco de dados (MYSQL)
 
 ## Links
 - [Trello](https://trello.com/b/mb3iVsww/squad-6)
