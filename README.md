@@ -15,7 +15,7 @@ Tecnologias usadas:
 - [Trello](https://trello.com/b/mb3iVsww/squad-6)
 
 ## Participantes
-- Luiz (Front-end / Back-end / Banco)
+- Luiz (Back-end / Banco)
   - [GitHub](https://github.com/luizera-36)
   - [Linkedin](https://www.linkedin.com/in/luizgomesdev/)
 - Allison (Back-end / Banco)
