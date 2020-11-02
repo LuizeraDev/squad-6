@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    session_destroy();
     include("funcionalidades/conecta-banco.php");
 ?>
 <!DOCTYPE html>
@@ -20,6 +22,7 @@
         <section class="container" align="center">
             <h3>Logotipo - Fifo</h3>
             <a href="salas/santos.php">Santos</a> 
+            <br><br><br>
             <a href="salas/saopaulo.php">São Paulo</a>
         </section>
     </main>

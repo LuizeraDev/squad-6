@@ -5,12 +5,16 @@ $nome_sala = $_POST['nome-sala'];
 
 // If isset verifica se o arquivo existe ou não, se existir executa o bloco dentro do if.
 if(isset($_FILES['arquivo'])){
+    // nesta linha eu estou pegando a extensão do arquivo.
     $extensao = strtolower(substr($_FILES['arquivo']['name'], -4));
-    $diretorio = "../../img_restaurantes/";
+    // nesta linha eu estou especificando o diretório. 
+    $diretorio = "img-salas-santos/";
 
-    move_uploaded_file($_FILES['arquivo']['tmp_name'], $diretorio."FotodePerfil".$extensao);
+    // neste linha eu movo a foto para o diretório e o nome da foto fica como "Fotodosala"
+    move_uploaded_file($_FILES['arquivo']['tmp_name'], $diretorio."Fotodasala".$extensao);
 
-    $comandoSQL = "UPDATE tb_distribuidor SET img_distribuidor='FotodePerfil$extensao' WHERE cd_distribuidor = $codigo_distribuidor";
+    // nesta linha inserimos no banco as informações que já foram faladas
+    $comandoSQL = "INSERT INTO tb_sala_sao_paulo (nm_sala, img_sala) VALUES  ('Fotodasala${extensao}', '$nome_sala')";
     $con->query($comandoSQL) or die("algo deu errado");
     $con->close();
 }

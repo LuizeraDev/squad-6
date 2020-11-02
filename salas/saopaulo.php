@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+    $_SESSION["saopaulo"] = true;
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,7 +15,7 @@
     <h4>Criar nova sala? <a href="criar-sala-sao-paulo.php">Clique aqui</a></h4>
     <h3>Selecione seu jogo</h3>
     <a href="nome.php">Selecionar jogo</a>
-    <br>
+    <br><br>
     <a href="../index.php">Voltar ao início</a>
 </body>
 </html>

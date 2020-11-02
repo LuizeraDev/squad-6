@@ -1,5 +1,10 @@
 <?php
-    include("funcionalidades/conecta-banco.php");
+    require("../funcionalidades/conecta-banco.php");
+    session_start();
+    if(isset($_SESSION["santos"]))
+        $cidade = "santos.php";
+    else
+        $cidade = "saopaulo.php"
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -20,6 +25,9 @@
         <section class="container" align="center">
             <form action="funcionalidades/inserir.php" method="POST">
                 <input type="text" placeholder="Digite seu nome" name="nome">
+                <input type="submit" value="Entrar">
+                <br><br>
+                <a href="<?php echo $cidade ?>">Voltar para o menu principal</a>
             </form>
         </section>
     </main>

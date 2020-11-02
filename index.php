@@ -1,6 +1,6 @@
 <?php
-    sleep(1000);
-    header("Location: cidade.php");
+    // Vai redirecionar a pessoa depois de um determinado tempo de acordo com o tempo no (Refresh)
+    header("Refresh: 2; url=cidade.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -18,7 +18,7 @@
 <body>
     <main>
         <section class="container" align="center">
-            <h4>Logotipo - Fifo</h4>
+            <h2>Logotipo - Fifo</h2>
         </section>
     </main>
 </body>
