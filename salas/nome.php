@@ -7,6 +7,14 @@
         $cidade = "saopaulo.php"
 ?>
 <!DOCTYPE html>
+<?php
+    require("../funcionalidades/conecta-banco.php");
+    
+    // puxando parâmetro com o código da sala
+    if(isset($_GET['id'])):
+        $codigo_sala = $_GET['id'];
+    endif;
+?>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
