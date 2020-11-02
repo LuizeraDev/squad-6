@@ -20,7 +20,7 @@
     <main>
         <!-- No php, pegamos dados através do campo "name" dos inputs -->
         <section class="container" align="center">
-            <h3>Logotipo - Fifo</h3>
+            <h2>Logotipo - Fifo</h2>
             <a href="salas/santos.php">Santos</a> 
             <br><br><br>
             <a href="salas/saopaulo.php">São Paulo</a>

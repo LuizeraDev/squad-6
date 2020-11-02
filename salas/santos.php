@@ -28,12 +28,11 @@
                 echo "<p>Nome da sala: ".$dados[$i]['nm_sala'] ."</p>";
                 echo "<p>Imagem da sala: </p>";
                 echo "<img src='../funcionalidades/img-salas-santos/".$dados[$i]['cd_sala_santos']."/".$dados[$i]['img_sala']."'>";
-                echo "<br>";
+                echo "<br><a href='nome.php'>Selecionar jogo</a>";
+                echo "<br><br>";
             }
         }   
     ?>
-    <a href="nome.php">Selecionar jogo</a>
-    <br><br>
     <a href="../index.php">Voltar ao início</a>
 </body>
 </html>
