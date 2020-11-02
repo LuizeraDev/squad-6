@@ -1,22 +1,43 @@
 <?php 
 require "conecta-banco.php";
 
-// Anotação: está faltando o código da sala 
-
 $nome_sala = $_POST['nome-sala'];
+
+// nesta linha inserimos no banco as informações que já foram faladas
+$comandoSQL = "INSERT INTO tb_sala_sao_paulo (nm_sala) VALUES  ('$nome_sala')";
+$con->query($comandoSQL) or die("algo deu errado");
+
+// seleciona código da sala criada
+$comandoSQL = "SELECT cd_sala_sao_paulo from tb_sala_sao_paulo WHERE nm_sala='$nome_sala'";
+$resultado_usuario = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
+$codigo = mysqli_fetch_array($resultado_usuario);
+// caminho da pasta
+$dir = "img-salas-sao_paulo/".$codigo[0];
+// cria uma pasta no caminho criado
+mkdir($dir, 0777);
 
 // If isset verifica se o arquivo existe ou não, se existir executa o bloco dentro do if.
 if(isset($_FILES['arquivo'])){
     // nesta linha eu estou pegando a extensão do arquivo.
     $extensao = strtolower(substr($_FILES['arquivo']['name'], -4));
-    // nesta linha eu estou especificando o diretório. 
-    $diretorio = "img-salas-santos/";
 
-    // neste linha eu movo a foto para o diretório e o nome da foto fica como "Fotodosala"
-    move_uploaded_file($_FILES['arquivo']['tmp_name'], $diretorio."Fotodasala".$extensao);
+    if($extensao == ".jpg" || $extensao == ".png" || $extensao == ".jpeg"):
+        // nesta linha eu estou especificando o diretório. 
+        $diretorio = "img-salas-sao-paulo/".$codigo[0]."/";
 
-    // nesta linha inserimos no banco as informações que já foram faladas
-    $comandoSQL = "INSERT INTO tb_sala_sao_paulo (nm_sala, img_sala) VALUES  ('Fotodasala${extensao}', '$nome_sala')";
-    $con->query($comandoSQL) or die("algo deu errado");
+        // nesta linha eu movo a foto para o diretório e o nome da foto fica como "Fotodosala"
+        move_uploaded_file($_FILES['arquivo']['tmp_name'], $diretorio."Fotodasala".$extensao);
+
+        $comandoSQL = "UPDATE tb_sala_sao_paulo SET img_sala='Fotodasala$extensao' WHERE cd_sala_sao_paulo = $codigo[0]";
+        $con->query($comandoSQL) or die("algo deu errado");
+
+        header("Location: ../salas/saopaulo.php");
+    else:
+        echo
+        "<script>
+        alert('Formato de arquivo não aceito.');
+        window.location.href='../salas/criar-salas-sao-paulo.php';
+        </script>";
+    endif;
     $con->close();
 }
