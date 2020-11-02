@@ -49,7 +49,7 @@
             <h3>Aqui vai aparecer os usuários que estão atrás e na frente da fila</h3>
             <a href="#">Vou Jogar</a>
             <br><br>
-            <a href="../index.php">Desistir</a>
+            <a href="../funcionalidades/excluir-usuario-fila.php?id=<?php echo $codigo_sala ?>">Desistir</a>
         </section>
     </main>
 </body>
