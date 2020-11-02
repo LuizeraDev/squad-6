@@ -21,14 +21,14 @@
 <body>
     <h1>LOGOTIPO - FIFO</h1>
     <h4>Criar nova sala? <a href="criar-sala-sao-paulo.php">Clique aqui</a></h4>
-    <h3>Selecione seu jogo</h3>
+    <h3>Selecione sua sala</h3>
     <?php 
         if($quantidade != null){
             for($i = 0; $i < $quantidade; $i++){
                 echo "<p>Nome da sala: ".$dados[$i]['nm_sala'] ."</p>";
                 echo "<p>Imagem da sala: </p>";
                 echo "<img src='../funcionalidades/img-salas-sao-paulo/".$dados[$i]['cd_sala_sao_paulo']."/".$dados[$i]['img_sala']."'>";
-                echo "<br><a href='nome.php?id=". $dados[$i]['cd_sala_sao_paulo'] ."'>Selecionar jogo</a>";
+                echo "<br><a href='nome.php?id=". $dados[$i]['cd_sala_sao_paulo'] ."'>Selecionar sala</a>";
                 echo "<br><br>";
             }
         }   

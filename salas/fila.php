@@ -38,6 +38,11 @@
         <!-- No php, pegamos dados através do campo "name" dos inputs -->
         <section class="container" align="center">
             <h2>Logotipo - Fifo</h2>
+            <form method="post" action="../funcionalidades/excluir-sala.php?id=<?php echo $codigo_sala ?>">
+                <p>Excluir sala:</p>
+                <input type="password" placeholder="senha da sala" name="senha-sala" maxlength="5" required>
+                <input type="submit" value="excluir sala">
+            </form>
             <p>E aew <?php echo $nome_usuario; ?></p>
             <p>Você está na fila do <?php echo $nm_sala; ?> e sua posição é a (posição do usuário)</p>
             <hr style="width: 40%;">
