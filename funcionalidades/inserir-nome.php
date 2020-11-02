@@ -27,7 +27,6 @@ else:
     // Fechando a conexão com o banco de dados
     $con->close();
 
-    die();
     // Esta função redireciona o usuário para outra página
     header("Location: ../salas/fila.php?id=".$codigo_sala);
 endif;
