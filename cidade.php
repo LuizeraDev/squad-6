@@ -1,6 +1,5 @@
 <?php
-    sleep(1000);
-    header("Location: cidade.php");
+    include("funcionalidades/conecta-banco.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -17,8 +16,11 @@
 </style>
 <body>
     <main>
+        <!-- No php, pegamos dados através do campo "name" dos inputs -->
         <section class="container" align="center">
-            <h4>Logotipo - Fifo</h4>
+            <h3>Logotipo - Fifo</h3>
+            <a href="salas/santos.php">Santos</a> 
+            <a href="salas/saopaulo.php">São Paulo</a>
         </section>
     </main>
 </body>

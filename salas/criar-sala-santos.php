@@ -15,17 +15,17 @@
     <main>
         <!-- No php, pegamos dados através do campo "name" dos inputs -->
         <section class="container" align="center">
-            <form action="funcionalidades/inserir.php" method="POST">
-            <h3>Exemplo básico de aplicação</h3>
-            <input type="text" name="nome">
+            <form enctype="multipart/form-data" action="../funcionalidades/inserir-sala-santos.php" method="POST">
+            <h3>Criar Sala de Santos</h3>
             <p>
-            Santos
-            <input type="radio" name="cidade" value="Santos">
-            São Paulo
-            <input type="radio" name="cidade" value="SaoPaulo">
+            Nome da sala
+            <input type="text" name="nome-sala"><br><br>
+            Escolha uma foto para a sala<br>
+            <input type="file" name="arquivo" placeholder="Foto de Perfil">
             <br><br>
-            <input type="submit" value="Entrar">
+            <input type="submit" value="Criar Sala">
             </p>
+            <a href="santos.php">Voltar as salas já criadas</a>
             </form>
         </section>
     </main>

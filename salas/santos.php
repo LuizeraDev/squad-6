@@ -7,9 +7,11 @@
     <title>Fifo - Santos</title>
 </head>
 <body>
-    <h1>Fifo - Santos</h1>
-    <h4>Criar nova sala? <a href="../funcionalidades/criar-sala-santos.php">Clique aqui</a></h4>
-    <h3>Salas de Jogos</h3>
+    <h1>LOGOTIPO - FIFO</h1>
+    <h4>Criar nova sala? <a href="criar-sala-santos.php">Clique aqui</a></h4>
+    <h3>Selecione seu jogo</h3>
+    <a href="nome.php">Selecionar jogo</a>
+    <br>
     <a href="../index.php">Voltar ao início</a>
 </body>
 </html>
