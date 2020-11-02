@@ -23,8 +23,10 @@
     <main>
         <!-- No php, pegamos dados através do campo "name" dos inputs -->
         <section class="container" align="center">
-            <form action="funcionalidades/inserir-nome.php" method="POST">
+            <form action="../funcionalidades/inserir-nome.php" method="POST">
                 <input type="text" placeholder="Digite seu nome" name="nome">
+                <br>
+                <br>
                 <input type="submit" value="Entrar">
                 <br><br>
                 <a href="<?php echo $cidade ?>">Voltar para o menu principal</a>

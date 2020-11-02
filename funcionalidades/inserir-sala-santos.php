@@ -1,6 +1,8 @@
 <?php 
 require "conecta-banco.php";
 
+// Anotação: está faltando o código da sala 
+
 $nome_sala = $_POST['nome-sala'];
 
 // If isset verifica se o arquivo existe ou não, se existir executa o bloco dentro do if.
