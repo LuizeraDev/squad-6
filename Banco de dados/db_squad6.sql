@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 02-Nov-2020 às 17:31
+-- Data de Criação: 02-Nov-2020 às 20:33
 -- Versão do servidor: 5.6.13
 -- versão do PHP: 5.4.17
 
@@ -21,32 +21,6 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `db_squad6` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `db_squad6`;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `tb_fila_santos`
---
-
-CREATE TABLE IF NOT EXISTS `tb_fila_santos` (
-  `cd_fila_santos` int(11) NOT NULL DEFAULT '0',
-  `cd_sala_santos` int(11) DEFAULT NULL,
-  PRIMARY KEY (`cd_fila_santos`),
-  KEY `fila_santos_sala_santos` (`cd_sala_santos`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `tb_fila_sao_paulo`
---
-
-CREATE TABLE IF NOT EXISTS `tb_fila_sao_paulo` (
-  `cd_fila_sao_paulo` int(11) NOT NULL DEFAULT '0',
-  `cd_sala_sao_paulo` int(11) DEFAULT NULL,
-  PRIMARY KEY (`cd_fila_sao_paulo`),
-  KEY `fila_santos_sala_sao_paulo` (`cd_sala_sao_paulo`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -87,6 +61,7 @@ CREATE TABLE IF NOT EXISTS `tb_sala_sao_paulo` (
 CREATE TABLE IF NOT EXISTS `tb_usuario` (
   `cd_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `nm_usuario` varchar(30) DEFAULT NULL,
+  `cd_fila_usuario` int(11) DEFAULT NULL,
   `cd_sala_santos` int(11) DEFAULT NULL,
   `cd_sala_sao_paulo` int(11) DEFAULT NULL,
   PRIMARY KEY (`cd_usuario`),
@@ -97,18 +72,6 @@ CREATE TABLE IF NOT EXISTS `tb_usuario` (
 --
 -- Constraints for dumped tables
 --
-
---
--- Limitadores para a tabela `tb_fila_santos`
---
-ALTER TABLE `tb_fila_santos`
-  ADD CONSTRAINT `fila_santos_sala_santos` FOREIGN KEY (`cd_sala_santos`) REFERENCES `tb_sala_santos` (`cd_sala_santos`);
-
---
--- Limitadores para a tabela `tb_fila_sao_paulo`
---
-ALTER TABLE `tb_fila_sao_paulo`
-  ADD CONSTRAINT `fila_santos_sala_sao_paulo` FOREIGN KEY (`cd_sala_sao_paulo`) REFERENCES `tb_sala_sao_paulo` (`cd_sala_sao_paulo`);
 
 --
 -- Limitadores para a tabela `tb_usuario`
