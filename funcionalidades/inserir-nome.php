@@ -8,6 +8,9 @@ require("conecta-banco.php");
 // Recebe os valores do formulário da página index.php
 $nome = $_POST['nome'];
 
+// Criando session que recebe o nome do usuário
+$_SESSION['nome_usuario'] = $nome;
+
 // Codigo da sala que vem passado pela página nome.php
 $codigo_sala = $_GET['id'];
 
