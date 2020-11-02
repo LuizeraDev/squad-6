@@ -1,7 +1,9 @@
 <?php
     require("../funcionalidades/conecta-banco.php");
     session_start();
+    // puxando nome do usuário por uma session e atribuindo a uma variável
     $nome_usuario = $_SESSION['nome_usuario'];
+    // puxando parâmetro do código da sala 
     $codigo_sala = $_GET['id'];
 
     if(isset($_SESSION["santos"])):
@@ -15,6 +17,7 @@
         $resultado_sala = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
         $nome_sala = mysqli_fetch_array($resultado_sala);
     endif;
+    // atribuindo o nome da sala a uma variável
     $nm_sala = $nome_sala['nm_sala'];
 ?>
 <!DOCTYPE html>

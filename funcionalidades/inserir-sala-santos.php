@@ -13,7 +13,7 @@ $resultado_usuario = mysqli_query($con, $comandoSQL) or die("Erro no banco de da
 $codigo = mysqli_fetch_array($resultado_usuario);
 // caminho da pasta
 $dir = "img-salas-santos/".$codigo[0];
-// cria uma pasta no caminho criado
+// cria uma pasta no caminho especificado acima
 mkdir($dir, 0777);
 
 // If isset verifica se o arquivo existe ou não, se existir executa o bloco dentro do if.
