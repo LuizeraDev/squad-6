@@ -1,10 +1,6 @@
 <?php
     require("../funcionalidades/conecta-banco.php");
     session_start();
-    if(isset($_SESSION["santos"]))
-        $cidade = "santos.php";
-    else
-        $cidade = "saopaulo.php"
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -12,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fifo - Squad 6</title>
+    <title>Fila</title>
 </head>
 <style>
     .container{
@@ -23,12 +19,7 @@
     <main>
         <!-- No php, pegamos dados através do campo "name" dos inputs -->
         <section class="container" align="center">
-            <form action="funcionalidades/inserir-nome.php" method="POST">
-                <input type="text" placeholder="Digite seu nome" name="nome">
-                <input type="submit" value="Entrar">
-                <br><br>
-                <a href="<?php echo $cidade ?>">Voltar para o menu principal</a>
-            </form>
+            <h1>tela da fila</h1>
         </section>
     </main>
 </body>
