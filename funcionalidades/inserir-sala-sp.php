@@ -2,9 +2,11 @@
 require "conecta-banco.php";
 
 $nome_sala = $_POST['nome-sala'];
+$nome_responsavel = $_POST['nome-responsavel'];
+$senha_sala = $_POST['senha-sala'];
 
 // nesta linha inserimos no banco as informações que já foram faladas
-$comandoSQL = "INSERT INTO tb_sala_sao_paulo (nm_sala) VALUES  ('$nome_sala')";
+$comandoSQL = "INSERT INTO tb_sala_sao_paulo (nm_sala, nm_responsavel_sala, cd_senha_sala) VALUES  ('$nome_sala', '$nome_responsavel', '$senha_sala')";
 $con->query($comandoSQL) or die("algo deu errado");
 
 // seleciona código da sala criada
