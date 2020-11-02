@@ -12,6 +12,7 @@ Tecnologias usadas:
 - Banco de dados (MYSQL)
 
 ## Links
+- [Site Hospedado](http://squad-6.epizy.com)
 - [Trello](https://trello.com/b/mb3iVsww/squad-6)
 
 ## Participantes
