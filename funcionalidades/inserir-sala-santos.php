@@ -11,6 +11,12 @@ $con->query($comandoSQL) or die("algo deu errado");
 $comandoSQL = "SELECT cd_sala_santos from tb_sala_santos WHERE nm_sala='$nome_sala'";
 $resultado_usuario = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
 $codigo = mysqli_fetch_array($resultado_usuario);
+
+//verifica se a pasta existe, se não existir cria uma.
+$pasta = "img-salas-santos";
+if(!file_exists($pasta))
+   mkdir($pasta, 0777);
+
 // caminho da pasta
 $dir = "img-salas-santos/".$codigo[0];
 // cria uma pasta no caminho especificado acima
