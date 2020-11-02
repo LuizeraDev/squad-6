@@ -1,15 +1,13 @@
+<!DOCTYPE html>
 <?php
     require("../funcionalidades/conecta-banco.php");
+
     session_start();
     if(isset($_SESSION["santos"]))
         $cidade = "santos.php";
     else
-        $cidade = "saopaulo.php"
-?>
-<!DOCTYPE html>
-<?php
-    require("../funcionalidades/conecta-banco.php");
-    
+        $cidade = "saopaulo.php";
+
     // puxando parâmetro com o código da sala
     if(isset($_GET['id'])):
         $codigo_sala = $_GET['id'];
@@ -31,13 +29,13 @@
     <main>
         <!-- No php, pegamos dados através do campo "name" dos inputs -->
         <section class="container" align="center">
-            <form action="../funcionalidades/inserir-nome.php" method="POST">
+            <form <?php echo "action='../funcionalidades/inserir-nome.php?id=$codigo_sala'" ?> method="POST">
                 <input type="text" placeholder="Digite seu nome" name="nome">
                 <br>
                 <br>
                 <input type="submit" value="Entrar">
                 <br><br>
-                <a href="<?php echo $cidade ?>">Voltar para o menu principal</a>
+                <a href="<?php echo $cidade?>">Voltar para o menu principal</a>
             </form>
         </section>
     </main>

@@ -1,6 +1,7 @@
 <?php
     require("../funcionalidades/conecta-banco.php");
     session_start();
+    $codigo_sala = $_GET['id'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
