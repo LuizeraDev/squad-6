@@ -12,7 +12,7 @@ $comandoSQL = "SELECT cd_sala_sao_paulo from tb_sala_sao_paulo WHERE nm_sala='$n
 $resultado_usuario = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
 $codigo = mysqli_fetch_array($resultado_usuario);
 // caminho da pasta
-$dir = "img-salas-sao_paulo/".$codigo[0];
+$dir = "img-salas-sao-paulo/".$codigo[0];
 // cria uma pasta no caminho criado
 mkdir($dir, 0777);
 
