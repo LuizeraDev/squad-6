@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 02-Nov-2020 às 01:58
+-- Data de Criação: 02-Nov-2020 às 17:31
 -- Versão do servidor: 5.6.13
 -- versão do PHP: 5.4.17
 
@@ -29,11 +29,11 @@ USE `db_squad6`;
 --
 
 CREATE TABLE IF NOT EXISTS `tb_fila_santos` (
-  `cd_fila_santos` int(11) NOT NULL AUTO_INCREMENT,
+  `cd_fila_santos` int(11) NOT NULL DEFAULT '0',
   `cd_sala_santos` int(11) DEFAULT NULL,
   PRIMARY KEY (`cd_fila_santos`),
   KEY `fila_santos_sala_santos` (`cd_sala_santos`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -42,11 +42,11 @@ CREATE TABLE IF NOT EXISTS `tb_fila_santos` (
 --
 
 CREATE TABLE IF NOT EXISTS `tb_fila_sao_paulo` (
-  `cd_fila_sao_paulo` int(11) NOT NULL AUTO_INCREMENT,
+  `cd_fila_sao_paulo` int(11) NOT NULL DEFAULT '0',
   `cd_sala_sao_paulo` int(11) DEFAULT NULL,
   PRIMARY KEY (`cd_fila_sao_paulo`),
   KEY `fila_santos_sala_sao_paulo` (`cd_sala_sao_paulo`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -56,7 +56,9 @@ CREATE TABLE IF NOT EXISTS `tb_fila_sao_paulo` (
 
 CREATE TABLE IF NOT EXISTS `tb_sala_santos` (
   `cd_sala_santos` int(11) NOT NULL AUTO_INCREMENT,
+  `nm_responsavel_sala` varchar(110) DEFAULT NULL,
   `nm_sala` varchar(20) DEFAULT NULL,
+  `cd_senha_sala` varchar(5) DEFAULT NULL,
   `img_sala` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`cd_sala_santos`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -69,7 +71,9 @@ CREATE TABLE IF NOT EXISTS `tb_sala_santos` (
 
 CREATE TABLE IF NOT EXISTS `tb_sala_sao_paulo` (
   `cd_sala_sao_paulo` int(11) NOT NULL AUTO_INCREMENT,
+  `nm_responsavel_sala` varchar(110) DEFAULT NULL,
   `nm_sala` varchar(20) DEFAULT NULL,
+  `cd_senha_sala` varchar(5) DEFAULT NULL,
   `img_sala` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`cd_sala_sao_paulo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
