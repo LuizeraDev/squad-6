@@ -59,13 +59,23 @@ if (isset($_SESSION["santos"])) {
     $usuarios = mysqli_fetch_all($result_users, MYSQLI_ASSOC);
     $qt_linhas = mysqli_num_rows($result_users);
     
-    if ($qt_linhas != null) {
+   // Capturar a posição da fila do usuário
+    $comandoSQL = "SELECT cd_fila_usuario from tb_usuario WHERE nm_usuario = '$nome_usuario'";
+    $resultado_posicao = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
+    $posicao = mysqli_fetch_array($resultado_posicao); 
+
+    // Busca o código do usuário
+        $comandoSQL = "SELECT cd_usuario FROM tb_usuario WHERE nm_usuario = '$nome_usuario'";
+        $resultado_cd_usuario = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
+        $codigo_do_usuario = mysqli_fetch_array($resultado_cd_usuario);; 
+    
+    if ($qt_linhas != null && $posicao[0] == NULL) {
         // Faz atualização do campo cd_fila_usuario, para dizer sua posição na fila
-        $comandoSQL = "UPDATE tb_usuario SET cd_fila_usuario = '$qt_linhas + 1' WHERE nm_usuario = '$nome_usuario'";
+        $comandoSQL = "UPDATE tb_usuario SET cd_fila_usuario = '$qt_linhas + 1' WHERE cd_usuario = '$codigo_do_usuario[0]'";
         $att = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
     } else {
         // Coloca usuário como primeiro da fila
-        $comandoSQL = "UPDATE tb_usuario SET cd_fila_usuario = 1 WHERE nm_usuario = '$nome_usuario'";
+        $comandoSQL = "UPDATE tb_usuario SET cd_fila_usuario = 1 WHERE cd_usuario = '$codigo_do_usuario'";
         $att = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
     }
 
