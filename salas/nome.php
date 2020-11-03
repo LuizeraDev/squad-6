@@ -3,15 +3,14 @@
     require("../funcionalidades/conecta-banco.php");
 
     session_start();
-    if(isset($_SESSION["santos"]))
+
+    if (isset($_SESSION["santos"]))
         $cidade = "santos.php";
     else
         $cidade = "saopaulo.php";
 
     // puxando parâmetro com o código da sala
-    if(isset($_GET['id'])):
-        $codigo_sala = $_GET['id'];
-    endif;
+    $codigo_sala = $_GET['id'];
 ?>
 <html lang="pt-br">
 <head>

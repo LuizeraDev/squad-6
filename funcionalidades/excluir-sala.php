@@ -5,7 +5,7 @@ session_start();
 $senha_sala = $_POST['senha-sala'];
 $codigo_sala = $_GET['id'];
 
-if(isset($_SESSION["santos"])){
+if (isset($_SESSION["santos"])) {
     // Busca a senha da sala no banco de dados
     $comandoSQL = "SELECT cd_senha_sala from tb_sala_santos WHERE cd_sala_santos='$codigo_sala'";
     $resultado_sala = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
@@ -32,14 +32,13 @@ if(isset($_SESSION["santos"])){
         header("Location: ../salas/santos.php");
     endif;
     $con->close();
-}
-else{
+} else {
     // Busca a senha da sala no banco de dados
     $comandoSQL = "SELECT cd_senha_sala from tb_sala_sao_paulo WHERE cd_sala_sao_paulo='$codigo_sala'";
     $resultado_usuario = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
     $senha = mysqli_fetch_array($resultado_usuario);
 
-    if($senha_sala === $senha[0]):
+    if ($senha_sala === $senha[0]) {
         // Pega o nome da imagem no banco de dados
         $comandoSQL = "SELECT img_sala from tb_sala_sao_paulo WHERE cd_sala_sao_paulo='$codigo_sala'";
         $resultado_sala = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
@@ -58,6 +57,6 @@ else{
         unlink($caminho."/".$nome_img[0]);
         rmdir($caminho);
         header("Location: ../salas/saopaulo.php");
-    endif;
+    }
     $con->close();
 }

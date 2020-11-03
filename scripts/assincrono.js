@@ -1,9 +1,9 @@
 $.ajax({
     url: "../funcionalidades/fila-assincrona.php",
-    success: function(result){
+    success: function(result) {
         $(".usuarios").html(result);
     },
-    error: function(){
+    error: function() {
         $(".usuarios").html("Error");
     }
 });

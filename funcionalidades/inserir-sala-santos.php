@@ -16,8 +16,8 @@ $codigo = mysqli_fetch_array($resultado_usuario);
 
 //verifica se a pasta existe, se não existir cria uma.
 $pasta = "img-salas-santos";
-if(!file_exists($pasta))
-   mkdir($pasta, 0777);
+if (!file_exists($pasta))
+     mkdir($pasta, 0777);
 
 // caminho da pasta
 $dir = "img-salas-santos/".$codigo[0];
@@ -29,7 +29,7 @@ if(isset($_FILES['arquivo'])){
     // nesta linha eu estou pegando a extensão do arquivo.
     $extensao = strtolower(substr($_FILES['arquivo']['name'], -4));
 
-    if($extensao == ".jpg" || $extensao == ".png" || $extensao == ".jpeg"):
+    if($extensao == ".jpg" || $extensao == ".png" || $extensao == ".jpeg"){
         // nesta linha eu estou especificando o diretório. 
         $diretorio = "img-salas-santos/".$codigo[0]."/";
 
@@ -40,12 +40,13 @@ if(isset($_FILES['arquivo'])){
         $con->query($comandoSQL) or die("algo deu errado");
 
         header("Location: ../salas/santos.php");
-    else:
+    } else {
         echo
         "<script>
         alert('Formato de arquivo não aceito.');
         window.location.href='../salas/criar-salas-santos.php';
         </script>";
-    endif;
+    }
+    
     $con->close();
 }

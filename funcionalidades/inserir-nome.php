@@ -14,7 +14,7 @@ $_SESSION['nome_usuario'] = $nome;
 // Codigo da sala que vem passado pela página nome.php
 $codigo_sala = $_GET['id'];
 
-if(isset($_SESSION["santos"])):
+if (isset($_SESSION["santos"])) {
     // Fazendo inserção no banco de dados
     $comandoSQL = "INSERT INTO tb_usuario (nm_usuario, cd_sala_santos) VALUES ('$nome', $codigo_sala)";
     $res = $con->query($comandoSQL);
@@ -23,7 +23,7 @@ if(isset($_SESSION["santos"])):
 
     // Esta função redireciona o usuário para outra página
     header("Location: ../salas/fila.php?id=".$codigo_sala);
-else:
+} else {
     // Fazendo inserção no banco de dados
     $comandoSQL = "INSERT INTO tb_usuario (nm_usuario, cd_sala_sao_paulo) VALUES ('$nome', $codigo_sala)";
     $res = $con->query($comandoSQL);
@@ -32,4 +32,4 @@ else:
 
     // Esta função redireciona o usuário para outra página
     header("Location: ../salas/fila.php?id=".$codigo_sala);
-endif;
+}
