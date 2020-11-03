@@ -11,7 +11,7 @@ if (isset($_SESSION["santos"])) {
     $resultado_sala = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
     $senha = mysqli_fetch_array($resultado_sala);
 
-    if($senha_sala === $senha[0]):
+    if ($senha_sala === $senha[0]) {
         // Pega o nome da imagem no banco de dados
         $comandoSQL = "SELECT img_sala from tb_sala_santos WHERE cd_sala_santos='$codigo_sala'";
         $resultado_sala = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
@@ -30,7 +30,7 @@ if (isset($_SESSION["santos"])) {
         unlink($caminho."/".$nome_img[0]);
         rmdir($caminho);
         header("Location: ../salas/santos.php");
-    endif;
+    }
     $con->close();
 } else {
     // Busca a senha da sala no banco de dados

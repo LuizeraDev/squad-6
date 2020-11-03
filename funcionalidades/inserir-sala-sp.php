@@ -27,7 +27,7 @@ $dir = "img-salas-sao-paulo/".$codigo[0];
 mkdir($dir, 0777);
 
 // If isset verifica se o arquivo existe ou não, se existir executa o bloco dentro do if.
-if(isset($_FILES['arquivo'])){
+if (isset($_FILES['arquivo'])) {
     // nesta linha eu estou pegando a extensão do arquivo.
     $extensao = strtolower(substr($_FILES['arquivo']['name'], -4));
 

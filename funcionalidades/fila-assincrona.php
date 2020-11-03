@@ -17,7 +17,6 @@ if (isset($_SESSION["santos"])) {
     $qt_linhas = mysqli_num_rows($result_users);
 }
 
-
 for ($i = 0; $i < $qt_linhas; $i++) {
     echo "<b>Posição na fila: ".$usuarios[$i]['cd_fila_usuario']." | Nome: ".$usuarios[$i]['nm_usuario']."</b>";
     echo "<br><br>";

@@ -13,7 +13,7 @@ if (isset($_SESSION["santos"])) {
     
     $codigo_usuario = $dados[0];
 
-    if($codigo_sala === $dados[1]){
+    if ($codigo_sala === $dados[1]) {
         // Deleta o usuário que desistir da fila da tabela de usuários
         $comandoSQL = "DELETE FROM tb_usuario WHERE cd_usuario='$codigo_usuario'";
         $con->query($comandoSQL) or die("algo deu errado");
@@ -29,7 +29,7 @@ if (isset($_SESSION["santos"])) {
         
     $codigo_usuario = $dados[0];
 
-    if($codigo_sala === $dados[1]){
+    if ($codigo_sala === $dados[1]) {
          // Deleta o usuário que desistir da fila da tabela de usuários
         $comandoSQL = "DELETE FROM tb_usuario WHERE cd_usuario='$codigo_usuario'";
         $con->query($comandoSQL) or die("algo deu errado");
