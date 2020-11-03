@@ -5,6 +5,7 @@
     $nome_usuario = $_SESSION['nome_usuario'];
     // puxando parâmetro do código da sala 
     $codigo_sala = $_GET['id'];
+    $_SESSION['codigo-sala'] = $codigo_sala;
 
       if(isset($_SESSION["santos"])):
         // buscando o nome da sala criada no banco
@@ -12,18 +13,18 @@
         $resultado_sala = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
         $nome_sala = mysqli_fetch_array($resultado_sala);
 
-        // Seleciona todos os usuários que tem o mesmo código de sala.
+        // Seleciona todos os usuários que tem o mesmo código de sala
         $comandoSQL = "SELECT * FROM tb_usuario WHERE cd_sala_santos = '$codigo_sala' ";
         $result_users = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
         $usuarios = mysqli_fetch_all($result_users, MYSQLI_ASSOC);
         $qt_linhas = mysqli_num_rows($result_users);
     
         if($qt_linhas != null){
-            // Faz atualização do campo cd_fila_usuario, para dizer sua posição na fila.
+            // Faz atualização do campo cd_fila_usuario, para dizer sua posição na fila
             $comandoSQL = "UPDATE tb_usuario SET cd_fila_usuario = '$qt_linhas + 1' WHERE nm_usuario = '$nome_usuario'";
             $att = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
         }else{
-            // Faz atualização do campo cd_fila_usuario, para dizer sua posição na fila.
+            // Coloca usuário como primeiro da fila
             $comandoSQL = "UPDATE tb_usuario SET cd_fila_usuario = 1 WHERE nm_usuario = '$nome_usuario'";
             $att = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
         }
@@ -34,25 +35,24 @@
         $posicao = mysqli_fetch_array($resultado_posicao); 
 
         $posicao_fila = $posicao[0];
-
     else:
         // buscando o nome da sala criada no banco
         $comandoSQL = "SELECT nm_sala from tb_sala_sao_paulo WHERE cd_sala_sao_paulo='$codigo_sala'";
         $resultado_sala = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
         $nome_sala = mysqli_fetch_array($resultado_sala);
 
-        // Seleciona todos os usuários que tem o mesmo código de sala.
+        // Seleciona todos os usuários que tem o mesmo código de sala
         $comandoSQL = "SELECT * FROM tb_usuario WHERE cd_sala_sao_paulo = '$codigo_sala' ";
         $result_users = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
         $usuarios = mysqli_fetch_all($result_users, MYSQLI_ASSOC);
         $qt_linhas = mysqli_num_rows($result_users);
     
         if($qt_linhas != null){
-            // Faz atualização do campo cd_fila_usuario, para dizer sua posição na fila.
+            // Faz atualização do campo cd_fila_usuario, para dizer sua posição na fila
             $comandoSQL = "UPDATE tb_usuario SET cd_fila_usuario = '$qt_linhas + 1' WHERE nm_usuario = '$nome_usuario'";
             $att = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
         }else{
-            // Faz atualização do campo cd_fila_usuario, para dizer sua posição na fila.
+            // Coloca usuário como primeiro da fila
             $comandoSQL = "UPDATE tb_usuario SET cd_fila_usuario = 1 WHERE nm_usuario = '$nome_usuario'";
             $att = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
         }
@@ -63,8 +63,8 @@
         $posicao = mysqli_fetch_array($resultado_posicao); 
 
         $posicao_fila = $posicao[0];
-
     endif;
+    $con->close();
 
 
     // atribuindo o nome da sala a uma variável
@@ -98,11 +98,9 @@
             <hr style="width: 30%;">
             <br>
             <?php
-                for($i = 0; $i < $qt_linhas; $i++){
-                    echo "<b>Posição na fila: ".$usuarios[$i]['cd_fila_usuario']." | Nome: ".$usuarios[$i]['nm_usuario']."</b>";
-                    echo "<br><br>";
-                } 
+                include("../funcionalidades/fila-assincrona.php");
             ?>
+            <div class="usuarios"></div>
             <br><br>
             <a href="#">Vou Jogar</a>
             <br><br>
@@ -111,6 +109,6 @@
     </main>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script></script>
+    <script src="../scripts/assincrono.js"></script>
 </body>
 </html>
