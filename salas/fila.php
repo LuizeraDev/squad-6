@@ -9,7 +9,6 @@ $_SESSION['codigo-sala'] = $codigo_sala;
 
 if (isset($_SESSION["santos"])) {
     
-
     // buscando o nome da sala criada no banco
     $comandoSQL = "SELECT nm_sala from tb_sala_santos WHERE cd_sala_santos='$codigo_sala'";
     $resultado_sala = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");

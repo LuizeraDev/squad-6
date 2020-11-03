@@ -10,6 +10,7 @@ if (isset($_SESSION["santos"])) {
     $comandoSQL = "SELECT cd_usuario, cd_sala_santos, cd_fila_usuario from tb_usuario WHERE nm_usuario='$nome_usuario' AND cd_sala_santos='$codigo_sala'";
     $resultado_usuario = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
     $dados = mysqli_fetch_array($resultado_usuario);
+    
     // Armazena o cd_usuario
     $codigo_usuario = $dados[0];
 
@@ -42,11 +43,11 @@ if (isset($_SESSION["santos"])) {
     header("Location: ../salas/santos.php");
 } else {
     // seleciona o código do usuário de acordo com o nome do usuário
-    $comandoSQL = "SELECT cd_usuario, cd_sala_sao_paulo from tb_usuario WHERE nm_usuario='$nome_usuario' AND cd_sala_sao_paulo='$codigo_sala'";
+    $comandoSQL = "SELECT cd_usuario, cd_sala_sao_paulo, cd_fila_usuario from tb_usuario WHERE nm_usuario='$nome_usuario' AND cd_sala_sao_paulo='$codigo_sala'";
     $resultado_usuario = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
     $dados = mysqli_fetch_array($resultado_usuario);
     
-    // Armazena o cd_usuario    
+    // Armazena o cd_usuario
     $codigo_usuario = $dados[0];
 
     // Armazena o cd_fila_usuario
@@ -77,5 +78,3 @@ if (isset($_SESSION["santos"])) {
 
     header("Location: ../salas/saopaulo.php");
 }
-
-
