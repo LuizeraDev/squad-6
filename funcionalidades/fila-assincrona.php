@@ -17,9 +17,12 @@ if (isset($_SESSION["santos"])) {
     $qt_linhas = mysqli_num_rows($result_users);
 }
 
+
 for ($i = 0; $i < $qt_linhas; $i++) {
-    if($qt_linhas < 4){
+    if($i < 5){
+        // Limitando a quantidade de pessoas que vão aparecer para 5
         echo "<b>Posição na fila: ".$usuarios[$i]['cd_fila_usuario']." | Nome: ".$usuarios[$i]['nm_usuario']."</b>";
         echo "<br><br>";
-    }
+    } else 
+        break;
 } 

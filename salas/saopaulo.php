@@ -31,7 +31,7 @@ $responsavel = mysqli_fetch_all($responsavel_sala, MYSQLI_ASSOC);
         if ($quantidade != null) {
             for ($i = 0; $i < $quantidade; $i++) {
                 echo "<p>Nome da sala: ". $dados[$i]['nm_sala'] ."</p>";
-                echo "<p>Responsável da sala:". $responsavel[$i]['nm_responsavel_sala'] ."</p>";
+                echo "<p>Responsável da sala: ". $responsavel[$i]['nm_responsavel_sala'] ."</p>";
                 echo "<p>Imagem da sala: </p>";
                 echo "<img src='../funcionalidades/img-salas-sao-paulo/".$dados[$i]['cd_sala_sao_paulo']."/".$dados[$i]['img_sala']."'>";
                 echo "<br><a href='nome.php?id=". $dados[$i]['cd_sala_sao_paulo'] ."'>Selecionar sala</a>";
