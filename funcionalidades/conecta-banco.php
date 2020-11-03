@@ -5,7 +5,7 @@ $database = "db_squad6";
 $username = "root";
 $password = "usbw";
 
-// Cria conexão com o banco de dados pasasndo os valores da variável acima
+// Cria conexão com o banco de dados passando os valores das variáveis acima
 $con = mysqli_connect($servername, $username, $password, $database);
 
 // Esse código faz com que a inserção de acentuação no banco não seja afetada
