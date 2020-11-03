@@ -15,6 +15,7 @@
         // Seleciona todos os usuários que tem o mesmo código de sala.
         $comandoSQL = "SELECT * FROM tb_usuario WHERE cd_sala_santos = '$codigo_sala' ";
         $result_users = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
+        $usuarios = mysqli_fetch_all($result_users, MYSQLI_ASSOC);
         $qt_linhas = mysqli_num_rows($result_users);
     
         if($qt_linhas != null){
@@ -43,6 +44,7 @@
         // Seleciona todos os usuários que tem o mesmo código de sala.
         $comandoSQL = "SELECT * FROM tb_usuario WHERE cd_sala_sao_paulo = '$codigo_sala' ";
         $result_users = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
+        $usuarios = mysqli_fetch_all($result_users, MYSQLI_ASSOC);
         $qt_linhas = mysqli_num_rows($result_users);
     
         if($qt_linhas != null){
@@ -92,13 +94,23 @@
                 <input type="submit" value="excluir sala">
             </form>
             <p>E aew <b><?php echo $nome_usuario; ?></b></p>
-            <p>Você está na fila do <b><?php echo $nm_sala; ?></b> e sua posição é <b><?php echo $posicao_fila ?></b> </p>
-            <hr style="width: 40%;">
-            <h3>Aqui vai aparecer os usuários que estão atrás e na frente da fila</h3>
+            <p>Você está na fila do <b><?php echo $nm_sala; ?></b> e sua posição é <b><?php echo $posicao_fila ?></b></p>
+            <hr style="width: 30%;">
+            <br>
+            <?php
+                for($i = 0; $i < $qt_linhas; $i++){
+                    echo "<b>Posição na fila: ".$usuarios[$i]['cd_fila_usuario']." | Nome: ".$usuarios[$i]['nm_usuario']."</b>";
+                    echo "<br><br>";
+                } 
+            ?>
+            <br><br>
             <a href="#">Vou Jogar</a>
             <br><br>
             <a href="../funcionalidades/excluir-usuario-fila.php?id=<?php echo $codigo_sala ?>">Desistir</a>
         </section>
     </main>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script></script>
 </body>
 </html>
