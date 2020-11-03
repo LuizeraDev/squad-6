@@ -47,7 +47,7 @@ if (isset($_SESSION["santos"])) {
     $usuarios = mysqli_fetch_all($result_users, MYSQLI_ASSOC);
     $qt_linhas = mysqli_num_rows($result_users);
     
-    if($qt_linhas != null){
+    if ($qt_linhas != null) {
         // Faz atualização do campo cd_fila_usuario, para dizer sua posição na fila
         $comandoSQL = "UPDATE tb_usuario SET cd_fila_usuario = '$qt_linhas + 1' WHERE nm_usuario = '$nome_usuario'";
         $att = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");

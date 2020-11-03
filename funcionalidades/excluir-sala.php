@@ -31,6 +31,7 @@ if (isset($_SESSION["santos"])) {
         rmdir($caminho);
         header("Location: ../salas/santos.php");
     }
+
     $con->close();
 } else {
     // Busca a senha da sala no banco de dados
@@ -58,5 +59,6 @@ if (isset($_SESSION["santos"])) {
         rmdir($caminho);
         header("Location: ../salas/saopaulo.php");
     }
+    
     $con->close();
 }

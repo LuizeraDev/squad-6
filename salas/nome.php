@@ -9,7 +9,7 @@ if (isset($_SESSION["santos"]))
 else
     $cidade = "saopaulo.php";
 
-// puxando parâmetro com o código da sala
+// Puxando parâmetro com o código da sala
 $codigo_sala = $_GET['id'];
 ?>
 <html lang="pt-br">
