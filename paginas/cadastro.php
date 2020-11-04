@@ -21,7 +21,7 @@
                 <p>
                     <h3>Cadastro</h3>
                     Usuário 
-                    <input type="text" placeholder="Usuário" name="usuário"><br><br>
+                    <input type="text" placeholder="Usuário" name="usuario"><br><br>
                     Senha
                     <input type="text" placeholder="Senha" name="senha"><br>
                     <br>

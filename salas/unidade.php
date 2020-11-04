@@ -19,9 +19,9 @@
         <!-- No php, pegamos dados através do campo "name" dos inputs -->
         <section class="container" align="center">
             <h2>Logotipo - Fifo</h2>
-            <a href="salas/santos.php">Santos</a> 
+            <a href="santos.php">Santos</a> 
             <br><br><br>
-            <a href="salas/saopaulo.php">São Paulo</a>
+            <a href="saopaulo.php">São Paulo</a>
         </section>
     </main>
 </body>
