@@ -12,10 +12,10 @@ $resultado = mysqli_query($con, $comandoSQL);
 $quantidade = mysqli_num_rows($resultado);
 
 // Permite login
-if ($quantidade === 2) {
+if ($quantidade === 1) {
     $_SESSION['logado'] = true;
     header("Location: ../salas/unidade.php");
 } else {
     echo "<script>alert('Nome ou senha, não conferem com nossos registros.');</script>";
-    echo "<script>window.location.href='../paginas/cadastro.php';</script>";
+    echo "<script>window.location.href='../paginas/login.php';</script>";
 }

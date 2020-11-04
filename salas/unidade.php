@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include("../funcionalidades/verifica-logado.php");
 ?>
 <!DOCTYPE html>
@@ -19,9 +20,12 @@
         <!-- No php, pegamos dados através do campo "name" dos inputs -->
         <section class="container" align="center">
             <h2>Logotipo - Fifo</h2>
+            <p>Escolha a unidade em que você está</p>
             <a href="santos.php">Santos</a> 
             <br><br><br>
             <a href="saopaulo.php">São Paulo</a>
+            <br><br><br>
+            <a href="../paginas/login.php">Sair</a>
         </section>
     </main>
 </body>

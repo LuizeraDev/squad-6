@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+    session_destroy();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -23,7 +27,7 @@
                     Usuário 
                     <input type="text" placeholder="Usuário" name="usuario"><br><br>
                     Senha
-                    <input type="text" placeholder="Senha" name="Senha"><br>
+                    <input type="password" placeholder="Senha" name="senha"><br>
                     <br>
                     <br>
                     <input type="submit" value="Entrar">

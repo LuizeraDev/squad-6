@@ -23,10 +23,10 @@
                     Usuário 
                     <input type="text" placeholder="Usuário" name="usuario"><br><br>
                     Senha
-                    <input type="text" placeholder="Senha" name="senha"><br>
+                    <input type="password" placeholder="Senha" name="senha"><br>
                     <br>
                     <br>
-                    <input type="submit" value="Entrar">
+                    <input type="submit" value="Cadastrar-se">
                 </p>
                 <a href="login.php">Possuo uma conta</a>
             </form>
