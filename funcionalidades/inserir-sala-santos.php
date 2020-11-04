@@ -1,3 +1,4 @@
+<meta charset="UTF-8">
 <?php 
 require "conecta-banco.php";
 

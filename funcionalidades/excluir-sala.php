@@ -5,7 +5,7 @@ session_start();
 $codigo_sala = $_GET['id'];
 
 
-if (isset($_SESSION["santos"])) {
+if ($_SESSION["santos"]) {
         // Pega o nome da imagem no banco de dados
         $comandoSQL = "SELECT nm_sala, img_sala from tb_sala_santos WHERE cd_sala_santos='$codigo_sala'";
         $resultado_sala = mysqli_query($con, $comandoSQL);
@@ -13,7 +13,7 @@ if (isset($_SESSION["santos"])) {
 
         // Deleta a sala criada no banco de dados
         $comandoSQL = "DELETE FROM tb_sala_santos WHERE cd_sala_santos='$codigo_sala'";
-        $con->query($comandoSQL) or die("algo deu errado");
+        $con->query($comandoSQL) or die("A sala não pode ser excluida pois alguém ainda está dentro dela.");
         $con->close();
 
         // Nessas 2 linhas deletamos a imagem  da sala
@@ -29,7 +29,7 @@ if (isset($_SESSION["santos"])) {
 
         // Deleta a sala criada no banco de dados
         $comandoSQL = "DELETE FROM tb_sala_sao_paulo WHERE cd_sala_sao_paulo='$codigo_sala'";
-        $con->query($comandoSQL) or die("algo deu errado");
+        $con->query($comandoSQL) or die("A sala não pode ser excluida pois alguém ainda está dentro dela.");
         $con->close();
 
         // Nessas 2 linhas deletamos a imagem  da sala

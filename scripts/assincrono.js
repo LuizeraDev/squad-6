@@ -1,5 +1,5 @@
 $.ajax({
-    url: "../funcionalidades/fila-assincrona.php",
+    url: "../salas/fila.php",
     success: function(result) {
         $(".usuarios").html(result);
     },

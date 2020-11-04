@@ -14,7 +14,7 @@ $_SESSION['nome_usuario'] = $nome;
 // Codigo da sala que vem passado pela página nome.php
 $codigo_sala = $_GET['id'];
 
-if (isset($_SESSION["santos"])) {
+if ($_SESSION["santos"]) {
     // Fazendo inserção no banco de dados
     $comandoSQL = "INSERT INTO tb_usuario (nm_usuario, cd_sala_santos) VALUES ('$nome', $codigo_sala)";
     $res = $con->query($comandoSQL);

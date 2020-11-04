@@ -13,6 +13,12 @@ $quantidade = mysqli_num_rows($resultado);
 
 // Permite login
 if ($quantidade === 1) {
+    // Pegamos o código do usuário 
+    $comandoSQL = "SELECT cd_usuario from tb_usuario WHERE nm_usuario = '$usuario' AND cd_senha = '$senha'";
+    $resultado = mysqli_query($con, $comandoSQL);
+    $codigo = mysqli_fetch_array($resultado);
+
+    $_SESSION['codigo_usuario'] = $codigo[0];
     $_SESSION['logado'] = true;
     header("Location: ../salas/unidade.php");
 } else {

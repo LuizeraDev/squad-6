@@ -1,6 +1,8 @@
 <?php 
 require("../funcionalidades/conecta-banco.php");
 session_start();
+
+$_SESSION["santos"] = false;
 $_SESSION["saopaulo"] = true;
 
 // seleciona código da sala criada
