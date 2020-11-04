@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("../funcionalidades/verifica-logado.php");
+    session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
