@@ -7,8 +7,7 @@ $nome_usuario = $_SESSION['nome_usuario'];
 $codigo_sala = $_GET['id'];
 $_SESSION['codigo-sala'] = $codigo_sala;
 
-if (isset($_SESSION["santos"])) {
-    
+if (isset($_SESSION["santos"])) { 
     // buscando o nome da sala criada no banco
     $comandoSQL = "SELECT nm_sala from tb_sala_santos WHERE cd_sala_santos='$codigo_sala'";
     $resultado_sala = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
@@ -26,9 +25,9 @@ if (isset($_SESSION["santos"])) {
     $posicao = mysqli_fetch_array($resultado_posicao); 
 
     // Busca o código do usuário
-        $comandoSQL = "SELECT cd_usuario FROM tb_usuario WHERE nm_usuario = '$nome_usuario'";
-        $resultado_cd_usuario = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
-        $codigo_do_usuario = mysqli_fetch_array($resultado_cd_usuario);; 
+    $comandoSQL = "SELECT cd_usuario FROM tb_usuario WHERE nm_usuario = '$nome_usuario'";
+    $resultado_cd_usuario = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
+    $codigo_do_usuario = mysqli_fetch_array($resultado_cd_usuario);
     
     if ($qt_linhas != null && $posicao[0] == NULL) {
         // Faz atualização do campo cd_fila_usuario, para dizer sua posição na fila
@@ -48,26 +47,26 @@ if (isset($_SESSION["santos"])) {
     $posicao_fila = $posicao[0];
 } else {
     // buscando o nome da sala criada no banco
-    $comandoSQL = "SELECT nm_sala from tb_sala_sao_paulo WHERE cd_sala_sao_paulo='$codigo_sala'";
+    $comandoSQL = "SELECT nm_sala from tb_sala_sao_paulo WHERE cd_sala_sao_paulo = '$codigo_sala'";
     $resultado_sala = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
     $nome_sala = mysqli_fetch_array($resultado_sala);
-
+   
     // Seleciona todos os usuários que tem o mesmo código de sala
     $comandoSQL = "SELECT * FROM tb_usuario WHERE cd_sala_sao_paulo = '$codigo_sala' ";
     $result_users = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
     $usuarios = mysqli_fetch_all($result_users, MYSQLI_ASSOC);
     $qt_linhas = mysqli_num_rows($result_users);
-    
-   // Capturar a posição da fila do usuário
+   
+    // Capturar a posição da fila do usuário
     $comandoSQL = "SELECT cd_fila_usuario from tb_usuario WHERE nm_usuario = '$nome_usuario'";
     $resultado_posicao = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
     $posicao = mysqli_fetch_array($resultado_posicao); 
-
+   
     // Busca o código do usuário
-        $comandoSQL = "SELECT cd_usuario FROM tb_usuario WHERE nm_usuario = '$nome_usuario'";
-        $resultado_cd_usuario = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
-        $codigo_do_usuario = mysqli_fetch_array($resultado_cd_usuario);; 
-    
+    $comandoSQL = "SELECT cd_usuario FROM tb_usuario WHERE nm_usuario = '$nome_usuario'";
+    $resultado_cd_usuario = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
+    $codigo_do_usuario = mysqli_fetch_array($resultado_cd_usuario);
+       
     if ($qt_linhas != null && $posicao[0] == NULL) {
         // Faz atualização do campo cd_fila_usuario, para dizer sua posição na fila
         $comandoSQL = "UPDATE tb_usuario SET cd_fila_usuario = '$qt_linhas + 1' WHERE cd_usuario = '$codigo_do_usuario[0]'";
@@ -77,12 +76,12 @@ if (isset($_SESSION["santos"])) {
         $comandoSQL = "UPDATE tb_usuario SET cd_fila_usuario = 1 WHERE cd_usuario = '$codigo_do_usuario'";
         $att = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
     }
-
+   
     // Capturar a posição da fila do usuário
     $comandoSQL = "SELECT cd_fila_usuario from tb_usuario WHERE nm_usuario = '$nome_usuario'";
     $resultado_posicao = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
     $posicao = mysqli_fetch_array($resultado_posicao); 
-
+   
     $posicao_fila = $posicao[0];
 }
 $con->close();
