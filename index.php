@@ -1,6 +1,6 @@
 <?php
     // Vai redirecionar a pessoa depois de um determinado tempo de acordo com o tempo no (Refresh)
-    header("Refresh: 2; url=cidade.php");
+    header("Refresh: 2; url=paginas/login.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
