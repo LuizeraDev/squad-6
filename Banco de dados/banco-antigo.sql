@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 04-Nov-2020 às 08:39
+-- Data de Criação: 02-Nov-2020 às 20:33
 -- Versão do servidor: 5.6.13
 -- versão do PHP: 5.4.17
 
@@ -30,8 +30,10 @@ USE `db_squad6`;
 
 CREATE TABLE IF NOT EXISTS `tb_sala_santos` (
   `cd_sala_santos` int(11) NOT NULL AUTO_INCREMENT,
+  `nm_responsavel_sala` varchar(110) DEFAULT NULL,
   `nm_sala` varchar(20) DEFAULT NULL,
-  `img_sala` varchar(14) DEFAULT NULL,
+  `cd_senha_sala` varchar(5) DEFAULT NULL,
+  `img_sala` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`cd_sala_santos`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -43,8 +45,10 @@ CREATE TABLE IF NOT EXISTS `tb_sala_santos` (
 
 CREATE TABLE IF NOT EXISTS `tb_sala_sao_paulo` (
   `cd_sala_sao_paulo` int(11) NOT NULL AUTO_INCREMENT,
+  `nm_responsavel_sala` varchar(110) DEFAULT NULL,
   `nm_sala` varchar(20) DEFAULT NULL,
-  `img_sala` varchar(14) DEFAULT NULL,
+  `cd_senha_sala` varchar(5) DEFAULT NULL,
+  `img_sala` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`cd_sala_sao_paulo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -57,17 +61,12 @@ CREATE TABLE IF NOT EXISTS `tb_sala_sao_paulo` (
 CREATE TABLE IF NOT EXISTS `tb_usuario` (
   `cd_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `nm_usuario` varchar(30) DEFAULT NULL,
-  `cd_senha` varchar(30) DEFAULT NULL,
-  `nm_primeiro_nome` varchar(10) DEFAULT NULL,
-  `nm_sobrenome` varchar(15) DEFAULT NULL,
-  `nm_email` varchar(100) DEFAULT NULL,
-  `img_usuario` varchar(15) DEFAULT NULL,
   `cd_fila_usuario` int(11) DEFAULT NULL,
   `cd_sala_santos` int(11) DEFAULT NULL,
   `cd_sala_sao_paulo` int(11) DEFAULT NULL,
   PRIMARY KEY (`cd_usuario`),
-  KEY `fk_usuario_sala_santos` (`cd_sala_santos`),
-  KEY `fk_usuario_sala_sao_paulo` (`cd_sala_sao_paulo`)
+  KEY `usuario_sala_santos` (`cd_sala_santos`),
+  KEY `usuario_sala_sao_paulo` (`cd_sala_sao_paulo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
@@ -78,8 +77,8 @@ CREATE TABLE IF NOT EXISTS `tb_usuario` (
 -- Limitadores para a tabela `tb_usuario`
 --
 ALTER TABLE `tb_usuario`
-  ADD CONSTRAINT `fk_usuario_sala_santos` FOREIGN KEY (`cd_sala_santos`) REFERENCES `tb_sala_santos` (`cd_sala_santos`),
-  ADD CONSTRAINT `fk_usuario_sala_sao_paulo` FOREIGN KEY (`cd_sala_sao_paulo`) REFERENCES `tb_sala_sao_paulo` (`cd_sala_sao_paulo`);
+  ADD CONSTRAINT `usuario_sala_santos` FOREIGN KEY (`cd_sala_santos`) REFERENCES `tb_sala_santos` (`cd_sala_santos`),
+  ADD CONSTRAINT `usuario_sala_sao_paulo` FOREIGN KEY (`cd_sala_sao_paulo`) REFERENCES `tb_sala_sao_paulo` (`cd_sala_sao_paulo`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
