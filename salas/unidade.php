@@ -1,7 +1,5 @@
 <?php
-    session_start();
-    session_destroy();
-    include("funcionalidades/conecta-banco.php");
+    include("../funcionalidades/verifica-logado.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
