@@ -27,7 +27,7 @@ $quantidade = mysqli_num_rows($resultado_sala);
             for ($i = 0; $i < $quantidade; $i++) {
                 echo "<p>Nome da sala: ". $dados[$i]['nm_sala'] ."</p>";
                 echo "<p>Imagem da sala: </p>";
-                echo "<img src='../funcionalidades/img-salas-sao-paulo/".$dados[$i]['cd_sala_sao_paulo']."/".$dados[$i]['img_sala']."'>";
+                echo "<img src='../funcionalidades/img-salas-sao-paulo/".$dados[$i]['nm_sala']."/".$dados[$i]['img_sala']."'>";
                 echo "<br><a href='fila.php?id=". $dados[$i]['cd_sala_sao_paulo'] ."'>Selecionar sala</a>";
                 echo "<br><br>";
             }

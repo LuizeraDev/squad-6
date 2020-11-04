@@ -2,55 +2,53 @@
 require "conecta-banco.php";
 
 $nome_sala = $_POST['nome-sala'];
-$nome_responsavel = $_POST['nome-responsavel'];
-$senha_sala = $_POST['senha-sala'];
 
-// nesta linha inserimos no banco as informações que já foram faladas
-$comandoSQL = "INSERT INTO tb_sala_sao_paulo (nm_sala, nm_responsavel_sala, cd_senha_sala) VALUES  ('$nome_sala', '$nome_responsavel', '$senha_sala')";
-$con->query($comandoSQL) or die("algo deu errado");
+$comandoSQL = "SELECT nm_sala from tb_sala_sao_paulo WHERE nm_sala = '$nome_sala'";
+$resultado = mysqli_query($con, $comandoSQL);
+$quantidade = mysqli_num_rows($resultado);
 
-// seleciona código da sala criada
-$comandoSQL = "SELECT cd_sala_sao_paulo from tb_sala_sao_paulo WHERE nm_sala='$nome_sala'";
-$resultado_usuario = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
-$codigo = mysqli_fetch_array($resultado_usuario);
+if ($quantidade == 1) {
+    echo "<script>alert('Uma sala com este nome já existe.');</script>";
+    echo "<script>window.location.href='../salas/criar-sala-sao_paulo.php';</script>";
+} else {
+    // nesta linha inserimos no banco as informações que já foram faladas
+    $comandoSQL = "INSERT INTO tb_sala_sao_paulo (nm_sala) VALUES  ('$nome_sala')";
+    $con->query($comandoSQL);
 
-//verifica se a pasta existe, se não existir cria uma.
-$pasta = "img-salas-sao-paulo";
-
-if (!file_exists($pasta))
+    //verifica se a pasta existe, se não existir cria uma.
+    $pasta = "img-salas-sao-paulo";
+    if (!file_exists($pasta))
      mkdir($pasta, 0777);
 
-// caminho da pasta
-$dir = "img-salas-sao-paulo/".$codigo[0];
+    // caminho da pasta
+    $dir = "img-salas-sao-paulo/".$nome_sala;
+    // cria uma pasta no caminho especificado acima
+    mkdir($dir, 0777);
 
-// cria uma pasta no caminho especificado acima
-mkdir($dir, 0777);
+    // If isset verifica se o arquivo existe ou não, se existir executa o bloco dentro do if.
+    if (isset($_FILES['arquivo'])) {
+        // nesta linha eu estou pegando a extensão do arquivo.
+        $extensao = strtolower(substr($_FILES['arquivo']['name'], -4));
 
-// If isset verifica se o arquivo existe ou não, se existir executa o bloco dentro do if.
-if (isset($_FILES['arquivo'])) {
-    // nesta linha eu estou pegando a extensão do arquivo.
-    $extensao = strtolower(substr($_FILES['arquivo']['name'], -4));
+        if ($extensao == ".jpg" || $extensao == ".png" || $extensao == ".jpeg") {
+            // nesta linha eu estou especificando o diretório. 
+            $diretorio = "img-salas-sao-paulo/". $nome_sala ."/";
 
-    if($extensao == ".jpg" || $extensao == ".png" || $extensao == ".jpeg"){
-        // nesta linha eu estou especificando o diretório. 
-        $diretorio = "img-salas-sao-paulo/".$codigo[0]."/";
+            // nesta linha eu movo a foto para o diretório e o nome da foto fica como "Fotodosala"
+            move_uploaded_file($_FILES['arquivo']['tmp_name'], $diretorio ."Fotodasala". $extensao);
 
-        // nesta linha eu movo a foto para o diretório e o nome da foto fica como "Fotodosala"
-        move_uploaded_file($_FILES['arquivo']['tmp_name'], $diretorio."Fotodasala".$extensao);
+            $comandoSQL = "UPDATE tb_sala_sao_paulo SET img_sala='Fotodasala$extensao' WHERE nm_sala = '$nome_sala'";
+            $con->query($comandoSQL) or die("Deu erro aqui");
 
-        // nesta linha eu atualizo a tabela do banco colocando o nome da foto junto com sua extensão
-        $comandoSQL = "UPDATE tb_sala_sao_paulo SET img_sala='Fotodasala$extensao' WHERE cd_sala_sao_paulo = $codigo[0]";
-        $con->query($comandoSQL) or die("algo deu errado");
-
-        header("Location: ../salas/saopaulo.php");
-    } else {
-        // se o formato de arquivo for diferente de jpg, png ou jpeg ele é redirecionado
-        echo
-        "<script>
-        alert('Formato de arquivo não aceito.');
-        window.location.href='../salas/criar-salas-sao-paulo.php';
-        </script>";
+            header("Location: ../salas/saopaulo.php");
+        } else {
+            echo "<script> alert('Formato de arquivo não aceito.'); </script>";
+            echo "<script> window.location.href='../salas/criar-salas-sao-paulo.php'; </script>";
+        }
     }
-
-    $con->close();
 }
+$con->close();
+
+
+
+
