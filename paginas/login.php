@@ -21,9 +21,9 @@
                 <p>
                     <h3>Login</h3>
                     Usuário 
-                    <input type="text" placeholder="Digite seu nome" name="nome"><br><br>
+                    <input type="text" placeholder="Usuário" name="usuario"><br><br>
                     Senha
-                    <input type="text" placeholder="Digite sua senha" name="nome"><br>
+                    <input type="text" placeholder="Senha" name="Senha"><br>
                     <br>
                     <br>
                     <input type="submit" value="Entrar">
