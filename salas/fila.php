@@ -1,93 +1,16 @@
 <?php
 require("../funcionalidades/conecta-banco.php");
 session_start();
-// puxando nome do usuário por uma session e atribuindo a uma variável
-$nome_usuario = $_SESSION['nome_usuario'];
-// puxando parâmetro do código da sala 
+
 $codigo_sala = $_GET['id'];
-$_SESSION['codigo-sala'] = $codigo_sala;
+$codigo_usuario = $_SESSION['codigo_usuario'];
 
-if (isset($_SESSION["santos"])) { 
-    // buscando o nome da sala criada no banco
-    $comandoSQL = "SELECT nm_sala from tb_sala_santos WHERE cd_sala_santos='$codigo_sala'";
-    $resultado_sala = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
-    $nome_sala = mysqli_fetch_array($resultado_sala);
-
-    // Seleciona todos os usuários que tem o mesmo código de sala
-    $comandoSQL = "SELECT * FROM tb_usuario WHERE cd_sala_santos = '$codigo_sala' ";
-    $result_users = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
-    $usuarios = mysqli_fetch_all($result_users, MYSQLI_ASSOC);
-    $qt_linhas = mysqli_num_rows($result_users);
-
-    // Capturar a posição da fila do usuário
-    $comandoSQL = "SELECT cd_fila_usuario from tb_usuario WHERE nm_usuario = '$nome_usuario'";
-    $resultado_posicao = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
-    $posicao = mysqli_fetch_array($resultado_posicao); 
-
-    // Busca o código do usuário
-    $comandoSQL = "SELECT cd_usuario FROM tb_usuario WHERE nm_usuario = '$nome_usuario'";
-    $resultado_cd_usuario = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
-    $codigo_do_usuario = mysqli_fetch_array($resultado_cd_usuario);
-    
-    if ($qt_linhas != null && $posicao[0] == NULL) {
-        // Faz atualização do campo cd_fila_usuario, para dizer sua posição na fila
-        $comandoSQL = "UPDATE tb_usuario SET cd_fila_usuario = '$qt_linhas + 1' WHERE cd_usuario = '$codigo_do_usuario[0]'";
-        $att = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
-    } else {
-        // Coloca usuário como primeiro da fila
-        $comandoSQL = "UPDATE tb_usuario SET cd_fila_usuario = 1 WHERE cd_usuario = '$codigo_do_usuario'";
-        $att = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
-    }
-
-    // Capturar a posição da fila do usuário
-    $comandoSQL = "SELECT cd_fila_usuario from tb_usuario WHERE nm_usuario = '$nome_usuario'";
-    $resultado_posicao = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
-    $posicao = mysqli_fetch_array($resultado_posicao); 
-
-    $posicao_fila = $posicao[0];
+// Se a session santos for true / verdadeira.
+if ($_SESSION["santos"]) {
+    require("../funcionalidades/fila-santos.php");
 } else {
-    // buscando o nome da sala criada no banco
-    $comandoSQL = "SELECT nm_sala from tb_sala_sao_paulo WHERE cd_sala_sao_paulo = '$codigo_sala'";
-    $resultado_sala = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
-    $nome_sala = mysqli_fetch_array($resultado_sala);
-   
-    // Seleciona todos os usuários que tem o mesmo código de sala
-    $comandoSQL = "SELECT * FROM tb_usuario WHERE cd_sala_sao_paulo = '$codigo_sala' ";
-    $result_users = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
-    $usuarios = mysqli_fetch_all($result_users, MYSQLI_ASSOC);
-    $qt_linhas = mysqli_num_rows($result_users);
-   
-    // Capturar a posição da fila do usuário
-    $comandoSQL = "SELECT cd_fila_usuario from tb_usuario WHERE nm_usuario = '$nome_usuario'";
-    $resultado_posicao = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
-    $posicao = mysqli_fetch_array($resultado_posicao); 
-   
-    // Busca o código do usuário
-    $comandoSQL = "SELECT cd_usuario FROM tb_usuario WHERE nm_usuario = '$nome_usuario'";
-    $resultado_cd_usuario = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
-    $codigo_do_usuario = mysqli_fetch_array($resultado_cd_usuario);
-       
-    if ($qt_linhas != null && $posicao[0] == NULL) {
-        // Faz atualização do campo cd_fila_usuario, para dizer sua posição na fila
-        $comandoSQL = "UPDATE tb_usuario SET cd_fila_usuario = '$qt_linhas + 1' WHERE cd_usuario = '$codigo_do_usuario[0]'";
-        $att = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
-    } else {
-        // Coloca usuário como primeiro da fila
-        $comandoSQL = "UPDATE tb_usuario SET cd_fila_usuario = 1 WHERE cd_usuario = '$codigo_do_usuario'";
-        $att = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
-    }
-   
-    // Capturar a posição da fila do usuário
-    $comandoSQL = "SELECT cd_fila_usuario from tb_usuario WHERE nm_usuario = '$nome_usuario'";
-    $resultado_posicao = mysqli_query($con, $comandoSQL) or die("Erro no banco de dados!");
-    $posicao = mysqli_fetch_array($resultado_posicao); 
-   
-    $posicao_fila = $posicao[0];
+    require("../funcionalidades/fila-sao-paulo.php");
 }
-$con->close();
-
-// atribuindo o nome da sala a uma variável
-$nm_sala = $nome_sala['nm_sala'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -107,19 +30,20 @@ $nm_sala = $nome_sala['nm_sala'];
         <!-- No php, pegamos dados através do campo "name" dos inputs -->
         <section class="container" align="center">
             <h2>Logotipo - Fifo</h2>
-            <form method="post" action="../funcionalidades/excluir-sala.php?id=<?php echo $codigo_sala ?>">
-                <p>Excluir sala:</p>
-                <input type="password" placeholder="senha da sala" name="senha-sala" maxlength="5" required>
-                <input type="submit" value="excluir sala">
-            </form>
-            <p>E aew <b><?php echo $nome_usuario; ?></b></p>
-            <p>Você está na fila do <b><?php echo $nm_sala; ?></b> e sua posição é <b><?php echo $posicao_fila ?></b></p>
+            <p>E aew <b><?php echo $nome; ?></b></p>
+            <p>Você está na fila de <b><?php echo $sala; ?></b> e sua posição é <b><?php echo $posicao ?></b></p>
             <hr style="width: 30%;">
             <br>
             <?php
-                include("../funcionalidades/fila-assincrona.php");
+               for ($i = 0; $i < $qt_usuarios; $i++) {
+                 if ($i < 5) {
+                    // Limitando a quantidade de pessoas que vão aparecer para 5
+                    echo "<b>Posição na fila: ".$usuarios[$i]['cd_fila_usuario']." | Nome: ".$usuarios[$i]['nm_usuario']."</b>";
+                    echo "<br><br>";
+                } else 
+                    break;
+                } 
             ?>
-            <div class="usuarios"></div>
             <br><br>
             <a href="#">Vou Jogar</a>
             <br><br>
