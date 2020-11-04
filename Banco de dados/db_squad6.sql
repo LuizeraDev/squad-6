@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 04-Nov-2020 às 08:39
+-- Data de Criação: 04-Nov-2020 às 22:42
 -- Versão do servidor: 5.6.13
 -- versão do PHP: 5.4.17
 
@@ -62,6 +62,7 @@ CREATE TABLE IF NOT EXISTS `tb_usuario` (
   `nm_sobrenome` varchar(15) DEFAULT NULL,
   `nm_email` varchar(100) DEFAULT NULL,
   `img_usuario` varchar(15) DEFAULT NULL,
+  `cd_convidado_por` int(11) DEFAULT NULL,
   `cd_fila_usuario` int(11) DEFAULT NULL,
   `cd_sala_santos` int(11) DEFAULT NULL,
   `cd_sala_sao_paulo` int(11) DEFAULT NULL,
