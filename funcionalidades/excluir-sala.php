@@ -17,7 +17,7 @@ if (isset($_SESSION["santos"])) {
         $con->close();
 
         // Nessas 2 linhas deletamos a imagem  da sala
-        $caminho = "img-salas-sao-paulo/$sala[0]";
+        $caminho = "img-salas-santos/$sala[0]";
         unlink($caminho."/".$sala[1]);
         rmdir($caminho);
         header("Location: ../salas/santos.php");
