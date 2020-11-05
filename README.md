@@ -8,8 +8,11 @@ Tecnologias usadas:
 - CSS3
 - Javascript 
 - PHP
+- Framework / Laravel
 - AJAX
 - Banco de dados (MYSQL)
+
+Padrão de projeto usado: MVC
 
 ## Links
 - [Trello](https://trello.com/b/mb3iVsww/squad-6)
