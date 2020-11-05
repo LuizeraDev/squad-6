@@ -16,7 +16,7 @@ class CreateSalasSantosTable extends Migration
         Schema::create('tb_sala_santos', function (Blueprint $table) {
             $table->increments('cd_sala_santos');
             $table->string('nm_sala')->unique();
-            $table->string('img_sala');
+            $table->string('img_sala')->nullable();
             $table->timestamps();
         });
     }

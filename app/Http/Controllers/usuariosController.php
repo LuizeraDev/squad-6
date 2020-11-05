@@ -21,6 +21,19 @@ class usuariosController extends Controller
     {
         $usuario = $request->input('usuario');
         $senha = $request->input('senha');
+
+        $verifica_usuario = DB::table('tb_usuario')
+                ->where('nm_usuario', $usuario)
+                ->where('cd_senha', $senha)
+                ->get();
+
+        echo $verifica_usuario;
+        die();
+        if ($verifica_usuario != null) {
+            return view('unidade');
+        } else {
+            return view('cadastro', ['resposta' => "Este nome de usuário já está sendo utilizado."]);
+        }
     }
 
     function cadastrarUsuario(Request $request)
@@ -28,17 +41,11 @@ class usuariosController extends Controller
         $usuario = $request->input('usuario');
         $senha = $request->input('senha');
 
-        $quantidade = DB::table('tb_usuario')->where('nm_usuario')->value($usuario)->count();
-        echo $quantidade;
+        DB::table('tb_usuario')->insert(
+            ['nm_usuario' => $usuario, 'cd_senha' => $senha, 'nm_primeiro_nome' => "NULL"]
+        );
 
-        if ($quantidade == null) {
-            return view('cadastro', ['resposta' => "Este nome de usuário já está sendo utilizado."]);
-        } else {
-            DB::table('tb_usuario')->insert(
-                ['nm_usuario' => $usuario, 'cd_senha' => $senha]
-            );
-            return view('unidade');
-        }
+        return view('unidade');
     }
 
     function excluirUsuario()

@@ -19,17 +19,25 @@ Route::get('/', function () {
     return view('index');
 });
 
+/* 
+* Aqui para baixo fica as rotas do usuário, como login e cadastro
+*/
+
 // --------------------------------------------------------------------------
 Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/logar', [salasController::class, 'logarUsuario']);
+Route::post('/entrando', [usuariosController::class, 'logarUsuario']);
 // --------------------------------------------------------------------------
 
 Route::get('/cadastro', function () {
     return view('cadastro');
 });
 
-Route::get('/cadastrar', [usuariosController::class, 'cadastrarUsuario']);
+Route::post('/cadastrar', [usuariosController::class, 'cadastrarUsuario']);
 // --------------------------------------------------------------------------
+
+/* 
+* Aqui para baixo fica as rotas de sala
+*/

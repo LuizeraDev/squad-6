@@ -2,13 +2,13 @@
 
 @section('titulo', 'Cadastro')
 
-<!-- Indicamos o inicio do conteúdo -->
+<!-- Indicamos o início do conteúdo -->
 @section('conteudo')
 <h2>Logotipo - Fifo</h2>
 <p>Escolha a unidade em que você está</p>
-<a href="santos.php">Santos</a> 
+<a href="Santos">Santos</a> 
 <br><br><br>
-<a href="saopaulo.php">São Paulo</a>
+<a href="SaoPaulo">São Paulo</a>
 <br><br><br>
-<a href="../paginas/login.php">Sair</a>
+<a href="/">Sair</a>
 @stop

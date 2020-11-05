@@ -4,7 +4,7 @@
 ?>
 @extends('layouts.master_page')
 
-@section('titulo', 'Cadastro')
+@section('titulo', 'Fifo - Squad 6')
 
 <!-- Indicamos o inicio do conteúdo -->
 @section('conteudo')
