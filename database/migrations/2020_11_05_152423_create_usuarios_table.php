@@ -26,8 +26,8 @@ class CreateUsuariosTable extends Migration
             $table->integer('cd_sala_santos')->unsigned();
             $table->integer('cd_sala_sao_paulo')->unsigned();
             $table->timestamps();
-            $table->foreign('cd_sala_santos')->references('cd_sala_santos')->on('tb_sala_santos');
-            $table->foreign('cd_sala_sao_paulo')->references('cd_sala_sao_paulo')->on('tb_sala_sao_paulo');
+            $table->foreign('cd_sala_santos')->references('cd_sala_santos')->on('tb_sala_santos')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('cd_sala_sao_paulo')->references('cd_sala_sao_paulo')->on('tb_sala_sao_paulo')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

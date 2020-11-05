@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\salasController;
+use App\Http\Controllers\usuariosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,23 +24,12 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/logar', 'usuariosController@login');
+Route::get('/logar', [salasController::class, 'logarUsuario']);
 // --------------------------------------------------------------------------
 
 Route::get('/cadastro', function () {
     return view('cadastro');
 });
 
-Route::get('/cadastrar-se', 'usuariosController@cadastro');
+Route::get('/cadastrar', [usuariosController::class, 'cadastrarUsuario']);
 // --------------------------------------------------------------------------
-
-Route::get('/santos', 'salasController@salasSantos');
-
-Route::get('/sao-paulo', 'salasController@salasSaoPaulo');
-// --------------------------------------------------------------------------
-
-Route::get('/cadastrar-salas', function () {
-    return view('cadastrar-salas');
-});
-
-Route::get('/fila', 'salasController@mostrarFila');

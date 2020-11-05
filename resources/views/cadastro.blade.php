@@ -6,7 +6,7 @@
 
 <!-- Indicamos o inicio do conteúdo -->
 @section('conteudo')
-<form action="../funcionalidades/fazer-cadastro.php" method="POST">
+<form action="cadastrar" method="GET">
         <p>
         <h3>Cadastro</h3>
         Usuário 
