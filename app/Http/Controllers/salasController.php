@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+
 // Permite pegar valores de inputs 
 use Illuminate\Http\Request;
 
@@ -11,6 +13,9 @@ use Illuminate\Support\Facades\DB;
 // Permite upload de arquivos 
 use Illuminate\Http\UploadedFile;
 
+// Permite redirecionar páginas
+use Illuminate\Routing\Redirector;
+
 class salasController extends Controller
 {
     function selecionarSala()
@@ -18,8 +23,14 @@ class salasController extends Controller
 
     }
 
-    function cadastrarSala()
+    function cadastrarSala(Request $request)
     {
+    	$nome = $request->input('nomeSala');
+    	$img = $request->file('ImagemSala')->store('img_sala');
+    	DB::table('tb_sala_santos')->insert(
+            [ 'nm_sala' => $nome ,'img_sala' => $img]
+        );
+
 
     }
 
