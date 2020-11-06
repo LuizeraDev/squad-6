@@ -5,9 +5,7 @@
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
-            <b>
             {{ __('Esqueceu sua senha? Sem problemas. Apenas insira seu endereço de email que nós do Squad 6 vamos mandar um email para você com um link para você resetar sua senha.') }}
-            </b>
         </div>
 
         @if (session('status'))
