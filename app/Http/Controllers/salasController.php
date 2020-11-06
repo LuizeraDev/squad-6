@@ -30,12 +30,21 @@ class salasController extends Controller
     	DB::table('tb_sala_santos')->insert(
             [ 'nm_sala' => $nome ,'img_sala' => $img]
         );
-
-
+        exibirSalas();
     }
 
     function excluirSala()
     {
 
+    }
+
+    function exibirSalas(){
+        $nome = DB::table('tb_sala_santos')->select('nm_sala');
+        $caminho = DB::table('tb_sala_santos')->value('img_sala');
+    
+        return view('salas/salassantos')->with([
+            'nome' = $nome,
+            'caminho' = $caminho
+        ]);
     }
 }

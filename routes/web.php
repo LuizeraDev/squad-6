@@ -20,3 +20,15 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+//------------------------------------------------------------------------------
+// Salas
+Route::get('criarsala', function(){
+	return view('salas/criarSala');
+});
+
+Route::post('cadastrandosala', [salasController::class, 'cadastrarSala']);
+//------------------------------------------------------------------------------
+Route::get('salassantos', function(){
+	return view('salas/salassantos');
+});
