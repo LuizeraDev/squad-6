@@ -1,18 +1,21 @@
 # Repositório do SQUAD 6
 
 ## Projeto 
+
 Página Web Responsiva realizada na intenção de auxiliar na organização de filas para jogos de vídeo game.
 
 ## Tecnologias usadas
-- HTML5
+
+- HTML5 
 - CSS3
-- JavaScript 
+- Javascript 
 - PHP / Laravel
 - AJAX
 - Banco de dados (MYSQL)
 - Arquitetura de projeto **MVC**
 
 ## Links
+
 - [Trello](https://trello.com/b/mb3iVsww/squad-6)
 
 ## Participantes
@@ -33,3 +36,5 @@ Página Web Responsiva realizada na intenção de auxiliar na organização de f
   - [Linkedin](https://www.linkedin.com/in/gaspar-diogo/)
 - Marcus (Ux / Designer)
   - [Linkedin](https://www.linkedin.com/in/marcus-mazza-5a6497190/)
+
+
