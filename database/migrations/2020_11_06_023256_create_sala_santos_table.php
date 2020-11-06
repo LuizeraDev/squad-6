@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSalasSaoPaulosTable extends Migration
+class CreateSalaSantosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateSalasSaoPaulosTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_sala_sao_paulo', function (Blueprint $table) {
-            $table->increments('cd_sala_sao_paulo');
+        Schema::create('tb_sala_santos', function (Blueprint $table) {
+            $table->increments('cd_sala_santos');
             $table->string('nm_sala')->unique();
             $table->string('img_sala')->nullable();
             $table->timestamps();
@@ -28,6 +28,6 @@ class CreateSalasSaoPaulosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_sala_sao_paulo');
+        Schema::dropIfExists('tb_sala_santos');
     }
 }

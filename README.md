@@ -1,18 +1,16 @@
-# Repositório do SQUAD3
+# Repositório do SQUAD 6
 
 ## Projeto 
 Página Web Responsiva realizada na intenção de auxiliar na organização de filas para jogos de vídeo game.
 
-Tecnologias usadas: 
+## Tecnologias usadas
 - HTML5
 - CSS3
-- Javascript 
-- PHP
-- Framework / Laravel
+- JavaScript 
+- PHP / Laravel
 - AJAX
 - Banco de dados (MYSQL)
-
-Padrão de projeto usado: MVC
+- Arquitetura de projeto **MVC**
 
 ## Links
 - [Trello](https://trello.com/b/mb3iVsww/squad-6)

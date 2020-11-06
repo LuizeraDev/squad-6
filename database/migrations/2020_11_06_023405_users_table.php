@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsuariosTable extends Migration
+class UsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateUsuariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_usuario', function (Blueprint $table) {
-            $table->increments('cd_usuario');
-            $table->string('nm_usuario');
-            $table->string('cd_senha');
-            $table->string('nm_primeiro_nome')->nullable();
-            $table->string('nm_sobrenome')->nullable();
-            $table->string('nm_email')->nullable();
-            $table->string('img_usuario')->nullable();
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->foreignId('current_team_id')->nullable();
+            $table->text('profile_photo_path')->nullable();
             $table->integer('cd_convidado_por')->nullable();
             $table->integer('cd_fila_usuario')->nullable();
             $table->integer('cd_sala_santos')->unsigned()->nullable();
@@ -38,6 +39,6 @@ class CreateUsuariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_usuario');
+        Schema::dropIfExists('users');
     }
 }
