@@ -1,4 +1,4 @@
-# Repositório do SQUAD3
+# Repositório do SQUAD 6
 
 ## Projeto 
 Página Web Responsiva realizada na intenção de auxiliar na organização de filas para jogos de vídeo game.
