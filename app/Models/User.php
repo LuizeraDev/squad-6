@@ -10,6 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
+// implements MustVerifyEmail se você adicionar isso nesta classe você ativa a verificação de email após registro
 class User extends Authenticatable
 {
     use HasApiTokens;
