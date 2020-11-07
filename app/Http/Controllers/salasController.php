@@ -18,12 +18,12 @@ use Illuminate\Routing\Redirector;
 
 class salasController extends Controller
 {
-    function selecionarSala()
+    public function selecionarSala()
     {
 
     }
 
-    function cadastrarSala(Request $request)
+    public function cadastrarSala(Request $request)
     {
     	$nome = $request->input('nomeSala');
     	$img = $request->file('ImagemSala')->store('img_sala');
@@ -35,25 +35,17 @@ class salasController extends Controller
         salasController::exibirSalas();
     }
 
-    function excluirSala()
+    public function excluirSala()
     {
 
     }
 
-    function exibirSalas()
+    public function exibirSalas()
     {
-        $nome = DB::table('tb_sala_santos')->select('nm_sala')->whereNotNull('nm_sala')->pluck('nm_sala');
-        $caminho = DB::table('tb_sala_santos')->select('img_sala')->whereNotNull('img_sala')->pluck('img_sala');
-      
-        //if(isset($nome) && isset($caminho))
-        //{
-            return view('salas/salassantos', ['nome' => $nome, 'caminho' => $caminho]);
-
-           // return view('salas/salassantos', compact('user'));
-        //}else
-       // {
-          //  return view('salas/salassantos');
-       //
-       
+        $dados = DB::table('tb_sala_santos')
+                        ->select('cd_sala_santos', 'nm_sala',  'img_sala')
+                        ->get();
+          
+        return view('salas/salassantos', ['dados' => $dados]);
     }
 }
