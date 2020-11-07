@@ -34,7 +34,7 @@ class salasController extends Controller
 
     public function excluirSala($nomeSala, $id)
     {
-        DB::table('tb_sala_santos')->where('cd_sala_santos', '==', $id)->delete();
+        DB::table('tb_sala_santos')->where('cd_sala_santos', '=', $id)->delete();
 
         return redirect()->route('salassantos');
     }
