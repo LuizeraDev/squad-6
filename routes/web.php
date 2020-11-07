@@ -32,13 +32,22 @@ Route::get('/criarsala', function(){
 
 Route::post('/cadastrandosala', [salasController::class, 'cadastrarSala']);
 
-Route::get('/salassantos',[salasController::class, 'exibirSalas']);
+Route::get('/salassantos',[salasController::class, 'exibirSalas'])->name('salassantos');
 
 Route::get('/salassantos/sala/{nomeSala}/{id}', function ($nomeSala, $salaId) {
     return 'Nome da sala: '.$nomeSala. " Id da sala: ". $salaId;
 });
 
-Route::get('/salassantos/sala/{nomeSala}/excluir/{id}', function ($nomeSala, $salaId) {
-    return 'Nome da sala a ser excluida: '.$nomeSala. " Id da sala: ". $salaId;
+/*
+Route::get('/salassantos/sala/Damas/excluir/7', function(){
+	return view('salas/excluirSala');
 });
+*/
+
+Route::get('/salassantos/sala/{nomeSala}/excluir/{id}', function ($nomeSala, $salaId) {
+    return view('salas/excluirSala', ['nomeSala' => $nomeSala, 'salaId' => $salaId]);
+})->where(['id' => '[0-9]+', 'nomeSala' => '[A-Za-z]+']);
+// Esse where trata os parâmetros. 
+
+Route::get('/salassantos/sala/{nomeSala}/excluir/{id}/do', [salasController::class, 'excluirSala']);
 //------------------------------------------------------------------------------

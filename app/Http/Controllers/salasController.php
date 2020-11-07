@@ -18,11 +18,6 @@ use Illuminate\Routing\Redirector;
 
 class salasController extends Controller
 {
-    public function selecionarSala()
-    {
-
-    }
-
     public function cadastrarSala(Request $request)
     {
     	$nome = $request->input('nomeSala');
@@ -32,12 +27,16 @@ class salasController extends Controller
             [ 'nm_sala' => $nome ,'img_sala' => $img]
         );
 
+        return redirect()->route('salassantos');
+
         salasController::exibirSalas();
     }
 
-    public function excluirSala()
+    public function excluirSala($nomeSala, $id)
     {
+        DB::table('tb_sala_santos')->where('cd_sala_santos', '==', $id)->delete();
 
+        return redirect()->route('salassantos');
     }
 
     public function exibirSalas()
