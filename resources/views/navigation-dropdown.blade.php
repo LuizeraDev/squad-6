@@ -1,3 +1,6 @@
+<?php 
+$url='http://localhost:8080/squad-6/storage/app/public/';
+?>
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,7 +27,7 @@
                     <x-slot name="trigger">
                         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                             <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
-                                <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                                <img class="h-8 w-8 rounded-full object-cover" src="{{ $url.Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name }}" />
                             </button>
                         @else
                             <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">

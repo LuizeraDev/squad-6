@@ -1,3 +1,6 @@
+<?php 
+$url='http://localhost:8080/squad-6/storage/app/public/';
+?>
 <x-jet-form-section submit="updateProfileInformation">
     <x-slot name="title">
         {{ __('Informações de Perfil') }}
@@ -28,7 +31,7 @@
 
                 <!-- Current Profile Photo -->
                 <div class="mt-2" x-show="! photoPreview">
-                    <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
+                    <img src="{{ $url.$this->user->profile_photo_path }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
                 </div>
 
                 <!-- New Profile Photo Preview -->
