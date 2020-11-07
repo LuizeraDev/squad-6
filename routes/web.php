@@ -23,11 +23,22 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 //------------------------------------------------------------------------------
-// Salas
+
+// Salas Santos
+
 Route::get('/criarsala', function(){
 	return view('salas/criarSala');
 });
 
 Route::post('/cadastrandosala', [salasController::class, 'cadastrarSala']);
-//------------------------------------------------------------------------------
+
 Route::get('/salassantos',[salasController::class, 'exibirSalas']);
+
+Route::get('/salassantos/sala/{nomeSala}/{id}', function ($nomeSala, $salaId) {
+    return 'Nome da sala: '.$nomeSala. " Id da sala: ". $salaId;
+});
+
+Route::get('/salassantos/sala/{nomeSala}/excluir/{id}', function ($nomeSala, $salaId) {
+    return 'Nome da sala a ser excluida: '.$nomeSala. " Id da sala: ". $salaId;
+});
+//------------------------------------------------------------------------------
