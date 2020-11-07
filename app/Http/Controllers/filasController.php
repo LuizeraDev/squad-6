@@ -21,7 +21,6 @@ use Illuminate\Support\Facades\Storage;
 
 class filasController extends Controller
 {
-    
     public function inserirusuarioFila($nomeSala, $id)
     {
         session_start();
@@ -58,17 +57,12 @@ class filasController extends Controller
         }
 
         $quantidade = count($atualizarUsuario);
-
+        
         if ($atualizarUsuario != null) {
             // Faz atualização do campo cd_fila_usuario, para dizer sua posição na fila
             DB::table('users')
                     ->where('email', $email)
-                    ->update(['cd_fila_usuario' => $quantidade + 1]);
-        } else {
-            // Coloca usuário como primeiro da fila
-            DB::table('users')
-                    ->where('email', $email)
-                    ->update(['cd_fila_usuario' => 1]);
+                    ->update(['cd_fila_usuario' => $quantidade]);
         }
 
         return filasController::pegadadosusuarioSala($nomeSala, $id);
@@ -106,9 +100,23 @@ class filasController extends Controller
         'dadosUsuario'=> $usuario]);
     }
 
-    public function desistirFila()
+    public function desistirusuarioFila()
     {
+        session_start();
+        $email = $_SESSION['usuario'];
 
+        // Retira o usuário da fila e volta o código da fila dele para nulo
+        if ($_SESSION['santos']) {
+            DB::table('users')
+                    ->where('email', $email)
+                    ->update(['cd_sala_santos'=> null, 'cd_fila_usuario' => null]);
+        } else { 
+            DB::table('users')
+                    ->where('email', $email)
+                    ->update(['cd_sala_sao_paulo'=> null, 'cd_fila_usuario' => null]);
+        }
+
+        return redirect()->route('salas');
     }
 
 }

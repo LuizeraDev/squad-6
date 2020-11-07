@@ -40,7 +40,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                 @foreach ($filaSaoPaulo as $fila) 
                     @if($fila->profile_photo_path)
                         <span>Foto do usuário:</span>
-                        <img src={{$url.$fila->profile_photo_path}} alt="Foto do usuário">
+                        <img src={{$url.$fila->profile_photo_path}} width=30 alt="Foto do usuário">
                     @endif
                      <span>Posição na fila: <b>{{$fila->cd_fila_usuario}}</b> Nome: <b>{{$fila->name}}</b></span>
                 @endforeach
@@ -49,7 +49,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
             <br><br>
             <a href="#">Vou Jogar</a>
             <br><br>
-            <a href="#">Desistir</a>
+            <a href="/desistente">Desistir</a>
         </section>
     </main>
 </body>

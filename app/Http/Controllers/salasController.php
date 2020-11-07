@@ -66,8 +66,6 @@ class salasController extends Controller
         }
 
         return redirect()->route('salas');
-
-        //salasController::exibirSalas();
     }
 
     public function excluirSala($nomeSala, $id)
