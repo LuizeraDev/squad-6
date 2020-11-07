@@ -129,7 +129,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="flex items-center px-4">
                 <div class="flex-shrink-0">
-                    <img class="h-10 w-10 rounded-full" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                    <img class="h-10 w-10 rounded-full" src="{{ $url.Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name }}" />
                 </div>
 
                 <div class="ml-3">
@@ -141,7 +141,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
                 <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                    {{ __('Profile') }}
+                    {{ __('Perfil') }}
                 </x-jet-responsive-nav-link>
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -157,7 +157,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                     <x-jet-responsive-nav-link href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                        {{ __('Logout') }}
+                        {{ __('Sair') }}
                     </x-jet-responsive-nav-link>
                 </form>
 
