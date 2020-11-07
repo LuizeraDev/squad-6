@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Storage;
 
 class filasController extends Controller
 {
+    
     public function inserirusuarioFila($nomeSala, $id)
     {
         session_start();
@@ -37,15 +38,11 @@ class filasController extends Controller
             ->update(['cd_sala_sao_paulo' => $id]);
         }
 
-        return "estou aqui seu fdp";
-
-        filasController::atualizarFila($nomeSala, $id);
-        //return view('dadosUsuario');
+        return filasController::atualizarFila($nomeSala, $id);
     }
 
     public function atualizarFila($nomeSala, $id)
     {
-        return "estou aqui seu fdp 2";
         $email = $_SESSION['usuario'];
 
         if ($_SESSION['santos']) {
@@ -74,7 +71,7 @@ class filasController extends Controller
                     ->update(['cd_fila_usuario' => 1]);
         }
 
-        filasController::exibirFila($nomeSala, $id);
+        return filasController::exibirFila($nomeSala, $id);
     }
 
     /*
@@ -91,7 +88,6 @@ class filasController extends Controller
 
     public function exibirFila($nomeSala, $id)
     {
-        return "estou aqui seu fdp3";
         $filaSantos = DB::table('users')
                          ->select('name', 'cd_fila_usuario',  'profile_photo_path')
                          ->where('cd_sala_santos', $id)
