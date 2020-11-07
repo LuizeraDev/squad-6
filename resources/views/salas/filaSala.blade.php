@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,11 +19,19 @@
         <!-- No php, pegamos dados através do campo "name" dos inputs -->
         <section class="container" align="center">
             <h2>Logotipo - Fifo</h2>
-            <p>E aew <b>(nome do usuário)</b></p>
-            <p>Você está na fila de <b>(nome da sala)</b> e sua posição é <b>(posição do usuário na fila)</b></p>
+            <p>E aew <b>nome do usuário</b></p>
+            <p>Você está na fila da sala <b>{{$nmSala}}</b> e sua posição é <b>posição fila usuário</b></p>
             <hr style="width: 30%;">
             <br>
-            <h3>Exibição da fila</h3>
+            @if ($_SESSION['santos'])
+                @foreach ($filaSantos as $fila) 
+                    <p>Posição na fila: <b>{{$fila->cd_fila_usuario}}</b> Nome: <b>{{$fila->name}}</b> </p>
+                @endforeach
+            @else
+                @foreach ($filaSaoPaulo as $fila) 
+                     <p>Posição na fila: <b>{{$fila->cd_fila_usuario}}</b> Nome: <b>{{$fila->name}}</b> </p>
+                @endforeach
+            @endif
             <br><br>
             <a href="#">Vou Jogar</a>
             <br><br>

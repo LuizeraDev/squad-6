@@ -1,5 +1,6 @@
 <?php 
 $url='http://localhost:8080/squad-6/storage/app/public/';
+$_SESSION['usuario'] = Auth::user()->email;
 ?>
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->

@@ -88,16 +88,16 @@ class salasController extends Controller
                       ->delete();
         } else {
             $img = DB::table('tb_sala_sao_paulo')
-                            ->select('img_sala')
-                            ->where('cd_sala_sao_paulo', '=', $id)
-                            ->pluck('img_sala');
+                        ->select('img_sala')
+                        ->where('cd_sala_sao_paulo', '=', $id)
+                        ->pluck('img_sala');
 
             // Deleta a imagem do Storage
             Storage::delete($img[0]);
 
             DB::table('tb_sala_sao_paulo')
-                       ->where('cd_sala_sao_paulo', '=', $id)
-                       ->delete();
+                    ->where('cd_sala_sao_paulo', '=', $id)
+                    ->delete();
         }
 
         return redirect()->route('salas');
@@ -106,24 +106,13 @@ class salasController extends Controller
     public function exibirSalas()
     {
         $dadosSantos = DB::table('tb_sala_santos')
-                                 ->select('cd_sala_santos', 'nm_sala',  'img_sala')
-                                 ->get();
+                         ->select('cd_sala_santos', 'nm_sala',  'img_sala')
+                         ->get();
 
         $dadosSaoPaulo = DB::table('tb_sala_sao_paulo')
-                                   ->select('cd_sala_sao_paulo', 'nm_sala',  'img_sala')
-                                   ->get();
+                           ->select('cd_sala_sao_paulo', 'nm_sala',  'img_sala')
+                           ->get();
 
         return view('salas/salas', ['dadosSantos' => $dadosSantos, 'dadosSaoPaulo' => $dadosSaoPaulo]);
     }
-
-    public function exibirFila($nomeSala, $id)
-    {
-
-    }
-
-    public function desistirFila()
-    {
-
-    }
-
 }

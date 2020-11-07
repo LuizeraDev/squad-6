@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\salasController;
+use App\Http\Controllers\filasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,7 @@ Route::get('/', function () {
     return view('index');
 });
 
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
@@ -33,6 +35,7 @@ Route::get('/unidade', function(){
 Route::get('/unidade/santos', [salasController::class, 'salaSantos']);
 
 Route::get('/unidade/saopaulo', [salasController::class, 'salasaoPaulo']);
+//------------------------------------------------------------------------------
 
 // Salas 
 
@@ -55,3 +58,13 @@ Route::get('/salas/sala/{nomeSala}/excluir/{id}', function ($nomeSala, $salaId) 
 
 Route::get('/salas/sala/{nomeSala}/excluir/{id}/do', [salasController::class, 'excluirSala']);
 //------------------------------------------------------------------------------
+
+// FILAS 
+
+Route::get('/salas/sala/{nomeSala}/{id}', [filasController::class, 'inserirusuarioFila'])->name('inserirFila');
+
+//Route::get('/salas/sala/{nomeSala}/{id}', [filasController::class, 'atualizarFila'])->name('atualizarFila');
+
+//Route::get('/salas/sala/{nomeSala}/{id}', [filasController::class, 'exibirFila'])->name('exibirFila');
+
+// Route::get('/salas/sala/{nomeSala}/{id}', [filasController::class, 'pegadadosusuarioSala'])->name('dadosUsuario');
