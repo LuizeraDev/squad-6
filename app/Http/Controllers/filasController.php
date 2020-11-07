@@ -71,22 +71,24 @@ class filasController extends Controller
                     ->update(['cd_fila_usuario' => 1]);
         }
 
-        return filasController::exibirFila($nomeSala, $id);
+        return filasController::pegadadosusuarioSala($nomeSala, $id);
     }
 
-    /*
-    public function pegadadosusuarioSala()
+
+    public function pegadadosusuarioSala($nomeSala, $id)
     {
+        $email = $_SESSION['usuario'];
+
         $usuario = DB::table('users')
                     ->select('name', 'cd_fila_usuario')
                     ->where('email', $email)
                     ->get();
 
-        return view('salas/filaSala', ['dadosUsuario' => $usuario]);
+        return filasController::exibirFila($nomeSala, $id, $usuario);
     }
-    */
+    
 
-    public function exibirFila($nomeSala, $id)
+    public function exibirFila($nomeSala, $id, $usuario)
     {
         $filaSantos = DB::table('users')
                          ->select('name', 'cd_fila_usuario',  'profile_photo_path')
@@ -98,7 +100,10 @@ class filasController extends Controller
                          ->where('cd_sala_sao_paulo', $id)
                          ->get();
 
-        return view('salas/filaSala', ['filaSantos' => $filaSantos, 'filaSaoPaulo' => $filaSaoPaulo, 'nmSala' => $nomeSala]);
+        return view('salas/filaSala', ['filaSantos' => $filaSantos, 
+        'filaSaoPaulo' => $filaSaoPaulo, 
+        'nmSala' => $nomeSala,
+        'dadosUsuario'=> $usuario]);
     }
 
     public function desistirFila()

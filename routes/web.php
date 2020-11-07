@@ -65,6 +65,6 @@ Route::get('/salas/sala/{nomeSala}/{id}', [filasController::class, 'inserirusuar
 
 //Route::get('/salas/sala/{nomeSala}/{id}', [filasController::class, 'atualizarFila'])->name('atualizarFila');
 
-Route::get('/salas/sala/{nomeSala}/{id}/do', [filasController::class, 'exibirFila'])->name('Fila');
+//Route::get('/salas/sala/{nomeSala}/{id}/do', [filasController::class, 'exibirFila'])->name('Fila');
 
 // Route::get('/salas/sala/{nomeSala}/{id}', [filasController::class, 'pegadadosusuarioSala'])->name('dadosUsuario');

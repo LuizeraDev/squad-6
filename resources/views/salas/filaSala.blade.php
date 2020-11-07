@@ -16,8 +16,10 @@
         <!-- No php, pegamos dados através do campo "name" dos inputs -->
         <section class="container" align="center">
             <h2>Logotipo - Fifo</h2>
-            <p>E aew <b>nome do usuario</b></p>
-            <p>Você está na fila da sala <b>{{$nmSala}}</b> e sua posição é <b>posição usuario</b></p>
+            @foreach($dadosUsuario as $dados)
+            <p>E aew <b>{{$dados->name}}</b></p>
+            <p>Você está na fila da sala <b>{{$nmSala}}</b> e sua posição é <b>{{$dados->cd_fila_usuario}}</b></p>
+            @endforeach
             <hr style="width: 30%;">
             <br>
             @if ($_SESSION['santos'])
