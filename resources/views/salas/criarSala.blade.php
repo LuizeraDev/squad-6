@@ -1,8 +1,10 @@
-
+<?php 
+	session_start();
+?>
 
 <!-- form que aceita arquivos -->
 <form action= 'cadastrandosala' method="post" enctype="multipart/form-data">
-	@csrf
+@csrf
 <p>Criar Sala</p>
 <p>Nome: <input type="text" name="nomeSala"></p>
 <p>Selecione uma Imagem </p>

@@ -24,7 +24,17 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 //------------------------------------------------------------------------------
 
-// Salas Santos
+// Unidades
+
+Route::get('/unidade', function(){
+	return view('salas/unidade');
+});
+
+Route::get('/unidade/santos', [salasController::class, 'salaSantos']);
+
+Route::get('/unidade/saopaulo', [salasController::class, 'salasaoPaulo']);
+
+// Salas 
 
 Route::get('/criarsala', function(){
 	return view('salas/criarSala');
@@ -32,16 +42,16 @@ Route::get('/criarsala', function(){
 
 Route::post('/cadastrandosala', [salasController::class, 'cadastrarSala']);
 
-Route::get('/salassantos',[salasController::class, 'exibirSalas'])->name('salassantos');
+Route::get('/salas',[salasController::class, 'exibirSalas'])->name('salas');
 
-Route::get('/salassantos/sala/{nomeSala}/{id}', function ($nomeSala, $salaId) {
+Route::get('/salas/sala/{nomeSala}/{id}', function ($nomeSala, $salaId) {
     return view('salas/filaSala', ['nomeSala' => $nomeSala, 'salaId' => $salaId]);
 });
 
-Route::get('/salassantos/sala/{nomeSala}/excluir/{id}', function ($nomeSala, $salaId) {
+Route::get('/salas/sala/{nomeSala}/excluir/{id}', function ($nomeSala, $salaId) {
     return view('salas/excluirSala', ['nomeSala' => $nomeSala, 'salaId' => $salaId]);
 })->where(['id' => '[0-9]+']);
 // Esse where trata os parâmetros. 
 
-Route::get('/salassantos/sala/{nomeSala}/excluir/{id}/do', [salasController::class, 'excluirSala']);
+Route::get('/salas/sala/{nomeSala}/excluir/{id}/do', [salasController::class, 'excluirSala']);
 //------------------------------------------------------------------------------

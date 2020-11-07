@@ -34,7 +34,7 @@
             var resposta = document.all["resposta"];
 
             if (valor_digitado == aleatorio) {
-                window.location.href = "/salassantos/sala/<?php echo $nomeSala ?>/excluir/<?php echo $salaId ?>/do";
+                window.location.href = "/salas/sala/<?php echo $nomeSala ?>/excluir/<?php echo $salaId ?>/do";
             } else {
                 resposta.innerHTML = "O valor informado não confere";
             }
