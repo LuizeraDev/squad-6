@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\salasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,12 +24,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 //------------------------------------------------------------------------------
 // Salas
-Route::get('criarsala', function(){
+Route::get('/criarsala', function(){
 	return view('salas/criarSala');
 });
 
-Route::post('cadastrandosala', [salasController::class, 'cadastrarSala']);
+Route::post('/cadastrandosala', [salasController::class, 'cadastrarSala']);
 //------------------------------------------------------------------------------
-Route::get('salassantos', function(){
-	return view('salas/salassantos');
-});
+Route::get('/salassantos',[salasController::class, 'exibirSalas']);

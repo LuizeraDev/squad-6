@@ -27,10 +27,12 @@ class salasController extends Controller
     {
     	$nome = $request->input('nomeSala');
     	$img = $request->file('ImagemSala')->store('img_sala');
+
     	DB::table('tb_sala_santos')->insert(
             [ 'nm_sala' => $nome ,'img_sala' => $img]
         );
-        exibirSalas();
+
+        salasController::exibirSalas();
     }
 
     function excluirSala()
@@ -38,13 +40,20 @@ class salasController extends Controller
 
     }
 
-    function exibirSalas(){
-        $nome = DB::table('tb_sala_santos')->select('nm_sala');
-        $caminho = DB::table('tb_sala_santos')->value('img_sala');
-    
-        return view('salas/salassantos')->with([
-            'nome' = $nome,
-            'caminho' = $caminho
-        ]);
+    function exibirSalas()
+    {
+        $nome = DB::table('tb_sala_santos')->select('nm_sala')->whereNotNull('nm_sala')->pluck('nm_sala');
+        $caminho = DB::table('tb_sala_santos')->select('img_sala')->whereNotNull('img_sala')->pluck('img_sala');
+      
+        //if(isset($nome) && isset($caminho))
+        //{
+            return view('salas/salassantos', ['nome' => $nome, 'caminho' => $caminho]);
+
+           // return view('salas/salassantos', compact('user'));
+        //}else
+       // {
+          //  return view('salas/salassantos');
+       //
+       
     }
 }
