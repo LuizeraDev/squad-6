@@ -28,10 +28,17 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                             " />
 
                 <x-jet-label for="photo" value="{{ __('Sua Foto') }}" />
-
+                
                 <!-- Current Profile Photo -->
                 <div class="mt-2" x-show="! photoPreview">
+                    <!-- Verifica se existe o caminho de imagem do usuário  -->
+                    @if($this->user->profile_photo_path)
                     <img src="{{ $url.$this->user->profile_photo_path }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
+                    <!-- Se não ele exibe um avatar com as iniciais do usuário -->
+                    @else
+                    <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
+                    @endif
+
                 </div>
 
                 <!-- New Profile Photo Preview -->
