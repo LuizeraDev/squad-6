@@ -35,14 +35,8 @@ Route::post('/cadastrandosala', [salasController::class, 'cadastrarSala']);
 Route::get('/salassantos',[salasController::class, 'exibirSalas'])->name('salassantos');
 
 Route::get('/salassantos/sala/{nomeSala}/{id}', function ($nomeSala, $salaId) {
-    return 'Nome da sala: '.$nomeSala. " Id da sala: ". $salaId;
+    return view('salas/filaSala', ['nomeSala' => $nomeSala, 'salaId' => $salaId]);
 });
-
-/*
-Route::get('/salassantos/sala/Damas/excluir/7', function(){
-	return view('salas/excluirSala');
-});
-*/
 
 Route::get('/salassantos/sala/{nomeSala}/excluir/{id}', function ($nomeSala, $salaId) {
     return view('salas/excluirSala', ['nomeSala' => $nomeSala, 'salaId' => $salaId]);

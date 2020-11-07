@@ -21,6 +21,16 @@ use Illuminate\Support\Facades\Storage;
 
 class salasController extends Controller
 {
+    public function exibirFila($nomeSala, $id)
+    {
+
+    }
+    
+    public function desistirFila()
+    {
+
+    }
+
     public function cadastrarSala(Request $request)
     {
     	$nome = $request->input('nomeSala');
@@ -42,6 +52,7 @@ class salasController extends Controller
                         ->where('cd_sala_santos', '=', $id)
                         ->pluck('img_sala');
         
+        // Deleta a imagem do Storage
         Storage::delete($img[0]);
 
         DB::table('tb_sala_santos')
