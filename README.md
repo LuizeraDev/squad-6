@@ -8,7 +8,7 @@ Página Web Responsiva realizada na intenção de auxiliar na organização de f
 
 - HTML5 
 - CSS3
-- Javascript 
+- JavaScript 
 - PHP / Laravel
 - AJAX
 - Banco de dados (MYSQL)
@@ -17,6 +17,13 @@ Página Web Responsiva realizada na intenção de auxiliar na organização de f
 ## Links
 
 - [Trello](https://trello.com/b/mb3iVsww/squad-6)
+
+## Como rodar o projeto?
+
+** Primeiramente você precisa do XAMPP atualizado na última versão e o Composer atualizado em sua última versão, utilizamos Laravel na versão 8.4; **
+** Depois que você baixar o projeto você deve pegar o arquivo .env.example copiar tudo dentro dele e colar dentro de um arquivo .env que você deve criar; **
+** Em seguida você deve executar no console o seguinte comando, composer install, este comando vai baixar as dependencias que faltam no projeto; **
+** Por fim em seu console execute o comando, php artisan serve, e acesse o localhost:8000 em seu navegador.**
 
 ## Participantes
 - Luiz (Back-end / Banco)
