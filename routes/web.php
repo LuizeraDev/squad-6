@@ -46,7 +46,7 @@ Route::get('/salassantos/sala/Damas/excluir/7', function(){
 
 Route::get('/salassantos/sala/{nomeSala}/excluir/{id}', function ($nomeSala, $salaId) {
     return view('salas/excluirSala', ['nomeSala' => $nomeSala, 'salaId' => $salaId]);
-})->where(['id' => '[0-9]+', 'nomeSala' => '[A-Za-z]+']);
+})->where(['id' => '[0-9]+']);
 // Esse where trata os parâmetros. 
 
 Route::get('/salassantos/sala/{nomeSala}/excluir/{id}/do', [salasController::class, 'excluirSala']);

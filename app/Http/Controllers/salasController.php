@@ -16,6 +16,9 @@ use Illuminate\Http\UploadedFile;
 // Permite redirecionar páginas
 use Illuminate\Routing\Redirector;
 
+// Permite deletar imagens do storage
+use Illuminate\Support\Facades\Storage;
+
 class salasController extends Controller
 {
     public function cadastrarSala(Request $request)
@@ -34,7 +37,16 @@ class salasController extends Controller
 
     public function excluirSala($nomeSala, $id)
     {
-        DB::table('tb_sala_santos')->where('cd_sala_santos', '=', $id)->delete();
+        $img = DB::table('tb_sala_santos')
+                        ->select('img_sala')
+                        ->where('cd_sala_santos', '=', $id)
+                        ->pluck('img_sala');
+        
+        Storage::delete($img[0]);
+
+        DB::table('tb_sala_santos')
+                 ->where('cd_sala_santos', '=', $id)
+                 ->delete();
 
         return redirect()->route('salassantos');
     }
