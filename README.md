@@ -2,7 +2,7 @@
 
 ## Projeto 
 
-Página Web Responsiva realizada na intenção de auxiliar na organização de filas para jogos de vídeo game.
+Página Web Responsiva realizada na intenção de auxiliar na organização de filas para jogos de vídeo game e tarefas rotineiras a quais demandem o enfileiramento de pessoas.
 
 ## Tecnologias usadas
 
@@ -20,13 +20,15 @@ Página Web Responsiva realizada na intenção de auxiliar na organização de f
 
 ## Como rodar o projeto?
 
-**Primeiramente você precisa do XAMPP atualizado na última versão e o Composer atualizado em sua última versão, utilizamos Laravel na versão 8.4;**
+**Primeiramente, você precisa do XAMPP atualizado na última versão e o Composer atualizado em sua última versão, utilizamos Laravel na versão 8.4 e o PHP na versão 7.4.11;**
+- [Baixar XAMPP](https://www.apachefriends.org/xampp-files/7.4.11/xampp-windows-x64-7.4.11-0-VC15-installer.exe)
+- [Baixar Composer](https://getcomposer.org/Composer-Setup.exe) 
 
-**Depois que você baixar o projeto você deve pegar o arquivo .env.example copiar tudo dentro dele e colar dentro de um arquivo .env que você deve criar;**
+**Depois que você clonar o projeto você deve pegar o arquivo .env.example copiar tudo dentro dele e colar dentro de um arquivo .env que você deve criar;**
 
-**Em seguida você deve executar no console o seguinte comando, composer install, este comando vai baixar as dependencias que faltam no projeto;**
+**Em seguida você deve executar no console o seguinte comando, composer install, este comando vai baixar as dependências que faltantes no projeto;**
 
-**Por fim em seu console execute o comando, php artisan serve, e acesse o localhost:8000 em seu navegador.**
+**Por fim em seu console, execute o comando php artisan serve, e acesse o localhost:8000 em seu navegador.**
 
 ## Participantes
 - Luiz (Back-end / Banco)
