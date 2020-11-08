@@ -15,6 +15,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
     }
 </style>
 <body>
+
     <main>
         <!-- No php, pegamos dados através do campo "name" dos inputs -->
         <section class="container" align="center">
@@ -35,6 +36,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                         <img src={{$url.$fila->profile_photo_path}} width=30 alt="Foto do usuário">
                     @endif
                     <span>Posição na fila: <b>{{$fila->cd_fila_usuario}}</b> Nome: <b>{{$fila->name}}</b></span>
+                    <br><br>
                 @endforeach
             @else
                 @foreach ($filaSaoPaulo as $fila) 
@@ -43,13 +45,14 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                         <img src={{$url.$fila->profile_photo_path}} width=30 alt="Foto do usuário">
                     @endif
                      <span>Posição na fila: <b>{{$fila->cd_fila_usuario}}</b> Nome: <b>{{$fila->name}}</b></span>
+                     <br><br>
                 @endforeach
             @endif
 
             <br><br>
             <a href="#">Vou Jogar</a>
             <br><br>
-            <a href="/desistente">Desistir</a>
+            <a href="{{$salaId}}/desistente">Desistir</a>
         </section>
     </main>
 </body>
