@@ -10,4 +10,7 @@
 <p>Selecione uma Imagem </p>
 <p><input type="file" name="ImagemSala" ></p>
 <p><input type="submit" value="Criar Sala"></p>
+<p>
+	{{$erro}}
+</p>
 </form>

@@ -19,8 +19,12 @@ use Illuminate\Routing\Redirector;
 // Permite deletar imagens do storage
 use Illuminate\Support\Facades\Storage;
 
+
 class salasController extends Controller
 {
+
+
+
     public function salaSantos()
     {
         if (isset($_SESSION)) {
@@ -54,15 +58,40 @@ class salasController extends Controller
 
     	$nome = $request->input('nomeSala');
     	$img = $request->file('ImagemSala')->store('img_sala');
+        
 
         if ($_SESSION['santos']) {
+            // Verificar nome das salas existentes
+            $salasexistentes = null;
+            $salasexistentes = DB::table('tb_sala_santos')
+                                        ->select('nm_sala')
+                                        ->where('nm_sala', '=',$nome);
+
+
+            if ($salasexistentes == null) { 
     	    DB::table('tb_sala_santos')->insert(
-                [ 'nm_sala' => $nome ,'img_sala' => $img]
-            );
+                [ 'nm_sala' => $nome ,'img_sala' => $img]);
+            } else {
+                
+                return redirect('criarsala');
+
+            }
+
         } else {
+            // Verificar nome das salas existentes
+            $salasexistentes = null;
+            $salasexistentes = DB::table('tb_sala_sao_paulo')
+                                        ->select('nm_sala')
+                                        ->where('nm_sala', '=', $nome);
+
+
+            if ($salasexistentes == null) { 
             DB::table('tb_sala_sao_paulo')->insert(
-                [ 'nm_sala' => $nome ,'img_sala' => $img]
-            );
+                [ 'nm_sala' => $nome ,'img_sala' => $img]);
+            }
+            else
+                return redirect('criarsala');
+            
         }
 
         return redirect()->route('salas');

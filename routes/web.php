@@ -41,7 +41,7 @@ Route::get('/unidade/saopaulo', [salasController::class, 'salasaoPaulo']);
 
 Route::get('/criarsala', function(){
 	return view('salas/criarSala');
-});
+})->name('criarsala');
 
 Route::post('/cadastrandosala', [salasController::class, 'cadastrarSala']);
 

@@ -52,11 +52,13 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
             @foreach($dadosUsuario as $dados)
                 @if($dados->cd_fila_usuario == 1)
                     <a href="{{$salaId}}/voujogar">Vou Jogar</a>
+                   
                 @endif
             @endforeach
 
             <br><br>
             <a href="{{$salaId}}/desistente">Desistir</a>
+            
         </section>
     </main>
 </body>

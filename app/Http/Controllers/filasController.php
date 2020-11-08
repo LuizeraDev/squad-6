@@ -44,14 +44,12 @@ class filasController extends Controller
     {
         $email = $_SESSION['usuario'];
 
-        if ($_SESSION['santos']) 
-        {
+        if ($_SESSION['santos']) {
             $atualizarUsuario = DB::table('Users')
                                     ->select('cd_fila_usuario')
                                     ->where('cd_sala_santos', '=', $id)
                                     ->pluck('cd_fila_usuario');
-        } else 
-        {
+        } else {
             $atualizarUsuario = DB::table('Users')
                                     ->select('cd_fila_usuario')
                                     ->where('cd_sala_sao_paulo', '=', $id)
@@ -60,8 +58,7 @@ class filasController extends Controller
 
         $quantidade = count($atualizarUsuario);
         
-        if ($atualizarUsuario != null) 
-        {
+        if ($atualizarUsuario != null) {
             $estanafila = DB::table('users')
                                 ->select('cd_fila_usuario')
                                 ->where('email', $email)
@@ -209,8 +206,9 @@ class filasController extends Controller
                     ->where('email', $email)
                     ->update(['cd_sala_santos'=> null, 'cd_fila_usuario' => null]);
         } else {
-            if($posição_usuario = 1)
-            {
+
+            if ($posicao_usuario == 1) {
+
                 $fila = DB::table('users')
                         ->select('name', 'cd_fila_usuario',  'profile_photo_path')
                         ->where('cd_sala_sao_paulo', $id)
@@ -233,6 +231,7 @@ class filasController extends Controller
                     ->update(['cd_sala_sao_paulo'=> null, 'cd_fila_usuario' => null]);
             }
         }
+
          return redirect()->route('salas');
     }
 
