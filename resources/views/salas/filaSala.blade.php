@@ -22,8 +22,8 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
             <h2>Logotipo - Fifo</h2>
 
             @foreach($dadosUsuario as $dados)
-            <p>E aew <b>{{$dados->name}}</b></p>
-            <p>Você está na fila da sala <b>{{$nmSala}}</b> e sua posição é <b>{{$dados->cd_fila_usuario}}</b></p>
+                <p>E aew <b>{{$dados->name}}</b></p>
+                <p>Você está na fila da sala <b>{{$nmSala}}</b> e sua posição é <b>{{$dados->cd_fila_usuario}}</b></p>
             @endforeach
             
             <hr style="width: 30%;">
@@ -44,13 +44,17 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                         <span>Foto do usuário:</span>
                         <img src={{$url.$fila->profile_photo_path}} width=30 alt="Foto do usuário">
                     @endif
-                     <span>Posição na fila: <b>{{$fila->cd_fila_usuario}}</b> Nome: <b>{{$fila->name}}</b></span>
-                     <br><br>
+                    <span>Posição na fila: <b>{{$fila->cd_fila_usuario}}</b> Nome: <b>{{$fila->name}}</b></span>
+                    <br><br>
                 @endforeach
             @endif
 
-            <br><br>
-            <a href="#">Vou Jogar</a>
+            @foreach($dadosUsuario as $dados)
+                @if($dados->cd_fila_usuario == 1)
+                    <a href="{{$salaId}}/voujogar">Vou Jogar</a>
+                @endif
+            @endforeach
+
             <br><br>
             <a href="{{$salaId}}/desistente">Desistir</a>
         </section>

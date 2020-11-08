@@ -64,3 +64,5 @@ Route::get('/salas/sala/{nomeSala}/excluir/{id}/do', [salasController::class, 'e
 Route::get('/salas/sala/{nomeSala}/{id}', [filasController::class, 'inserirusuarioFila'])->name('inserirFila');
 
 Route::get('/salas/sala/{nomeSala}/{id}/desistente', [filasController::class, 'desistirusuarioFila'])->name('desistir');
+
+Route::get('/salas/sala/{nomeSala}/{id}/voujogar', [filasController::class, 'vouJogarFila'])->name('voujogar');

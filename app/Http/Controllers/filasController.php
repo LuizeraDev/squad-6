@@ -44,12 +44,14 @@ class filasController extends Controller
     {
         $email = $_SESSION['usuario'];
 
-        if ($_SESSION['santos']) {
+        if ($_SESSION['santos']) 
+        {
             $atualizarUsuario = DB::table('Users')
                                     ->select('cd_fila_usuario')
                                     ->where('cd_sala_santos', '=', $id)
                                     ->pluck('cd_fila_usuario');
-        } else {
+        } else 
+        {
             $atualizarUsuario = DB::table('Users')
                                     ->select('cd_fila_usuario')
                                     ->where('cd_sala_sao_paulo', '=', $id)
@@ -58,11 +60,21 @@ class filasController extends Controller
 
         $quantidade = count($atualizarUsuario);
         
-        if ($atualizarUsuario != null) {
-            // Faz atualização do campo cd_fila_usuario, para dizer sua posição na fila
-            DB::table('users')
-                    ->where('email', $email)
-                    ->update(['cd_fila_usuario' => $quantidade]);
+        if ($atualizarUsuario != null) 
+        {
+            $estanafila = DB::table('users')
+                                ->select('cd_fila_usuario')
+                                ->where('email', $email)
+                                ->value('cd_fila_usuario');
+            //Verifica se o usuário ja está na fila.
+            
+            if($estanafila == null)
+            {
+                // Faz atualização do campo cd_fila_usuario, para dizer sua posição na fila
+                DB::table('users')
+                        ->where('email','=', $email)
+                        ->update(['cd_fila_usuario' => $quantidade]);
+            }
         }
 
         return filasController::pegadadosusuarioSala($nomeSala, $id);
@@ -96,11 +108,12 @@ class filasController extends Controller
                          ->orderBy('cd_fila_usuario')
                          ->get();
 
-        return view('salas/filaSala', ['filaSantos' => $filaSantos, 
-        'filaSaoPaulo' => $filaSaoPaulo, 
-        'salaId' => $id,
-        'nmSala' => $nomeSala,
-        'dadosUsuario'=> $usuario]);
+        return view('salas/filaSala', 
+            ['filaSantos' => $filaSantos, 
+            'filaSaoPaulo' => $filaSaoPaulo, 
+            'salaId' => $id,
+            'nmSala' => $nomeSala,
+            'dadosUsuario'=> $usuario]);
     }
 
     public function desistirusuarioFila($nomeSala, $id)
@@ -126,9 +139,9 @@ class filasController extends Controller
             for ($i = $posicao_usuario[0]; $i <= $pessoas_fila; $i++)
             {
                 $aux = $i + 1;
-                DB::table('users')->where([
-                    ['cd_fila_usuario', '=', $aux], 
-                    ['cd_sala_santos', '=', $cd_sala],
+                DB::table('users')
+                    ->where([['cd_fila_usuario', '=', $aux], 
+                            ['cd_sala_santos', '=', $cd_sala],
                     ])->update(['cd_fila_usuario'=> $i]);
                     
             }
@@ -160,6 +173,67 @@ class filasController extends Controller
                 ->update(['cd_sala_sao_paulo'=> null, 'cd_fila_usuario' => null]);
         }
         return redirect()->route('salas');
+    }
+    public function vouJogarFila($nomeSala, $id)
+    {
+        session_start();
+        $email = $_SESSION['usuario'];
+        $cd_sala = $id;
+  
+        // Pega a posição do desistente da fila
+        $posicao_usuario = DB::table('users')
+                        ->select('cd_fila_usuario')
+                        ->where('email', $email)
+                        ->value('cd_fila_usuario');
+        
+        if ($_SESSION['santos'] && $posicao_usuario == 1) {
+            $fila = DB::table('users')
+                            ->select('name', 'cd_fila_usuario',  'profile_photo_path')
+                            ->where('cd_sala_santos', $id)
+                            ->get();
+
+            $pessoas_fila = count($fila);
+
+            for ($i = $posicao_usuario; $i <= $pessoas_fila; $i++)
+            {
+                $aux = $i + 1;
+                DB::table('users')
+                    ->where([['cd_fila_usuario', '=', $aux], 
+                            ['cd_sala_santos', '=', $cd_sala],
+                    ])->update(['cd_fila_usuario'=> $i]);
+                    
+            }
+
+            // Retira o usuário da fila e volta o código da fila dele para nulo
+            DB::table('users')
+                    ->where('email', $email)
+                    ->update(['cd_sala_santos'=> null, 'cd_fila_usuario' => null]);
+        } else {
+            if($posição_usuario = 1)
+            {
+                $fila = DB::table('users')
+                        ->select('name', 'cd_fila_usuario',  'profile_photo_path')
+                        ->where('cd_sala_sao_paulo', $id)
+                        ->get();
+
+                $pessoas_fila = count($fila);
+
+                for ($i = $posicao_usuario; $i <= $pessoas_fila; $i++)
+                {
+                    $aux = $i + 1;
+                    DB::table('users')->where([
+                        ['cd_fila_usuario', '=', $aux], 
+                        ['cd_sala_sao_paulo', '=', $cd_sala],
+                        ])->update(['cd_fila_usuario'=> $i]);
+                }
+
+                // Retira o usuário da fila e volta o código da fila dele para nulo
+                DB::table('users')
+                    ->where('email', $email)
+                    ->update(['cd_sala_sao_paulo'=> null, 'cd_fila_usuario' => null]);
+            }
+        }
+         return redirect()->route('salas');
     }
 
 }
