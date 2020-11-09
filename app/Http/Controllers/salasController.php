@@ -22,9 +22,6 @@ use Illuminate\Support\Facades\Storage;
 
 class salasController extends Controller
 {
-
-
-
     public function salaSantos()
     {
         if (isset($_SESSION)) {
@@ -51,50 +48,76 @@ class salasController extends Controller
         return redirect()->route('salas');
     }
 
-
     public function cadastrarSala(Request $request)
     {
         session_start();
 
-    	$nome = $request->input('nomeSala');
-    	$img = $request->file('ImagemSala')->store('img_sala');
+        $nome = $request->input('nomeSala');
         
+        if ($request->file('ImagemSala')) 
+            $img = $request->file('ImagemSala')->store('img_sala');
+        else 
+            $erroFoto = "Você não anexou nenhuma foto para a sala...";
 
         if ($_SESSION['santos']) {
-            // Verificar nome das salas existentes
-            $salasexistentes = null;
-            $salasexistentes = DB::table('tb_sala_santos')
-                                        ->select('nm_sala')
-                                        ->where('nm_sala', '=',$nome);
+            // Pega o nome da sala se existir uma sala com o mesmo nome
+            $nomesalaSantos = DB::table('tb_sala_santos')
+                                ->select('nm_sala')
+                                ->where('nm_sala', '=',$nome)
+                                ->pluck('nm_sala');
+
+            // Se a variável com o nome da sala já existe
+            if (isset($nomesalaSantos[0]) && !$request->file('ImagemSala')) {
+                $erro = "Já existe uma sala com este nome em Santos...";
+                $erroFoto = "Você não anexou nenhuma foto para a sala...";
+                return view('salas/criarSala', ['MsgErro' => $erro, 'MsgErroFoto' => $erroFoto]);
+
+            } else if (isset($nomesalaSantos[0])) {
+                $erro = "Já existe uma sala com este nome em Santos...";
+                return view('salas/criarSala', ['MsgErro' => $erro]);
 
 
-            if ($salasexistentes == null) { 
-    	    DB::table('tb_sala_santos')->insert(
-                [ 'nm_sala' => $nome ,'img_sala' => $img]);
+            } else if (!$request->file('ImagemSala')) {
+                $erroFoto = "Você não anexou nenhuma foto para a sala...";
+                return view('salas/criarSala', ['MsgErroFoto' => $erroFoto]);
+            
             } else {
+                DB::table('tb_sala_santos')->insert(
+                    [ 'nm_sala' => $nome ,'img_sala' => $img]);
                 
-                return redirect('criarsala');
-
+                return redirect()->route('salas');
             }
 
         } else {
-            // Verificar nome das salas existentes
-            $salasexistentes = null;
-            $salasexistentes = DB::table('tb_sala_sao_paulo')
-                                        ->select('nm_sala')
-                                        ->where('nm_sala', '=', $nome);
+            // Pega o nome da sala se existir uma sala com o mesmo nome
+            $nomesalaSaoPaulo = DB::table('tb_sala_sao_paulo')
+                                ->select('nm_sala')
+                                ->where('nm_sala', '=',$nome)
+                                ->pluck('nm_sala');
 
+            // Se a variável com o nome da sala já existe
+            if (isset($nomesalaSaoPaulo[0]) && !$request->file('ImagemSala')) {
+                $erro = "Já existe uma sala com este nome em São Paulo...";
+                $erroFoto = "Você não anexou nenhuma foto para a sala...";
+                return view('salas/criarSala', ['MsgErro' => $erro, 'MsgErroFoto' => $erroFoto]);
 
-            if ($salasexistentes == null) { 
-            DB::table('tb_sala_sao_paulo')->insert(
-                [ 'nm_sala' => $nome ,'img_sala' => $img]);
+            } else if (isset($nomesalaSaoPaulo[0])) { 
+                $erro = "Já existe uma sala com este nome em São Paulo...";
+                return view('salas/criarSala', ['MsgErro' => $erro]);
+
+            } else if (!$request->file('ImagemSala')) {
+                $erroFoto = "Você não anexou nenhuma foto para a sala...";
+                return view('salas/criarSala', ['MsgErroFoto' => $erroFoto]);
+
+            }  else { 
+                DB::table('tb_sala_sao_paulo')->insert(
+                    [ 'nm_sala' => $nome ,'img_sala' => $img]);
+                
+                return redirect()->route('salas');
             }
-            else
-                return redirect('criarsala');
             
         }
 
-        return redirect()->route('salas');
     }
 
     public function excluirSala($nomeSala, $id)
