@@ -7,11 +7,7 @@
     <title>@yield('titulo')</title>
 </head>
 <style>
-    .conteudo {
-        display: block;
-        margin-left: 35%;
-        margin-top: 10%;
-    }
+
 </style>
 <body>
     <div class="conteudo">
