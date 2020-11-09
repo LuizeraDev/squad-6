@@ -1,4 +1,4 @@
-# Repositório do SQUAD 6
+# Repositório do SQUAD 6 #SangueLaranja
 
 ## Projeto 
 
@@ -32,6 +32,7 @@ Página Web Responsiva realizada na intenção de auxiliar na organização de f
 **Por fim em seu console, execute o comando php artisan serve, e acesse o localhost:8000 em seu navegador.**
 
 ## Participantes
+
 - Luiz (Back-end / Banco)
   - [GitHub](https://github.com/luizera-36)
   - [Linkedin](https://www.linkedin.com/in/luizgomesdev/)
@@ -49,5 +50,19 @@ Página Web Responsiva realizada na intenção de auxiliar na organização de f
   - [Linkedin](https://www.linkedin.com/in/gaspar-diogo/)
 - Marcus (Ux / Designer)
   - [Linkedin](https://www.linkedin.com/in/marcus-mazza-5a6497190/)
+  
+## Agradecimentos Especiais
+  
+As pessoas listadas aqui abaixo, trabalham na **FCamara** e ajudaram muito **diretamente** no desenvolvimento do nosso projeto.
+  
+- Vinicius Batista (Gigante) **Scrum / DEV**
+
+- Danny Souza **DEV**
+
+- Gabriel Ruiz **QA**
+
+- Carlos Gizbert **UX**
+
+- Diego Tavares **UX**
 
 
