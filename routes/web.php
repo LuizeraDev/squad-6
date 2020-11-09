@@ -45,7 +45,10 @@ Route::get('/criarsala', function(){
 
 Route::post('/cadastrandosala', [salasController::class, 'cadastrarSala']);
 
-Route::get('/salas',[salasController::class, 'exibirSalas'])->name('salas');
+Route::get('/salas', [salasController::class, 'exibirSalas'])->name('salas');
+
+// Rota necessária para fazer assincronismo das salas com AJAX
+Route::get('/salas-conteudo', [salasController::class, 'salasAssincronas'])->name('salasConteudo');
 
 Route::get('/salas/sala/{nomeSala}/{id}', function ($nomeSala, $salaId) {
     return view('salas/filaSala', ['nomeSala' => $nomeSala, 'salaId' => $salaId]);
