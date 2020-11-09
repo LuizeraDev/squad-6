@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 
         @livewireStyles
 
@@ -24,16 +24,13 @@
 
             <!-- Page Heading -->
            
-                    {{ $header }}
-                </div>
-            </header>
+                <!-- removi header para fazer o logo    {{ $header }} -->
+          
 
             <!-- Page Content -->
-            <main>
+           
                 {{ $slot }}
-            </main>
-        </div>
-
+        
         @stack('modals')
 
         @livewireScripts

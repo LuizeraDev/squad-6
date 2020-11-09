@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.grid {
+
+    height: 100vh;
+    width: 100vw;
+
+    display: grid;
+    grid-template-columns: 10vw auto 10vw;
+    grid-template-rows: auto;
+    
+  
+}
+
+.logo{
+
+    margin: auto;
+    grid-column: 1/4;
+    grid-row: 1;
+
+}
+
+.menu {
+
+    grid-column: 2/3;
+    margin: 0 20vw;
+    background-color: rgb(216, 213, 213);
+    height: 40vh;
+    min-width: 700px;
+    max-width: 60vw;
+
+    border-radius: 40px;
+    border: 3px solid rgb(165, 165, 165);
+
+    display: grid;
+    grid-template-columns: 0.3fr 1fr 0.3fr;
+    grid-template-rows: auto;
+}
+
+.titleWrapper {
+
+    grid-column: 2/3;
+    grid-row: 1;
+
+    margin: auto;
+    text-align: center;
+}
+
+.option {
+
+    grid-column: 2/3;
+    margin: auto;
+    border: 3px solid white;
+    background-color: ghostwhite;
+    height: 10rem;
+    width: 12rem;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+    
+}
+
+.option a {
+    line-height: 10rem;
+    width: 100%;
+}
+
+.button {
+
+    grid-column: 2/3;
+    width: 7rem;
+    height: 2rem;
+    line-height: 2rem;/* mesmo tamanho do height max para alinhas no centro verticalmente*/
+    grid-row: 4;
+    margin: auto;
+    text-align: center;
+
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background-color: ghostwhite;
+  
+
+}
+
+
+
+

@@ -4,7 +4,7 @@
         <div class="gridLogin">
 
         <div class="logo">
-      
+            <H1> LOGO </H1>
         </div>
 
         <x-jet-validation-errors class="mb-4" />
@@ -34,7 +34,7 @@
                             <input id="password_confirmation"  type="password" name="password_confirmation" required autocomplete="new-password" />
                         </div>
 
-                        <div class="register">
+                        <div class="">
                             <a href="{{ route('login') }}">
                                 {{ __('Já possui uma conta?') }}
                             </a>
@@ -48,7 +48,7 @@
                     </form>
 
                 </section>
-                
+
             </div>
 
         </div>

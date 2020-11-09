@@ -3,7 +3,7 @@
     <div class="gridLogin">
 
       <div class="logo">
-      
+        <H1>LOGO</H1>
       </div>
 
         <x-jet-validation-errors class="mb-4" />
@@ -57,7 +57,7 @@
                                     </a>
                                 @endif
                             </div>
-                            
+
                         </section>
 
                     </form>

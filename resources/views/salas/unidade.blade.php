@@ -5,24 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Fifo - Squad 6</title>
+    <link rel="stylesheet" href="{{ asset('css/unidade.css') }}">
+    
 </head>
-<style>
-    .container{
-        margin-top: 15%;
-    }
-</style>
+
 <body>
-    <main>
+
+<div class="grid">
+
+    <div class="logo">
+        <h1>LOGO</h1>
+    </div>
+
+
         <!-- No php, pegamos dados através do campo "name" dos inputs -->
-        <section class="container" align="center">
-            <h2>Logotipo - Fifo</h2>
+        <div class="menu" >
+
+        <div class="titleWrapper">
             <p>Escolha a unidade em que você está</p>
-            <a href="/unidade/santos">Santos</a> 
-            <br><br><br>
-            <a href="/unidade/saopaulo">São Paulo</a>
-            <br><br><br>
-            <a href="dashboard">Sair</a>
-        </section>
-    </main>
+        </div>
+
+            <div class="option">
+                <a href="/unidade/santos">Santos</a> 
+            </div>
+            
+            <div class="option">
+                <a href="/unidade/saopaulo">São Paulo</a>
+            </div>
+
+            <div class="button">
+                <a href="dashboard">Sair</a>
+            </div>
+        </div>
+</div>
 </body>
 </html>

@@ -21,10 +21,20 @@
 
 .logo {
 
+    margin: auto;
     grid-column: 1/4;
     grid-row: 1;
 }
 
+.mb-4 { /*mensagem de erro (ainda falta arrumar)*/
+
+    grid-column: 2/3;
+    font-weight: bold;
+    text-align: center;
+    margin: auto;
+    background-color: rgb(255, 188, 188);
+    color: white;
+}
 
 .formContainer {
 
@@ -73,6 +83,9 @@
     height: 2rem;
     width: 100%;
     text-align: center;
+    border: none;
+    outline: none;
+    border-radius: 10px;
 
 }
 
@@ -105,6 +118,9 @@
     width: 100%;
     height: 2rem;
     grid-row: 5;
+    outline: none;
+    border: none;
+    border-radius: 10px;
 
 }
 
@@ -130,4 +146,22 @@
     
     width: 50%;
     text-align: right;
+}
+
+.buttonVoltar {
+
+    grid-column: 3;
+    width: 7rem;
+    height: 2rem;
+    line-height: 2rem;/* mesmo tamanho do height max para alinhas no centro verticalmente*/
+    grid-row: 4;
+    margin: auto;
+    text-align: center;
+
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background-color: ghostwhite;
+  
+
 }
