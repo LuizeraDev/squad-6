@@ -45,12 +45,12 @@ class filasController extends Controller
         $email = $_SESSION['usuario'];
 
         if ($_SESSION['santos']) {
-            $atualizarUsuario = DB::table('Users')
+            $atualizarUsuario = DB::table('users')
                                     ->select('cd_fila_usuario')
                                     ->where('cd_sala_santos', '=', $id)
                                     ->pluck('cd_fila_usuario');
         } else {
-            $atualizarUsuario = DB::table('Users')
+            $atualizarUsuario = DB::table('users')
                                     ->select('cd_fila_usuario')
                                     ->where('cd_sala_sao_paulo', '=', $id)
                                     ->pluck('cd_fila_usuario');
