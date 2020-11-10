@@ -41,8 +41,14 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
             var conteudo_salas = document.all['conteudo'];
             conteudo_salas.innerHTML = "";
             $.get("{{ route('salasConteudo') }}", function (dadosSalas) {
-                console.log(dadosSalas.usuarios[0]);
-                for (i = 0; i < dadosSalas.sala.length; i++) {
+                // Exibe informações sobre os usuários cadastrados / online / ausente / offline, sala em que está
+                for (i = 0; i < dadosSalas.usuarios.length; i++) 
+                { 
+                    console.log(dadosSalas.usuarios[i]);
+                }
+               
+                for (i = 0; i < dadosSalas.sala.length; i++) 
+                {
                     conteudo_salas.innerHTML +=
                         "<p> Nome da sala: <b>" + dadosSalas.sala[i].nm_sala + "</b></p>" +
                             "<img src='{{ $url }}" + dadosSalas.sala[i].img_sala + "'" + "<br><br><br>" +
