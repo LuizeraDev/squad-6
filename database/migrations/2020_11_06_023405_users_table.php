@@ -19,10 +19,10 @@ class UsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('status')->nullable();
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->text('profile_photo_path')->nullable();
-            $table->integer('cd_convidado_por')->nullable();
             $table->integer('cd_fila_usuario')->nullable();
             $table->integer('cd_sala_santos')->unsigned()->nullable();
             $table->integer('cd_sala_sao_paulo')->unsigned()->nullable();
