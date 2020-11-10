@@ -70,7 +70,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                     
                     // Verifica se o usuário tem um caminho de imagem
                     if (dadosFila.dadosFila[i].profile_photo_path) {
-                        conteudo_fila.innerHTML += "<img src='" + dadosFila.dadosFila[i].profile_photo_path+"'> ";
+                        conteudo_fila.innerHTML += "<img src='{{ $url }}" + dadosFila.dadosFila[i].profile_photo_path+"' width='40'> ";
                     }
                     conteudo_fila.innerHTML += "Nome: <b>" + dadosFila.dadosFila[i].name+"</b> " +
                     "Posição na fila: <b>" + dadosFila.dadosFila[i].cd_fila_usuario +"</b> "+ 
