@@ -29,6 +29,8 @@ Página Web Responsiva realizada na intenção de auxiliar na organização de f
 
 **Em seguida você deve executar no console o seguinte comando, composer install, este comando vai baixar as dependências que faltantes no projeto;**
 
+**Logo após, você deve criar um banco no Phpmyadmin do xampp, ele deve se chamar Squad-6, e então, você deve executar um comando no console chamado, php artisan marge;**
+
 **Por fim em seu console, execute o comando php artisan serve, e acesse o localhost:8000 em seu navegador.**
 
 ## Participantes
