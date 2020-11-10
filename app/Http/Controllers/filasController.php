@@ -33,8 +33,8 @@ class filasController extends Controller
                 ->update(['cd_sala_santos' => $id]);
         } else {
             DB::table('users')
-            ->where('email', $email)
-            ->update(['cd_sala_sao_paulo' => $id]);
+                ->where('email', $email)
+                ->update(['cd_sala_sao_paulo' => $id]);
         }
 
         return filasController::atualizarFila($nomeSala, $id);
@@ -77,7 +77,6 @@ class filasController extends Controller
         return filasController::pegadadosusuarioSala($nomeSala, $id);
     }
 
-
     public function pegadadosusuarioSala($nomeSala, $id)
     {
         $email = $_SESSION['usuario'];
@@ -88,29 +87,6 @@ class filasController extends Controller
                     ->get();
 
         return filasController::exibirFila($nomeSala, $id, $usuario);
-    }
-    
-
-    public function exibirFila($nomeSala, $id, $usuario)
-    {
-        $filaSantos = DB::table('users')
-                         ->select('name', 'cd_fila_usuario',  'profile_photo_path')
-                         ->where('cd_sala_santos', $id)
-                         ->orderBy('cd_fila_usuario')
-                         ->get();
-
-        $filaSaoPaulo = DB::table('users')
-                         ->select('name', 'cd_fila_usuario',  'profile_photo_path')
-                         ->where('cd_sala_sao_paulo', $id)
-                         ->orderBy('cd_fila_usuario')
-                         ->get();
-
-        return view('salas/filaSala', 
-            ['filaSantos' => $filaSantos, 
-            'filaSaoPaulo' => $filaSaoPaulo, 
-            'salaId' => $id,
-            'nmSala' => $nomeSala,
-            'dadosUsuario'=> $usuario]);
     }
 
     public function desistirusuarioFila($nomeSala, $id)
@@ -171,6 +147,7 @@ class filasController extends Controller
         }
         return redirect()->route('salas');
     }
+
     public function vouJogarFila($nomeSala, $id)
     {
         session_start();
@@ -233,6 +210,71 @@ class filasController extends Controller
         }
 
          return redirect()->route('salas');
+    }
+
+    public function exibirFila($nomeSala, $id, $usuario)
+    {
+        /*
+        $filaSantos = DB::table('users')
+                        ->select('name', 'cd_fila_usuario',  'profile_photo_path')
+                        ->where('cd_sala_santos', $id)
+                        ->orderBy('cd_fila_usuario')
+                        ->get();
+
+        $filaSaoPaulo = DB::table('users')
+                        ->select('name', 'cd_fila_usuario',  'profile_photo_path')
+                        ->where('cd_sala_sao_paulo', $id)
+                        ->orderBy('cd_fila_usuario')
+                        ->get();
+
+        return view('salas/filaSala', 
+            ['filaSantos' => $filaSantos, 
+            'filaSaoPaulo' => $filaSaoPaulo, 
+            'salaId' => $id,
+            'nmSala' => $nomeSala,
+            'dadosUsuario'=> $usuario]);
+        */
+
+        return view('salas/filaSala', ['salaId' => $id]);
+    }
+
+    public function filaAssincrona() 
+    {
+        session_start();
+
+        $email = $_SESSION['usuario'];
+
+        if ($_SESSION['santos']) {
+            $dadosUsuario = DB::table('users')
+                                ->join('tb_sala_santos', 'users.cd_sala_santos', '=', 'tb_sala_santos.cd_sala_santos')
+                                ->select('users.name', 'tb_sala_santos.nm_sala', 
+                                 'users.cd_fila_usuario')
+                                ->where('email', $email)
+                                ->get();
+
+            $dadosFila =  DB::table('users')
+                            ->join('tb_sala_santos', 'users.cd_sala_santos', '=', 'tb_sala_santos.cd_sala_santos')
+                            ->select('users.name', 'users.status', 
+                            'users.profile_photo_path', 'users.cd_fila_usuario', 
+                            'tb_sala_santos.cd_sala_santos', 'tb_sala_santos.nm_sala')
+                            ->get();
+        } else {
+            $dadosUsuario = DB::table('users')
+                                ->join('tb_sala_sao_paulo', 'users.cd_sala_sao_paulo', '=', 'tb_sala_sao_paulo.cd_sala_sao_paulo')
+                                ->select('users.name', 'tb_sala_sao_paulo.nm_sala', 
+                                'users.cd_fila_usuario')
+                                ->where('email', $email)
+                                ->get();
+
+            $dadosFila =  DB::table('users')
+                            ->join('tb_sala_sao_paulo', 'users.cd_sala_sao_paulo', '=', 'tb_sala_sao_paulo.cd_sala_sao_paulo')
+                            ->select('users.name', 'users.status', 
+                            'users.profile_photo_path', 'users.cd_fila_usuario', 
+                            'tb_sala_sao_paulo.cd_sala_sao_paulo', 'tb_sala_sao_paulo.nm_sala')
+                            ->get();
+        }
+
+        return response()->json(["dadosUsuario" => $dadosUsuario, "dadosFila" => $dadosFila]);
     }
 
 }
