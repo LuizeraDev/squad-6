@@ -162,11 +162,25 @@ class salasController extends Controller
     {
         session_start();
 
+        $email = $_SESSION['usuario'];
+
+        // Atualiza status do usuário logado para online
+        DB::table('users')
+                ->where('email', $email)
+                ->update(['status' => 'online']);
+
         if ($_SESSION['santos']) {
             $dadosSantos = DB::table('tb_sala_santos')
                             ->select('cd_sala_santos', 'nm_sala',  'img_sala')
                             ->get();
+
             $dadosSala = $dadosSantos;
+
+            $usuarios = DB::table('users')
+                            ->leftJoin('tb_sala_santos', 'users.cd_sala_santos', '=', 'tb_sala_santos.cd_sala_santos')
+                            ->select('users.name', 'users.status', 'tb_sala_santos.nm_sala')
+                            ->orderBy('users.status')
+                            ->get();
 
         } else { 
             $dadosSaoPaulo = DB::table('tb_sala_sao_paulo')
@@ -174,8 +188,14 @@ class salasController extends Controller
                             ->get();
             
             $dadosSala = $dadosSaoPaulo;
+
+            $usuarios = DB::table('users')
+                            ->leftJoin('tb_sala_sao_paulo', 'users.cd_sala_sao_paulo', '=', 'tb_sala_sao_paulo.cd_sala_sao_paulo')
+                            ->select('users.name', 'users.status', 'tb_sala_sao_paulo.nm_sala')
+                            ->orderBy('users.status')
+                            ->get();
         }
 
-        return response()->json($dadosSala);
+        return response()->json(["sala" => $dadosSala, "usuarios" => $usuarios]);
     }
-}
+} // Fim da class
