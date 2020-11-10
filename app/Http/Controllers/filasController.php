@@ -257,6 +257,7 @@ class filasController extends Controller
                             ->select('users.name', 'users.status', 
                             'users.profile_photo_path', 'users.cd_fila_usuario', 
                             'tb_sala_santos.cd_sala_santos', 'tb_sala_santos.nm_sala')
+                            ->orderBy('cd_fila_usuario')
                             ->get();
         } else {
             $dadosUsuario = DB::table('users')
@@ -271,6 +272,7 @@ class filasController extends Controller
                             ->select('users.name', 'users.status', 
                             'users.profile_photo_path', 'users.cd_fila_usuario', 
                             'tb_sala_sao_paulo.cd_sala_sao_paulo', 'tb_sala_sao_paulo.nm_sala')
+                            ->orderBy('cd_fila_usuario')
                             ->get();
         }
 
