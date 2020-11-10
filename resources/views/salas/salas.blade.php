@@ -51,7 +51,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                 {
                     conteudo_salas.innerHTML +=
                         "<p> Nome da sala: <b>" + dadosSalas.sala[i].nm_sala + "</b></p>" +
-                            "<img src='{{ $url }}" + dadosSalas.sala[i].img_sala + "'" + "<br><br><br>" +
+                            "<img src='{{ $url }}" + dadosSalas.sala[i].img_sala + "' width=200>" + "<br><br><br>" +
                             "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + "/" +  
                         <?php if ($_SESSION["santos"]) { echo  "dadosSalas.sala[i].cd_sala_santos"; } 
                         else { echo "dadosSalas.sala[i].cd_sala_sao_paulo"; }  ?>
