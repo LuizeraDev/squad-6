@@ -54,7 +54,8 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
             $.get("{{ route('filaConteudo') }}", function (dadosFila) {
 
                 // Usuário que entrou na fila
-                for (i = 0; i < dadosFila.dadosUsuario.length; i++) {
+                for (i = 0; i < dadosFila.dadosUsuario.length; i++) 
+                {
                     conteudo_usuario.innerHTML +=
                     "E aew <b>" + dadosFila.dadosUsuario[i].name+"</b><br><br>" +
                     "Você está na fila da sala <b>" + dadosFila.dadosUsuario[i].nm_sala +"</b> " +
@@ -66,8 +67,8 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                 }
                 
                 // Todos os usuários
-                for (i = 0; i < dadosFila.dadosFila.length; i++) {
-                    
+                for (i = 0; i < dadosFila.dadosFila.length; i++) 
+                {
                     // Verifica se o usuário tem um caminho de imagem
                     if (dadosFila.dadosFila[i].profile_photo_path) {
                         conteudo_fila.innerHTML += "<img src='{{ $url }}" + dadosFila.dadosFila[i].profile_photo_path+"' width='40'> ";
