@@ -19,11 +19,18 @@ use Illuminate\Routing\Redirector;
 // Permite deletar imagens do storage
 use Illuminate\Support\Facades\Storage;
 
+// Permite verificar se usuário está logado.
+use Illuminate\Support\Facades\Auth;
+
+
 class filasController extends Controller
 {
     public function inserirusuarioFila($nomeSala, $id)
     {
         session_start();
+
+        if (!Auth::user())
+            return view('auth/login');
 
         $email = $_SESSION['usuario'];
 
@@ -33,8 +40,8 @@ class filasController extends Controller
                 ->update(['cd_sala_santos' => $id]);
         } else {
             DB::table('users')
-            ->where('email', $email)
-            ->update(['cd_sala_sao_paulo' => $id]);
+                ->where('email', $email)
+                ->update(['cd_sala_sao_paulo' => $id]);
         }
 
         return filasController::atualizarFila($nomeSala, $id);
@@ -44,13 +51,16 @@ class filasController extends Controller
     {
         $email = $_SESSION['usuario'];
 
+        if (!Auth::user())
+            return view('auth/login');
+
         if ($_SESSION['santos']) {
-            $atualizarUsuario = DB::table('Users')
+            $atualizarUsuario = DB::table('users')
                                     ->select('cd_fila_usuario')
                                     ->where('cd_sala_santos', '=', $id)
                                     ->pluck('cd_fila_usuario');
         } else {
-            $atualizarUsuario = DB::table('Users')
+            $atualizarUsuario = DB::table('users')
                                     ->select('cd_fila_usuario')
                                     ->where('cd_sala_sao_paulo', '=', $id)
                                     ->pluck('cd_fila_usuario');
@@ -58,14 +68,14 @@ class filasController extends Controller
 
         $quantidade = count($atualizarUsuario);
         
-        if ($atualizarUsuario != null) {
+        if ($atualizarUsuario) {
             $estanafila = DB::table('users')
                                 ->select('cd_fila_usuario')
                                 ->where('email', $email)
                                 ->value('cd_fila_usuario');
             //Verifica se o usuário ja está na fila.
             
-            if($estanafila == null)
+            if(!$estanafila)
             {
                 // Faz atualização do campo cd_fila_usuario, para dizer sua posição na fila
                 DB::table('users')
@@ -77,7 +87,6 @@ class filasController extends Controller
         return filasController::pegadadosusuarioSala($nomeSala, $id);
     }
 
-
     public function pegadadosusuarioSala($nomeSala, $id)
     {
         $email = $_SESSION['usuario'];
@@ -88,29 +97,6 @@ class filasController extends Controller
                     ->get();
 
         return filasController::exibirFila($nomeSala, $id, $usuario);
-    }
-    
-
-    public function exibirFila($nomeSala, $id, $usuario)
-    {
-        $filaSantos = DB::table('users')
-                         ->select('name', 'cd_fila_usuario',  'profile_photo_path')
-                         ->where('cd_sala_santos', $id)
-                         ->orderBy('cd_fila_usuario')
-                         ->get();
-
-        $filaSaoPaulo = DB::table('users')
-                         ->select('name', 'cd_fila_usuario',  'profile_photo_path')
-                         ->where('cd_sala_sao_paulo', $id)
-                         ->orderBy('cd_fila_usuario')
-                         ->get();
-
-        return view('salas/filaSala', 
-            ['filaSantos' => $filaSantos, 
-            'filaSaoPaulo' => $filaSaoPaulo, 
-            'salaId' => $id,
-            'nmSala' => $nomeSala,
-            'dadosUsuario'=> $usuario]);
     }
 
     public function desistirusuarioFila($nomeSala, $id)
@@ -171,6 +157,7 @@ class filasController extends Controller
         }
         return redirect()->route('salas');
     }
+
     public function vouJogarFila($nomeSala, $id)
     {
         session_start();
@@ -233,6 +220,52 @@ class filasController extends Controller
         }
 
          return redirect()->route('salas');
+    }
+
+    public function exibirFila($nomeSala, $id, $usuario)
+    {
+        
+        if (!Auth::user())
+            return view('auth/login');
+
+        return view('salas/filaSala', ['salaId' => $id]);
+    }
+
+    public function filaAssincrona() 
+    {
+        session_start();
+        $sala_id = $_SESSION['cd_sala'];
+        $email = $_SESSION['usuario'];
+
+        if ($_SESSION['santos']) {
+            $dadosUsuario = DB::table('users')
+                                ->join('tb_sala_santos', 'users.cd_sala_santos', '=', 'tb_sala_santos.cd_sala_santos')
+                                ->select('users.name', 'tb_sala_santos.nm_sala', 
+                                 'users.cd_fila_usuario')
+                                ->where('email', $email)
+                                ->get();
+
+            $dadosFila =  DB::table('users')
+                            ->select('users.*')
+                            ->where('cd_sala_santos', $sala_id)
+                            ->orderBy('cd_fila_usuario')
+                            ->get();
+        } else {
+            $dadosUsuario = DB::table('users')
+                                ->join('tb_sala_sao_paulo', 'users.cd_sala_sao_paulo', '=', 'tb_sala_sao_paulo.cd_sala_sao_paulo')
+                                ->select('users.name', 'tb_sala_sao_paulo.nm_sala', 
+                                'users.cd_fila_usuario')
+                                ->where('email', $email)
+                                ->get();
+
+            $dadosFila =  DB::table('users')
+                                ->select('users.*')
+                                ->where('cd_sala_sao_paulo', $sala_id)
+                                ->orderBy('cd_fila_usuario')
+                                ->get();
+        }
+
+        return response()->json(["dadosUsuario" => $dadosUsuario, "dadosFila" => $dadosFila]);
     }
 
 }

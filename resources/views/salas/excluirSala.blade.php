@@ -21,7 +21,10 @@
             <input type="text" id="numero_aleatorio" maxlength="3"><br><br>
             <input type="button" onclick="excluir()" value="Apagar Sala">
             <p id="resposta"></p>
-
+            @if (isset($MsgErro))
+                <p>{{$MsgErro}}</p>
+            @endif
+            <a href="/salas">Voltar</a>
         </section>
     </main>
     <script>

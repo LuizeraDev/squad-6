@@ -19,11 +19,19 @@ use Illuminate\Routing\Redirector;
 // Permite deletar imagens do storage
 use Illuminate\Support\Facades\Storage;
 
+// Permite validar imagens e outras coisas
+use Illuminate\Validation\Rule;
+
+// Permite verificar se usuário está logado.
+use Illuminate\Support\Facades\Auth;
 
 class salasController extends Controller
 {
     public function salaSantos()
     {
+        if (!Auth::user())
+            return view('auth/login');
+
         if (isset($_SESSION)) {
             session_destroy();
         } else {
@@ -37,6 +45,9 @@ class salasController extends Controller
 
     public function salasaoPaulo()
     {
+        if (!Auth::user())
+            return view('auth/login');
+
         if (isset($_SESSION)) {
             session_destroy();
         } else {
@@ -52,10 +63,26 @@ class salasController extends Controller
     {
         session_start();
 
+        if (!Auth::user())
+            return view('auth/login');
+
         $nome = $request->input('nomeSala');
+
+        if (!$nome) {
+            $erroNomeVazio = "Você não botou nenhum nome para a sala";
+            return view('salas/criarSala', ['nome_vazio' => $erroNomeVazio]);
+        }
         
-        if ($request->file('ImagemSala')) 
+        if ($request->file('ImagemSala')) {
             $img = $request->file('ImagemSala')->store('img_sala');
+           
+            $extensao = $request->file('ImagemSala')->extension();
+           
+            if ($extensao != "jpg" && $extensao != "png" && $extensao != "jpeg") {
+                $erroFile = "Você deve anexar um arquivo jpg ou png.";
+                return view('salas/criarSala', ['MsgErroFile' => $erroFile]);
+           }
+        }
         else 
             $erroFoto = "Você não anexou nenhuma foto para a sala...";
 
@@ -66,7 +93,7 @@ class salasController extends Controller
                                 ->where('nm_sala', '=',$nome)
                                 ->pluck('nm_sala');
 
-            // Se a variável com o nome da sala já existe
+            // Validações
             if (isset($nomesalaSantos[0]) && !$request->file('ImagemSala')) {
                 $erro = "Já existe uma sala com este nome em Santos...";
                 $erroFoto = "Você não anexou nenhuma foto para a sala...";
@@ -124,30 +151,60 @@ class salasController extends Controller
     {
         session_start();
 
+        if (!Auth::user())
+            return view('auth/login');
+
         if ($_SESSION['santos']) {
-            $img = DB::table('tb_sala_santos')
-                             ->select('img_sala')
-                             ->where('cd_sala_santos', '=', $id)
-                             ->pluck('img_sala');
-        
-            // Deleta a imagem do Storage
-            Storage::delete($img[0]);
+            $usuarios_na_sala = DB::table('users')
+                                ->join('tb_sala_santos', 'tb_sala_santos.cd_sala_santos', '=', 'users.cd_sala_santos')
+                                ->select('tb_sala_santos.nm_sala','users.cd_fila_usuario')
+                                ->get(); 
 
-            DB::table('tb_sala_santos')
-                      ->where('cd_sala_santos', '=', $id)
-                      ->delete();
+            $pessoas_na_sala = count($usuarios_na_sala);
+
+            if ($pessoas_na_sala > 0) { 
+                $erro = "Não é possível excluir salas com usuários dentro.";
+                return view('salas/excluirSala', ['nomeSala' => $nomeSala, 'salaId' => $id ,'MsgErro' => $erro]);
+            } else {            
+                // Verifica o nome da foto no banco para ser deletada em seguida
+                $img = DB::table('tb_sala_santos')
+                                    ->select('img_sala')
+                                    ->where('cd_sala_santos', '=', $id)
+                                    ->pluck('img_sala');
+            
+                // Deleta a imagem do Storage
+                Storage::delete($img[0]);
+
+                DB::table('tb_sala_santos')
+                            ->where('cd_sala_santos', '=', $id)
+                            ->delete();
+            }
         } else {
-            $img = DB::table('tb_sala_sao_paulo')
-                        ->select('img_sala')
-                        ->where('cd_sala_sao_paulo', '=', $id)
-                        ->pluck('img_sala');
+            $usuarios_na_sala = DB::table('users')
+                                    ->join('tb_sala_sao_paulo', 'tb_sala_sao_paulo.cd_sala_sao_paulo', '=', 'users.cd_sala_sao_paulo')
+                                    ->select('tb_sala_sao_paulo.nm_sala','users.cd_fila_usuario')
+                                    ->get(); 
+            
+            $pessoas_na_sala = count($usuarios_na_sala);
 
-            // Deleta a imagem do Storage
-            Storage::delete($img[0]);
-
-            DB::table('tb_sala_sao_paulo')
+            if ($pessoas_na_sala > 0) { 
+                $erro = "Não é possível excluir salas que tenham pessoas dentro.";
+                return view('salas/excluirSala', ['nomeSala' => $nomeSala, 'salaId' => $id ,'MsgErro' => $erro]);
+            } else { 
+                     // Verifica o nome da foto no banco para ser deletada em seguida
+                    $img = DB::table('tb_sala_sao_paulo')
+                    ->select('img_sala')
                     ->where('cd_sala_sao_paulo', '=', $id)
-                    ->delete();
+                    ->pluck('img_sala');
+
+                    // Deleta a imagem do Storage
+                    Storage::delete($img[0]);
+
+                    DB::table('tb_sala_sao_paulo')
+                            ->where('cd_sala_sao_paulo', '=', $id)
+                            ->delete();
+            }
+       
         }
 
         return redirect()->route('salas');
@@ -155,6 +212,9 @@ class salasController extends Controller
 
     public function exibirSalas()
     {
+        if (!Auth::user())
+            return view('auth/login');
+
         return view('salas/salas');
     }
 
@@ -162,20 +222,46 @@ class salasController extends Controller
     {
         session_start();
 
+        $email = $_SESSION['usuario'];
+
+        // Atualiza status do usuário logado para online
+        DB::table('users')
+                ->where('email', $email)
+                ->update(['status' => 'online']);
+
         if ($_SESSION['santos']) {
-            $dadosSantos = DB::table('tb_sala_santos')
+            $dadosSala = DB::table('tb_sala_santos')
                             ->select('cd_sala_santos', 'nm_sala',  'img_sala')
                             ->get();
-            $dadosSala = $dadosSantos;
+            
+            $qt_usuarios = DB::table('users')
+                                ->join('tb_sala_santos', 'tb_sala_santos.cd_sala_santos', '=', 'users.cd_sala_santos')
+                                ->select('tb_sala_santos.nm_sala','users.cd_fila_usuario')
+                                ->get();
+
+            $usuarios = DB::table('users')
+                            ->leftJoin('tb_sala_santos', 'users.cd_sala_santos', '=', 'tb_sala_santos.cd_sala_santos')
+                            ->select('users.name', 'users.status', 'tb_sala_santos.nm_sala')
+                            ->orderBy('users.status')
+                            ->get();
 
         } else { 
-            $dadosSaoPaulo = DB::table('tb_sala_sao_paulo')
+            $dadosSala = DB::table('tb_sala_sao_paulo')
                             ->select('cd_sala_sao_paulo', 'nm_sala',  'img_sala')
                             ->get();
-            
-            $dadosSala = $dadosSaoPaulo;
+
+            $qt_usuarios = DB::table('users')
+                            ->join('tb_sala_sao_paulo', 'tb_sala_sao_paulo.cd_sala_sao_paulo', '=', 'users.cd_sala_sao_paulo')
+                            ->select('tb_sala_sao_paulo.nm_sala','users.cd_fila_usuario')
+                            ->get(); 
+
+            $usuarios = DB::table('users')
+                            ->leftJoin('tb_sala_sao_paulo', 'users.cd_sala_sao_paulo', '=', 'tb_sala_sao_paulo.cd_sala_sao_paulo')
+                            ->select('users.name', 'users.status', 'tb_sala_sao_paulo.nm_sala')
+                            ->orderBy('users.status')
+                            ->get();
         }
 
-        return response()->json($dadosSala);
+        return response()->json(["sala" => $dadosSala, "usuarios" => $usuarios, "qt_usuarios" => $qt_usuarios]);
     }
-}
+} // Fim da class
