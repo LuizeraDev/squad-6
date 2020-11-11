@@ -13,7 +13,7 @@
 	<form action='cadastrandosala' method="post" enctype="multipart/form-data">
 		@csrf
 		<p>Criar Sala</p>
-		<p>Nome: <input type="text" name="nomeSala"></p>
+		<p>Nome: <input type="text" id="nome" name="nomeSala"></p>
 		<p>Selecione uma Imagem </p>
 		<p><input type="file" name="ImagemSala"></p>
 		<p><input type="submit" value="Criar Sala"></p>
@@ -49,7 +49,7 @@
 
 		<script>
 			// Troca o valor da barra de espaço por um underline
-			$('input').on("input", function(e) {
+			$('#nome').on("input", function(e) {
 				$(this).val($(this).val().replace(" ", "_"));
 			});
 		</script>
