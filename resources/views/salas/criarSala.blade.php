@@ -35,6 +35,12 @@
 		<p>Erros encontrados: </p>
 		<p>{{$MsgErroFoto}}</p>
 
+		@elseif (isset($erroFile))
+		<p>Erros encontrados: </p>
+		<p>{{$erroFile}}</p>
+		@endif
+		@if (isset($MsgErroFile))
+		<p>Erro {{$MsgErroFile}}</p>
 		@endif
 
 		<a href="salas">Voltar as salas</a>
