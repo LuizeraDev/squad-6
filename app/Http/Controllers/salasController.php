@@ -66,6 +66,11 @@ class salasController extends Controller
         if (!Auth::user())
             return view('auth/login');
 
+        $validate = $request->validate([
+            'nomeSala' => 'alpha_dash'
+        ]);
+
+        
         $nome = $request->input('nomeSala');
 
         if (!$nome) {
