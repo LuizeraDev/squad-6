@@ -29,7 +29,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 // Unidades
 
 Route::get('/unidade', function(){
-	if (Auth::user() == null)
+	if (!Auth::user())
             return view('auth/login');
 
 	return view('salas/unidade');
@@ -43,7 +43,7 @@ Route::get('/unidade/saopaulo', [salasController::class, 'salasaoPaulo']);
 // Salas 
 
 Route::get('/criarsala', function(){
-	if (Auth::user() == null)
+	if (!Auth::user())
             return view('auth/login');
 
 	return view('salas/criarSala');
