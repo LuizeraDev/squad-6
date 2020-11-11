@@ -19,11 +19,18 @@ use Illuminate\Routing\Redirector;
 // Permite deletar imagens do storage
 use Illuminate\Support\Facades\Storage;
 
+// Permite verificar se usuário está logado.
+use Illuminate\Support\Facades\Auth;
+
+
 class filasController extends Controller
 {
     public function inserirusuarioFila($nomeSala, $id)
     {
         session_start();
+
+        if (Auth::user() == null)
+            return view('auth/login');
 
         $email = $_SESSION['usuario'];
 
@@ -43,6 +50,9 @@ class filasController extends Controller
     public function atualizarFila($nomeSala, $id)
     {
         $email = $_SESSION['usuario'];
+
+        if (Auth::user() == null)
+            return view('auth/login');
 
         if ($_SESSION['santos']) {
             $atualizarUsuario = DB::table('users')
