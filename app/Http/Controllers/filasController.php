@@ -29,7 +29,7 @@ class filasController extends Controller
     {
         session_start();
 
-        if (Auth::user() == null)
+        if (!Auth::user())
             return view('auth/login');
 
         $email = $_SESSION['usuario'];
@@ -51,7 +51,7 @@ class filasController extends Controller
     {
         $email = $_SESSION['usuario'];
 
-        if (Auth::user() == null)
+        if (!Auth::user())
             return view('auth/login');
 
         if ($_SESSION['santos']) {
@@ -68,14 +68,14 @@ class filasController extends Controller
 
         $quantidade = count($atualizarUsuario);
         
-        if ($atualizarUsuario != null) {
+        if ($atualizarUsuario) {
             $estanafila = DB::table('users')
                                 ->select('cd_fila_usuario')
                                 ->where('email', $email)
                                 ->value('cd_fila_usuario');
             //Verifica se o usuário ja está na fila.
             
-            if($estanafila == null)
+            if(!$estanafila)
             {
                 // Faz atualização do campo cd_fila_usuario, para dizer sua posição na fila
                 DB::table('users')
@@ -224,26 +224,9 @@ class filasController extends Controller
 
     public function exibirFila($nomeSala, $id, $usuario)
     {
-        /*
-        $filaSantos = DB::table('users')
-                        ->select('name', 'cd_fila_usuario',  'profile_photo_path')
-                        ->where('cd_sala_santos', $id)
-                        ->orderBy('cd_fila_usuario')
-                        ->get();
-
-        $filaSaoPaulo = DB::table('users')
-                        ->select('name', 'cd_fila_usuario',  'profile_photo_path')
-                        ->where('cd_sala_sao_paulo', $id)
-                        ->orderBy('cd_fila_usuario')
-                        ->get();
-
-        return view('salas/filaSala', 
-            ['filaSantos' => $filaSantos, 
-            'filaSaoPaulo' => $filaSaoPaulo, 
-            'salaId' => $id,
-            'nmSala' => $nomeSala,
-            'dadosUsuario'=> $usuario]);
-        */
+        
+        if (!Auth::user())
+            return view('auth/login');
 
         return view('salas/filaSala', ['salaId' => $id]);
     }

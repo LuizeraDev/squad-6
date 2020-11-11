@@ -31,7 +31,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/unidade', function(){
 	if (Auth::user() == null)
             return view('auth/login');
-        
+
 	return view('salas/unidade');
 });
 
