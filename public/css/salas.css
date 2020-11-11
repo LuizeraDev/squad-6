@@ -2,152 +2,116 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
+    
+}
+
+
+/* -----------SETUP GRID---------------*/
+
+html {
+
+    box-sizing: border-box; 
+
+}
+
+
+*,
+*::before,
+*::after {
+
+    box-sizing: inherit;
+
 }
 
 .grid {
 
-    height: 100%;
     width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: center;
+}
 
-    display: grid;
-    grid-template-columns: 10vw 80vw 10vw;
-    grid-template-rows: 10rem repeat(4, 1fr);
+.grid::before,
+.grid::after,
+.row::before,
+.row::after {
+
+    content: "";
+    display: table;
+
+}
+
+.grid::after,
+.row::after {
+
+    clear: both; /*impede que as colunas ou linhas sobreponham umas as outras */
+}
+
+[class*='col-']{ /* seletor css para qualquer classe que tenha col- no nome*/
+
+    width: 100%;
+    float: left;
+    min-height: 1px;
+   
+
+}
+
+
+@media screen and (min-width:320px){ /* telas mobile */
+
+    .col-mb-1 { width: 8.33333%; } /* width da grid dividido pelo numero de colunas da grid multiplicado pelo número da coluna ( W/C*nC ) */
+    .col-mb-2 { width: 16.66667%; }
+    .col-mb-3 { width: 25%; }
+    .col-mb-4 { width: 33.33333%; }
+    .col-mb-5 { width: 41.66667%; }
+    .col-mb-6 { width: 50%; }
+    .col-mb-7 { width: 58.33333%; }
+    .col-mb-8 { width: 66.66667%; }
+    .col-mb-9 { width: 75%; }
+    .col-mb-0 { width: 83.33333%; }
+    .col-mb-11 { width: 91.66667%; }
+    .col-mb-12 { width: 100%; }
     
-  
 }
 
-.logo{
+@media screen and (min-width:640px){ /*telas pc/tablet */
 
-    margin: auto;
-    grid-column: 1/4;
-    grid-row: 1;
-    height: auto;
+    .col-wd-1 { width: 8.33333%; } /* width da grid dividido pelo numero de colunas da grid multiplicado pelo número da coluna ( W/C*nC ) */
+    .col-wd-2 { width: 16.66667%; }
+    .col-wd-3 { width: 25%; }
+    .col-wd-4 { width: 33.33333%; }
+    .col-wd-5 { width: 41.66667%; }
+    .col-wd-6 { width: 50%; }
+    .col-wd-7 { width: 58.33333%; }
+    .col-wd-8 { width: 66.66667%; }
+    .col-wd-9 { width: 75%; }
+    .col-wd-0 { width: 83.33333%; }
+    .col-wd-11 { width: 91.66667%; }
+    .col-wd-12 { width: 100%; }
+    
 }
 
-.menu {
+/* ========= css pag salas ========== */
 
-    grid-row: 2/auto;
-    grid-column: 2/3;
-    margin: 0 20vw;
-    background-color: rgb(216, 213, 213);
-    max-height: rem;
-    min-height: 20rem;
-    min-width: 700px;
-    max-width: 60vw;
+.logo {
 
-    border-radius: 40px;
-    border: 3px solid rgb(165, 165, 165);
-
-    display: grid;
-    grid-template-columns: 0.3fr 1fr 1fr 1fr 0.3fr;
-    grid-template-rows: auto;
-
-}
-
-.titleWrapper {
-
-    grid-row: 1;
-    grid-column: 1/6;
     text-align: center;
-    line-height: 100%;
-    margin: auto;
+    line-height: 10vh;
+    height: 20vh;
+    padding: 5vh 20vw;
+    min-width: 150px;
+    margin: 0 auto;
 
 }
 
 .option {
 
-    grid-column: span 1fr;
-    grid-row: span 1fr;
-    border: 3px solid white;
-    background-color: ghostwhite;
-    max-height: 16rem;
-    width: 17rem;
-    border-radius: 15px;
-    text-align: center;
-    cursor: pointer;
-
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 2rem 10rem 2rem;
-    
-}
-
-
-.nomeSala {
-    height: 2rem;
-    grid-row: 1;
-    line-height: 2rem;
-
-}
-
-.fotoSala {
-
-    height: 10rem;
-    object-fit: cover;
-    grid-row: 2;
-
-}
-
-.buttons{
-
-    height: 2rem;
-    grid-row: 3;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-.buttonEnter{
-
-    grid-row: 1;
-    grid-column: 1/2;
-
-}
-
-.buttonDelRoom {
-
+    background-color: gainsboro;
     height: 4rem;
-    grid-column: 2/3;
-    grid-row: 1;
+    width: 4rem;
 }
 
-.button {
+#conteudo {
 
-    grid-column: 2/3;
-    width: 7rem;
-    height: 2rem;
-    line-height: 2rem;/* mesmo tamanho do height max para alinhas no centro verticalmente*/
-    grid-row: 4;
-    margin: auto;
-    text-align: center;
-
-    outline: none;
-    border: none;
-    border-radius: 10px;
-    background-color: ghostwhite;
-  
-
+    height: 500px;
 }
-
-.buttonVoltar {
-
-    grid-column: 4/5;
-    width: 7rem;
-    height: 2rem;
-    line-height: 2rem;/* mesmo tamanho do height max para alinhas no centro verticalmente*/
-    grid-row: 4;
-    margin: auto;
-    text-align: center;
-
-    outline: none;
-    border: none;
-    border-radius: 10px;
-    background-color: ghostwhite;
-  
-
-}
-
-
-
-
-
-

@@ -25,49 +25,6 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
     <h3>Você esta conéctado a unidade de Santos</h3>
     @else
     <h3>Você esta conéctado a unidade de São Paulo</h3>
-<<<<<<< HEAD
-@endif
-
-<div id="conteudo"></div>
-
-<br><br>
-<a href="unidade">Voltar a escolha da unidade</a>
-
-<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-
-<script>
-// Função responsável por atualizar as salas
-function atualizarSalas()
-{
-    var conteudo_salas = document.all['conteudo'];
-    conteudo_salas.innerHTML="";
-    $.get("{{ route('salasConteudo') }}", function (dadosSalas) {
-        for (i = 0; i < dadosSalas.length; i++)
-        {
-            conteudo_salas.innerHTML += 
-            "<p> Nome da sala: <b>" + dadosSalas[i].nm_sala + "</b></p>" +
-            "<img src='{{ $url }}" + dadosSalas[i].img_sala + "'" +"<br><br><br>" +
-            "<a href='salas/sala/" + dadosSalas[i].nm_sala +"/" +  dadosSalas[i]. 
-            <?php if ($_SESSION["santos"]) { echo  "cd_sala_santos"; } else { echo "cd_sala_sao_paulo"; }  ?> 
-            + "'>Entrar na Sala</a>"+
-            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
-            "<a href='salas/sala/"+ dadosSalas[i].nm_sala +"/excluir/" +  dadosSalas[i].cd_sala_santos +"'>Excluir Sala</a>";
-        }
-    }), 'JSON';
-}
-// Definindo intervalo que a função será chamada no caso 10 em 10 segundos
-setInterval("atualizarSalas()", 10000);
-// Quando carregar a página
-$(function() {
-    // Faz a primeira atualização
-    atualizarSalas();
-});
-</script>
-
-</body>
-</html>
-
-=======
     @endif
 
     <div id="conteudo"></div>
@@ -95,9 +52,7 @@ $(function() {
                 {   
                     conteudo_salas.innerHTML +=
                         "<p> Nome da sala: <b>" + dadosSalas.sala[i].nm_sala + "</b></p>";
-
                         $contador = 0;
-
                      // Conta a quantidade de pessoas em uma determinada sala.
                     for(c = 0; c < dadosSalas.qt_usuarios.length; c++){
                         
@@ -106,26 +61,20 @@ $(function() {
                             $contador += 1;
                         } 
                     }
-
                     conteudo_salas.innerHTML +=
                                     "<p> Usuários na sala: <b>" + $contador + "</b></p>";
-
                     conteudo_salas.innerHTML += "<img src='{{ $url }}" + dadosSalas.sala[i].img_sala + "' width=200>" + "<br>" +
                             "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + "/" +  
-
                         <?php if ($_SESSION["santos"]) { echo  "dadosSalas.sala[i].cd_sala_santos"; } 
                         else { echo "dadosSalas.sala[i].cd_sala_sao_paulo"; }  ?>
-
                         + "'>Entrar na Sala</a>" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
                         "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + 
                         "/excluir/" + dadosSalas.sala[i].cd_sala_santos + "'>Excluir Sala</a>";
                 }
             }), 'JSON';
         }
-
         // Definindo intervalo que a função será chamada no caso 10 em 10 segundos
         setInterval("atualizarSalas()", 10000);
-
         // Quando carregar a página
         $(function () {
             // Faz a primeira atualização
@@ -136,4 +85,3 @@ $(function() {
 </body>
 
 </html>
->>>>>>> 533e499fec653b360ca57b8d0f77457f23d19c19
