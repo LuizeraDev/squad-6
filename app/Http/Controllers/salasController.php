@@ -36,8 +36,14 @@ class salasController extends Controller
             session_destroy();
         } else {
             session_start();
+            $email = $_SESSION['usuario'];
             $_SESSION['santos'] = true;
             $_SESSION['saopaulo'] = false;
+
+            // Atualiza status do usuário logado para online, e a unidade do usuário para santos
+            DB::table('users')
+                    ->where('email', $email)
+                    ->update(['status' => 'online', 'unidade' => 'santos']);
         }
 
         return redirect()->route('salas');
@@ -52,8 +58,14 @@ class salasController extends Controller
             session_destroy();
         } else {
             session_start();
+            $email = $_SESSION['usuario'];
             $_SESSION['santos'] = false;
             $_SESSION['saopaulo'] = true;
+
+            // Atualiza status do usuário logado para online, e a unidade do usuário para santos
+            DB::table('users')
+                    ->where('email', $email)
+                    ->update(['status' => 'online', 'unidade' => 'sao_paulo']);
         }
 
         return redirect()->route('salas');
@@ -70,7 +82,6 @@ class salasController extends Controller
             'nomeSala' => 'alpha_dash'
         ]);
 
-        
         $nome = $request->input('nomeSala');
 
         if (!$nome) {
@@ -227,13 +238,6 @@ class salasController extends Controller
     {
         session_start();
 
-        $email = $_SESSION['usuario'];
-
-        // Atualiza status do usuário logado para online
-        DB::table('users')
-                ->where('email', $email)
-                ->update(['status' => 'online']);
-
         if ($_SESSION['santos']) {
             $dadosSala = DB::table('tb_sala_santos')
                             ->select('cd_sala_santos', 'nm_sala',  'img_sala')
@@ -246,7 +250,7 @@ class salasController extends Controller
 
             $usuarios = DB::table('users')
                             ->leftJoin('tb_sala_santos', 'users.cd_sala_santos', '=', 'tb_sala_santos.cd_sala_santos')
-                            ->select('users.name', 'users.status', 'tb_sala_santos.nm_sala')
+                            ->select('users.name', 'users.status', 'users.unidade', 'tb_sala_santos.nm_sala')
                             ->orderBy('users.status')
                             ->get();
 
@@ -262,7 +266,7 @@ class salasController extends Controller
 
             $usuarios = DB::table('users')
                             ->leftJoin('tb_sala_sao_paulo', 'users.cd_sala_sao_paulo', '=', 'tb_sala_sao_paulo.cd_sala_sao_paulo')
-                            ->select('users.name', 'users.status', 'tb_sala_sao_paulo.nm_sala')
+                            ->select('users.name', 'users.status', 'users.unidade', 'tb_sala_sao_paulo.nm_sala')
                             ->orderBy('users.status')
                             ->get();
         }
