@@ -12,31 +12,35 @@
 <body>
 
 <div class="grid">
+    <div class="row">
 
-    <div class="logo">
-        <h1>LOGO</h1>
+        <div class="logo">
+            <h1>LOGO</h1>
+        </div>
+
+
+            <!-- No php, pegamos dados através do campo "name" dos inputs -->
+         
+                <div class="col-6">
+                    <div class="option">
+                        <a href="/unidade/santos">Santos</a> 
+                    </div>
+                </div>
+                
+                <div class="col-6">
+                    <div class="option">
+                        <a href="/unidade/saopaulo">São Paulo</a>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="button">
+                        <a href="dashboard">Sair</a>
+                    </div>
+                </div>
+            </div>
+
     </div>
-
-
-        <!-- No php, pegamos dados através do campo "name" dos inputs -->
-        <div class="menu" >
-
-        <div class="titleWrapper">
-            <p>Escolha a unidade em que você está</p>
-        </div>
-
-            <div class="option">
-                <a href="/unidade/santos">Santos</a> 
-            </div>
-            
-            <div class="option">
-                <a href="/unidade/saopaulo">São Paulo</a>
-            </div>
-
-            <div class="button">
-                <a href="dashboard">Sair</a>
-            </div>
-        </div>
 </div>
 </body>
 </html>

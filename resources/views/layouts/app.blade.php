@@ -12,7 +12,7 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
-
+    
         @livewireStyles
 
         <!-- Scripts -->

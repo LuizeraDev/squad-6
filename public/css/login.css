@@ -127,7 +127,8 @@ html {
 }
 
 .email input,
-.password input{
+.password input,
+.name input {
 
     min-width: 200px;
     width: 50%;
@@ -163,9 +164,8 @@ html {
 .button {
 
     margin-top: 2rem;
-    width: 30%;
+    width: 7rem;
     height: 2rem;
-    grid-row: 5;
     outline: none;
     border: none;
     border-radius: 10px;
