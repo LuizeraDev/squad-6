@@ -236,7 +236,7 @@ class salasController extends Controller
             
             $qt_usuarios = DB::table('users')
                                 ->join('tb_sala_santos', 'tb_sala_santos.cd_sala_santos', '=', 'users.cd_sala_santos')
-                                ->select('tb_sala_santos.nm_sala','users.cd_fila_usuario')
+                                ->select('tb_sala_santos.nm_sala')
                                 ->get();
 
             $usuarios = DB::table('users')
@@ -252,7 +252,7 @@ class salasController extends Controller
 
             $qt_usuarios = DB::table('users')
                             ->join('tb_sala_sao_paulo', 'tb_sala_sao_paulo.cd_sala_sao_paulo', '=', 'users.cd_sala_sao_paulo')
-                            ->select('tb_sala_sao_paulo.nm_sala','users.cd_fila_usuario')
+                            ->select('tb_sala_sao_paulo.nm_sala')
                             ->get(); 
 
             $usuarios = DB::table('users')
