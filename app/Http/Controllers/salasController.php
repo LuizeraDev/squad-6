@@ -25,10 +25,8 @@ use Illuminate\Validation\Rule;
 // Permite verificar se usuário está logado.
 use Illuminate\Support\Facades\Auth;
 
-
 class salasController extends Controller
 {
-    
     public function salaSantos()
     {
         if (!Auth::user())
@@ -205,11 +203,14 @@ class salasController extends Controller
                 ->update(['status' => 'online']);
 
         if ($_SESSION['santos']) {
-            $dadosSantos = DB::table('tb_sala_santos')
+            $dadosSala = DB::table('tb_sala_santos')
                             ->select('cd_sala_santos', 'nm_sala',  'img_sala')
                             ->get();
-
-            $dadosSala = $dadosSantos;
+            
+            $qt_usuarios = DB::table('users')
+                                ->join('tb_sala_santos', 'tb_sala_santos.cd_sala_santos', '=', 'users.cd_sala_santos')
+                                ->select('tb_sala_santos.nm_sala','users.cd_fila_usuario')
+                                ->get();
 
             $usuarios = DB::table('users')
                             ->leftJoin('tb_sala_santos', 'users.cd_sala_santos', '=', 'tb_sala_santos.cd_sala_santos')
@@ -218,11 +219,9 @@ class salasController extends Controller
                             ->get();
 
         } else { 
-            $dadosSaoPaulo = DB::table('tb_sala_sao_paulo')
+            $dadosSala = DB::table('tb_sala_sao_paulo')
                             ->select('cd_sala_sao_paulo', 'nm_sala',  'img_sala')
                             ->get();
-            
-            $dadosSala = $dadosSaoPaulo;
 
             $usuarios = DB::table('users')
                             ->leftJoin('tb_sala_sao_paulo', 'users.cd_sala_sao_paulo', '=', 'tb_sala_sao_paulo.cd_sala_sao_paulo')
@@ -231,6 +230,6 @@ class salasController extends Controller
                             ->get();
         }
 
-        return response()->json(["sala" => $dadosSala, "usuarios" => $usuarios]);
+        return response()->json(["sala" => $dadosSala, "usuarios" => $usuarios, "qt_usuarios" => $qt_usuarios]);
     }
 } // Fim da class

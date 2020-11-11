@@ -41,6 +41,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
             var conteudo_salas = document.all['conteudo'];
             conteudo_salas.innerHTML = "";
             $.get("{{ route('salasConteudo') }}", function (dadosSalas) {
+                console.log(dadosSalas.qt_usuarios);
                 // Exibe informações sobre os usuários cadastrados / online / ausente / offline, sala em que está
                 for (i = 0; i < dadosSalas.usuarios.length; i++) 
                 { 
@@ -48,16 +49,33 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                 }
                
                 for (i = 0; i < dadosSalas.sala.length; i++) 
-                {
+                {   
                     conteudo_salas.innerHTML +=
-                        "<p> Nome da sala: <b>" + dadosSalas.sala[i].nm_sala + "</b></p>" +
-                            "<img src='{{ $url }}" + dadosSalas.sala[i].img_sala + "' width=200>" + "<br>" +
+                        "<p> Nome da sala: <b>" + dadosSalas.sala[i].nm_sala + "</b></p>";
+
+                    /* Exibe a quantidade de pessoas em determinada sala.
+                    for(c = 0; c < dadosSalas.qt_usuarios.length; c++){
+                        if (dadosSalas.sala[i].nm_sala == dadosSalas.qt_usuarios[c].nm_sala) {
+                                conteudo_salas.innerHTML =
+                                "<p> Nome da sala: <b>" + dadosSalas.sala[i].nm_sala + "</b></p>";
+                                conteudo_salas.innerHTML +=
+                                    "<p> Usuários na sala: <b>" + dadosSalas.qt_usuarios.length + "</b></p>";
+                        } else {
+                            conteudo_salas.innerHTML += "<p> Usuários na sala: <b> 0 </b></p>";   
+                        }
+                    }
+                    */
+                
+
+                    conteudo_salas.innerHTML += "<img src='{{ $url }}" + dadosSalas.sala[i].img_sala + "' width=200>" + "<br>" +
                             "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + "/" +  
+
                         <?php if ($_SESSION["santos"]) { echo  "dadosSalas.sala[i].cd_sala_santos"; } 
                         else { echo "dadosSalas.sala[i].cd_sala_sao_paulo"; }  ?>
-                        + "'>Entrar na Sala</a>" +
-                        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-                        "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + "/excluir/" + dadosSalas.sala[i].cd_sala_santos + "'>Excluir Sala</a>";
+
+                        + "'>Entrar na Sala</a>" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                        "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + 
+                        "/excluir/" + dadosSalas.sala[i].cd_sala_santos + "'>Excluir Sala</a>";
                 }
             }), 'JSON';
         }
