@@ -155,29 +155,56 @@ class salasController extends Controller
             return view('auth/login');
 
         if ($_SESSION['santos']) {
-            $img = DB::table('tb_sala_santos')
-                             ->select('img_sala')
-                             ->where('cd_sala_santos', '=', $id)
-                             ->pluck('img_sala');
-        
-            // Deleta a imagem do Storage
-            Storage::delete($img[0]);
+            $usuarios_na_sala = DB::table('users')
+                                ->join('tb_sala_santos', 'tb_sala_santos.cd_sala_santos', '=', 'users.cd_sala_santos')
+                                ->select('tb_sala_santos.nm_sala','users.cd_fila_usuario')
+                                ->get(); 
 
-            DB::table('tb_sala_santos')
-                      ->where('cd_sala_santos', '=', $id)
-                      ->delete();
+            $pessoas_na_sala = count($usuarios_na_sala);
+
+            if ($pessoas_na_sala > 0) { 
+                $erro = "Não é possível excluir salas com usuários dentro.";
+                return view('salas/excluirSala', ['nomeSala' => $nomeSala, 'salaId' => $id ,'MsgErro' => $erro]);
+            } else {            
+                // Verifica o nome da foto no banco para ser deletada em seguida
+                $img = DB::table('tb_sala_santos')
+                                    ->select('img_sala')
+                                    ->where('cd_sala_santos', '=', $id)
+                                    ->pluck('img_sala');
+            
+                // Deleta a imagem do Storage
+                Storage::delete($img[0]);
+
+                DB::table('tb_sala_santos')
+                            ->where('cd_sala_santos', '=', $id)
+                            ->delete();
+            }
         } else {
-            $img = DB::table('tb_sala_sao_paulo')
-                        ->select('img_sala')
-                        ->where('cd_sala_sao_paulo', '=', $id)
-                        ->pluck('img_sala');
+            $usuarios_na_sala = DB::table('users')
+                                    ->join('tb_sala_sao_paulo', 'tb_sala_sao_paulo.cd_sala_sao_paulo', '=', 'users.cd_sala_sao_paulo')
+                                    ->select('tb_sala_sao_paulo.nm_sala','users.cd_fila_usuario')
+                                    ->get(); 
+            
+            $pessoas_na_sala = count($usuarios_na_sala);
 
-            // Deleta a imagem do Storage
-            Storage::delete($img[0]);
-
-            DB::table('tb_sala_sao_paulo')
+            if ($pessoas_na_sala > 0) { 
+                $erro = "Não é possível excluir salas que tenham pessoas dentro.";
+                return view('salas/excluirSala', ['nomeSala' => $nomeSala, 'salaId' => $id ,'MsgErro' => $erro]);
+            } else { 
+                     // Verifica o nome da foto no banco para ser deletada em seguida
+                    $img = DB::table('tb_sala_sao_paulo')
+                    ->select('img_sala')
                     ->where('cd_sala_sao_paulo', '=', $id)
-                    ->delete();
+                    ->pluck('img_sala');
+
+                    // Deleta a imagem do Storage
+                    Storage::delete($img[0]);
+
+                    DB::table('tb_sala_sao_paulo')
+                            ->where('cd_sala_sao_paulo', '=', $id)
+                            ->delete();
+            }
+       
         }
 
         return redirect()->route('salas');
