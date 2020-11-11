@@ -223,6 +223,11 @@ class salasController extends Controller
                             ->select('cd_sala_sao_paulo', 'nm_sala',  'img_sala')
                             ->get();
 
+            $qt_usuarios = DB::table('users')
+                            ->join('tb_sala_sao_paulo', 'tb_sala_sao_paulo.cd_sala_sao_paulo', '=', 'users.cd_sala_sao_paulo')
+                            ->select('tb_sala_sao_paulo.nm_sala','users.cd_fila_usuario')
+                            ->get(); 
+
             $usuarios = DB::table('users')
                             ->leftJoin('tb_sala_sao_paulo', 'users.cd_sala_sao_paulo', '=', 'tb_sala_sao_paulo.cd_sala_sao_paulo')
                             ->select('users.name', 'users.status', 'tb_sala_sao_paulo.nm_sala')
