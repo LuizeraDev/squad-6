@@ -43,6 +43,17 @@
 		<p>Erro {{$MsgErroFile}}</p>
 		@endif
 
+
+		<!-- Jquery necessário para validação do campo -->
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.js"></script>
+
+		<script>
+			// Troca o valor da barra de espaço por um underline
+			$('input').on("input", function(e) {
+				$(this).val($(this).val().replace(" ", "_"));
+			});
+		</script>
+
 		<a href="salas">Voltar as salas</a>
 	</form>
 </body>
