@@ -19,6 +19,9 @@ use Illuminate\Routing\Redirector;
 // Permite deletar imagens do storage
 use Illuminate\Support\Facades\Storage;
 
+// Permite validar imagens e outras coisas
+use Illuminate\Validation\Rule;
+
 
 class salasController extends Controller
 {
@@ -53,6 +56,11 @@ class salasController extends Controller
         session_start();
 
         $nome = $request->input('nomeSala');
+
+        if (!$nome) {
+            $erroNomeVazio = "Você não botou nenhum nome para a sala";
+            return view('salas/criarSala', ['nome_vazio' => $erroNomeVazio]);
+        }
         
         if ($request->file('ImagemSala')) 
             $img = $request->file('ImagemSala')->store('img_sala');
@@ -66,7 +74,7 @@ class salasController extends Controller
                                 ->where('nm_sala', '=',$nome)
                                 ->pluck('nm_sala');
 
-            // Se a variável com o nome da sala já existe
+            // Validações
             if (isset($nomesalaSantos[0]) && !$request->file('ImagemSala')) {
                 $erro = "Já existe uma sala com este nome em Santos...";
                 $erroFoto = "Você não anexou nenhuma foto para a sala...";

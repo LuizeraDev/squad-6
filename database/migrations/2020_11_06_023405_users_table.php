@@ -22,7 +22,6 @@ class UsersTable extends Migration
             $table->string('status')->nullable();
             $table->integer('report')->nullable();
             $table->rememberToken();
-            $table->foreignId('current_team_id')->nullable();
             $table->text('profile_photo_path')->nullable();
             $table->integer('cd_fila_usuario')->nullable();
             $table->integer('cd_sala_santos')->unsigned()->nullable();
