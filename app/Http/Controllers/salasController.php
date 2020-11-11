@@ -22,11 +22,18 @@ use Illuminate\Support\Facades\Storage;
 // Permite validar imagens e outras coisas
 use Illuminate\Validation\Rule;
 
+// Permite verificar se usuário está logado.
+use Illuminate\Support\Facades\Auth;
+
 
 class salasController extends Controller
 {
+    
     public function salaSantos()
     {
+        if (!Auth::user())
+            return view('auth/login');
+
         if (isset($_SESSION)) {
             session_destroy();
         } else {
@@ -40,6 +47,9 @@ class salasController extends Controller
 
     public function salasaoPaulo()
     {
+        if (!Auth::user())
+            return view('auth/login');
+
         if (isset($_SESSION)) {
             session_destroy();
         } else {
@@ -54,6 +64,9 @@ class salasController extends Controller
     public function cadastrarSala(Request $request)
     {
         session_start();
+
+        if (!Auth::user())
+            return view('auth/login');
 
         $nome = $request->input('nomeSala');
 
@@ -132,6 +145,9 @@ class salasController extends Controller
     {
         session_start();
 
+        if (!Auth::user())
+            return view('auth/login');
+
         if ($_SESSION['santos']) {
             $img = DB::table('tb_sala_santos')
                              ->select('img_sala')
@@ -163,6 +179,9 @@ class salasController extends Controller
 
     public function exibirSalas()
     {
+        if (!Auth::user())
+            return view('auth/login');
+        
         return view('salas/salas');
     }
 
