@@ -71,7 +71,7 @@ class salasController extends Controller
         $nome = $request->input('nomeSala');
         $extensao =  $request->file('ImagemSala')->extension();
         
-        if ($extensao != "jpg" && $extensao != "png") {
+        if ($extensao != "jpg" && $extensao != "png" && $extensao != "jpeg") {
             $erroFile = "Você deve anexar um arquivo jpg ou png.";
             return view('salas/criarSala', ['MsgErroFile' => $erroFile]);
         }
