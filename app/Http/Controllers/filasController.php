@@ -234,7 +234,7 @@ class filasController extends Controller
     public function filaAssincrona() 
     {
         session_start();
-
+        $sala_id = $_SESSION['cd_sala'];
         $email = $_SESSION['usuario'];
 
         if ($_SESSION['santos']) {
@@ -246,10 +246,8 @@ class filasController extends Controller
                                 ->get();
 
             $dadosFila =  DB::table('users')
-                            ->join('tb_sala_santos', 'users.cd_sala_santos', '=', 'tb_sala_santos.cd_sala_santos')
-                            ->select('users.name', 'users.status', 
-                            'users.profile_photo_path', 'users.cd_fila_usuario', 
-                            'tb_sala_santos.cd_sala_santos', 'tb_sala_santos.nm_sala')
+                            ->select('users.*')
+                            ->where('cd_sala_santos', $sala_id)
                             ->orderBy('cd_fila_usuario')
                             ->get();
         } else {
@@ -261,12 +259,10 @@ class filasController extends Controller
                                 ->get();
 
             $dadosFila =  DB::table('users')
-                            ->join('tb_sala_sao_paulo', 'users.cd_sala_sao_paulo', '=', 'tb_sala_sao_paulo.cd_sala_sao_paulo')
-                            ->select('users.name', 'users.status', 
-                            'users.profile_photo_path', 'users.cd_fila_usuario', 
-                            'tb_sala_sao_paulo.cd_sala_sao_paulo', 'tb_sala_sao_paulo.nm_sala')
-                            ->orderBy('cd_fila_usuario')
-                            ->get();
+                                ->select('users.*')
+                                ->where('cd_sala_sao_paulo', $sala_id)
+                                ->orderBy('cd_fila_usuario')
+                                ->get();
         }
 
         return response()->json(["dadosUsuario" => $dadosUsuario, "dadosFila" => $dadosFila]);

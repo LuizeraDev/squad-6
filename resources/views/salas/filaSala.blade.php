@@ -1,5 +1,6 @@
 <?php 
 $url='http://localhost:8080/squad-6/storage/app/public/';
+$_SESSION['cd_sala'] = $salaId;
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
