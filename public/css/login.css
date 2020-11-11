@@ -2,120 +2,166 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
-    color: black;
-}
-
-
-.gridLogin {
-
-    height: 100vh;
-    width: 100vw;
-
-    display: grid;
-    grid-template-columns: 20vw 60vw 20vw;
-    grid-template-rows: auto;
-    
-  
-}
-
-
-.logo {
-
-    margin: auto;
-    grid-column: 1/4;
-    grid-row: 1;
-}
-
-.mb-4 { /*mensagem de erro (ainda falta arrumar)*/
-
-    grid-column: 2/3;
-    font-weight: bold;
-    text-align: center;
-    margin: auto;
-    background-color: rgb(255, 188, 188);
-    color: white;
-}
-
-.formContainer {
-
-    grid-column: 2/3;
-    
-    margin: 0 auto;
-    background-color: rgb(216, 213, 213);
-    height: 40vh;
-    min-width: 30vw;
-    max-width: 60vw;
-
-    border-radius: 40px;
-    border: 3px solid rgb(165, 165, 165);
-
-    display: grid;
-    grid-template-columns: 0.3fr 1fr 0.3fr;
-    grid-template-rows: auto;
-  
-}
-
-
-.formWrapper{
-
-    margin: auto;
-    grid-column: 2/3;
-    grid-row: 1/2;
-  
-    height: auto;
-    width: 80% ;
-
     
 }
 
-.formWrapper div {
+
+/* -----------SETUP GRID---------------*/
+
+html {
+
+    box-sizing: border-box; 
+
+}
+
+
+*,
+*::before,
+*::after {
+
+    box-sizing: inherit;
+
+}
+
+.grid {
 
     width: 100%;
-    height: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: center;
+}
 
-    margin: 1em auto;
+.grid::before,
+.grid::after,
+.row::before,
+.row::after {
+
+    content: "";
+    display: table;
 
 }
 
+.grid::after,
+.row::after {
+
+    clear: both; /*impede que as colunas ou linhas sobreponham umas as outras */
+}
+
+[class*='col-']{ /* seletor css para qualquer classe que tenha col- no nome*/
+
+    width: 100%;
+    float: left;
+    min-height: 1px;
+   
+
+}
+
+
+@media screen and (min-width:320px){ /* telas mobile */
+
+    .col-mb-1 { width: 8.33333%; } /* width da grid dividido pelo numero de colunas da grid multiplicado pelo número da coluna ( W/C*nC ) */
+    .col-mb-2 { width: 16.66667%; }
+    .col-mb-3 { width: 25%; }
+    .col-mb-4 { width: 33.33333%; }
+    .col-mb-5 { width: 41.66667%; }
+    .col-mb-6 { width: 50%; }
+    .col-mb-7 { width: 58.33333%; }
+    .col-mb-8 { width: 66.66667%; }
+    .col-mb-9 { width: 75%; }
+    .col-mb-0 { width: 83.33333%; }
+    .col-mb-11 { width: 91.66667%; }
+    .col-mb-12 { width: 100%; }
+    
+}
+
+@media screen and (min-width:640px){ /*telas pc/tablet */
+
+    .col-wd-1 { width: 8.33333%; } /* width da grid dividido pelo numero de colunas da grid multiplicado pelo número da coluna ( W/C*nC ) */
+    .col-wd-2 { width: 16.66667%; }
+    .col-wd-3 { width: 25%; }
+    .col-wd-4 { width: 33.33333%; }
+    .col-wd-5 { width: 41.66667%; }
+    .col-wd-6 { width: 50%; }
+    .col-wd-7 { width: 58.33333%; }
+    .col-wd-8 { width: 66.66667%; }
+    .col-wd-9 { width: 75%; }
+    .col-wd-0 { width: 83.33333%; }
+    .col-wd-11 { width: 91.66667%; }
+    .col-wd-12 { width: 100%; }
+    
+}
+
+/* ----------- CSS PÁG LOGIN -------------*/
+.logo {
+
+    text-align: center;
+    line-height: 10vh;
+    height: 20vh;
+    padding: 5vh 20vw;
+    min-width: 150px;
+    margin: 0 auto;
+
+}
+
+.formWrapper {
+
+   
+    padding: 0 10vw;
+    text-align: center;
+    height: 400px;
+}
+
+.formWrapper form {
+   
+    background-color: gainsboro;
+    min-width: 300px;
+    max-width: 100%;
+    min-height: 400px;
+    max-height: auto;
+    padding: 3rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    border-radius: 20px;
+    
+}
+
+.email input,
+.password input{
+
+    min-width: 200px;
+    width: 50%;
+}
 
 .formWrapper input {
 
+    margin-top: 1rem;
     height: 2rem;
-    width: 100%;
     text-align: center;
     border: none;
     outline: none;
     border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    border-radius: 20px;
 
+}
+
+.remember_me {
+
+    margin-top: 2rem; 
+    text-align: center; 
 }
 
 .remember_me input {
-
-
-    width: 2rem;
-    grid-column: 2;
-   
+    max-width: 10px;
+    max-height: 19px;
+    margin: 0;
+    padding: 0;
+    
 }
-
-.remember_me label {
-
-    height: 100%;
-    line-height: 100%;
-    text-align: center;   
-       
-}
-
-.remember_me span {
-
-    display: inline-block;
-    vertical-align: middle;
- 
-}
-
 
 .button {
 
-    width: 100%;
+    margin-top: 2rem;
+    width: 30%;
     height: 2rem;
     grid-row: 5;
     outline: none;
@@ -125,43 +171,25 @@
 }
 
 .form_links {
-    grid-row: 6;
-
+    
+    margin-top: 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1;
+
+    text-align: center;
     
 }
 
 .register {
     grid-column: 1/2;
  
-    width: 50%;
-    text-align: left;
+    text-align: center;
 }
 
 .forgot_pw {
     
     grid-column: 2/3;
-    
-    width: 50%;
-    text-align: right;
-}
-
-.buttonVoltar {
-
-    grid-column: 3;
-    width: 7rem;
-    height: 2rem;
-    line-height: 2rem;/* mesmo tamanho do height max para alinhas no centro verticalmente*/
-    grid-row: 4;
-    margin: auto;
-    text-align: center;
-
-    outline: none;
-    border: none;
-    border-radius: 10px;
-    background-color: ghostwhite;
   
-
+    text-align: center;
 }
+

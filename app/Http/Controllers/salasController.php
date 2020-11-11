@@ -109,7 +109,7 @@ class salasController extends Controller
                 $erroFoto = "Você não anexou nenhuma foto para a sala...";
                 return view('salas/criarSala', ['MsgErroFoto' => $erroFoto]);
 
-            }  else { 
+            } else { 
                 DB::table('tb_sala_sao_paulo')->insert(
                     [ 'nm_sala' => $nome ,'img_sala' => $img]);
                 
@@ -155,14 +155,27 @@ class salasController extends Controller
 
     public function exibirSalas()
     {
-        $dadosSantos = DB::table('tb_sala_santos')
-                         ->select('cd_sala_santos', 'nm_sala',  'img_sala')
-                         ->get();
+        return view('salas/salas');
+    }
 
-        $dadosSaoPaulo = DB::table('tb_sala_sao_paulo')
-                           ->select('cd_sala_sao_paulo', 'nm_sala',  'img_sala')
-                           ->get();
+    public function salasAssincronas()
+    {
+        session_start();
 
-        return view('salas/salas', ['dadosSantos' => $dadosSantos, 'dadosSaoPaulo' => $dadosSaoPaulo]);
+        if ($_SESSION['santos']) {
+            $dadosSantos = DB::table('tb_sala_santos')
+                            ->select('cd_sala_santos', 'nm_sala',  'img_sala')
+                            ->get();
+            $dadosSala = $dadosSantos;
+
+        } else { 
+            $dadosSaoPaulo = DB::table('tb_sala_sao_paulo')
+                            ->select('cd_sala_sao_paulo', 'nm_sala',  'img_sala')
+                            ->get();
+            
+            $dadosSala = $dadosSaoPaulo;
+        }
+
+        return response()->json($dadosSala);
     }
 }

@@ -1,12 +1,17 @@
 <x-guest-layout>
 
-    <div class="gridLogin">
+    <div class="grid">
+        <div class="row">
 
-      <div class="logo">
-        <H1>LOGO</H1>
-      </div>
+        <div class="col-12">
+            <div class="logo">
+                <H1>LOGO</H1>
+            </div>
+        </div>
 
-        <x-jet-validation-errors class="mb-4" />
+        <div class="col-12">
+            <x-jet-validation-errors class="mb-4" />
+        
 
         @if (session('status'))
             <div class="mb-4 font-medium text-sm text-green-600">
@@ -14,7 +19,9 @@
             </div>
         @endif
 
-        <div class="formContainer">
+        </div>
+
+        <div class="col-12">
             
                 <section class="formWrapper">
 
@@ -23,20 +30,17 @@
 
                         <div class="email">
                             <label for="email" value="{{ __('Email') }}" />
-                            <input id="email" type="email" name="email" :value="old('email')" required autofocus />
+                            <input id="email" type="email" name="email" :value="old('email')" placeholder="e-mail" required autofocus />
                         </div>
 
                         <div class="password">
                             <label for="password" value="{{ __('Senha') }}" />
-                            <input id="password" type="password" name="password" required autocomplete="current-password" />
+                            <input id="password" type="password" name="password" required autocomplete="current-password" placeholder ="senha" />
                         </div>
 
                         <div class="remember_me">
-                            <label for="remember_me" >
-                                <input id="remember_me" type="checkbox"  name="remember"/>
-                                <span>{{ __('Lembre de mim') }}</span>
-                            </label>
-
+                            <input id="remember_me" type="checkbox"  name="remember"/>   
+                            <label for="remember_me" >{{ __('Lembre de mim') }}</label>                      
                         </div>
 
                         <button class="button">
@@ -64,6 +68,8 @@
 
                 </section>  
         </div>              
+
+        </div>
 
     </div>
     
