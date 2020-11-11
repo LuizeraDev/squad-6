@@ -69,21 +69,22 @@ class salasController extends Controller
             return view('auth/login');
 
         $nome = $request->input('nomeSala');
-        $extensao =  $request->file('ImagemSala')->extension();
-        
-        if ($extensao != "jpg" && $extensao != "png" && $extensao != "jpeg") {
-            $erroFile = "Você deve anexar um arquivo jpg ou png.";
-            return view('salas/criarSala', ['MsgErroFile' => $erroFile]);
-        }
-
 
         if (!$nome) {
             $erroNomeVazio = "Você não botou nenhum nome para a sala";
             return view('salas/criarSala', ['nome_vazio' => $erroNomeVazio]);
         }
         
-        if ($request->file('ImagemSala')) 
+        if ($request->file('ImagemSala')) {
             $img = $request->file('ImagemSala')->store('img_sala');
+           
+            $extensao = $request->file('ImagemSala')->extension();
+           
+            if ($extensao != "jpg" && $extensao != "png" && $extensao != "jpeg") {
+                $erroFile = "Você deve anexar um arquivo jpg ou png.";
+                return view('salas/criarSala', ['MsgErroFile' => $erroFile]);
+           }
+        }
         else 
             $erroFoto = "Você não anexou nenhuma foto para a sala...";
 
