@@ -20,6 +20,7 @@ class UsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('status')->nullable();
+            $table->string('unidade')->nullable();
             $table->integer('report')->nullable();
             $table->rememberToken();
             $table->text('profile_photo_path')->nullable();

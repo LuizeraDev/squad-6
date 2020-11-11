@@ -13,7 +13,7 @@
 	<form action='cadastrandosala' method="post" enctype="multipart/form-data">
 		@csrf
 		<p>Criar Sala</p>
-		<p>Nome: <input type="text" name="nomeSala"></p>
+		<p>Nome: <input type="text" id="nome" name="nomeSala"></p>
 		<p>Selecione uma Imagem </p>
 		<p><input type="file" name="ImagemSala"></p>
 		<p><input type="submit" value="Criar Sala"></p>
@@ -42,6 +42,17 @@
 		@if (isset($MsgErroFile))
 		<p>Erro {{$MsgErroFile}}</p>
 		@endif
+
+
+		<!-- Jquery necessário para validação do campo -->
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.js"></script>
+
+		<script>
+			// Troca o valor da barra de espaço por um underline
+			$('#nome').on("input", function(e) {
+				$(this).val($(this).val().replace(" ", "_"));
+			});
+		</script>
 
 		<a href="salas">Voltar as salas</a>
 	</form>
