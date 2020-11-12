@@ -33,6 +33,7 @@ $_SESSION['cd_sala'] = $salaId;
 
             <br><br>
             <div id="conteudo3"></div>
+            <div id="conteudo4"></div>
             <a href="{{$salaId}}/desistente">Desistir</a>
 
         </section>
@@ -61,8 +62,12 @@ $_SESSION['cd_sala'] = $salaId;
                     "E aew <b>" + dadosFila.dadosUsuario[i].name+"</b><br><br>" +
                     "Você está na fila da sala <b>" + dadosFila.dadosUsuario[i].nm_sala +"</b> " +
                     "e sua posição é <b>" + dadosFila.dadosUsuario[i].cd_fila_usuario;
+                    if(dadosFila.dadosFila[i + 1].report){
+                        alert("Você foi reportado!!");
+                    }
+                    
                 }
-
+                
                 if (dadosFila.dadosUsuario[0].cd_fila_usuario == 1) {
                     conteudo_vou_jogar.innerHTML = "<a href='{{$salaId}}/voujogar'>Vou Jogar</a><br><br>";
                 }
@@ -74,10 +79,27 @@ $_SESSION['cd_sala'] = $salaId;
                     if (dadosFila.dadosFila[i].profile_photo_path) {
                         conteudo_fila.innerHTML += "<img src='{{ $url }}" + dadosFila.dadosFila[i].profile_photo_path+"' width='40'> ";
                     }
+
+                    // Exibe o usuário
+
                     conteudo_fila.innerHTML += "Nome: <b>" + dadosFila.dadosFila[i].name+"</b> " +
                     "Posição na fila: <b>" + dadosFila.dadosFila[i].cd_fila_usuario +"</b> "+ 
-                    "Status usuário: <b>" + dadosFila.dadosFila[i].status + "</b><br><br>";
+                    "Status usuário: <b>" + dadosFila.dadosFila[i].status + "</b><a href='#"+i+"' onclick=reportar(this.href)> Reportar</a><br><br>";
+
                 }
+
+
+            }), 'JSON';
+
+        }
+        function reportar(pos){
+               $.get("{{ route('filaConteudo') }}", function (dadosFila){
+                // Pegar posição pelo href
+                tamanho = pos.substring(pos.indexOf("#") +1 );
+                id = dadosFila.dadosFila[tamanho].id;
+                url = this.locate
+                alert("Você está reportando " + dadosFila.dadosFila[tamanho].id);
+                window.location.href = "/reportar/"+ url + "/"+id;
 
             }), 'JSON';
         }

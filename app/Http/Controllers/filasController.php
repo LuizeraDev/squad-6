@@ -268,4 +268,16 @@ class filasController extends Controller
         return response()->json(["dadosUsuario" => $dadosUsuario, "dadosFila" => $dadosFila]);
     }
 
+    public function reportar($url,$id) 
+    {
+
+        // Atualizo a db para usuario que for reportado
+        DB::table('users')
+            ->where('users.id','=',$id)
+            ->update(['report' => true]);
+
+
+        return redirect()->route('salas');
+    }
+
 }

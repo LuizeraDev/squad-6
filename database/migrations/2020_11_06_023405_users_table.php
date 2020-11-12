@@ -21,7 +21,7 @@ class UsersTable extends Migration
             $table->string('password');
             $table->string('status')->nullable();
             $table->string('unidade')->nullable();
-            $table->integer('report')->nullable();
+            $table->boolean('report')->nullable();
             $table->rememberToken();
             $table->text('profile_photo_path')->nullable();
             $table->integer('cd_fila_usuario')->nullable();
