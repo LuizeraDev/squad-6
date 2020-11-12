@@ -78,3 +78,5 @@ Route::get('/salas/sala/{nomeSala}/{id}/desistente', [filasController::class, 'd
 
 Route::get('/salas/sala/{nomeSala}/{id}/voujogar', [filasController::class, 'vouJogarFila'])->name('voujogar');
 //------------------------------------------------------------------------------
+
+Route::get('/reportar/{url}/{id}', [filasController::class, 'reportar']);
