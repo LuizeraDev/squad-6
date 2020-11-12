@@ -75,16 +75,18 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                     }
 
                     // Exibe os dados numa div com id de conteudo
-                   $('#conteudo').append(
-                    "<p> Nome da sala: <b>" + dadosSalas.sala[i].nm_sala + "</b></p>" + 
-                    "<p> Usuários na sala: <b> " + contador +"</b></p>" +
-                    "<img src='{{ $url }}" + dadosSalas.sala[i].img_sala + "' width=200>" + "<br>" +
-                    "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + "/" +  
-                    <?php if ($_SESSION["santos"]) { echo  "dadosSalas.sala[i].cd_sala_santos"; } 
-                    else { echo "dadosSalas.sala[i].cd_sala_sao_paulo"; }  ?>
-                    + "'>Entrar na Sala</a>" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-                    "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + 
-                    "/excluir/" + dadosSalas.sala[i].cd_sala_santos + "'>Excluir Sala</a>");
+                    $('#conteudo').append(
+                        "<p> Nome da sala: <b>" + dadosSalas.sala[i].nm_sala + "</b></p>" + 
+                        "<p> Usuários na sala: <b> " + contador +"</b></p>" +
+                        "<img src='{{ $url }}" + dadosSalas.sala[i].img_sala + "' width=200>" + "<br>" +
+                        "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + "/" +  
+                        <?php if ($_SESSION["santos"]) { echo  "dadosSalas.sala[i].cd_sala_santos"; } 
+                        else { echo "dadosSalas.sala[i].cd_sala_sao_paulo"; }  ?>
+                        + "'>Entrar na Sala</a>" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                        "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + 
+                        "/excluir/" + dadosSalas.sala[i].cd_sala_santos + "'>Excluir Sala</a>"
+                    );
+                    
                 } // endfor
                 setTimeout("atualizarSalas()", 3000) // 3 segundos / Tempo de espera de atualização dos dados
             }) 
