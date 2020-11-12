@@ -33,55 +33,62 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
     <a href="unidade">Voltar a escolha da unidade</a>
 
     <!-- Este script é necessário para fazer a conexão assíncrona com o AJAX -->
-    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
     <script>
         // Função responsável por atualizar as salas
         function atualizarSalas() {
-            var conteudo_salas = document.all['conteudo'];
-            conteudo_salas.innerHTML = "";
-            $.get("{{ route('salasConteudo') }}", function (dadosSalas) {
-                console.log(dadosSalas.qt_usuarios);
-                // Exibe informações sobre os usuários cadastrados / online / ausente / offline, sala em que está
+            $.ajax({ 
+                url: "{{ route('salasConteudo') }}",
+                dataType: "json",
+                cache: false,
+            }).done(function (dadosSalas) {
+
+                // Limpa os dados anteriores para depos substituir pelos novos dados
+                $('#conteudo').html("");
+
+                /* 
+                * Exibe no console informações sobre os usuários cadastrados 
+                *  online / ausente / offline, sala em que está
+                */
+
                 for (i = 0; i < dadosSalas.usuarios.length; i++) 
                 { 
                     console.log(dadosSalas.usuarios[i]);
                 }
-               
+        
                 for (i = 0; i < dadosSalas.sala.length; i++) 
                 {   
-                    conteudo_salas.innerHTML +=
-                        "<p> Nome da sala: <b>" + dadosSalas.sala[i].nm_sala + "</b></p>";
+                    contador = 0;
 
-                        $contador = 0;
-
-                     // Conta a quantidade de pessoas em uma determinada sala.
+                    // Conta a quantidade de pessoas em uma determinada sala.
                     for(c = 0; c < dadosSalas.qt_usuarios.length; c++){
                         
-                        // Faz a verificação se o nome da sala é o mesmo do usuário.
+                        /*
+                        * Faz uma verificação se o nome da sala 
+                        * é o mesmo nome que a sala em que o usuário está.
+                        */ 
+
                         if (dadosSalas.sala[i].nm_sala == dadosSalas.qt_usuarios[c].nm_sala) {
-                            $contador += 1;
+                            contador += 1;
                         } 
                     }
 
-                    conteudo_salas.innerHTML +=
-                                    "<p> Usuários na sala: <b>" + $contador + "</b></p>";
-
-                    conteudo_salas.innerHTML += "<img src='{{ $url }}" + dadosSalas.sala[i].img_sala + "' width=200>" + "<br>" +
-                            "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + "/" +  
-
-                        <?php if ($_SESSION["santos"]) { echo  "dadosSalas.sala[i].cd_sala_santos"; } 
-                        else { echo "dadosSalas.sala[i].cd_sala_sao_paulo"; }  ?>
-
-                        + "'>Entrar na Sala</a>" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-                        "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + 
-                        "/excluir/" + dadosSalas.sala[i].cd_sala_santos + "'>Excluir Sala</a>";
-                }
-            }), 'JSON';
+                    // Exibe os dados numa div com id de conteudo
+                   $('#conteudo').append(
+                    "<p> Nome da sala: <b>" + dadosSalas.sala[i].nm_sala + "</b></p>" + 
+                    "<p> Usuários na sala: <b> " + contador +"</b></p>" +
+                    "<img src='{{ $url }}" + dadosSalas.sala[i].img_sala + "' width=200>" + "<br>" +
+                    "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + "/" +  
+                    <?php if ($_SESSION["santos"]) { echo  "dadosSalas.sala[i].cd_sala_santos"; } 
+                    else { echo "dadosSalas.sala[i].cd_sala_sao_paulo"; }  ?>
+                    + "'>Entrar na Sala</a>" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                    "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + 
+                    "/excluir/" + dadosSalas.sala[i].cd_sala_santos + "'>Excluir Sala</a>");
+                } // endfor
+                setTimeout("atualizarSalas()", 3000) // 3 segundos / Tempo de espera de atualização dos dados
+            }) 
         }
-
-        // Definindo intervalo que a função será chamada no caso 10 em 10 segundos
-        setInterval("atualizarSalas()", 10000);
 
         // Quando carregar a página
         $(function () {
