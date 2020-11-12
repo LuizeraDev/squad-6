@@ -1,8 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\salasController;
+
 use App\Http\Controllers\filasController;
+
+use App\Http\Controllers\UserController;
+
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,3 +86,9 @@ Route::get('/salas/sala/{nomeSala}/{id}/voujogar', [filasController::class, 'vou
 //------------------------------------------------------------------------------
 
 Route::get('/reportar/{url}/{id}', [filasController::class, 'reportar']);
+
+/*
+* LOG OFF usuário
+*/
+
+Route::get('/sair', [UserController::class, 'logoff'])->name('sair');
