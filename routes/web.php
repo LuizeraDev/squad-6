@@ -8,6 +8,8 @@ use App\Http\Controllers\filasController;
 
 use App\Http\Controllers\UserController;
 
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
