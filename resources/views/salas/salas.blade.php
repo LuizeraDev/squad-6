@@ -33,6 +33,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
 
 <body>
 
+
 <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100"> <!--- GRID -->
 
     <h2>Logotipo - Fifo</h2>
@@ -46,7 +47,8 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
     @endif
 
     <section>
-        <div id="conteudo" ></div>
+         
+      
     </section>
     <br><br>
     <a href="unidade">Voltar a escolha da unidade</a>
@@ -59,11 +61,21 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
         // Função responsável por atualizar as salas
         function atualizarSalas() {
             //cria container para inserir as salas
-            var conteudo_salas = $("<div/>").addClass("conteudoContainer").appendTo("section");
+            var conteudo_salas = $("<div/>").addClass("conteudoContainer").addClass("sm:flex mb-4").appendTo("section");
 
             conteudo_salas.innerHTML = "";
             //cria array das salas
             var wrapperSala = []
+
+            var newSala = 
+            $("<div/>")
+            .addClass("criarSala")
+            .addClass("")
+            .addClass("");
+
+              
+            newSala.append( "<a href='criarsala'>Criar Sala</a>"  )
+
 
                 $.get("{{ route('salasConteudo') }}", function (dadosSalas) {
 
@@ -77,7 +89,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                 
                     for (i = 0; i < dadosSalas.sala.length; i++){   
                         //cria sala individual baseada nas salas do DB
-                        wrapperSala[i] = $("<div/>").addClass("wrapper");
+                        wrapperSala[i] = $("<div/>").addClass("wrapper").addClass("");
 
                         wrapperSala[i].append("<p> Nome da sala: <b>" + dadosSalas.sala[i].nm_sala + "</b></p>");
 
@@ -86,7 +98,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                             // Faz a verificação se o nome da sala é o mesmo do usuário.
                             if (dadosSalas.sala[i].nm_sala == dadosSalas.qt_usuarios[c].nm_sala) {
 
-                                $contador *= 1 ; //adiciona +1 para cada usuário na sala                                
+                                $contador *= 1 ; //adiciona +1 para cada usuário na                                
                             } 
                         }
 
@@ -122,9 +134,9 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                         );
 
                             wrapperSala[i].append(
-                                "<button class='inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent"
-                                + "rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700"
-                                + "active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray"
+                                "<button class='inline-flex items-center px-4 py-2 bg-gray-800 border" 
+                                + "border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest"
+                                + "hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray"
                                 + "disabled:opacity-25 transition ease-in-out duration-150 ml-4'"
                                 //fim tailwind
                                 + "class='deleteButton'>" //adiciona classe
@@ -135,9 +147,13 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                         
                     }
 
+                    
                     conteudo_salas.append(wrapperSala);
+                  
 
+                    conteudo_salas.append(newSala)
                 })
+                
                 
         }
 
