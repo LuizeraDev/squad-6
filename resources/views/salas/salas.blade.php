@@ -15,6 +15,8 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/unidade.css') }}">
+
 
     @livewireStyles
 
@@ -44,7 +46,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
     @endif
 
     <section>
-        <div id="conteudo"></div>
+        <div id="conteudo" ></div>
     </section>
     <br><br>
     <a href="unidade">Voltar a escolha da unidade</a>
@@ -96,12 +98,12 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                     wrapperSala[i].append("<img src='{{ $url }}" + dadosSalas.sala[i].img_sala + 
                     "' width=200>" + "<br>");
                     
-                    wrapperSala[i].append("<button> <a href='salas/sala/" + dadosSalas.sala[i].nm_sala + "/" +  
+                    wrapperSala[i].append("<button class='inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150 ml-4' class='enterButton'> <a href='salas/sala/" + dadosSalas.sala[i].nm_sala + "/" +  
 
                     <?php if ($_SESSION["santos"]) { echo  "dadosSalas.sala[i].cd_sala_santos"; } 
                         else { echo "dadosSalas.sala[i].cd_sala_sao_paulo"; }  ?> + "'>Entrar na Sala</a></button>");
 
-                        wrapperSala[i].append("<button><a href='salas/sala/" + dadosSalas.sala[i].nm_sala + 
+                        wrapperSala[i].append("<button class='inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150 ml-4' class='deleteButton' > <a href='salas/sala/" + dadosSalas.sala[i].nm_sala + 
                         "/excluir/" + dadosSalas.sala[i].cd_sala_santos + "'>Excluir Sala</a></button>");
                     
                     console.log(wrapperSala)
