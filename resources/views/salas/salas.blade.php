@@ -58,16 +58,16 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
 
         // Função responsável por atualizar as salas
         function atualizarSalas() {
-
+            //cria container para inserir as salas
             var conteudo_salas = $("<div/>").addClass("conteudoContainer").appendTo("section");
 
             conteudo_salas.innerHTML = "";
-
+            //cria array das salas
             var wrapperSala = []
 
                 $.get("{{ route('salasConteudo') }}", function (dadosSalas) {
 
-                    $contador = 0;
+                    $contador = 0; // contador de usuários para a sala
 
                     // Exibe informações sobre os usuários cadastrados / online / ausente / offline, sala em que está
                     for (i = 0; i < dadosSalas.usuarios.length; i++){
@@ -76,7 +76,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                         }
                 
                     for (i = 0; i < dadosSalas.sala.length; i++){   
-                    
+                        //cria sala individual baseada nas salas do DB
                         wrapperSala[i] = $("<div/>").addClass("wrapper");
 
                         wrapperSala[i].append("<p> Nome da sala: <b>" + dadosSalas.sala[i].nm_sala + "</b></p>");
@@ -86,7 +86,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                             // Faz a verificação se o nome da sala é o mesmo do usuário.
                             if (dadosSalas.sala[i].nm_sala == dadosSalas.qt_usuarios[c].nm_sala) {
 
-                                $contador *= 1 ;                                
+                                $contador *= 1 ; //adiciona +1 para cada usuário na sala                                
                             } 
                         }
 
@@ -97,9 +97,8 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                         );
 
                         wrapperSala[i].append(
-                            "<img src='{{ $url }}" 
-                            + dadosSalas.sala[i].img_sala 
-                            + "' width=200>" + "<br>"
+                            "<img src='{{ $url }}" + dadosSalas.sala[i].img_sala 
+                            + "' width=200>"
                         );
                         
                         wrapperSala[i].append(
@@ -107,9 +106,12 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                             "<button class='inline-flex items-center px-4 py-2 bg-gray-800 border" 
                             + "border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest"
                             + "hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray"
-                            + "disabled:opacity-25 transition ease-in-out duration-150 ml-4' class='enterButton'> <a href='salas/sala/"
-                            + dadosSalas.sala[i].nm_sala + "/" +  
-
+                            + "disabled:opacity-25 transition ease-in-out duration-150 ml-4'"
+                            //fim tailwind
+                            + "class='enterButton'>"//adiciona classe
+                            //rota da sala
+                            + "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + "/" +  
+                            //logica da rota
                             <?php if ($_SESSION["santos"]){ 
                                 echo  "dadosSalas.sala[i].cd_sala_santos";
                                 } else { 
@@ -123,11 +125,11 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                                 "<button class='inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent"
                                 + "rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700"
                                 + "active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray"
-                                + "disabled:opacity-25 transition ease-in-out duration-150 ml-4' class='deleteButton'>"
-                                + "<a href='salas/sala/" 
-                                + dadosSalas.sala[i].nm_sala 
-                                + "/excluir/" 
-                                + dadosSalas.sala[i].cd_sala_santos 
+                                + "disabled:opacity-25 transition ease-in-out duration-150 ml-4'"
+                                //fim tailwind
+                                + "class='deleteButton'>" //adiciona classe
+                                //rota da sala
+                                + "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + "/excluir/" + dadosSalas.sala[i].cd_sala_santos 
                                 + "'>Excluir Sala</a></button>"
                             );                 
                         
@@ -135,13 +137,12 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
 
                     conteudo_salas.append(wrapperSala);
 
-                }), 'JSON';
-          
+                })
+                
         }
 
         // Definindo intervalo que a função será chamada no caso 10 em 10 segundos
-        //setInterval("atualizarSalas()", 10000);
-
+        
         // Quando carregar a página
         $(function () {
             // Faz a primeira atualização
