@@ -34,7 +34,7 @@ html {
 .grid::before,
 .grid::after,
 .row::before,
-.row::after {
+.row::after  {
 
     content: "";
     display: table;

@@ -117,18 +117,29 @@ html {
 
 }
 
-.option {
+.option1 {
 
     background-color: gainsboro;
-    margin: 5vh auto;
+    margin-left: 20vw;
     height: 15rem;
     width: 15rem;
     border-radius: 20px;
     box-shadow: 0 1px 2px rgba(0,0,0,0.5);
 
 }
+.option2 {
 
-.option a {
+    background-color: gainsboro;
+    margin-left: 1.7rem;
+    height: 15rem;
+    width: 15rem;
+    border-radius: 20px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    padding: 2rem;
+
+}
+
+.option1 a {
     
     width: 10rem;
     height: 5rem;
@@ -138,6 +149,18 @@ html {
     font-size: 1.5rem;
    
 }
+
+.option2 a {
+    
+    width: 10rem;
+    height: 5rem;
+    display: inline-block;
+
+    margin: 40% 30%;
+    font-size: 1.5rem;
+   
+}
+
 
 .button {
 

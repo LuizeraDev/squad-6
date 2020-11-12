@@ -22,13 +22,13 @@
             <!-- No php, pegamos dados através do campo "name" dos inputs -->
          
                 <div class="col-6">
-                    <div class="option">
+                    <div class="option1">
                         <a href="/unidade/santos">Santos</a> 
                     </div>
                 </div>
                 
                 <div class="col-6">
-                    <div class="option">
+                    <div class="option2">
                         <a href="/unidade/saopaulo">São Paulo</a>
                     </div>
                 </div>
