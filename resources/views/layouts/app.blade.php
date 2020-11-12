@@ -11,26 +11,30 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
-    
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
         @livewireStyles
 
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.js" defer></script>
     </head>
-    <body>
-       
-           
+    <body class="font-sans antialiased">
+        <div class="min-h-screen bg-gray-100">
+            @livewire('navigation-dropdown')
 
             <!-- Page Heading -->
-           
-                <!-- removi header para fazer o logo    {{ $header }} -->
-          
+            <header class="bg-white shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
 
             <!-- Page Content -->
-           
+            <main>
                 {{ $slot }}
-        
+            </main>
+        </div>
+
         @stack('modals')
 
         @livewireScripts
