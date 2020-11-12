@@ -59,62 +59,83 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
         // Função responsável por atualizar as salas
         function atualizarSalas() {
 
-            
             var conteudo_salas = $("<div/>").addClass("conteudoContainer").appendTo("section");
 
             conteudo_salas.innerHTML = "";
 
             var wrapperSala = []
 
-            $.get("{{ route('salasConteudo') }}", function (dadosSalas) {
+                $.get("{{ route('salasConteudo') }}", function (dadosSalas) {
 
-                $contador = 0;
+                    $contador = 0;
 
-                console.log(dadosSalas.qt_usuarios);
-                // Exibe informações sobre os usuários cadastrados / online / ausente / offline, sala em que está
-                for (i = 0; i < dadosSalas.usuarios.length; i++) 
-                { 
-                    console.log(dadosSalas.usuarios[i]);
-                }
-               
-                for (i = 0; i < dadosSalas.sala.length; i++) 
-                {   
+                    // Exibe informações sobre os usuários cadastrados / online / ausente / offline, sala em que está
+                    for (i = 0; i < dadosSalas.usuarios.length; i++){
+
+                            console.log(dadosSalas.usuarios[i]); 
+                        }
                 
-                    wrapperSala[i] = $("<div/>").addClass("wrapper");
+                    for (i = 0; i < dadosSalas.sala.length; i++){   
+                    
+                        wrapperSala[i] = $("<div/>").addClass("wrapper");
 
-                     wrapperSala[i].append("<p> Nome da sala: <b>" + dadosSalas.sala[i].nm_sala + "</b></p>");
+                        wrapperSala[i].append("<p> Nome da sala: <b>" + dadosSalas.sala[i].nm_sala + "</b></p>");
 
-                     // Conta a quantidade de pessoas em uma determinada sala.
-                    for(c = 0; c < dadosSalas.qt_usuarios.length; c++){
+                        // Conta a quantidade de pessoas em uma determinada sala.
+                        for(c = 0; c < dadosSalas.qt_usuarios.length; c++){
+                            // Faz a verificação se o nome da sala é o mesmo do usuário.
+                            if (dadosSalas.sala[i].nm_sala == dadosSalas.qt_usuarios[c].nm_sala) {
+
+                                $contador *= 1 ;                                
+                            } 
+                        }
+
+                        wrapperSala[i].append(
+                            "<p> Usuários na sala: <b>"
+                            + $contador 
+                            + "</b></p>"
+                        );
+
+                        wrapperSala[i].append(
+                            "<img src='{{ $url }}" 
+                            + dadosSalas.sala[i].img_sala 
+                            + "' width=200>" + "<br>"
+                        );
                         
-                        // Faz a verificação se o nome da sala é o mesmo do usuário.
-                        if (dadosSalas.sala[i].nm_sala == dadosSalas.qt_usuarios[c].nm_sala) {
-                           $contador *= 1 ;
-                        } 
+                        wrapperSala[i].append(
+                            //classes do tailwind css
+                            "<button class='inline-flex items-center px-4 py-2 bg-gray-800 border" 
+                            + "border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest"
+                            + "hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray"
+                            + "disabled:opacity-25 transition ease-in-out duration-150 ml-4' class='enterButton'> <a href='salas/sala/"
+                            + dadosSalas.sala[i].nm_sala + "/" +  
+
+                            <?php if ($_SESSION["santos"]){ 
+                                echo  "dadosSalas.sala[i].cd_sala_santos";
+                                } else { 
+                                    echo "dadosSalas.sala[i].cd_sala_sao_paulo"; 
+                                    } ?> 
+
+                            + "'>Entrar na Sala</a></button>"
+                        );
+
+                            wrapperSala[i].append(
+                                "<button class='inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent"
+                                + "rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700"
+                                + "active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray"
+                                + "disabled:opacity-25 transition ease-in-out duration-150 ml-4' class='deleteButton' >
+                                + "<a href='salas/sala/" 
+                                + dadosSalas.sala[i].nm_sala 
+                                + "/excluir/" 
+                                + dadosSalas.sala[i].cd_sala_santos 
+                                + "'>Excluir Sala</a></button>"
+                            );                 
+                        
                     }
 
-                    wrapperSala[i].append("<p> Usuários na sala: <b>" + $contador + "</b></p>");
+                    conteudo_salas.append(wrapperSala);
 
-                    wrapperSala[i].append("<img src='{{ $url }}" + dadosSalas.sala[i].img_sala + 
-                    "' width=200>" + "<br>");
-                    
-                    wrapperSala[i].append("<button class='inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150 ml-4' class='enterButton'> <a href='salas/sala/" + dadosSalas.sala[i].nm_sala + "/" +  
-
-                    <?php if ($_SESSION["santos"]) { echo  "dadosSalas.sala[i].cd_sala_santos"; } 
-                        else { echo "dadosSalas.sala[i].cd_sala_sao_paulo"; }  ?> + "'>Entrar na Sala</a></button>");
-
-                        wrapperSala[i].append("<button class='inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150 ml-4' class='deleteButton' > <a href='salas/sala/" + dadosSalas.sala[i].nm_sala + 
-                        "/excluir/" + dadosSalas.sala[i].cd_sala_santos + "'>Excluir Sala</a></button>");
-                    
-                    console.log(wrapperSala)
-
-                    
-                    
-                }
-
-                conteudo_salas.append(wrapperSala);
-
-            }), 'JSON';
+                }), 'JSON';
           
         }
 
