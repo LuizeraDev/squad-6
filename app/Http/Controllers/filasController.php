@@ -167,7 +167,10 @@ class filasController extends Controller
         session_start();
         $email = $_SESSION['usuario'];
         $cd_sala = $id;
-  
+        
+        // Corrige bug.
+        $_SESSION['entrou_sala'] = false;
+
         // Pega a posição do desistente da fila
         $posicao_usuario = DB::table('users')
                         ->select('cd_fila_usuario')
