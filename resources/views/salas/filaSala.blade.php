@@ -14,7 +14,7 @@ $_SESSION['entrou_sala'] = true;
 </head>
 <style>
     .container {
-        margin-top: 15%;
+        margin-top: 5%;
     }
 </style> 
 
@@ -23,12 +23,21 @@ $_SESSION['entrou_sala'] = true;
     <main>
         <!-- No php, pegamos dados através do campo "name" dos inputs -->
         <section class="container" align="center">
+
+            <br>
+            <h3>Utilizando a Sala</h3>
+            <div id="conteudo"></div>
+
+            <hr style="width: 30%;">
+
             <h2>Logotipo - Fifo</h2>
 
             <div id="conteudo1"></div>
 
             <hr style="width: 30%;">
             <br>
+
+            <h3>Pessoas na fila</h3>
 
             <div id="conteudo2"></div>
 
@@ -51,10 +60,28 @@ $_SESSION['entrou_sala'] = true;
                 dataType: "json",
                 cache: false,
             }).done(function (dadosFila) {
+
                 // Descarta todas as informações anteriores para novas informações
+                $('#conteudo').html("");
                 $('#conteudo1').html("");
                 $('#conteudo2').html("");
                 $('#conteudo3').html("");
+
+                for (i = 0; i < dadosFila.Utilizando.length; i++) 
+                {
+                    // Exibe foto do usuário se existir
+                    if (dadosFila.Utilizando[i].profile_photo_path) {
+                        $('#conteudo').append(
+                            "<img src='{{ $url }}" + dadosFila.Utilizando[i].profile_photo_path+"' width='40'> &nbsp;"
+                        );
+                    }
+
+                    // Exibe usuários que estão utilizando a sala
+                    $('#conteudo').append(
+                        "<p>Nome: <b>" + dadosFila.Utilizando[i].name+"</b>&nbsp;&nbsp;" +
+                        "Status: <b>Em andamento</b></p>"
+                    );
+                }
 
                 // Informações do usuário que entrou na sala
                 for (i = 0; i < dadosFila.dadosUsuario.length; i++) 
@@ -74,31 +101,36 @@ $_SESSION['entrou_sala'] = true;
                         }                  
                 }
 
-                // Todos os usuários
+                // Exibe usuários da fila
                 for (i = 0; i < dadosFila.dadosFila.length; i++) 
                 {
-                    // Verifica se o usuário tem um caminho de imagem, se ele tiver a imagem é exibida.
-                    if (dadosFila.dadosFila[i].profile_photo_path) {
+                    // Verifica se o usuário tem um código de fila
+                    if(dadosFila.dadosFila[i].cd_fila_usuario) { 
+                        // Verifica se o usuário tem um caminho de imagem, se ele tiver a imagem é exibida.
+                        if (dadosFila.dadosFila[i].profile_photo_path) {
+                            $('#conteudo2').append(
+                                "<img src='{{ $url }}" + dadosFila.dadosFila[i].profile_photo_path+"' width='40'> &nbsp;"
+                            );
+                        }
+
+                        // Exibe os usuários da fila da sala em questão
                         $('#conteudo2').append(
-                            "<img src='{{ $url }}" + dadosFila.dadosFila[i].profile_photo_path+"' width='40'> &nbsp;"
+                            "Nome: <b>" + dadosFila.dadosFila[i].name+"</b> " +
+                            "Posição na fila: <b>" + dadosFila.dadosFila[i].cd_fila_usuario +"</b> "+ 
+                            "Status usuário: <b>" + dadosFila.dadosFila[i].status + "</b> "+
+                            "<a href='#"+i+"' onclick=reportar(this.href)> Reportar</a><br><br>"
                         );
                     }
-
-                    // Exibe os usuários da fila da sala em questão
-                    $('#conteudo2').append(
-                        "Nome: <b>" + dadosFila.dadosFila[i].name+"</b> " +
-                        "Posição na fila: <b>" + dadosFila.dadosFila[i].cd_fila_usuario +"</b> "+ 
-                        "Status usuário: <b>" + dadosFila.dadosFila[i].status + "</b> "+
-                        "<a href='#"+i+"' onclick=reportar(this.href)> Reportar</a><br><br>"
-                    );
                 }
 
                 // Exibe o botão vou jogar se a posição da fila do usuário for igual a 1
-                if (dadosFila.dadosUsuario[0].cd_fila_usuario == 1) {
+
+                if (dadosFila.dadosUsuario[0].cd_fila_usuario == 1 && 
+                    dadosFila.Utilizando.length <  dadosFila.dadosUsuario[0].demanda) {
                     $('#conteudo3').html("<a href='{{$salaId}}/voujogar'>Vou Jogar</a><br><br>");
                 }
-
-
+            
+               
                 setTimeout("atualizarFila()", 3000) // 3 segundos / Tempo de espera de atualização dos dados
             })
         }
