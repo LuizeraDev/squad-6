@@ -31,7 +31,7 @@ $_SESSION['entrou_sala'] = true;
             <hr style="width: 30%;">
 
             <h2>Logotipo - Fifo</h2>
-            
+            <div id="Timer"></div>
             <div id="conteudo4"></div>
 
             <div id="conteudo1"></div>
@@ -55,8 +55,10 @@ $_SESSION['entrou_sala'] = true;
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
     <script>
+    var temporizador = 11;
         // Função responsável por atualizar as filas
         function atualizarFila() {
+            
             $.ajax({ 
                 url: "{{ route('filaConteudo') }}",
                 dataType: "json",
@@ -69,6 +71,8 @@ $_SESSION['entrou_sala'] = true;
                 $('#conteudo2').html("");
                 $('#conteudo3').html("");
                 $('#conteudo4').html("");
+
+                
 
                 for (i = 0; i < dadosFila.Utilizando.length; i++) 
                 {
@@ -96,16 +100,24 @@ $_SESSION['entrou_sala'] = true;
                         
                         
                     );  
-                    if (dadosFila.dadosUsuario[i].report) {
-                        $('#conteudo4').append(
+                               
+                }
+                if (dadosFila.dadosUsuario[0].report) {
+                        $('#conteudo4').html(
                             "Você ainda está ai? <button id='estouaqui' type='button' onClick='clicksim()'>Sim</button>"
                         );
+                        
+                        if (temporizador == 11) {
+                            setInterval(function(){
+                                    temporizador -= 1;
+                                    $('#Timer').text(temporizador+" segundos")
+                            },1000);                               
+                        }                        
+
                         setInterval(function(){window.location.href = "{{$salaId}}/desistente";
                             alert("Você não confirmou que está na sala, estamos te redirecionando para o dashboard");
-                            }, 10000);
-                        }            
-                }
-
+                            }, 12000);
+                } 
                 // Exibe usuários da fila
                 for (i = 0; i < dadosFila.dadosFila.length; i++) 
                 {
@@ -165,7 +177,7 @@ $_SESSION['entrou_sala'] = true;
             });
         }
         
-        function clicksim(){
+        function clicksim() {
             $.ajax({ 
                 url: "{{ route('filaConteudo') }}", 
                 dataType: "json",
@@ -180,6 +192,7 @@ $_SESSION['entrou_sala'] = true;
             // Faz a primeira atualização
             atualizarFila();
         });
+        
     </script>
    
 </body>
