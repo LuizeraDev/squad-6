@@ -15,7 +15,7 @@ $_SESSION['cd_sala'] = $salaId;
     .container {
         margin-top: 15%;
     }
-</style>
+</style> 
 
 <body>
 
@@ -62,7 +62,15 @@ $_SESSION['cd_sala'] = $salaId;
                         "E aew <b>" + dadosFila.dadosUsuario[i].name+"</b><br><br>" +
                         "Você está na fila da sala <b>" + dadosFila.dadosUsuario[i].nm_sala +"</b> " +
                         "e sua posição é <b>" + dadosFila.dadosUsuario[i].cd_fila_usuario
-                    );
+                        
+                    );  
+                    if (dadosFila.dadosUsuario[i].report) {
+                        resposta = confirm("Você foi reportado, para continuar click em algum dos botões abaixo!! ");
+                            if(resposta || !resposta)
+                            {
+                                window.location.href = "/estouaqui/"+ dadosFila.dadosUsuario[i].id ;
+                            }
+                        }                  
                 }
 
                 // Todos os usuários
@@ -101,11 +109,11 @@ $_SESSION['cd_sala'] = $salaId;
                 cache: false,
             }).done(function (dadosFila){
                 // Pegar posição pelo href
-                tamanho = pos.substring(pos.indexOf("#") +1 );
+                tamanho = pos.substring(pos.indexOf("#") + 1 );
                 id = dadosFila.dadosFila[tamanho].id;
                 url = this.locate
-                alert("Você está reportando " + dadosFila.dadosFila[tamanho].id);
-                //window.location.href = "/reportar/"+ url + "/"+id;
+                alert("Você está reportando " + dadosFila.dadosFila[tamanho].name);
+                window.location.href = "/reportar/"+ url + "/"+id;
 
             });
         }
