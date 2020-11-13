@@ -235,7 +235,7 @@ class filasController extends Controller
                 
                 DB::table('users')
                     ->where('email', $email)
-                    ->update(['cd_sala_sao_paulo'=> null, 'cd_fila_usuario' => null, 'report' => null]);
+                    ->update(['utilizando_sala' => true, 'cd_fila_usuario' => null, 'report' => null]);
             }
         }
         
@@ -271,7 +271,7 @@ class filasController extends Controller
             ->where('email', $email)
             ->update(['utilizando_sala' => null]);
         
-        return filasController::inserirusuarioFila($nomeSala, $id);
+        return redirect()->Route('inserirFila', [$nomeSala,$id]);
     }
 
     public function exibirFila($nomeSala, $id, $usuario)

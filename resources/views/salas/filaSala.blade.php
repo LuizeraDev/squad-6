@@ -1,6 +1,8 @@
 <?php 
 $url='http://localhost:8080/squad-6/storage/app/public/';
+
 $_SESSION['cd_sala'] = $salaId;
+
 $_SESSION['entrou_sala'] = true;
 ?>
 <!DOCTYPE html>
@@ -81,8 +83,8 @@ $_SESSION['entrou_sala'] = true;
 
                     // Exibe usuários que estão utilizando a sala
                     $('#conteudo').append(
-                        "<p>Nome: <b>" + dadosFila.Utilizando[i].name+"</b>&nbsp;&nbsp;" +
-                        "Status: <b>Em andamento</b></p>"
+                        "Nome: <b>" + dadosFila.Utilizando[i].name+"</b>&nbsp;&nbsp;" +
+                        "Status: <b>Em andamento</b>"
                     );
                 }
 
@@ -134,7 +136,7 @@ $_SESSION['entrou_sala'] = true;
 
                 if (dadosFila.dadosUsuario[0].cd_fila_usuario == 1 && 
                     dadosFila.Utilizando.length <  dadosFila.dadosUsuario[0].demanda) {
-                    $('#conteudo3').html("<a href='{{$salaId}}/voujogar'>Vou Jogar</a><br><br>");
+                    $('#conteudo3').html("<a href='{{$salaId}}/voujogar'>Minha Vez</a><br><br>");
                 }
             
                

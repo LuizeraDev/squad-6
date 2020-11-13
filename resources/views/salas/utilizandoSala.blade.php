@@ -18,7 +18,7 @@
 <body>
     <main>
         <section class="container" align=center>
-            <h2>Clique em sair da sala</h2>
+            <h2>Selecione um botão após terminar</h2>
             <a href="Voltar">Voltar para o começo da fila</a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="Acabei">Sair da sala</a>
