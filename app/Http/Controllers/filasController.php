@@ -241,7 +241,7 @@ class filasController extends Controller
             $dadosUsuario = DB::table('users')
                                 ->join('tb_sala_santos', 'users.cd_sala_santos', '=', 'tb_sala_santos.cd_sala_santos')
                                 ->select('users.name', 'tb_sala_santos.nm_sala', 
-                                 'users.cd_fila_usuario')
+                                 'users.cd_fila_usuario', 'report','id')
                                 ->where('email', $email)
                                 ->get();
 
@@ -254,7 +254,7 @@ class filasController extends Controller
             $dadosUsuario = DB::table('users')
                                 ->join('tb_sala_sao_paulo', 'users.cd_sala_sao_paulo', '=', 'tb_sala_sao_paulo.cd_sala_sao_paulo')
                                 ->select('users.name', 'tb_sala_sao_paulo.nm_sala', 
-                                'users.cd_fila_usuario')
+                                'users.cd_fila_usuario', 'report')
                                 ->where('email', $email)
                                 ->get();
 
@@ -276,8 +276,16 @@ class filasController extends Controller
             ->where('users.id','=',$id)
             ->update(['report' => true]);
 
+            return back();
+    }   
 
-        return redirect()->route('salas');
+    public function estouaqui($userid)
+    {
+        DB::table('users')
+        ->where('id','=',$userid)
+        ->update (['report' => false]);
+
+        return back();
     }
 
 }
