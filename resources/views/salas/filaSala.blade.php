@@ -24,6 +24,8 @@ $_SESSION['entrou_sala'] = true;
         <!-- No php, pegamos dados através do campo "name" dos inputs -->
         <section class="container" align="center">
             <h2>Logotipo - Fifo</h2>
+            
+            <div id="conteudo4"></div>
 
             <div id="conteudo1"></div>
 
@@ -51,10 +53,12 @@ $_SESSION['entrou_sala'] = true;
                 dataType: "json",
                 cache: false,
             }).done(function (dadosFila) {
+
                 // Descarta todas as informações anteriores para novas informações
                 $('#conteudo1').html("");
                 $('#conteudo2').html("");
                 $('#conteudo3').html("");
+                $('#conteudo4').html("");
 
                 // Informações do usuário que entrou na sala
                 for (i = 0; i < dadosFila.dadosUsuario.length; i++) 
@@ -64,14 +68,18 @@ $_SESSION['entrou_sala'] = true;
                         "Você está na fila da sala <b>" + dadosFila.dadosUsuario[i].nm_sala +"</b> " +
                         "e sua posição é <b>" + dadosFila.dadosUsuario[i].cd_fila_usuario
                         
+                        
                     );  
                     if (dadosFila.dadosUsuario[i].report) {
-                        resposta = confirm("Você foi reportado, para continuar click em algum dos botões abaixo!! ");
-                            if(resposta || !resposta)
-                            {
-                                window.location.href = "/estouaqui/"+ dadosFila.dadosUsuario[i].id ;
-                            }
-                        }                  
+                        $('#conteudo4').append(
+                            "Você ainda está ai? <button id='estouaqui' type='button' onClick='clicksim()'>Sim</button>"
+                        );
+                        setInterval(function(){window.location.href = "{{$salaId}}/desistente";
+                            alert("Você não confirmou que está na sala, estamos te redirecionando para o dashboard");
+                            }, 10000);
+                        
+                        
+                        }            
                 }
 
                 // Todos os usuários
@@ -113,9 +121,19 @@ $_SESSION['entrou_sala'] = true;
                 tamanho = pos.substring(pos.indexOf("#") + 1 );
                 id = dadosFila.dadosFila[tamanho].id;
                 url = this.locate
-                alert("Você está reportando " + dadosFila.dadosFila[tamanho].name);
-                window.location.href = "/reportar/"+ url + "/"+id;
+                if (confirm("Você está reportando " + dadosFila.dadosFila[tamanho].name))
+                    window.location.href = "/reportar/"+ url + "/"+id;
 
+            });
+        }
+        
+        function clicksim(){
+            $.ajax({ 
+                url: "{{ route('filaConteudo') }}", 
+                dataType: "json",
+                cache: false,
+            }).done(function (dadosFila){
+                window.location.href = "/estouaqui/"+ dadosFila.dadosUsuario[0].id ;
             });
         }
 
