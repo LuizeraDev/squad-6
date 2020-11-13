@@ -1,6 +1,7 @@
 <?php 
 $url='http://localhost:8080/squad-6/storage/app/public/';
 $_SESSION['cd_sala'] = $salaId;
+$_SESSION['entrou_sala'] = true;
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -124,15 +125,7 @@ $_SESSION['cd_sala'] = $salaId;
             atualizarFila();
         });
     </script>
-
-    <script>
-        // Este código não permite que o usuário saia da página.
-        window.location.hash="no-back-button";
-        //window.location.hash="voltou"; //again because google chrome don't insert first hash into history
-        window.onhashchange=function(){window.location.hash="voce-esta-na-fila";};
-        console.log("Clique em desistir se quiser voltar...");  
-    </script>
-    
+   
 </body>
 
 </html>

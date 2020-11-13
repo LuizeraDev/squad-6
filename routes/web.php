@@ -2,13 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Auth;
+
 use App\Http\Controllers\salasController;
 
 use App\Http\Controllers\filasController;
 
 use App\Http\Controllers\UserController;
 
-use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,10 +62,6 @@ Route::get('/salas', [salasController::class, 'exibirSalas'])->name('salas');
 
 // Rota necessária para fazer assincronismo das salas com AJAX
 Route::get('/salas-conteudo', [salasController::class, 'salasAssincronas'])->name('salasConteudo');
-
-Route::get('/salas/sala/{nomeSala}/{id}', function ($nomeSala, $salaId) {
-    return view('salas/filaSala', ['nomeSala' => $nomeSala, 'salaId' => $salaId]);
-});
 
 Route::get('/salas/sala/{nomeSala}/excluir/{id}', function ($nomeSala, $salaId) {
     return view('salas/excluirSala', ['nomeSala' => $nomeSala, 'salaId' => $salaId]);

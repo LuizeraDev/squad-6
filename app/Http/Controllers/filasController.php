@@ -155,6 +155,10 @@ class filasController extends Controller
                 ->where('email', $email)
                 ->update(['cd_sala_sao_paulo'=> null, 'cd_fila_usuario' => null]);
         }
+
+        // Retornando condição como false, para não ficar retornando toda hora a mesma função
+        $_SESSION['entrou_sala'] = false;
+
         return redirect()->route('salas');
     }
 

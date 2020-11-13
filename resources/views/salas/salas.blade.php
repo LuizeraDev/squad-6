@@ -1,6 +1,21 @@
 <?php 
 session_start();
 $url='http://localhost:8080/squad-6/storage/app/public/';
+
+// Verifica se o usuário já entrou em alguma sala
+if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION['entrou_sala']) {
+
+        // pega o Id da sala que ele deixou pelo botão voltar do browser
+        $id_sala_anterior = $_SESSION['cd_sala']; 
+
+        /* 
+        * Resolvendo problema do usuário quando ele tenta voltar pelo browser
+        * Basicamente eu passo o parâmetro com a sala anterior dele e retiro ele da sala 
+        * mandando ele pro controler de desistência da fila
+        */
+
+       echo "<script>window.location.href='/salas/sala/nomesala/". $id_sala_anterior ."/desistente'</script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
