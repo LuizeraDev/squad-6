@@ -134,7 +134,7 @@ class filasController extends Controller
             // Retira o usuário da fila e volta o código da fila dele para nulo
             DB::table('users')
                     ->where('email', $email)
-                    ->update(['cd_sala_santos'=> null, 'cd_fila_usuario' => null]);
+                    ->update(['cd_sala_santos'=> null, 'cd_fila_usuario' => null, 'report' => null]);
         } else {
             $fila = DB::table('users')
                     ->select('name', 'cd_fila_usuario',  'profile_photo_path')
@@ -155,7 +155,7 @@ class filasController extends Controller
             // Retira o usuário da fila e volta o código da fila dele para nulo
             DB::table('users')
                 ->where('email', $email)
-                ->update(['cd_sala_sao_paulo'=> null, 'cd_fila_usuario' => null]);
+                ->update(['cd_sala_sao_paulo'=> null, 'cd_fila_usuario' => null, 'report' => null]);
         }
 
         // Retornando condição como false, para não ficar retornando toda hora a mesma função
@@ -206,7 +206,7 @@ class filasController extends Controller
             
             DB::table('users')
                 ->where('email', $email)
-                ->update(['utilizando_sala' => true, 'cd_fila_usuario' => null]);
+                ->update(['utilizando_sala' => true, 'cd_fila_usuario' => null, 'report' => null]);
         } else {
             if ($posicao_usuario == 1) {
                 // Pegando todas as pessoas da fila
@@ -235,7 +235,7 @@ class filasController extends Controller
                 
                 DB::table('users')
                     ->where('email', $email)
-                    ->update(['utilizando_sala' => true, 'cd_fila_usuario' => null]);
+                    ->update(['cd_sala_sao_paulo'=> null, 'cd_fila_usuario' => null, 'report' => null]);
             }
         }
         
