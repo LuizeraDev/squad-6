@@ -82,9 +82,9 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                     $contador = 0; // contador de usuários para a sala
 
                     // Exibe informações sobre os usuários cadastrados / online / ausente / offline, sala em que está
-                    for (i = 0; i < dadosSalas.usuarios.length; i++){
+                    for (sala of dadosSalas.usuarios){
 
-                            console.log(dadosSalas.usuarios[i]); 
+                            console.log(dadosSalas.usuarios[sala] ); 
                         }
                 
                     for (i = 0; i < dadosSalas.sala.length; i++){   
