@@ -5,16 +5,16 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
 // Verifica se o usuário já entrou em alguma sala
 if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION['entrou_sala']) {
 
-        // pega o Id da sala que ele deixou pelo botão voltar do browser
-        $id_sala_anterior = $_SESSION['cd_sala']; 
+    // pega o Id da sala que ele deixou pelo botão voltar do browser
+    $id_sala_anterior = $_SESSION['cd_sala']; 
 
-        /* 
-        * Resolvendo problema do usuário quando ele tenta voltar pelo browser
-        * Basicamente eu passo o parâmetro com a sala anterior dele e retiro ele da sala 
-        * mandando ele pro controler de desistência da fila
-        */
+    /* 
+    * Resolvendo problema do usuário quando ele tenta voltar pelo browser
+    * Basicamente eu passo o parâmetro com a sala anterior dele e retiro ele da sala 
+    * mandando ele pro controler de desistência da fila
+    */
 
-       echo "<script>window.location.href='/salas/sala/nomesala/". $id_sala_anterior ."/desistente'</script>";
+   echo "<script>window.location.href='/salas/sala/nomesala/". $id_sala_anterior ."/desistente'</script>";
 }
 ?>
 <!DOCTYPE html>
@@ -37,9 +37,9 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
     <a href="criarsala">Criar Sala</a>
 
     @if ($_SESSION['santos'])
-    <h3>Você esta conéctado a unidade de Santos</h3>
+    <h3>Você esta conectado a unidade de Santos</h3>
     @else
-    <h3>Você esta conéctado a unidade de São Paulo</h3>
+    <h3>Você esta conectado a unidade de São Paulo</h3>
     @endif
 
     <div id="conteudo"></div>
@@ -91,7 +91,8 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
                     // Exibe os dados numa div com id de conteudo
                     $('#conteudo').append(
-                        "<p> Nome da sala: <b>" + dadosSalas.sala[i].nm_sala + "</b></p>" + 
+                        "<p> Nome da sala: <b>" + dadosSalas.sala[i].nm_sala + "</b>&nbsp;&nbsp;&nbsp;&nbsp;" + 
+                        "Demanda da sala: <b>" + dadosSalas.sala[i].demanda + "</b></p>" + 
                         "<p> Usuários na sala: <b> " + contador +"</b></p>" +
                         "<img src='{{ $url }}" + dadosSalas.sala[i].img_sala + "' width=200>" + "<br>" +
                         "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + "/" +  

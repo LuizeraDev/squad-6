@@ -81,12 +81,16 @@ class salasController extends Controller
         $validate = $request->validate([
             'nomeSala' => 'alpha_dash'
         ]);
-
+        
+        $demanda = $request->input('demanda');
         $nome = $request->input('nomeSala');
 
         if (!$nome) {
             $erroNomeVazio = "Você não botou nenhum nome para a sala";
             return view('salas/criarSala', ['nome_vazio' => $erroNomeVazio]);
+        } else if (!$demanda) {
+            $erroDemanda = "Você não selecionou a demanda da sala...";
+            return view('salas/criarSala', ['MsgDemanda' => $erroDemanda]);
         }
         
         if ($request->file('ImagemSala')) {
@@ -99,15 +103,13 @@ class salasController extends Controller
                 return view('salas/criarSala', ['MsgErroFile' => $erroFile]);
            }
         }
-        else 
-            $erroFoto = "Você não anexou nenhuma foto para a sala...";
 
         if ($_SESSION['santos']) {
             // Pega o nome da sala se existir uma sala com o mesmo nome
             $nomesalaSantos = DB::table('tb_sala_santos')
-                                ->select('nm_sala')
-                                ->where('nm_sala', '=',$nome)
-                                ->pluck('nm_sala');
+                                    ->select('nm_sala')
+                                    ->where('nm_sala', '=',$nome)
+                                    ->pluck('nm_sala');
 
             // Validações
             if (isset($nomesalaSantos[0]) && !$request->file('ImagemSala')) {
@@ -123,10 +125,10 @@ class salasController extends Controller
             } else if (!$request->file('ImagemSala')) {
                 $erroFoto = "Você não anexou nenhuma foto para a sala...";
                 return view('salas/criarSala', ['MsgErroFoto' => $erroFoto]);
-            
+                
             } else {
                 DB::table('tb_sala_santos')->insert(
-                    [ 'nm_sala' => $nome ,'img_sala' => $img]);
+                    [ 'nm_sala' => $nome ,'img_sala' => $img, 'demanda' => $demanda]);
                 
                 return redirect()->route('salas');
             }
@@ -134,11 +136,11 @@ class salasController extends Controller
         } else {
             // Pega o nome da sala se existir uma sala com o mesmo nome
             $nomesalaSaoPaulo = DB::table('tb_sala_sao_paulo')
-                                ->select('nm_sala')
-                                ->where('nm_sala', '=',$nome)
-                                ->pluck('nm_sala');
+                                    ->select('nm_sala')
+                                    ->where('nm_sala', '=',$nome)
+                                    ->pluck('nm_sala');
 
-            // Se a variável com o nome da sala já existe
+            // Validações
             if (isset($nomesalaSaoPaulo[0]) && !$request->file('ImagemSala')) {
                 $erro = "Já existe uma sala com este nome em São Paulo...";
                 $erroFoto = "Você não anexou nenhuma foto para a sala...";
@@ -154,7 +156,7 @@ class salasController extends Controller
 
             } else { 
                 DB::table('tb_sala_sao_paulo')->insert(
-                    [ 'nm_sala' => $nome ,'img_sala' => $img]);
+                    [ 'nm_sala' => $nome ,'img_sala' => $img, 'demanda' => $demanda]);
                 
                 return redirect()->route('salas');
             }
@@ -240,7 +242,7 @@ class salasController extends Controller
 
         if ($_SESSION['santos']) {
             $dadosSala = DB::table('tb_sala_santos')
-                            ->select('cd_sala_santos', 'nm_sala',  'img_sala')
+                            ->select('cd_sala_santos', 'nm_sala',  'img_sala', 'demanda')
                             ->get();
             
             $qt_usuarios = DB::table('users')
@@ -256,7 +258,7 @@ class salasController extends Controller
 
         } else { 
             $dadosSala = DB::table('tb_sala_sao_paulo')
-                            ->select('cd_sala_sao_paulo', 'nm_sala',  'img_sala')
+                            ->select('cd_sala_sao_paulo', 'nm_sala',  'img_sala', 'demanda')
                             ->get();
 
             $qt_usuarios = DB::table('users')

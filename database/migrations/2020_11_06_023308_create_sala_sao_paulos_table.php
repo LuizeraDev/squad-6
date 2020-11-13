@@ -17,6 +17,7 @@ class CreateSalaSaoPaulosTable extends Migration
             $table->increments('cd_sala_sao_paulo');
             $table->string('nm_sala')->unique();
             $table->string('img_sala')->nullable();
+            $table->integer('demanda')->nullable();
             $table->timestamps();
         });
     }
