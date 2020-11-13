@@ -20,7 +20,8 @@ class UserController extends Controller
         // Atualiza status do usuário logado para offline
         DB::table('users')
             ->where('email', $email)
-            ->update(['status' => 'offline','unidade' => NULL]);
+            ->update(['status' => 'offline','unidade' => NULL, 'report' => NULL,
+            'cd_fila_usuario' => NULL,'cd_sala_santos' => NULL,  'cd_sala_sao_paulo' => NULL]);
 
         Auth::logout();
 
