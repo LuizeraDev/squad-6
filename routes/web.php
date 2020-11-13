@@ -83,9 +83,15 @@ Route::get('/fila-conteudo', [filasController::class, 'filaAssincrona'])->name('
 Route::get('/salas/sala/{nomeSala}/{id}/desistente', [filasController::class, 'desistirusuarioFila'])->name('desistir');
 
 Route::get('/salas/sala/{nomeSala}/{id}/voujogar', [filasController::class, 'vouJogarFila'])->name('voujogar');
-//------------------------------------------------------------------------------
+
+//Funções para reportar
 
 Route::get('/reportar/{url}/{id}', [filasController::class, 'reportar']);
+
+Route::get('/estouaqui/{userid}', [filasController::class, 'estouaqui']);
+//------------------------------------------------------------------------------
+
+
 
 /*
 * LOG OFF usuário
