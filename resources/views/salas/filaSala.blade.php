@@ -32,6 +32,8 @@ $_SESSION['entrou_sala'] = true;
 
             <h2>Logotipo - Fifo</h2>
 
+            <div id="demanda"></div>
+
             <div id="conteudo1"></div>
 
             <hr style="width: 30%;">
@@ -40,6 +42,7 @@ $_SESSION['entrou_sala'] = true;
             <h3>Pessoas na fila</h3>
 
             <div id="Timer"></div>
+            <div id="conteudo4"></div>
             <div id="conteudo4"></div>
 
             <div id="conteudo2"></div>
@@ -73,7 +76,8 @@ $_SESSION['entrou_sala'] = true;
                 $('#conteudo3').html("");
                 $('#conteudo4').html("");
 
-                
+                // Atualiza a quantidade de pessoas na demanda.
+                $('#demanda').text("Demanda: "+ dadosFila.Utilizando.length + "\\" + dadosFila.dadosUsuario[0].demanda);
 
                 for (i = 0; i < dadosFila.Utilizando.length; i++) 
                 {
@@ -155,8 +159,6 @@ $_SESSION['entrou_sala'] = true;
                     dadosFila.Utilizando.length <  dadosFila.dadosUsuario[0].demanda) {
                     $('#conteudo3').html("<a href='{{$salaId}}/voujogar'>Minha Vez</a><br><br>");
                 }
-            
-               
                 setTimeout("atualizarFila()", 3000) // 3 segundos / Tempo de espera de atualização dos dados
             })
         }
