@@ -23,6 +23,8 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
     <main>
         <section class="container" align=center>
             <h2>Utilizando a Sala</h2>
+            <div id="demanda"></div>
+            <br>
             <div id="Timer"></div>
             <div id="conteudo4"></div>
             <div id="conteudo"></div>
@@ -46,6 +48,8 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                     dataType: "json",
                     cache: false,
                 }).done(function (dadosFila) {
+
+                    $('#demanda').text("Espaços: " + dadosFila.Utilizando.length + "\\" + dadosFila.dadosUsuario[0].demanda);
 
                     // Descarta todas as informações anteriores para novas informações
                     $('#conteudo').html("");
