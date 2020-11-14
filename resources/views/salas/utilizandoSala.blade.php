@@ -91,7 +91,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                                 },1000);                               
                             }                        
 
-                            setInterval(function(){window.location.href = "desistente";
+                            setInterval(function(){window.location.href = "excluirjogando";
                                 alert("Você não confirmou que está na sala, estamos te redirecionando para o dashboard");
                             }, 12000);
                     } 
