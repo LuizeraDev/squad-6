@@ -56,19 +56,27 @@ class filasController extends Controller
             return view('auth/login');
 
         if ($_SESSION['santos']) {
+            // Pegamos a quantidade de usuários já alocados na fila
             $atualizarUsuario = DB::table('users')
                                     ->select('cd_fila_usuario')
-                                    ->where('cd_sala_santos', '=', $id)
+                                    ->where([
+                                    ['cd_fila_usuario', '>', 0]
+                                    ])
                                     ->pluck('cd_fila_usuario');
         } else {
+            // Pegamos a quantidade de usuários já alocados na fila
             $atualizarUsuario = DB::table('users')
                                     ->select('cd_fila_usuario')
-                                    ->where('cd_sala_sao_paulo', '=', $id)
+                                    ->where([
+                                    ['cd_fila_usuario', '>', 0]
+                                    ])
                                     ->pluck('cd_fila_usuario');
         }
 
         $quantidade = count($atualizarUsuario);
-        
+        if($quantidade >= 0) {
+            $quantidade += 1;
+        }
         if ($atualizarUsuario) {
             //Verifica se o usuário ja está na fila.
             $estanafila = DB::table('users')
