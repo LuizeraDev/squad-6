@@ -26,13 +26,16 @@ $_SESSION['entrou_sala'] = true;
 
             <br>
             <h3>Utilizando a Sala</h3>
+            <div id="demanda"></div>
+            <br>
+            
             <div id="conteudo"></div>
 
             <hr style="width: 30%;">
 
             <h2>Logotipo - Fifo</h2>
 
-            <div id="demanda"></div>
+            
 
             <div id="conteudo1"></div>
 
@@ -77,7 +80,7 @@ $_SESSION['entrou_sala'] = true;
                 $('#conteudo4').html("");
 
                 // Atualiza a quantidade de pessoas na demanda.
-                $('#demanda').text("Demanda: "+ dadosFila.Utilizando.length + "\\" + dadosFila.dadosUsuario[0].demanda);
+                $('#demanda').text("Espaços: " + dadosFila.Utilizando.length + "\\" + dadosFila.dadosUsuario[0].demanda);
 
                 for (i = 0; i < dadosFila.Utilizando.length; i++) 
                 {
@@ -132,7 +135,7 @@ $_SESSION['entrou_sala'] = true;
                             $('#conteudo2').append(
                                 "<img src='{{ $url }}" + dadosFila.dadosFila[i].profile_photo_path+"' width='40'> &nbsp;"
                             );
-                        }
+                          }
 
                         // Exibe os usuários da fila da sala em questão
                         if (dadosFila.dadosUsuario[0].name != dadosFila.dadosFila[i].name) {
@@ -154,8 +157,8 @@ $_SESSION['entrou_sala'] = true;
                 }
 
                 // Exibe o botão vou jogar se a posição da fila do usuário for igual a 1
-
-                if (dadosFila.dadosUsuario[0].cd_fila_usuario == 1 && 
+                var espaco = dadosFila.dadosUsuario[0].demanda - dadosFila.Utilizando.length;
+                if (dadosFila.dadosUsuario[0].cd_fila_usuario <= espaco && 
                     dadosFila.Utilizando.length <  dadosFila.dadosUsuario[0].demanda) {
                     $('#conteudo3').html("<a href='{{$salaId}}/voujogar'>Minha Vez</a><br><br>");
                 }
