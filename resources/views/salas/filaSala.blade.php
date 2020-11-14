@@ -31,8 +31,6 @@ $_SESSION['entrou_sala'] = true;
             <hr style="width: 30%;">
 
             <h2>Logotipo - Fifo</h2>
-            <div id="Timer"></div>
-            <div id="conteudo4"></div>
 
             <div id="conteudo1"></div>
 
@@ -40,6 +38,9 @@ $_SESSION['entrou_sala'] = true;
             <br>
 
             <h3>Pessoas na fila</h3>
+
+            <div id="Timer"></div>
+            <div id="conteudo4"></div>
 
             <div id="conteudo2"></div>
 
