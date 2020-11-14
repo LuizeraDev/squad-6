@@ -60,7 +60,8 @@ class filasController extends Controller
             $atualizarUsuario = DB::table('users')
                                     ->select('cd_fila_usuario')
                                     ->where([
-                                    ['cd_fila_usuario', '>', 0]
+                                    ['cd_fila_usuario', '>', 0],
+                                    ['cd_sala_santos', '=', $id]
                                     ])
                                     ->pluck('cd_fila_usuario');
         } else {
@@ -68,7 +69,8 @@ class filasController extends Controller
             $atualizarUsuario = DB::table('users')
                                     ->select('cd_fila_usuario')
                                     ->where([
-                                    ['cd_fila_usuario', '>', 0]
+                                    ['cd_fila_usuario', '>', 0],
+                                    ['cd_sala_sao_paulo', '=', $id]
                                     ])
                                     ->pluck('cd_fila_usuario');
         }
