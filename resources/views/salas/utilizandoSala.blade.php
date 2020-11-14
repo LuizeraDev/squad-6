@@ -1,4 +1,5 @@
 <?php 
+$salaId = $_SESSION['cd_sala'];
 $url='http://localhost:8080/squad-6/storage/app/public/';
 ?>
 <!DOCTYPE html>
@@ -22,6 +23,8 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
     <main>
         <section class="container" align=center>
             <h2>Utilizando a Sala</h2>
+            <div id="Timer"></div>
+            <div id="conteudo4"></div>
             <div id="conteudo"></div>
             <br><br>
             <h3>Selecione um botão após terminar</h3>
@@ -35,8 +38,9 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
     <script>
+        var temporizador = 11;
+
         function atualizarFila() {
-                
                 $.ajax({ 
                     url: "{{ route('filaConteudo') }}",
                     dataType: "json",
@@ -59,13 +63,58 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                         // Exibe usuários que estão utilizando a sala
                         $('#conteudo').append(
                             "Nome: <b>" + dadosFila.Utilizando[i].name+"</b>&nbsp;&nbsp;" +
-                            "Status: <b>Em andamento</b>"
+                            "Status: <b>Em andamento</b>&nbsp;&nbsp;"+
+                            "<a href='#"+i+"' onclick=reportar(this.href)>Reportar</a><br><br>"
                         );
                     }
+
+                    if (dadosFila.dadosUsuario[0].report) {
+                            $('#conteudo4').html(
+                                "Você ainda está ai? <button id='estouaqui' type='button' onClick='clicksim()'>Sim</button>"
+                            );
+                            
+                            if (temporizador == 11) {
+                                setInterval(function(){
+                                        temporizador -= 1;
+                                        $('#Timer').text(temporizador+" segundos")
+                                },1000);                               
+                            }                        
+
+                            setInterval(function(){window.location.href = "{{$salaId}}/desistente";
+                                alert("Você não confirmou que está na sala, estamos te redirecionando para o dashboard");
+                            }, 12000);
+                    } 
                 
                     setTimeout("atualizarFila()", 3000) // 3 segundos / Tempo de espera de atualização dos dados
                 })
             }
+
+            function reportar(pos){
+                $.ajax({ 
+                    url: "{{ route('filaConteudo') }}", 
+                    dataType: "json",
+                    cache: false,
+                }).done(function (dadosFila){
+                    // Pegar posição pelo href
+                    tamanho = pos.substring(pos.indexOf("#") + 1 );
+                    id = dadosFila.dadosFila[tamanho].id;
+                    url = this.locate
+                    if (confirm("Você está reportando " + dadosFila.dadosFila[tamanho].name))
+                        window.location.href = "/reportar/"+ url + "/"+id;
+
+                });
+            }
+        
+            function clicksim() {
+                $.ajax({ 
+                    url: "{{ route('filaConteudo') }}", 
+                    dataType: "json",
+                    cache: false,
+                }).done(function (dadosFila){
+                    window.location.href = "/estouaqui/"+ dadosFila.dadosUsuario[0].id ;
+                });
+            }
+
             // Quando carregar a página
             $(function () {
                 // Faz a primeira atualização

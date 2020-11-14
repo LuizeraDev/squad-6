@@ -74,9 +74,11 @@ class filasController extends Controller
         }
 
         $quantidade = count($atualizarUsuario);
+
         if($quantidade >= 0) {
             $quantidade += 1;
         }
+        
         if ($atualizarUsuario) {
             //Verifica se o usuário ja está na fila.
             $estanafila = DB::table('users')
