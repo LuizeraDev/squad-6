@@ -23,11 +23,28 @@
 	<!-- form que aceita arquivos -->
 	<form action='cadastrandosala' method="post" enctype="multipart/form-data">
 		@csrf
-		<p>Criar Sala</p>
+		<h2>Criar Sala</h2>
 		<p>Nome: <input type="text" id="nome" name="nomeSala"></p>
 		<p>Selecione uma Imagem </p>
 		<p><input type="file" name="ImagemSala"></p>
+		<p>Demanda de pessoas da sala: </p>
+		<select name="demanda">
+			<option value="1">1 pessoas</option>
+			<option value="2">2 pessoas</option>
+			<option value="3">3 pessoas</option>
+			<option value="4">4 pessoas</option>
+			<option value="5">5 pessoas</option>
+			<option value="6">6 pessoas</option>
+			<option value="7">7 pessoas</option>
+			<option value="8">8 pessoas</option>
+			<option value="9">9 pessoas</option>
+			<option value="10">10 pessoas</option>
+		</select>
+		<p>Obs: Tem 2 controles para jogar fifa, portanto a demanda da sala fifa seria 2.</p>
+
 		<p><input type="submit" value="Criar Sala"></p>
+		<br>
+
 
 		@if (isset($nome_vazio))
 		<p>Erros encontrados:</p>

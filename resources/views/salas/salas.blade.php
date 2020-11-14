@@ -1,6 +1,21 @@
 <?php 
 session_start();
 $url='http://localhost:8080/squad-6/storage/app/public/';
+
+// Verifica se o usuário já entrou em alguma sala
+if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION['entrou_sala']) {
+
+    // pega o Id da sala que ele deixou pelo botão voltar do browser
+    $id_sala_anterior = $_SESSION['cd_sala']; 
+
+    /* 
+    * Resolvendo problema do usuário quando ele tenta voltar pelo browser
+    * Basicamente eu passo o parâmetro com a sala anterior dele e retiro ele da sala 
+    * mandando ele pro controler de desistência da fila
+    */
+
+   echo "<script>window.location.href='/salas/sala/nomesala/". $id_sala_anterior ."/desistente'</script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -41,9 +56,9 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
     <a href="criarsala">Criar Sala</a>
 
     @if ($_SESSION['santos'])
-    <h3>Você esta conéctado a unidade de Santos</h3>
+    <h3>Você esta conectado a unidade de Santos</h3>
     @else
-    <h3>Você esta conéctado a unidade de São Paulo</h3>
+    <h3>Você esta conectado a unidade de São Paulo</h3>
     @endif
 
     <section>
@@ -54,7 +69,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
     <a href="unidade">Voltar a escolha da unidade</a>
 
     <!-- Este script é necessário para fazer a conexão assíncrona com o AJAX -->
-    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
     <script>
 

@@ -16,6 +16,7 @@ Página Web Responsiva realizada na intenção de auxiliar na organização de f
 
 ## Links
 
+- [Site Hospedado](http://squad-6.epizy.com)
 - [Drive](https://drive.google.com/drive/folders/1a-Vs-_USXSzs9fZZ-MY0O7-xe4luPMuh)
 - [Trello](https://trello.com/b/mb3iVsww/squad-6)
 

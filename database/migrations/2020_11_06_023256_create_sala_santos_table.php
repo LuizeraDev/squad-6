@@ -17,6 +17,7 @@ class CreateSalaSantosTable extends Migration
             $table->increments('cd_sala_santos');
             $table->string('nm_sala')->unique();
             $table->string('img_sala')->nullable();
+            $table->integer('demanda')->nullable();
             $table->timestamps();
         });
     }

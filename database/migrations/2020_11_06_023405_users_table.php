@@ -22,6 +22,7 @@ class UsersTable extends Migration
             $table->string('status')->nullable();
             $table->string('unidade')->nullable();
             $table->boolean('report')->nullable();
+            $table->boolean('utilizando_sala')->nullable();
             $table->rememberToken();
             $table->text('profile_photo_path')->nullable();
             $table->integer('cd_fila_usuario')->nullable();
