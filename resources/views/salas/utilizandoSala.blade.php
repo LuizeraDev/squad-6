@@ -60,12 +60,23 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                             );
                         }
 
-                        // Exibe usuários que estão utilizando a sala
-                        $('#conteudo').append(
-                            "Nome: <b>" + dadosFila.Utilizando[i].name+"</b>&nbsp;&nbsp;" +
-                            "Status: <b>Em andamento</b>&nbsp;&nbsp;"+
-                            "<a href='#"+i+"' onclick=reportar(this.href)>Reportar</a><br><br>"
-                        );
+                        // Exibe os usuários da fila da sala em questão
+                        if (dadosFila.dadosUsuario[0].name != dadosFila.Utilizando[i].name) {
+                            // Exibe usuários que estão utilizando a sala
+                            $('#conteudo').append(
+                                "Nome: <b>" + dadosFila.Utilizando[i].name+"</b>&nbsp;&nbsp;" +
+                                "Status: <b>Em andamento</b>&nbsp;&nbsp;"+
+                                "<a href='#"+i+"' onclick=reportar(this.href)>Reportar</a><br><br>"
+                            );
+                        } else {
+                            $('#conteudo').append(
+                                "Nome: <b>" + dadosFila.Utilizando[i].name+"</b>&nbsp;&nbsp;" +
+                                "Status: <b>Em andamento</b>&nbsp;&nbsp;"+
+                                "<a href='#"+i+"'</a><br><br>"
+                            );
+                        }
+                        
+            
                     }
 
                     if (dadosFila.dadosUsuario[0].report) {
@@ -80,7 +91,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                                 },1000);                               
                             }                        
 
-                            setInterval(function(){window.location.href = "{{$salaId}}/desistente";
+                            setInterval(function(){window.location.href = "desistente";
                                 alert("Você não confirmou que está na sala, estamos te redirecionando para o dashboard");
                             }, 12000);
                     } 
