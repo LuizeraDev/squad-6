@@ -31,11 +31,11 @@ Página Web Responsiva realizada na intenção de auxiliar na organização de f
 
 **Depois que você configurou e clonou o projeto para a pasta htdocs dentro do XAMPP você deve pegar o arquivo .env.example copiar tudo dentro dele e colar dentro de um novo arquivo .env que você deve criar;**
 
-**Em seguida você deve executar no console o seguinte comando, composer install, este comando vai baixar as dependências que faltantes no projeto;**
+**Em seguida você deve executar no console o seguinte comando, composer install, este comando vai baixar as dependências faltantes no projeto;**
 
-**Logo após, você deve criar um banco no Phpmyadmin do xampp, ele deve se chamar Squad-6, e então, você deve executar um comando no console chamado, php artisan migrate, este comando fará a migração das tabelas do Laravel para o seu Banco de Dados criado;**
+**Logo após, você deve criar um banco no Phpmyadmin do xampp, ele deve se chamar squad-6, e então, você deve executar um comando no console chamado, php artisan migrate, este comando fará a migração das tabelas do Laravel para o seu Banco de Dados criado;**
 
-**Por fim em seu console, você deve localizar a pasta do projeto, e executar o comando php artisan serve, e acesse o localhost:8000 em seu navegador.**
+**Por fim em seu console, você deve localizar a pasta do projeto, e executar o comando php artisan serve, e acessar o localhost:8000 em seu navegador.**
 
 ## Participantes
 
