@@ -19,7 +19,7 @@
     <main>
         <section class="container" align=center>
             <h2>Selecione um botão após terminar</h2>
-            <a href="Voltar">Voltar para o começo da fila</a>
+            <a href="Voltar">Voltar para o final da fila</a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="Acabei">Sair da sala</a>
         </section>

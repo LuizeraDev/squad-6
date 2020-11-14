@@ -85,8 +85,8 @@ $_SESSION['entrou_sala'] = true;
 
                     // Exibe usuários que estão utilizando a sala
                     $('#conteudo').append(
-                        "<p>Nome: <b>" + dadosFila.Utilizando[i].name+"</b>&nbsp;&nbsp;" +
-                        "Status: <b>Em andamento</b></p>"
+                        "Nome: <b>" + dadosFila.Utilizando[i].name+"</b>&nbsp;&nbsp;" +
+                        "Status: <b>Em andamento</b>"
                     );
                 }
 
@@ -96,11 +96,8 @@ $_SESSION['entrou_sala'] = true;
                     $('#conteudo1').append(
                         "E aew <b>" + dadosFila.dadosUsuario[i].name+"</b><br><br>" +
                         "Você está na fila da sala <b>" + dadosFila.dadosUsuario[i].nm_sala +"</b> " +
-                        "e sua posição é <b>" + dadosFila.dadosUsuario[i].cd_fila_usuario
-                        
-                        
-                    );  
-                               
+                        "e sua posição é <b>" + dadosFila.dadosUsuario[i].cd_fila_usuario  
+                    );                 
                 }
                 if (dadosFila.dadosUsuario[0].report) {
                         $('#conteudo4').html(
@@ -133,7 +130,7 @@ $_SESSION['entrou_sala'] = true;
                         // Exibe os usuários da fila da sala em questão
                         if (dadosFila.dadosUsuario[0].name != dadosFila.dadosFila[i].name) {
                             $('#conteudo2').append(
-                                "<br><br>Nome: <b>" + dadosFila.dadosFila[i].name+"</b> " +
+                                "Nome: <b>" + dadosFila.dadosFila[i].name+"</b> " +
                                 "Posição na fila: <b>" + dadosFila.dadosFila[i].cd_fila_usuario +"</b> "+ 
                                 "Status usuário: <b>" + dadosFila.dadosFila[i].status + "</b> "+
                                 "<a href='#"+i+"' onclick=reportar(this.href)> Reportar</a><br><br>"
@@ -142,8 +139,8 @@ $_SESSION['entrou_sala'] = true;
                             $('#conteudo2').append(
                                 "Nome: <b>" + dadosFila.dadosFila[i].name+"</b> " +
                                 "Posição na fila: <b>" + dadosFila.dadosFila[i].cd_fila_usuario +"</b> "+ 
-                                "Status usuário: <b>" + dadosFila.dadosFila[i].status + "</b> "+
-                                "<a href='#"+i
+                                "Status usuário: <b>" + dadosFila.dadosFila[i].status + "</b>"+
+                                "<a href='#"+i+"'</a><br><br>"
                             );
                         }
                     }
@@ -153,7 +150,7 @@ $_SESSION['entrou_sala'] = true;
 
                 if (dadosFila.dadosUsuario[0].cd_fila_usuario == 1 && 
                     dadosFila.Utilizando.length <  dadosFila.dadosUsuario[0].demanda) {
-                    $('#conteudo3').html("<a href='{{$salaId}}/voujogar'>Vou Jogar</a><br><br>");
+                    $('#conteudo3').html("<a href='{{$salaId}}/voujogar'>Minha Vez</a><br><br>");
                 }
             
                
