@@ -89,6 +89,13 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                         } 
                     }
 
+                    // Para fazer a exclusão das salas de Santos e São Paulo
+                    if (dadosSalas.sala[i].cd_sala_santos) {
+                        var excluirSala = "/excluir/" + dadosSalas.sala[i].cd_sala_santos + "'>Excluir Sala</a>";
+                    } else {    
+                        var excluirSala = "/excluir/" + dadosSalas.sala[i].cd_sala_sao_paulo + "'>Excluir Sala</a>";
+                    }
+
                     // Exibe os dados numa div com id de conteudo
                     $('#conteudo').append(
                         "<p> Nome da sala: <b>" + dadosSalas.sala[i].nm_sala + "</b>&nbsp;&nbsp;&nbsp;&nbsp;" + 
@@ -99,8 +106,8 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                         <?php if ($_SESSION["santos"]) { echo  "dadosSalas.sala[i].cd_sala_santos"; } 
                         else { echo "dadosSalas.sala[i].cd_sala_sao_paulo"; }  ?>
                         + "'>Entrar na Sala</a>" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-                        "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + 
-                        "/excluir/" + dadosSalas.sala[i].cd_sala_santos + "'>Excluir Sala</a>"
+                        "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala +
+                        excluirSala
                     );
                     
                 } // endfor
