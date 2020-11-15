@@ -28,7 +28,7 @@
                 {{ __('Você tem certeza que deseja deletar sua conta? Uma vez deletada, todos os seus dados e imagens serão perdidos. Por favor entre com sua senha para confirmar que você quer deletar sua conta permanentemente.') }}
 
                 <div class="mt-4" x-data="{}" x-on:confirming-delete-user.window="setTimeout(() => $refs.password.focus(), 250)">
-                    <x-jet-input type="password" class="mt-1 block w-3/4" placeholder="{{ __('Password') }}"
+                    <x-jet-input type="password" class="mt-1 block w-3/4" placeholder="{{ __('Senha') }}"
                                 x-ref="password"
                                 wire:model.defer="password"
                                 wire:keydown.enter="deleteUser" />
