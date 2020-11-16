@@ -29,6 +29,11 @@
                     {{ __('Recuperar Senha') }}
                 </x-jet-button>
             </div>
+            <div class="flex items-center mt-4">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                            {{ __('Voltar') }}
+                </a>
+            </div>
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>

@@ -56,19 +56,31 @@ class filasController extends Controller
             return view('auth/login');
 
         if ($_SESSION['santos']) {
+            // Pegamos a quantidade de usuários já alocados na fila
             $atualizarUsuario = DB::table('users')
                                     ->select('cd_fila_usuario')
-                                    ->where('cd_sala_santos', '=', $id)
+                                    ->where([
+                                    ['cd_fila_usuario', '>', 0],
+                                    ['cd_sala_santos', '=', $id]
+                                    ])
                                     ->pluck('cd_fila_usuario');
         } else {
+            // Pegamos a quantidade de usuários já alocados na fila
             $atualizarUsuario = DB::table('users')
                                     ->select('cd_fila_usuario')
-                                    ->where('cd_sala_sao_paulo', '=', $id)
+                                    ->where([
+                                    ['cd_fila_usuario', '>', 0],
+                                    ['cd_sala_sao_paulo', '=', $id]
+                                    ])
                                     ->pluck('cd_fila_usuario');
         }
 
         $quantidade = count($atualizarUsuario);
-        
+
+        if($quantidade >= 0) {
+            $quantidade += 1;
+        }
+
         if ($atualizarUsuario) {
             //Verifica se o usuário ja está na fila.
             $estanafila = DB::table('users')
@@ -338,7 +350,6 @@ class filasController extends Controller
 
     public function reportar($url,$id) 
     {
-
         // Atualizo a db para usuario que for reportado
         DB::table('users')
             ->where('users.id','=',$id)
@@ -354,6 +365,30 @@ class filasController extends Controller
         ->update (['report' => false]);
 
         return back();
+    }
+
+    public function excluirusuarioJogando($nomeSala, $id)
+    {
+        session_start();
+        $email = $_SESSION['usuario'];
+        $cd_sala = $id;
+        
+        if ($_SESSION['santos']) {
+            // Retira o usuário da fila e volta o código da fila dele para nulo
+            DB::table('users')
+                    ->where('email', $email)
+                    ->update(['cd_sala_santos'=> null, 'utilizando_sala' => null, 'report' => null]);
+        } else {
+            // Retira o usuário da fila e volta o código da fila dele para nulo
+            DB::table('users')
+                ->where('email', $email)
+                ->update(['cd_sala_sao_paulo'=> null, 'utilizando_sala' => null, 'report' => null]);
+        }
+
+        // Retornando condição como false, para não ficar retornando toda hora a mesma função
+        $_SESSION['entrou_sala'] = false;
+
+        return redirect()->route('salas');
     }
 
 }

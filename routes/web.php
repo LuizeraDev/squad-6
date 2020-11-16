@@ -79,6 +79,8 @@ Route::get('/fila-conteudo', [filasController::class, 'filaAssincrona'])->name('
 
 Route::get('/salas/sala/{nomeSala}/{id}/desistente', [filasController::class, 'desistirusuarioFila'])->name('desistir');
 
+Route::get('/salas/sala/{nomeSala}/{id}/excluirjogando', [filasController::class, 'excluirusuariojogando'])->name('excluirjogando');
+
 Route::get('/salas/sala/{nomeSala}/{id}/voujogar', [filasController::class, 'vouJogarFila'])->name('voujogar');
 
 // SALA / FILA / Utilizando serviço da sala

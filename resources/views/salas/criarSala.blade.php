@@ -29,7 +29,7 @@
 		<p><input type="file" name="ImagemSala"></p>
 		<p>Demanda de pessoas da sala: </p>
 		<select name="demanda">
-			<option value="1">1 pessoas</option>
+			<option value="1">1 pessoa</option>
 			<option value="2">2 pessoas</option>
 			<option value="3">3 pessoas</option>
 			<option value="4">4 pessoas</option>
@@ -40,7 +40,7 @@
 			<option value="9">9 pessoas</option>
 			<option value="10">10 pessoas</option>
 		</select>
-		<p>Obs: Tem 2 controles para jogar fifa, portanto a demanda da sala fifa seria 2.</p>
+		<p>Exemplo: Tem 2 controles para jogar fifa, portanto a demanda da sala fifa seria 2.</p>
 
 		<p><input type="submit" value="Criar Sala"></p>
 		<br>
