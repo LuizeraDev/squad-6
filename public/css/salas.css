@@ -28,6 +28,9 @@
 .criarSala {
 
     margin: 16px;
+    min-width: 10rem;
+    min-height: 10rem;
+    align-items: center;
 }
 
 .criarSala a {
@@ -35,59 +38,8 @@
     display: block;
     height: 100%;
     width: 100%;
-
-    padding-top: 50%;
+    line-height: 10rem;
+    
 
     text-decoration: none;
-}
-
-.criaSalaForm {
-
-    padding: 1rem;
-}
-
-.criaSalaForm p {
-
-    margin-bottom: 1rem;
-}
-
-.inputImagem input {
-
-    border: none;
-    width: 100%;
-    
-}
-
-.formButtons {
-
- 
-    
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-}
-
-.formButtons input{
-    
-    grid-column: 1/2;
-    margin: auto;
-}
-
-.formButtons a {
-
-    grid-column: 2/3;
-    margin: auto;
-}
-
-.mockup {
-
-    background-color: blue;
-    height: 5rem;
-    width: 5rem;
-    border-radius: 50%;
-}
-
-.grid a {
-    text-align: center;
-    width: 100%;
 }

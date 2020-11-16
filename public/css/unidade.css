@@ -1,31 +1,10 @@
-.wrapper {
-
-    background-color: gainsboro;
-    margin: 2rem;
-    height: 15rem;
-    width: 15rem;
+.option {
 
     padding: 2rem;
-    
-}
+    margin: 1rem;
 
-.criarSala {
-
-    background-color: gainsboro;
-    margin: 2rem;
-    height: 15rem;
-    width: 15rem;
-
-    padding: 2rem;
-    
-}
-
-button {
-
-    padding: 2rem;
-    margin-top: 1em;
+    min-width: 10rem;
     text-align: center;
-    height: 2em;
-    justify-content: center;
     
 }
+

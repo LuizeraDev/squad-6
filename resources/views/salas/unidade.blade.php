@@ -23,21 +23,15 @@
 
 <body>
 
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100"> <!--- GRID -->
+    <div class="min-h-screen flex flex-col sm:justify-center items-center sm:pt-0 bg-gray-100"> <!--- GRID -->
         <!-- No php, pegamos dados através do campo "name" dos inputs -->
-        <section class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg" align="center"> <!-- box igual do login -->
+        <section class="flex flex-col sm:justify-center items-center w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg"> <!-- box igual do login -->
             <h2>Logotipo - Fifo</h2>
             <p>Escolha a unidade em que você está</p>
-            <button class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md
-             font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900
-              focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition
-               ease-in-out duration-150 ml-4"> <a href="/unidade/santos">Santos</a> </button>
-            <br><br><br>
-            <button class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md
-             font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900
-              focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition
-               ease-in-out duration-150 ml-4"> <a href="/unidade/saopaulo">São Paulo</a></button>
-            <br><br><br>
+            <a class="option max-w-sm rounded overflow-hidden bg-gray-500 shadow-lg tracking-widest hover:bg-blue-600 text-white font-bold py-2 px-4 border border-gray-200 rounded" href="/unidade/santos">Santos</a>
+            
+            <a class="option max-w-sm rounded overflow-hidden bg-gray-500 shadow-lg tracking-widest hover:bg-blue-600 text-white font-bold py-2 px-4 border border-gray-200 rounded" href="/unidade/saopaulo">São Paulo</a>
+            
             <a href="dashboard">Sair</a>
         </section>
     </div>

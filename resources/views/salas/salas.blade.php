@@ -96,7 +96,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
             $("<div/>")
             .addClass("criarSala")
             .addClass("max-w-sm rounded overflow-hidden shadow-lg bg-gray-200 tracking-widest")
-            .addClass("bg-blue-200 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded");
+            .addClass("bg-gray-500 hover:bg-blue-600 text-white font-bold py-2 px-4 border border-gray-200 rounded");
 
               
             newSala.append( "<a href='criarsala'>Criar Sala</a>"  )

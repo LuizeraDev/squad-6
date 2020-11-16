@@ -38,7 +38,7 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    border-bottom: 3px solid rgb(72, 84, 241);
+    border-bottom: 3px solid rgb(246, 131, 36);
     bottom: -2px;
     left: 0;
     transform: translateX(-100%);
@@ -58,7 +58,7 @@
 .wrapperNome input:valid + .labelNome .contentNome{
 
     transform: translateY(-130%);
-    color:rgb(72, 84, 241);
+    color:rgb(246, 131, 36);
 }
 
 .wrapperNome input:focus + .labelNome::after,
