@@ -1,4 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;0,700;0,900;1,300&display=swap');
+
+* {
+    font-family: 'Roboto';
+}
+
+.salasContainer{
+    margin-top: 1rem;
+}
+
+.voltarUnidade{
+    margin-bottom: auto;
+}
+
 .wrapper {
 
     border-radius: 15px;
+    margin: 16px;
+}
+
+.enterButton {
+
+    margin-left: 0;
+    margin-right:16px;
+    
+}
+
+.criarSala {
+
+    margin: 16px;
+}
+
+.criarSala a {
+
+    display: block;
+    height: 100%;
+    width: 100%;
+
+    padding-top: 50%;
+
+    text-decoration: none;
+}
+
+.criaSalaForm {
+
+    padding: 1rem;
+}
+
+.criaSalaForm p {
+
+    margin-bottom: 1rem;
+}
+
+.inputImagem input {
+
+    border: none;
+    width: 100%;
+    
+}
+
+.formButtons {
+
+ 
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.formButtons input{
+    
+    grid-column: 1/2;
+    margin: auto;
+}
+
+.formButtons a {
+
+    grid-column: 2/3;
+    margin: auto;
+}
+
+.mockup {
+
+    background-color: blue;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+}
+
+.grid a {
+    text-align: center;
+    width: 100%;
 }

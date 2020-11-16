@@ -18,22 +18,18 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 }
 ?>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/unidade.css') }}">
-
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.6/tailwind.min.css" 
+    integrity="sha512-l7qZAq1JcXdHei6h2z8h8sMe3NbMrmowhOl+QkP3UhifPpCW2MC4M0i26Y8wYpbz1xD9t61MLT9L1N773dzlOA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{{ asset('css/salas.css') }}">
     @livewireStyles
+
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.js" defer></script>
@@ -48,25 +44,39 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
 <body>
 
+<header class="bg-white shadow ">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    <div class="text-sm lg:flex-grow">
+                        <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                            <div class="mockup">xxxxxxx</div> <img src="" alt="">
+                        </a>
+                        <a href="./user/profile" class="perfilLink block mt-4 lg:inline-block lg:mt-0 text-gray-800 hover:text-white mr-4">
+                            Perfil
+                        </a>    
+                    </div>
+                    
 
-<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100"> <!--- GRID -->
 
-    <h2>Logotipo - Fifo</h2>
+                    @if ($_SESSION['santos'])
+                    <h3>Você esta conectado a unidade de Santos</h3>
+                    @else
+                    <h3>Você esta conectado a unidade de São Paulo</h3>
+                    @endif
 
-    <a href="criarsala">Criar Sala</a>
+                </div>
+</header>
 
-    @if ($_SESSION['santos'])
-    <h3>Você esta conectado a unidade de Santos</h3>
-    @else
-    <h3>Você esta conectado a unidade de São Paulo</h3>
-    @endif
+<div class="grid min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100"> <!--- GRID -->
 
-    <section>
+    <section class="salasContainer">
          
       
     </section>
-    <br><br>
-    <a href="unidade">Voltar a escolha da unidade</a>
+    <a class="voltarUnidade font-bold text-sm text-blue-500 hover:text-orange-800" href="unidade">Voltar a escolha da unidade</a>
+        
+    
+</div>
 
     <!-- Este script é necessário para fazer a conexão assíncrona com o AJAX -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -85,8 +95,8 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
             var newSala = 
             $("<div/>")
             .addClass("criarSala")
-            .addClass("")
-            .addClass("");
+            .addClass("max-w-sm rounded overflow-hidden shadow-lg bg-gray-200 tracking-widest")
+            .addClass("bg-blue-200 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded");
 
               
             newSala.append( "<a href='criarsala'>Criar Sala</a>"  )
@@ -104,9 +114,16 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                 
                     for (i = 0; i < dadosSalas.sala.length; i++){   
                         //cria sala individual baseada nas salas do DB
-                        wrapperSala[i] = $("<div/>").addClass("wrapper").addClass("");
+                        wrapperSala[i] = $("<div/>").addClass("wrapper").addClass("max-w-sm rounded overflow-hidden shadow-lg bg-gray-200");
 
-                        wrapperSala[i].append("<p> Nome da sala: <b>" + dadosSalas.sala[i].nm_sala + "</b></p>");
+                        wrapperSala[i].append(
+                            "<img class='w-full' src='{{ $url }}" + dadosSalas.sala[i].img_sala 
+                            + "' width=200>"
+                        );
+
+                        wrapperSala[i].append("<div class='px-6 py-4'>");
+
+                        wrapperSala[i].append("<h3 class='font-bold text-xl mb-2'><b>" + dadosSalas.sala[i].nm_sala + "</b></h3>");
 
                         // Conta a quantidade de pessoas em uma determinada sala.
                         for(c = 0; c < dadosSalas.qt_usuarios.length; c++){
@@ -122,18 +139,14 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                             + $contador 
                             + "</b></p>"
                         );
-
-                        wrapperSala[i].append(
-                            "<img src='{{ $url }}" + dadosSalas.sala[i].img_sala 
-                            + "' width=200>"
-                        );
+                        
+                        wrapperSala[i].append("</div>");
                         
                         wrapperSala[i].append(
                             //classes do tailwind css
-                            "<button class='inline-flex items-center px-4 py-2 bg-gray-800 border" 
+                            "<button class='inline-flex items-center px-4 py-2 bg-blue-600 border" 
                             + "border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest"
-                            + "hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray"
-                            + "disabled:opacity-25 transition ease-in-out duration-150 ml-4'"
+                    
                             //fim tailwind
                             + "class='enterButton'>"//adiciona classe
                             //rota da sala
@@ -149,10 +162,9 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                         );
 
                             wrapperSala[i].append(
-                                "<button class='inline-flex items-center px-4 py-2 bg-gray-800 border" 
+                                "<button class='inline-flex items-center px-4 py-2 bg-orange-300 border" 
                                 + "border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest"
-                                + "hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray"
-                                + "disabled:opacity-25 transition ease-in-out duration-150 ml-4'"
+                                + " ml-4'"
                                 //fim tailwind
                                 + "class='deleteButton'>" //adiciona classe
                                 //rota da sala
