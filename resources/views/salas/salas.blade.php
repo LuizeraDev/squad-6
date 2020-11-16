@@ -67,7 +67,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                 </div>
 </header>
 
-<div class="grid min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100"> <!--- GRID -->
+<div class="grid min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0"> <!--- GRID -->
 
     <section class="salasContainer">
          

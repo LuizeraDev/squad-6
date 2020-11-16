@@ -22,7 +22,7 @@
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.js" defer></script>
     </head>
     <body>
-        <div class="font-sans text-orange-900 antialiased">
+        <div class="antialiased">
             {{ $slot }}
         </div>
     </body>
