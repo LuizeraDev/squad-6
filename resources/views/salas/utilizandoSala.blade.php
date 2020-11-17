@@ -20,6 +20,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
 </style> 
 
 <body>
+@livewire('navigation-dropdown')
     <main>
         <section class="container" align=center>
             <h2>Utilizando a Sala</h2>

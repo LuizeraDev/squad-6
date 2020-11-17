@@ -22,24 +22,10 @@
 </head>
 
 <body>
+@livewire('navigation-dropdown')
 
-<header class="bg-white shadow ">
 
-    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-        <div class="text-sm lg:flex-grow">
-            <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0  mr-4">
-                <div class="mockup">logo</div> <img src="" alt="">
-            </a>
-            <a href="./user/profile" class="perfilLink block mt-4 lg:inline-block lg:mt-0 text-gray-800 hover:text-white mr-4">
-                Perfil
-            </a>    
-        </div>
-        <h3 class="flex flex-col">ESCOLHA UMA UNIDADE</h3>
-    </div>
-</header>
-
-    <div class="min-h-full flex sm:justify-center items-center md:pt-0 lg:pt-0 sm:pt-0 xl:pt-0"> <!--- GRID -->
+    <div class="min-h-full flex sm:justify-center items-center md:pt-0 lg:pt-0 sm:pt-0 xl:pt-0 mt-10"> <!--- GRID -->
         <!-- No php, pegamos dados através do campo "name" dos inputs -->
         
         <section class="flex flex-col sm:justify-center items-center w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg"> <!-- box igual do login -->

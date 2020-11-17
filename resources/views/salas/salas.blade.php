@@ -39,29 +39,19 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 </head>
 
 <body>
+@livewire('navigation-dropdown')
 
-<header class="bg-white shadow ">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    <div class="text-sm lg:flex-grow">
-                        <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-                            <div class="mockup">xxxxxxx</div> <img src="" alt="">
-                        </a>
-                        <a href="./user/profile" class="perfilLink block mt-4 lg:inline-block lg:mt-0 text-gray-800 hover:text-white mr-4">
-                            Perfil
-                        </a>    
-                    </div>
                     
 
-
+<div class="voceEsta w-full items-center justify-center">
                     @if ($_SESSION['santos'])
                     <h3>Você esta conectado a unidade de Santos</h3>
                     @else
                     <h3>Você esta conectado a unidade de São Paulo</h3>
                     @endif
+</div>
+               
 
-                </div>
-</header>
 
 <div class="flex flex-col sm:justify-center items-center pt-6 sm:pt-0"> <!--- GRID -->
 

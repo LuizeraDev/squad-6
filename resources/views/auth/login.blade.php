@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-guest-layout class="body">
 
         <x-slot name="logo">
              LOGO
@@ -11,12 +11,12 @@
                 {{ session('status') }}
             </div>
         @endif
-        <div class="painel w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+        <div class="painel w-full sm:max-w-md mt-6 px-6 py-4 bg-gray-100 shadow-md overflow-hidden sm:rounded-lg">
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
             <div class="mt-4 wrapperNome">
-                <input id="email" class="shadow appearance-none border border-blue-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" type="email" name="email" :value="old('email')" required autocomplete="off" />
+                <input id="email" class="shadow appearance-none border border-blue-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" type="email" name="email" :value="old('email')" required  />
                 <label class=" labelNome" for="email" value="{{ __('Email') }}"><span class="contentNome">Email</span></>
             </div>
 

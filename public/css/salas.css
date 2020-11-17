@@ -13,6 +13,14 @@ body {
 
 }
 
+.voceEsta {
+
+    margin-top: 4rem;
+    text-align: center;
+    font-family: 'Roboto';
+    font-size: large;
+}
+
 .salasContainer{
     margin-top: 1rem;
 }
