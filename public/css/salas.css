@@ -3,9 +3,14 @@
 body {
 
     background-color: #e2e8f0;
+    margin: 0;
 }
+
 * {
     font-family: 'Roboto';
+    margin: 0;
+    padding: 0;
+
 }
 
 .salasContainer{
@@ -13,36 +18,80 @@ body {
 }
 
 .voltarUnidade{
-    margin-bottom: auto;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
 .wrapper {
-
+    min-width: 19rem;
+    min-height: 19rem;
+    max-height: 19rem;
+    max-width: 19rem;
     border-radius: 15px;
-    margin: 16px;
+    margin: 2rem 2rem;
+    
+}
+
+.wrapper img {
+    max-height: 140px;
+    min-height: 140px;
+    height: 140px;
+    object-fit: cover;
+
+}
+
+.wrapper h3, p {
+
+    padding-left: 1rem;
 }
 
 .enterButton {
 
-    margin-left: 0;
-    margin-right:16px;
+    margin-top:1rem;
+    margin-left: 10px;
+    margin-right: 22px;
+    width: 130px;
+    height: 3rem;
     
+}
+
+.deleteButton {
+
+    margin-top: 1rem;
+    margin-right: 10px;
+    
+    width:130px;
+    height: 3rem;
+    text-align: center;
+}
+
+.enterButton a,
+.deleteButton a {
+
+    line-height: 3rem;
+    width: 130px;
+    text-align: center;
 }
 
 .criarSala {
 
-    margin: 16px;
-    min-width: 10rem;
-    min-height: 10rem;
+    border-radius: 20px;
+
+    margin: 2rem 2rem;
+    min-width: 19rem;
+    min-height: 19rem;
+    max-width: 19rem;
+    max-height: 19rem;
     align-items: center;
 }
 
 .criarSala a {
 
     display: block;
-    height: 100%;
-    width: 100%;
-    line-height: 10rem;
+    height: 19rem;
+    width: 19rem;
+    line-height: 19rem;
     text-align: center;
 
     text-decoration: none;
