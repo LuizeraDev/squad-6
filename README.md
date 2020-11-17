@@ -51,9 +51,6 @@ Página Web Responsiva realizada na intenção de auxiliar na organização de f
 - Carlos (Front-end)
   - [GitHub](https://github.com/Carlos-kaspa)
   - [Linkedin](https://www.linkedin.com/in/carlos-augusto-gomes-de-lima-000a7ab2)
-- Diogo (Front-end)
-  - [GitHub](https://github.com/gaspar-d)
-  - [Linkedin](https://www.linkedin.com/in/gaspar-diogo/)
 - Marcus (Ux / Designer)
   - [Linkedin](https://www.linkedin.com/in/marcus-mazza-5a6497190/)
   
