@@ -55,7 +55,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
 <div class="flex flex-col sm:justify-center items-center pt-6 sm:pt-0"> <!--- GRID -->
 
-    <section class="salasContainer">
+    <section class="salasContainer" id="salasContainer">
          
       
     </section>
@@ -67,10 +67,16 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
     <!-- Este script é necessário para fazer a conexão assíncrona com o AJAX -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
-    <script>
+<script>
         // Função responsável por atualizar as salas
-        function atualizarSalas() {
+    function atualizarSalas() {
+        $.ajax({ 
+            url: "{{ route('salasConteudo') }}",
+            dataType: "json",
+            cache: false,
+        }).done(function (dadosSalas) {
             //cria container para inserir as salas
+            $('#salasContainer').html("");
             var conteudo_salas = $("<div/>").addClass("conteudoContainer").addClass("grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-4").appendTo("section");
             conteudo_salas.innerHTML = "";
             //cria array das salas
@@ -82,7 +88,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
             .addClass("bg-gray-500 hover:bg-blue-600 text-white font-bold border border-gray-200 rounded");
               
             newSala.append( "<a href='criarsala'>Criar Sala</a>"  )
-                $.get("{{ route('salasConteudo') }}", function (dadosSalas) {
+            
                     $contador = 0; // contador de usuários para a sala
                     // Exibe informações sobre os usuários cadastrados / online / ausente / offline, sala em que está
                     for (sala of dadosSalas.usuarios){
@@ -96,7 +102,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                             "<img class='w-full' src='{{ $url }}" + dadosSalas.sala[i].img_sala 
                             + "' width=200>"
                         );
-                        wrapperSala[i].append("<div class='px-6 py-4'>");
+                        wrapperSala[i].append("<div class='px-6'>");
                         wrapperSala[i].append("<h3 class='font-bold text-xl mb-2'><b>" + dadosSalas.sala[i].nm_sala + "</b></h3>");
                         // Conta a quantidade de pessoas em uma determinada sala.
                         for(c = 0; c < dadosSalas.qt_usuarios.length; c++){
@@ -108,6 +114,9 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                         wrapperSala[i].append(
                             "<p> Usuários na sala: <b>"
                             + $contador 
+                            + "</b></p>"
+                            + "<p> Demanda da sala: <b>"
+                            + dadosSalas.sala[i].demanda 
                             + "</b></p>"
                         );
                         
@@ -145,7 +154,10 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                     conteudo_salas.append(wrapperSala);
                   
                     conteudo_salas.append(newSala)
-                })
+
+                    setTimeout("atualizarSalas()", 3000) // 3 segundos / Tempo de espera de atualização dos dados
+
+                });
                 
                 
         }
