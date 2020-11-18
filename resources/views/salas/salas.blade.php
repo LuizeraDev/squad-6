@@ -98,7 +98,6 @@ DELETE ROOM
 
                 newSala.append("<a href='criarsala'>Criar Sala</a>")
 
-                $contador = 0; // contador de usuários para a sala
                 // Exibe informações sobre os usuários cadastrados / online / ausente / offline, sala em que está
                 for (sala of dadosSalas.usuarios) {
                     console.log(dadosSalas.usuarios[sala]);
@@ -113,17 +112,26 @@ DELETE ROOM
                     );
                     wrapperSala[i].append("<div class='px-6'>");
                     wrapperSala[i].append("<h3 class='font-bold text-xl mb-2'><b>" + dadosSalas.sala[i].nm_sala + "</b></h3>");
+                    
+                    var contador = 0; // contador de usuários para a sala
+
                     // Conta a quantidade de pessoas em uma determinada sala.
                     for (c = 0; c < dadosSalas.qt_usuarios.length; c++) {
-                        // Faz a verificação se o nome da sala é o mesmo do usuário.
+
+                        /*
+                        * Faz uma verificação se o nome da sala 
+                        * é o mesmo nome que a sala em que o usuário está.
+                        */ 
+
                         if (dadosSalas.sala[i].nm_sala == dadosSalas.qt_usuarios[c].nm_sala) {
-                            $contador *= 1; //adiciona +1 para cada usuário na                                
+                            contador += 1; //adiciona +1 para cada usuário na                                
                         }
+
                     }
 
                     wrapperSala[i].append(
                         "<p> Usuários na sala: <b>"
-                        + $contador
+                        + contador
                         + "</b></p>"
                         + "<p> Demanda da sala: <b>"
                         + dadosSalas.sala[i].demanda
@@ -155,7 +163,7 @@ DELETE ROOM
                         + "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + "/excluir/" + dadosSalas.sala[i].cd_sala_santos
                         + "'>Excluir Sala</a></button>"
                     );
-        }
+        } // Endfor 
 
         conteudo_salas.append(wrapperSala);
 
