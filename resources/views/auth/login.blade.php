@@ -11,7 +11,7 @@
                 {{ session('status') }}
             </div>
         @endif
-        <div class="painel w-full sm:max-w-md mt-6 px-6 py-4 bg-gray-100 shadow-md overflow-hidden sm:rounded-lg">
+        <div class="painel w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
@@ -28,23 +28,24 @@
             <div class="block mt-4">
                 <label for="remember_me" class="flex items-center">
                     <input id="remember_me" type="checkbox" class="form-checkbox" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Lembre de mim') }}</span>
+                    <span class="ml-2 text-sm text-gray-800">{{ __('Lembre de mim') }}</span>
                 </label>
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                    <a class="underline text-sm text-orange-600 hover:text-gray-500" href="{{ route('register') }}">
+                    <a class="text-sm text-gray-600 hover:underline" href="{{ route('register') }}">
                         {{ __('Não possuo uma conta') }}
                     </a>
 
-                <button class="ml-4 items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest">
+                <button class="transform motion-reduce:transform-none hover:-translate-y-1 hover:scale-110 transition ease-in-out duration-300
+                ml-4 items-center px-4 py-2 bg-gray-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest">
                     {{ __('Entrar') }}
                 </button>
             </div>
 
-            <div class="flex items-center mt-4">
+            <div class="flex items-center justify-start mt-4">
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm text-orange-600 hover:text-gray-500" href="{{ route('password.request') }}">
+                    <a class="text-sm text-gray-600 hover:underline" href="{{ route('password.request') }}">
                         {{ __('Esqueceu sua senha?') }}
                     </a>
                 @endif
