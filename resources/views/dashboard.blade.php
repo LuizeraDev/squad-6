@@ -5,7 +5,7 @@
     <x-slot name="header"></x-slot>
 
         <div class="container">
-            <a class="option max-w-sm rounded overflow-hidden bg-gray-600 shadow-lg tracking-widest hover:bg-blue-600 text-white font-bold py-6 px-4 border border-blue-700 rounded" href="unidade">Entrar em uma unidade</a>
+            <a class="option max-w-sm overflow-hidden shadow-lg tracking-widest bg-gray-700 hover:bg-gray-800 text-white font-bold py-6 px-4 border-none rounded" href="unidade">Entrar em uma unidade</a>
         </div>
         
     </div>

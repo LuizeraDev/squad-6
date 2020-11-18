@@ -31,11 +31,11 @@
         <section class="flex flex-col sm:justify-center items-center w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg"> <!-- box igual do login -->
             <h2>Logotipo - Fifo</h2>
             <p>Escolha a unidade em que você está</p>
-            <a class="option max-w-sm rounded overflow-hidden bg-gray-500 shadow-lg tracking-widest hover:bg-blue-600 text-white font-bold py-2 px-4 border border-gray-200 rounded" href="/unidade/santos">Santos</a>
+            <a class="option max-w-sm overflow-hidden shadow-lg tracking-widest bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 border border-none rounded" href="/unidade/santos">Santos</a>
             
-            <a class="option max-w-sm rounded overflow-hidden bg-gray-500 shadow-lg tracking-widest hover:bg-blue-600 text-white font-bold py-2 px-4 border border-gray-200 rounded" href="/unidade/saopaulo">São Paulo</a>
+            <a class="option max-w-sm overflow-hidden shadow-lg tracking-widest bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 border border-none rounded" href="/unidade/saopaulo">São Paulo</a>
             
-            <a href="dashboard">Sair</a>
+            <a href="dashboard">Voltar</a>
         </section>
     </div>
 </body>

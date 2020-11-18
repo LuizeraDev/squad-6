@@ -23,9 +23,12 @@
 </head>
 
 <body>
+
 	<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
+
 		<!--- GRID -->
 		<h2>Criar Sala</h2>
+
 		<!-- form que aceita arquivos -->
 		<form
 			class="flex flex-col sm:justify-center items-center w-full sm:max-w-md mt-6 px-10 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg"
@@ -39,15 +42,19 @@
 
 			<div class="flex flex-col sm:justify-center items-center my-3">
 
-				<label  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded my-3" for="upload-photo">Selecione uma Imagem</label>
+				<label
+					class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded my-3"
+					for="upload-photo">Selecione uma Imagem</label>
 				<input type="file" name="ImagemSala" id="upload-photo" />
-			
+
 			</div>
 
 			<p>Demanda de pessoas da sala</p>
 
 			<div class="inline-block relative w-64 my-3">
-				<select class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" name="demanda">
+				<select
+					class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+					name="demanda">
 					<option value="1">1 pessoa</option>
 					<option value="2">2 pessoas</option>
 					<option value="3">3 pessoas</option>
@@ -60,16 +67,18 @@
 					<option value="10">10 pessoas</option>
 				</select>
 				<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-					<svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+					<svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+						<path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
 				</div>
 			</div>
-			
+
 			<div class="my-3">
 				<p>Exemplo: Tem 2 controles para jogar fifa, portanto a demanda da sala fifa seria 2.</p>
 			</div>
 
-			<button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded my-3"
-			href="salas">Criar Sala</button>
+			<button type="submit"
+				class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded my-3"
+				href="salas">Criar Sala</button>
 
 
 			<!-- validação dos dados -->
@@ -123,10 +132,13 @@
 			</script>
 
 
-		</form>
+		</form> <!-- Fim form -->
+
 		<a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded mt-6"
-			href="salas">Voltar as salas</a>
+			href="salas">Voltar</a>
+
 	</div>
+
 </body>
 
 </html>
