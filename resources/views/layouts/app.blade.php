@@ -18,8 +18,8 @@
 
         @livewireStyles
     </head>
-    <body class="flex sm:grid-cols-1 sm:justify-center items-center mb-4 font-sans antialiased">
-        <div class="grid sm:grid-cols-1 md:grid-cols-2 sm:justify-center items-center">
+    <body class="font-sans antialiased">
+        <div class="min-h-screen">
             @livewire('navigation-dropdown')
 
             <!-- Page Heading -->

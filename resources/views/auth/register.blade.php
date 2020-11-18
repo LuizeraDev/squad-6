@@ -1,9 +1,11 @@
 <x-guest-layout>
-    <x-jet-authentication-card>
+    <x-jet-authentication-card >
         <x-slot name="logo">
             LOGO
         </x-slot>
         <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/global.css') }}">
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.6/tailwind.min.css" 
     integrity="sha512-l7qZAq1JcXdHei6h2z8h8sMe3NbMrmowhOl+QkP3UhifPpCW2MC4M0i26Y8wYpbz1xD9t61MLT9L1N773dzlOA==" crossorigin="anonymous" />
 
@@ -35,11 +37,11 @@
             </div>
 
             <div class="flex items-center justify-end mt-6">
-                <a class="underline text-sm text-orange-500 hover:text-blue-500" href="{{ route('login') }}">
+                <a class="underline text-sm text-gray-500 hover:text-blue-500" href="{{ route('login') }}">
                     {{ __('Já possui uma conta?') }}
                 </a>
 
-                <button class="ml-4 items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest">
+                <button class="ml-4 items-center px-4 py-2 bg-gray-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest">
                     {{ __('Registrar-se') }}
                 <button>
             </div>

@@ -66,7 +66,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
     </div>
 
-<div class="deleteRoom">
+<div class="deleteRoom active">
 DELETE ROOM
 </div>
 
