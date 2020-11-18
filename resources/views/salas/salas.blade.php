@@ -19,12 +19,14 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.6/tailwind.min.css"
         integrity="sha512-l7qZAq1JcXdHei6h2z8h8sMe3NbMrmowhOl+QkP3UhifPpCW2MC4M0i26Y8wYpbz1xD9t61MLT9L1N773dzlOA=="
         crossorigin="anonymous" />
     <link rel="stylesheet" href="{{ asset('css/salas.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/global.css') }}">
+
     @livewireStyles
 
 
@@ -40,9 +42,8 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 </head>
 
 <body>
+
     @livewire('navigation-dropdown')
-
-
 
     <div class="voceEsta w-full items-center justify-center">
         @if ($_SESSION['santos'])
@@ -53,14 +54,12 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
     </div>
 
 
-
+    <!--- GRID -->
     <div class="flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
-        <!--- GRID -->
-
-        <section class="salasContainer" id="salasContainer">
 
 
-        </section>
+        <section class="salasContainer" id="salasContainer"></section>
+
         <a class="voltarUnidade font-bold text-sm text-blue-500 text-lg hover:text-blue-800" href="unidade">Voltar a
             escolha da unidade</a>
 
@@ -141,14 +140,14 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                             } ?>
                                 + "'>Entrar na Sala</a></button>"
                         );
-            wrapperSala[i].append(
-                "<button class='deleteButton inline-flex items-center bg-gray-500 hover:bg-gray-700 border"
-                + "border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest'>"
-                //rota da sala
-                + "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + "/excluir/" + dadosSalas.sala[i].cd_sala_santos
-                + "'>Excluir Sala</a></button>"
-            );
 
+                    wrapperSala[i].append(
+                        "<button class='deleteButton inline-flex items-center bg-gray-500 hover:bg-gray-700 border"
+                        + "border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest'>"
+                        //rota da sala
+                        + "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + "/excluir/" + dadosSalas.sala[i].cd_sala_santos
+                        + "'>Excluir Sala</a></button>"
+                    );
         }
 
         conteudo_salas.append(wrapperSala);

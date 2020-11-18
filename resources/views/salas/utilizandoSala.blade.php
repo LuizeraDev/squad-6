@@ -11,19 +11,17 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Fifo - Utilizando Sala</title>
+    
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/global.css') }}">
+
 </head>
 
-<style>
-    .container {
-        margin-top: 15%;
-    }
-</style> 
 
 <body>
-@livewire('navigation-dropdown'),
-<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100"> <!--- GRID -->
+
+<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0"> <!--- GRID -->
     <main>
         <section class="container" align=center>
             <h2>Utilizando a Sala</h2>
