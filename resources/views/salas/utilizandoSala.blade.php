@@ -11,6 +11,8 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Fifo - Utilizando Sala</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
 <style>
@@ -20,7 +22,8 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
 </style> 
 
 <body>
-@livewire('navigation-dropdown')
+@livewire('navigation-dropdown'),
+<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100"> <!--- GRID -->
     <main>
         <section class="container" align=center>
             <h2>Utilizando a Sala</h2>
@@ -36,6 +39,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
             <a href="Acabei">Sair da sala</a>
         </section>
     </main>
+</div>
 
     <!-- Este script é necessário para fazer a conexão assíncrona com o AJAX -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

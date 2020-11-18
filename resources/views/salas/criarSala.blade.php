@@ -23,11 +23,10 @@
 
 <body>
 <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100"> <!--- GRID -->
+	<h2>Criar Sala</h2>
 	<!-- form que aceita arquivos -->
 	<form class="flex flex-col sm:justify-center items-center w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg" action='cadastrandosala' method="post" enctype="multipart/form-data">
 		@csrf
-
-		<h2>Criar Sala</h2>
 
 		<div class="wrapperNome">
 			<input type="text" id="nome" name="nomeSala" autocomplete="off" required>
