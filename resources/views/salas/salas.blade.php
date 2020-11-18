@@ -57,34 +57,14 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
     <!--- GRID -->
     <div class="flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
 
-<<<<<<< HEAD
-<div class="voceEsta w-full items-center justify-center">
-    @if ($_SESSION['santos'])
-    <h3>Você esta conectado a unidade de Santos</h3>
-    @else
-    <h3>Você esta conectado a unidade de São Paulo</h3>
-    @endif
-</div>
-              
-=======
 
         <section class="salasContainer" id="salasContainer"></section>
->>>>>>> dd54a8251be1390c686836d08fe940f0f47d30b1
 
-        <a class="voltarUnidade font-bold text-sm text-blue-500 text-lg hover:text-blue-800" href="unidade">Voltar a
+        <a class="voltarUnidade font-bold text-sm text-blue-500 text-lg hover:text-blue-800" href="dashboard">Voltar a
             escolha da unidade</a>
 
-<<<<<<< HEAD
-    <section class="salasContainer" id="salasContainer">
-      
-    </section>
-    <a class="voltarUnidade font-bold text-sm text-blue-500 hover:text-orange-800" href="unidade">Voltar a escolha da unidade</a>
-        
-</div>
-=======
 
     </div>
->>>>>>> dd54a8251be1390c686836d08fe940f0f47d30b1
 
 <div class="deleteRoom">
 DELETE ROOM
@@ -98,49 +78,6 @@ DELETE ROOM
 
     <script>
         // Função responsável por atualizar as salas
-<<<<<<< HEAD
-    function atualizarSalas() {
-        $.ajax({ 
-            url: "{{ route('salasConteudo') }}",
-            dataType: "json",
-            cache: false,
-        }).done(function (dadosSalas) {
-            //cria container para inserir as salas
-            $('#salasContainer').html("");
-            var conteudo_salas = $("<div/>").addClass("conteudoContainer").addClass("grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-4").appendTo("section");
-            conteudo_salas.innerHTML = "";
-            //cria array das salas
-            var wrapperSala = []
-            var newSala = 
-            $("<div/>")
-            .addClass("criarSala")
-            .addClass("max-w-sm md:w-1/2 lg:w-1/3 rounded overflow-hidden shadow-lg bg-gray-200 tracking-widest")
-            .addClass("bg-gray-500 hover:bg-blue-600 text-white font-bold border border-gray-200 rounded");
-              
-            newSala.append( "<a href='criarsala'>Criar Sala</a>" )
-            
-                    $contador = 0; // contador de usuários para a sala
-                    // Exibe informações sobre os usuários cadastrados / online / ausente / offline, sala em que está
-                    for (sala of dadosSalas.usuarios){
-                            console.log(dadosSalas.usuarios[sala] ); 
-                        }
-                
-                    for (i = 0; i < dadosSalas.sala.length; i++){   
-                        //cria sala individual baseada nas salas do DB
-                        wrapperSala[i] = $("<div/>").addClass("wrapper").addClass("max-w-sm lg:w-1/3 md:1/2 rounded overflow-hidden shadow-lg bg-gray-200");
-                        wrapperSala[i].append(
-                            "<img class='w-full' src='{{ $url }}" + dadosSalas.sala[i].img_sala 
-                            + "' width=200>"
-                        );
-                        wrapperSala[i].append("<div class='px-6'>");
-                        wrapperSala[i].append("<h3 class='font-bold text-xl mb-2'><b>" + dadosSalas.sala[i].nm_sala + "</b></h3>");
-                        // Conta a quantidade de pessoas em uma determinada sala.
-                        for(c = 0; c < dadosSalas.qt_usuarios.length; c++){
-                            // Faz a verificação se o nome da sala é o mesmo do usuário.
-                            if (dadosSalas.sala[i].nm_sala == dadosSalas.qt_usuarios[c].nm_sala) {
-                                $contador *= 1 ; //adiciona +1 para cada usuário na                                
-                            } 
-=======
         function atualizarSalas() {
             $.ajax({
                 url: "{{ route('salasConteudo') }}",
@@ -181,7 +118,6 @@ DELETE ROOM
                         // Faz a verificação se o nome da sala é o mesmo do usuário.
                         if (dadosSalas.sala[i].nm_sala == dadosSalas.qt_usuarios[c].nm_sala) {
                             $contador *= 1; //adiciona +1 para cada usuário na                                
->>>>>>> dd54a8251be1390c686836d08fe940f0f47d30b1
                         }
                     }
 

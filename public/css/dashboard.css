@@ -1,10 +1,25 @@
 .container {
 
-    margin-top: 10rem;
+    
+}
+
+.greetings{
+    margin: 2rem auto;
+    text-align: center;
 }
 
 .option {
 
-    padding: 15rem;
+    min-width: 19rem;
+    min-height: 19rem;
+    max-width: 19rem;
+    max-height: 19rem;
+
+    margin: 2rem;
+
+    line-height: 19rem;
+    width: 19rem;
+    text-align: center;
 }
+
 
