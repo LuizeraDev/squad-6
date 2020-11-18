@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <x-jet-authentication-card >
+    <x-jet-authentication-card  >
         <x-slot name="logo">
             LOGO
         </x-slot>
@@ -14,7 +14,6 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
             <div class="mt-4 wrapperNome">
-
                 <input id="name" type="text" name="name" :value="old('name')" required autofocus autocomplete="off" />
                 <label class="labelNome" for="name" value="{{ __('Nome') }}"><span class="contentNome">Nome</span></label>
             </div>
@@ -22,11 +21,9 @@
             <div class="mt-4 wrapperNome">
                 <input id="email" type="email" name="email" :value="old('email')" required />
                 <label class="labelNome" for="email" value="{{ __('Email') }}"><span class="contentNome">Email</span></label>
-                
             </div>
 
             <div class="mt-4 wrapperNome">
-
                 <input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
                 <label class="labelNome" for="password" value="{{ __('Senha') }}"><span class="contentNome">Senha</span> </label>
             </div>
@@ -37,11 +34,12 @@
             </div>
 
             <div class="flex items-center justify-end mt-6">
-                <a class="underline text-sm text-gray-500 hover:text-blue-500" href="{{ route('login') }}">
+                <a class="text-sm text-gray-600 hover:underline" href="{{ route('login') }}">
                     {{ __('Já possui uma conta?') }}
                 </a>
 
-                <button class="ml-4 items-center px-4 py-2 bg-gray-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest">
+                <button class="transform motion-reduce:transform-none hover:-translate-y-1 hover:scale-110 transition ease-in-out duration-300
+                ml-4 items-center px-4 py-2 bg-gray-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest">
                     {{ __('Registrar-se') }}
                 <button>
             </div>

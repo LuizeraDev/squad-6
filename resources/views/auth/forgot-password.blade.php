@@ -19,21 +19,22 @@
         <form method="POST" action="{{ route('password.email') }}">
             @csrf
 
-            <div class="block">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+            <div class="mt-4 wrapperNome">
+                <input id="email" class="shadow appearance-none border border-blue-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" type="email" name="email" :value="old('email')" required  />
+                <label class=" labelNome" for="email" value="{{ __('Email') }}"><span class="contentNome">Email</span></>
             </div>
+            
+            <div class="flex items-center justify-between mt-4 bg-blue">
+                <a class="text-sm text-gray-600 hover:underline" href="{{ route('login') }}">
+                            {{ __('Voltar') }}
+                </a>
 
-            <div class="flex items-center justify-end mt-4">
-                <x-jet-button>
+                <x-jet-button class="transform motion-reduce:transform-none hover:-translate-y-1 hover:scale-110 transition ease-in-out duration-300
+                ml-4 items-center px-4 py-2 bg-gray-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest ">
                     {{ __('Recuperar Senha') }}
                 </x-jet-button>
             </div>
-            <div class="flex items-center mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                            {{ __('Voltar') }}
-                </a>
-            </div>
+            
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>
