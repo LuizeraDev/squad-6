@@ -98,6 +98,15 @@
     top: 0;
 
     background-color: rgba(0, 0, 0, 0.5);
+    
+    display: none;
+}
 
-    display:none;
+.modal {
+    position:absolute;
+    width:50%; /* Valor da Largura */
+    height:50%; /* Valor da Altura */
+    background:white;
+    border-radius: 30px;
+    color:black;
 }

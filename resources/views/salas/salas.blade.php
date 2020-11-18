@@ -66,14 +66,13 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
     </div>
 
-<div class="deleteRoom active">
-DELETE ROOM
-</div>
+    <div class="deleteRoom active">
+       <div class="modal">
+            
+       </div>
+    </div>
 
-
-
-
-    <!-- Este script é necessário para fazer a conexão assíncrona com o AJAX -->
+<!-- Este script é necessário para fazer a conexão assíncrona com o AJAX -->
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
     <script>
