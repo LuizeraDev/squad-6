@@ -44,28 +44,32 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                     
 
 <div class="voceEsta w-full items-center justify-center">
-                    @if ($_SESSION['santos'])
-                    <h3>Você esta conectado a unidade de Santos</h3>
-                    @else
-                    <h3>Você esta conectado a unidade de São Paulo</h3>
-                    @endif
+    @if ($_SESSION['santos'])
+    <h3>Você esta conectado a unidade de Santos</h3>
+    @else
+    <h3>Você esta conectado a unidade de São Paulo</h3>
+    @endif
 </div>
-               
-
+              
 
 <div class="flex flex-col sm:justify-center items-center pt-6 sm:pt-0"> <!--- GRID -->
 
     <section class="salasContainer" id="salasContainer">
-         
       
     </section>
     <a class="voltarUnidade font-bold text-sm text-blue-500 hover:text-orange-800" href="unidade">Voltar a escolha da unidade</a>
         
-    
 </div>
 
+<div class="deleteRoom">
+DELETE ROOM
+</div>
+
+
+
+
     <!-- Este script é necessário para fazer a conexão assíncrona com o AJAX -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
 <script>
         // Função responsável por atualizar as salas
@@ -87,7 +91,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
             .addClass("max-w-sm md:w-1/2 lg:w-1/3 rounded overflow-hidden shadow-lg bg-gray-200 tracking-widest")
             .addClass("bg-gray-500 hover:bg-blue-600 text-white font-bold border border-gray-200 rounded");
               
-            newSala.append( "<a href='criarsala'>Criar Sala</a>"  )
+            newSala.append( "<a href='criarsala'>Criar Sala</a>" )
             
                     $contador = 0; // contador de usuários para a sala
                     // Exibe informações sobre os usuários cadastrados / online / ausente / offline, sala em que está
@@ -168,7 +172,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
             // Faz a primeira atualização
             atualizarSalas();
         });
-    </script>
+</script>
 
 </body>
 

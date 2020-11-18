@@ -104,3 +104,8 @@ body {
 
     text-decoration: none;
 }
+
+.deleteRoom {
+
+    display: none;
+}
