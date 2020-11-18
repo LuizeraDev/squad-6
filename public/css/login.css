@@ -1,14 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;0,700;0,900;1,300&display=swap');
-
-
 .min-h-screen.flex.flex-col.justify-center.items-center.pt-6.pt-0.bg-gray-100 {
     opacity: 100%;
     background: orange;
-}
-
-.body {
-
-    background-color: #e2e8f0;
 }
 
 .painel {
@@ -16,6 +8,7 @@
     min-width: 30rem;
     min-height: 20rem;
 }
+
 .wrapperNome{
 
     height: 3rem;
@@ -31,8 +24,6 @@
     width: 100%;
     outline: none;
     padding-top: 25px;
- 
-
 }
 
 .wrapperNome label {

@@ -99,13 +99,13 @@ DELETE ROOM
                 newSala.append("<a href='criarsala'>Criar Sala</a>")
 
                 // Exibe informações sobre os usuários cadastrados / online / ausente / offline, sala em que está
-                for (sala of dadosSalas.usuarios) {
-                    console.log(dadosSalas.usuarios[sala]);
+                for (i = 0; i < dadosSalas.usuarios.length; i++) {
+                    console.log(dadosSalas.usuarios[i]);
                 }
 
                 for (i = 0; i < dadosSalas.sala.length; i++) {
                     //cria sala individual baseada nas salas do DB
-                    wrapperSala[i] = $("<div/>").addClass("wrapper").addClass("max-w-sm lg:w-1/3 md:1/2 rounded overflow-hidden shadow-lg bg-gray-200");
+                    wrapperSala[i] = $("<div/>").addClass("wrapper").addClass("max-w-sm lg:w-1/3 md:1/2 rounded overflow-hidden shadow-lg bg-white");
                     wrapperSala[i].append(
                         "<img class='w-full' src='{{ $url }}" + dadosSalas.sala[i].img_sala
                         + "' width=200>"
