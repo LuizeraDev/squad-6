@@ -17,8 +17,18 @@ $_SESSION['usuario'] = Auth::user()->email;
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Inicio') }}
+                        {{ __('Início') }}
                     </x-jet-nav-link>
+
+                    @if (isset($_SESSION['santos']) || isset($_SESSION['sao_paulo']))
+                        <x-jet-nav-link href="{{ route('salas') }}" :active="request()->routeIs('salas')">
+                            {{ __('Salas') }}
+                        </x-jet-nav-link>
+                    @else 
+                        <x-jet-nav-link href="{{ route('salas') }}" >
+                            {{ __('Salas') }}
+                        </x-jet-nav-link>
+                    @endif
                 </div>
             </div>
 

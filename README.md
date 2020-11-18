@@ -39,10 +39,10 @@ Página Web Responsiva realizada na intenção de auxiliar na organização de f
 
 ## Participantes
 
-- Luiz (Back-end / Banco)
+- Luiz (Front-end / Back-end / Banco)
   - [GitHub](https://github.com/luizera-36)
   - [Linkedin](https://www.linkedin.com/in/luizgomesdev/)
-- Allison (Back-end / Banco)
+- Allison (Front-end / Back-end / Banco)
   - [GitHub](https://github.com/alisson199)
   - [Linkedin](https://www.linkedin.com/in/alisson-santos-de-freitas-00a975156/)
 - Carlos (Front-end)
