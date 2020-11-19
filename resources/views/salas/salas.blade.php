@@ -21,13 +21,15 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Styles -->
+
+    <!-- Importando tailwind -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.6/tailwind.min.css"
         integrity="sha512-l7qZAq1JcXdHei6h2z8h8sMe3NbMrmowhOl+QkP3UhifPpCW2MC4M0i26Y8wYpbz1xD9t61MLT9L1N773dzlOA=="
         crossorigin="anonymous" />
+
+    <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/salas.css') }}">
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
 
     @livewireStyles
 
@@ -42,19 +44,19 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 <body class="font-sans antialiased">
 
     
-<header name="header sm:px-6 py-6">
-@livewire('navigation-dropdown') 
-    <header class="bg-white shadow">
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8"> 
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight sm:px-6 lg:px-8"">
-                        
+    <header name="header sm:px-6 py-6">
+    @livewire('navigation-dropdown') 
+        <header class="bg-white shadow">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8"> 
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight sm:px-6 lg:px-8"">
+                            
 
-                {{ __('Salas') }}
-            </h2>
-        </div>
-            
+                    {{ __('Salas') }}
+                </h2>
+            </div>
+                
+        </header>
     </header>
-</header>
 
     <div class="voceEsta w-full items-center justify-center">
         @if ($_SESSION['santos'])
@@ -103,6 +105,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
        </div>
     </div>
+    
 
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.js" defer></script>
 <!-- Este script é necessário para fazer a conexão assíncrona com o AJAX -->

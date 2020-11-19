@@ -9,7 +9,7 @@
     </x-slot>
 
     <div class="greetings sm:justify-center items-center">
-        <h3>Bem vindo ao FIFO</h3>
+        <h3>Bem-vindo ao FIFO</h3>
         <p>Selecione a unidade que você está</p>
     </div>
 

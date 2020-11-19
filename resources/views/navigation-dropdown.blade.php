@@ -141,6 +141,9 @@ $_SESSION['usuario'] = Auth::user()->email;
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Unidades') }}
             </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('salas') }}" :active="request()->routeIs('salas')">
+                {{ __('Salas') }}
+            </x-jet-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
