@@ -102,11 +102,126 @@
     display: none;
 }
 
-.modal {
-    position:absolute;
-    width:50%; /* Valor da Largura */
-    height:50%; /* Valor da Altura */
-    background:white;
-    border-radius: 30px;
-    color:black;
+
+/* ========= MODAL ===========*/
+
+.deleteRoom {
+
+    position: absolute;
+    top: 0;
+
+    height: 100%;
+    width: 100%;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
 }
+
+.modal {
+
+    position:relative;
+    display: block;
+    margin: 35vh auto;
+    height: 300px;
+    width: 500px;
+
+
+    background-color: #ebebeb;
+    border-radius: 5px;
+    color:black;
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+}
+
+
+/*=== animação do fade in ====*/
+.modal {
+
+    animation-name: fadeIn;
+    animation-duration:  0.2s;
+    animation-timing-function: ease-in;
+}
+
+    @keyframes fadeIn{
+
+        from {
+            transform: translateY(-5%);
+            opacity: 0
+        }
+        to {
+            transform: translateY(0%);
+            opacity: 1;
+        }
+
+    }
+
+
+.closeButton {
+
+    position: absolute;
+    right: 0;
+    padding: 5px 1rem 5px;
+
+    font-size: 1rem;
+    font-weight: bold;
+    grid-row: 1;
+
+    cursor: pointer;
+
+  
+    border-radius: 0 0 0 5px;
+
+    color: rgb(0, 0, 0);
+    box-shadow: rgba(0, 0, 0, 0.5);
+
+    transition: background-color 0.2s ease-in;
+}
+
+.closeButton:hover {
+
+    color: whitesmoke;
+    background-color: rgba(255, 60, 60, 0.5);
+}
+
+.message {
+
+    text-align: center;
+    grid-row: 2;
+}
+
+.input {
+    grid-row: 3;
+    margin: 0 auto;
+}
+
+.input span {
+
+    font-weight: bold;
+    color: red;
+}
+
+.delButton {
+
+    font-size: medium;
+    font-family: 'Nunito', sans-serif;
+    
+
+    margin: 0 auto;
+    height: 3rem;
+    width: 7rem;
+    grid-row: 4;
+    
+
+    background-color: rgba(107, 114, 128, 0.5);
+    color: whitesmoke;
+    
+}
+
+.delButton:hover {
+
+    background-color: rgba(107, 114, 128, 1);
+    font-weight: bold;
+}
+

@@ -71,9 +71,22 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
     <div class="deleteRoom active">
        <div class="modal">
-            <a onclick="fecharModal()">CLIQUE AQUI PARA FECHAR O MODALLLLLLLLLLLLLLLLLLLLLLLLLL</a>
-            <p>Você está prestes a excluir a sala <b><label id="nomeSala"></label></b></p>
-            <a  id="confirma-excluir">SIM, VOU EXCLUIR A SALA</a>
+
+            <a class="closeButton" onclick="fecharModal()"> x </a>
+            <div class="message">
+                <p id="resposta"></p>
+                @if (isset($MsgErro))
+                <p style="color: red;">{{$MsgErro}}</p>
+                @endif
+                <h2 class="warning">Você está prestes a excluir a sala <b><label id="nomeSala"></label></b></h2>
+            </div>
+            <div class="input">
+                <h3> digite <span id="aleatorio"></span> para excluir </h3>
+                <input class="input" type="text" id="numero_aleatorio" maxlength="3">
+            </div>
+            
+            <button class="delButton" id="confirma-excluir">Excluir</button>
+
        </div>
     </div>
 
@@ -195,10 +208,19 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
         $(".deleteRoom").addClass("active");
         $(".active").css("display", "block");
 
-        
+        var aleatorio = Math.floor(Math.random() * (999 - 100) + 100);
+        var exibir = document.all["aleatorio"];
+        exibir.innerHTML = aleatorio;
         // Essa função realiza a exclusão da sala
         $( "#confirma-excluir" ).click(function(){
-            window.location.href = "salas/sala/" + nome_sala + "/excluir-sala/";
+            var valor_digitado = document.all("numero_aleatorio").value;
+            var resposta = document.all["resposta"];
+
+            if (valor_digitado == aleatorio) {
+                window.location.href = "salas/sala/" + nome_sala + "/excluir-sala/";
+            }else{
+                resposta.innerHTML = "O valor informado não confere";
+            }
         });  
     } 
 
