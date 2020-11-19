@@ -27,6 +27,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
         crossorigin="anonymous" />
     <link rel="stylesheet" href="{{ asset('css/salas.css') }}">
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
+    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
 
     @livewireStyles
 
@@ -38,9 +39,22 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
 </head>
 
-<body>
+<body class="font-sans antialiased">
 
-    @livewire('navigation-dropdown')
+    
+<header name="header sm:px-6 py-6">
+@livewire('navigation-dropdown') 
+    <header class="bg-white shadow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8"> 
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight sm:px-6 lg:px-8"">
+                        
+
+                {{ __('Salas') }}
+            </h2>
+        </div>
+            
+    </header>
+</header>
 
     <div class="voceEsta w-full items-center justify-center">
         @if ($_SESSION['santos'])
