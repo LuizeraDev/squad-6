@@ -165,7 +165,7 @@ class salasController extends Controller
 
     }
 
-    public function excluirSala($nomeSala, $id)
+    public function excluirSala($nomeSala)
     {
         session_start();
 
@@ -182,19 +182,19 @@ class salasController extends Controller
 
             if ($pessoas_na_sala > 0) { 
                 $erro = "Não é possível excluir salas com usuários dentro.";
-                return view('salas/excluirSala', ['nomeSala' => $nomeSala, 'salaId' => $id ,'MsgErro' => $erro]);
+                return view('salas/salas', ['erro' => $erro]);
             } else {            
                 // Verifica o nome da foto no banco para ser deletada em seguida
                 $img = DB::table('tb_sala_santos')
                                     ->select('img_sala')
-                                    ->where('cd_sala_santos', '=', $id)
+                                    ->where('nm_sala', '=', $nomeSala)
                                     ->pluck('img_sala');
             
                 // Deleta a imagem do Storage
                 Storage::delete($img[0]);
 
                 DB::table('tb_sala_santos')
-                            ->where('cd_sala_santos', '=', $id)
+                            ->where('nm_sala', '=', $nomeSala)
                             ->delete();
             }
         } else {
@@ -207,19 +207,19 @@ class salasController extends Controller
 
             if ($pessoas_na_sala > 0) { 
                 $erro = "Não é possível excluir salas que tenham pessoas dentro.";
-                return view('salas/excluirSala', ['nomeSala' => $nomeSala, 'salaId' => $id ,'MsgErro' => $erro]);
+                return view('salas/salas', ['erro' => $erro]);
             } else { 
                      // Verifica o nome da foto no banco para ser deletada em seguida
                     $img = DB::table('tb_sala_sao_paulo')
                     ->select('img_sala')
-                    ->where('cd_sala_sao_paulo', '=', $id)
+                    ->where('nm_sala', '=', $nomeSala)
                     ->pluck('img_sala');
 
                     // Deleta a imagem do Storage
                     Storage::delete($img[0]);
 
                     DB::table('tb_sala_sao_paulo')
-                            ->where('cd_sala_sao_paulo', '=', $id)
+                            ->where('nm_sala', '=', $nomeSala)
                             ->delete();
             }
        
