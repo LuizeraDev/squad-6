@@ -66,9 +66,11 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
     </div>
 
+    <button onclick="modal()" value="ativar modal"></button>
+
     <div class="deleteRoom active">
        <div class="modal">
-            
+            <a onclick="fecharModal()">CLIQUE AQUI PARA FECHAR O MODALLLLLLLLLLLLLLLLLLLLLLLLLL</a>
        </div>
     </div>
 
@@ -158,9 +160,9 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                     wrapperSala[i].append(
                         "<button class='deleteButton inline-flex items-center bg-gray-500 hover:bg-gray-700 border"
                         + "border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest'>"
-                        //rota da sala
-                        + "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + "/excluir/" + dadosSalas.sala[i].cd_sala_santos
-                        + "'>Excluir Sala</a></button>"
+                        //chamar modal
+                        + "<a onclick='modal()'"
+                        + ">Excluir Sala</a>"
                     );
         } // Endfor 
 
@@ -180,6 +182,21 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
             // Faz a primeira atualização
             atualizarSalas();
         });
+</script>
+
+<!-- Funções do Modal -->
+<script>
+    function modal()
+    { 
+        $(".deleteRoom").addClass("active");
+        $(".active").css("display", "block");
+    } 
+
+    function fecharModal()
+    {
+        $(".active").css("display", "none");
+        $(".active").removeClass("active");
+    }
 </script>
 
 </body>
