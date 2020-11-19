@@ -123,7 +123,7 @@
     display: block;
     margin: 35vh auto;
     height: 300px;
-    width: 500px;
+    width: 600px;
 
 
     background-color: #ebebeb;
@@ -199,7 +199,7 @@
 .input span {
 
     font-weight: bold;
-    color: red;
+    color: rgb(0, 0, 0);
 }
 
 .delButton {
@@ -213,6 +213,7 @@
     width: 7rem;
     grid-row: 4;
     
+    border-radius: 15px;
 
     background-color: rgba(107, 114, 128, 0.5);
     color: whitesmoke;

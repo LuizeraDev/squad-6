@@ -69,8 +69,8 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
     <button onclick="modal()" value="ativar modal"></button>
 
-    <div class="deleteRoom active">
-       <div class="modal">
+    <div class="deleteRoom active ">
+       <div class="modal max-w-sm">
 
             <a class="closeButton" onclick="fecharModal()"> x </a>
             <div class="message">
@@ -84,7 +84,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                 <h3> digite <span id="aleatorio"></span> para excluir </h3>
                 <input class="input" type="text" id="numero_aleatorio" maxlength="3">
             </div>
-            
+
             <button class="delButton" id="confirma-excluir">Excluir</button>
 
        </div>
