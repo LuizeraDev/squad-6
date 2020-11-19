@@ -35,7 +35,7 @@
                 class="deleteButton items-center px-4 py-2 bg-blue-600 hover:bg-blue-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase ">
             <p id="resposta"></p>
             @if (isset($MsgErro))
-            <p>{{$MsgErro}}</p>
+            <p style="color: red;">{{$MsgErro}}</p>
             @endif
             <a href="/salas">Voltar</a>
         </section>

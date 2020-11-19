@@ -1,4 +1,5 @@
 <?php 
+if (!isset($_SESSION))
 session_start();
 $url='http://localhost:8080/squad-6/storage/app/public/';
 // Verifica se o usuário já entrou em alguma sala
@@ -29,10 +30,6 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
     @livewireStyles
 
-
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.js" defer></script>
-
     @if ($_SESSION['santos'])
     <title>Fifo - Salas Santos</title>
     @else
@@ -50,6 +47,10 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
         <h3>Você esta conectado a unidade de Santos</h3>
         @else
         <h3>Você esta conectado a unidade de São Paulo</h3>
+        @endif
+
+        @if (isset($erro)) 
+            <p style="color: red;">{{ $erro }}</p>
         @endif
     </div>
 
@@ -71,9 +72,12 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
     <div class="deleteRoom active">
        <div class="modal">
             <a onclick="fecharModal()">CLIQUE AQUI PARA FECHAR O MODALLLLLLLLLLLLLLLLLLLLLLLLLL</a>
+            <p>Você está prestes a excluir a sala <b><label id="nomeSala"></label></b></p>
+            <a  id="confirma-excluir">SIM, VOU EXCLUIR A SALA</a>
        </div>
     </div>
 
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.js" defer></script>
 <!-- Este script é necessário para fazer a conexão assíncrona com o AJAX -->
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
@@ -158,11 +162,10 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                         );
 
                     wrapperSala[i].append(
-                        "<button class='deleteButton inline-flex items-center bg-gray-500 hover:bg-gray-700 border"
-                        + "border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest'>"
-                        //chamar modal
-                        + "<a onclick='modal()'"
-                        + ">Excluir Sala</a>"
+                        '<button class="deleteButton inline-flex items-center bg-gray-500 hover:bg-gray-700 border'
+                        + 'border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest">' 
+                        // Desta maneira conseguimos passar o parâmetro em formato de String
+                        + '<a onClick="modal(\'' + dadosSalas.sala[i].nm_sala + '\')">Excluir Sala</a></button>'
                     );
         } // Endfor 
 
@@ -186,10 +189,17 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
 <!-- Funções do Modal -->
 <script>
-    function modal()
+    function modal(nome_sala)
     { 
+        $("#nomeSala").html(nome_sala);
         $(".deleteRoom").addClass("active");
         $(".active").css("display", "block");
+
+        
+        // Essa função realiza a exclusão da sala
+        $( "#confirma-excluir" ).click(function(){
+            window.location.href = "salas/sala/" + nome_sala + "/excluir-sala/";
+        });  
     } 
 
     function fecharModal()
