@@ -63,11 +63,6 @@ Route::get('/salas', [salasController::class, 'exibirSalas'])->name('salas');
 // Rota necessária para fazer assincronismo das salas com AJAX
 Route::get('/salas-conteudo', [salasController::class, 'salasAssincronas'])->name('salasConteudo');
 
-Route::get('/salas/sala/{nomeSala}/excluir/{id}', function ($nomeSala, $salaId) {
-    return view('salas/excluirSala', ['nomeSala' => $nomeSala, 'salaId' => $salaId]);
-})->where(['id' => '[0-9]+']);
-// Esse where trata os parâmetros. 
-
 Route::get('/salas/sala/{nomeSala}/excluir-sala', [salasController::class, 'excluirSala']);
 //------------------------------------------------------------------------------
 

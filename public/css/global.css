@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Blinker&display=swap');
 
 /*
 #FAA916
@@ -12,7 +12,7 @@ h3{
 
 body {
     background:  #f2efe9;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Blinker', sans-serif;
 } 
 
 .corBotoes {
@@ -25,6 +25,10 @@ body {
     background: rgb(74, 50, 139);
 }
 
+.corBotoes:active {
+    border:none;
+}
+
 .corbotoesDelete {
     background: rgb(117, 80, 218);
     color: white;
@@ -34,7 +38,6 @@ body {
 .corbotoesDelete:hover {
     background: rgb(99, 68, 187);
     color: white;
-    border:none;
 }
 
 /* Mudar a cor do input */

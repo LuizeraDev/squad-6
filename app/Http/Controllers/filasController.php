@@ -283,7 +283,7 @@ class filasController extends Controller
             ->where('email', $email)
             ->update(['utilizando_sala' => null]);
         
-        return redirect()->Route('inserirFila', [$nomeSala,$id]);
+        return redirect()->Route('inserirFila', [$nomeSala, $id]);
     }
 
     public function exibirFila($nomeSala, $id, $usuario)

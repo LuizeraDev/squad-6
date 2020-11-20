@@ -90,18 +90,15 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
             <a class="closeButton" onclick="fecharModal()"> x </a>
             <div class="message">
-                <p id="resposta"></p>
-                @if (isset($MsgErro))
-                <p style="color: red;">{{$MsgErro}}</p>
-                @endif
                 <h2 class="warning">Você está prestes a excluir a sala <b><label id="nomeSala"></label></b></h2>
+                <p style="color:red;" id="resposta"></p>
             </div>
             <div class="input">
                 <p> digite <span id="aleatorio"></span> para excluir </p>
                 <input class="input" type="text" id="numero_aleatorio" maxlength="3">
             </div>
 
-            <button class="delButton" id="confirma-excluir">Excluir</button>
+            <button class="corbotoesDelete delButton" id="confirma-excluir">Excluir</button>
 
        </div>
     </div>
@@ -129,7 +126,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                     $("<div/>")
                         .addClass("criarSala")
                         .addClass("max-w-sm md:w-1/2 lg:w-1/3 rounded overflow-hidden shadow-lg bg-gray-200 tracking-widest")
-                        .addClass("bg-gray-500 hover:bg-gray-600 text-white font-bold border-none rounded");
+                        .addClass("bg-purple-600 hover:bg-purple-700 text-white font-bold border-none rounded");
 
                 newSala.append("<a href='criarsala'>Criar Sala</a>")
 

@@ -225,8 +225,9 @@ input {
     height: 3rem;
     width: 7rem;
     grid-row: 4;
+    font-weight: bold;
     
-    border-radius: 15px;
+    border-radius: 10px;
 
     background-color: rgba(107, 114, 128, 0.5);
     color: whitesmoke;
@@ -236,6 +237,5 @@ input {
 .delButton:hover {
 
     background-color: rgba(107, 114, 128, 1);
-    font-weight: bold;
 }
 
