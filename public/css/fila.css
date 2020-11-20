@@ -2,15 +2,24 @@ img {
     border-radius: 50%;
     display: inline-block;
     margin-top: -13px;
+    margin-left: -45px;
+}
+
+h3 {
+    margin-bottom: 10px;
 }
 
 .container{
     border: 1px solid black;
     background: white;
-    padding: 50px;
+    padding: 60px;
     border-radius: 30px;
 }
 
-.corBotoes {
+hr {
+    width:100%;
+    height: 3px;
     margin-top: 30px;
+    margin-bottom: 30px;
+    background: #5e40b3;
 }

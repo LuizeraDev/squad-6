@@ -3,11 +3,6 @@
         <x-slot name="logo">
             LOGO
         </x-slot>
-        <link rel="stylesheet" href="{{ asset('css/register.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/global.css') }}">
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.6/tailwind.min.css" 
-    integrity="sha512-l7qZAq1JcXdHei6h2z8h8sMe3NbMrmowhOl+QkP3UhifPpCW2MC4M0i26Y8wYpbz1xD9t61MLT9L1N773dzlOA==" crossorigin="anonymous" />
 
         <x-jet-validation-errors class="mb-4" />
 
@@ -38,7 +33,7 @@
                     {{ __('Já possui uma conta?') }}
                 </a>
 
-                <button class="transform motion-reduce:transform-none hover:-translate-y-1 hover:scale-110 transition ease-in-out duration-300
+                <button class="corBotoes transform motion-reduce:transform-none hover:-translate-y-1 hover:scale-110 transition ease-in-out duration-300
                 ml-4 items-center px-4 py-2 bg-gray-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest">
                     {{ __('Registrar-se') }}
                 <button>

@@ -5,15 +5,28 @@
     
 }
 
+input {
+    border: 1px solid black;
+    border-radius: 30px;
+    outline: none;
+    text-align: center;
+}
+
 .salasContainer{
     margin-top: 1rem;
 }
 
 .voltarUnidade{
+    color: rgb(123, 83, 233);
     margin-top: 2rem;
     margin-bottom: 1rem;
     text-align: center;
 }
+
+.voltarUnidade:hover{
+    color: rgb(80, 56, 146);
+}
+
 
 .wrapper {
     min-width: 19rem;

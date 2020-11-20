@@ -37,7 +37,7 @@
                         {{ __('Não possuo uma conta') }}
                     </a>
 
-                <button class="transform motion-reduce:transform-none hover:-translate-y-1 hover:scale-110 transition ease-in-out duration-300
+                <button class="corBotoes transform motion-reduce:transform-none hover:-translate-y-1 hover:scale-110 transition ease-in-out duration-300
                 ml-4 items-center px-4 py-2 bg-gray-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest">
                     {{ __('Entrar') }}
                 </button>
