@@ -15,7 +15,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('css/utilizando-sala.css') }}">
 </head>
 
 
@@ -24,21 +24,24 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
 <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0"> <!--- GRID -->
     <main>
         <section class="container" align=center>
-            <h2>Utilizando a Sala</h2>
+            <h3>Utilizando a Sala</h3>
             <div id="demanda"></div>
             <br>
             <div id="Timer"></div>
             <div id="conteudo4"></div>
             <div id="conteudo"></div>
-            <br><br>
+            <br>
             <h3>Selecione um botão após terminar</h3>
-            <a href="Voltar">Voltar para o final da fila</a>
+            <br>
+            <a href="Voltar" class="corBotoes items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest">
+            Voltar para o final da fila</a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="Acabei">Sair da sala</a>
+            <a class="corBotoes items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest" href="Acabei">Sair da sala</a>
         </section>
     </main>
 </div>
 
+    
     <!-- Este script é necessário para fazer a conexão assíncrona com o AJAX -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
@@ -63,7 +66,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                         // Exibe foto do usuário se existir
                         if (dadosFila.Utilizando[i].profile_photo_path) {
                             $('#conteudo').append(
-                                "<img src='{{ $url }}" + dadosFila.Utilizando[i].profile_photo_path+"' width='40'> &nbsp;"
+                                "<img src='{{ $url }}" + dadosFila.Utilizando[i].profile_photo_path+"' width='40'>&nbsp;&nbsp;"
                             );
                         }
 

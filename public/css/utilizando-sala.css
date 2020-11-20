@@ -1,0 +1,15 @@
+img {
+    border-radius: 50%;
+    position: fixed;
+    margin-top: -13px;
+}
+
+.container{
+    background: white;
+    padding: 50px;
+    border-radius: 30px;
+}
+
+.corBotoes {
+    margin-top: 30px;
+}
