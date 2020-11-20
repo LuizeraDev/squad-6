@@ -14,8 +14,8 @@
 		integrity="sha512-l7qZAq1JcXdHei6h2z8h8sMe3NbMrmowhOl+QkP3UhifPpCW2MC4M0i26Y8wYpbz1xD9t61MLT9L1N773dzlOA=="
 		crossorigin="anonymous" />
 	
+		<link rel="stylesheet" href="{{ asset('css/criarSala.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/global.css') }}">
-	<link rel="stylesheet" href="{{ asset('css/criarSala.css') }}">
 
 	@livewireStyles
 
@@ -45,7 +45,7 @@
 			<div class="flex flex-col sm:justify-center items-center my-3">
 
 				<label
-					class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded my-3"
+					class="corBotoes bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded my-3"
 					for="upload-photo">Selecione uma Imagem</label>
 				<input type="file" name="ImagemSala" id="upload-photo" />
 
@@ -55,7 +55,7 @@
 
 			<div class="inline-block relative w-64 my-3">
 				<select
-					class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+					class="corBotoes block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
 					name="demanda">
 					<option value="1">1 pessoa</option>
 					<option value="2">2 pessoas</option>
@@ -79,7 +79,7 @@
 			</div>
 
 			<button type="submit"
-				class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded my-3"
+				class="corBotoes text-white font-bold py-2 px-4 border border-blue-700 rounded my-3"
 				href="salas">Criar Sala</button>
 
 
@@ -136,7 +136,7 @@
 
 		</form> <!-- Fim form -->
 
-		<a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded mt-6"
+		<a class="corBotoes bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded mt-6"
 			href="salas">Voltar</a>
 
 	</div>

@@ -41,7 +41,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
 </head>
 
-<body class="font-sans antialiased">
+<body>
 
     
     <header name="header sm:px-6 py-6">
@@ -97,7 +97,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                 <h2 class="warning">Você está prestes a excluir a sala <b><label id="nomeSala"></label></b></h2>
             </div>
             <div class="input">
-                <h3> digite <span id="aleatorio"></span> para excluir </h3>
+                <p> digite <span id="aleatorio"></span> para excluir </p>
                 <input class="input" type="text" id="numero_aleatorio" maxlength="3">
             </div>
 
@@ -178,7 +178,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
                     wrapperSala[i].append(
                         //classes do tailwind css
-                        "<button class='enterButton inline-flex items-center bg-gray-600  hover:bg-gray-800  border"
+                        "<button class='corBotoes enterButton inline-flex items-center bg-gray-600  hover:bg-gray-800  border"
                             + "border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest'>"
                             //rota da sala
                             + "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + "/" +
@@ -192,7 +192,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                         );
 
                     wrapperSala[i].append(
-                        '<button class="deleteButton inline-flex items-center bg-gray-500 hover:bg-gray-700 border'
+                        '<button class="corbotoesDelete deleteButton inline-flex items-center bg-gray-500 hover:bg-gray-700 border'
                         + 'border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest">' 
                         // Desta maneira conseguimos passar o parâmetro em formato de String
                         + '<a onClick="modal(\'' + dadosSalas.sala[i].nm_sala + '\')">Excluir Sala</a></button>'

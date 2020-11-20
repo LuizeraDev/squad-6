@@ -13,8 +13,9 @@ $_SESSION['entrou_sala'] = true;
     <title>Fifo - Fila</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('css/global.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/global.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/fila.css') }}">
 
 </head>
 
@@ -33,7 +34,7 @@ $_SESSION['entrou_sala'] = true;
 
                 <div id="conteudo"></div>
 
-                <hr style="width: 30%;">
+                <hr>
 
                 <h2>Logotipo - Fifo</h2>
 
@@ -41,7 +42,7 @@ $_SESSION['entrou_sala'] = true;
 
                 <div id="conteudo1"></div>
 
-                <hr style="width: 30%;">
+                <hr>
                 <br>
 
                 <h3>Pessoas na fila</h3>
@@ -55,7 +56,8 @@ $_SESSION['entrou_sala'] = true;
                 <br><br>
                 <div id="conteudo3"></div>
                 <!-- <div id="conteudo4"></div> -->
-                <a href="{{$salaId}}/desistente">Desistir</a>
+                <a class="corBotoes items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest"
+                    href="{{$salaId}}/desistente">Desistir</a>
 
             </section>
         </main>
@@ -160,7 +162,7 @@ $_SESSION['entrou_sala'] = true;
                     var espaco = dadosFila.dadosUsuario[0].demanda - dadosFila.Utilizando.length;
                     if (dadosFila.dadosUsuario[0].cd_fila_usuario <= espaco &&
                         dadosFila.Utilizando.length < dadosFila.dadosUsuario[0].demanda) {
-                        $('#conteudo3').html("<a href='{{$salaId}}/voujogar'>Minha Vez</a><br><br>");
+                        $('#conteudo3').html("<a  class='corBotoes items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest' href='{{$salaId}}/voujogar'>Minha Vez</a><br><br>");
                     }
                     setTimeout("atualizarFila()", 3000) // 3 segundos / Tempo de espera de atualização dos dados
                 })
