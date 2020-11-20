@@ -120,10 +120,12 @@ input {
 
 .deleteRoom {
 
+    overflow-y: hidden;
+
     position: absolute;
     top: 0;
 
-    height: 100%;
+    height: 500%;
     width: 100%;
 
     background-color: rgba(0, 0, 0, 0.5);
@@ -131,6 +133,8 @@ input {
 }
 
 .modal {
+
+    overflow-y: hidden;
 
     position:relative;
     display: block;
@@ -146,6 +150,7 @@ input {
     display: grid;
     grid-template-columns: 1fr;
 
+    
 }
 
 

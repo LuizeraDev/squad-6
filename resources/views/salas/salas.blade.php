@@ -216,11 +216,11 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
 <!-- Funções do Modal -->
 <script>
-    function modal(nome_sala)
-    { 
+    function modal(nome_sala) { 
         $("#nomeSala").html(nome_sala);
         $(".deleteRoom").addClass("active");
         $(".active").css("display", "block");
+        $("body").css("overflow-y","hidden");
 
         var aleatorio = Math.floor(Math.random() * (999 - 100) + 100);
         var exibir = document.all["aleatorio"];
@@ -235,13 +235,16 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
             }else{
                 resposta.innerHTML = "O valor informado não confere";
             }
-        });  
+        }); 
+        
+         
     } 
 
     function fecharModal()
     {
         $(".active").css("display", "none");
         $(".active").removeClass("active");
+        $("body").css("overflow-y","visible");
     }
 </script>
 
