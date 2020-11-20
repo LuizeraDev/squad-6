@@ -1,3 +1,94 @@
+@media only screen and (min-width: 1536px) {
+
+    .header {
+        width: 100%;
+        
+        padding: 0 30%;
+        
+    }
+}
+
+@media only screen and (min-width: 1250px) {
+
+    .header {
+        width: 100%;
+        padding-right: 10%;
+        padding-left: 10%;
+        
+        
+    }
+    .sala {
+    
+        padding-left: 1rem;
+        padding-right: 15rem ;  
+        width: 100%;
+    }
+    
+    .sala h2{
+    
+        padding-left: 1rem;
+        width: 100%;
+      
+    }
+
+}
+
+@media only screen and (min-width: 1080px) {
+
+    .header {
+        width: 100%;
+        padding-right: 5%;
+        padding-left: 5%;
+        
+        
+    }
+    .sala {
+    
+        padding-left: 1rem;
+        padding-right: 15rem ;  
+        width: 100%;
+    }
+    
+    .sala h2{
+    
+        padding-left: 1rem;
+        width: 100%;
+      
+    }
+
+}
+
+
+@media only screen and (max-width: 600px) {
+  
+    .header {
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        transition: padding ease-in-out;
+        width:100%;
+    }
+    .sala {
+    
+        padding-left: 0;
+        padding-right: 12rem ;  
+        width: 100%;
+    }
+    
+    .sala h2{
+    
+        padding-left: 1rem;
+        width: 100%;
+      
+    }
+
+}
+
+
+
+
+
+
 .voceEsta {
     margin-top: 4rem;
     text-align: center;
@@ -125,7 +216,7 @@ input {
     position: absolute;
     top: 0;
 
-    height: 500%;
+    height: 100%;
     width: 100%;
 
     background-color: rgba(0, 0, 0, 0.5);

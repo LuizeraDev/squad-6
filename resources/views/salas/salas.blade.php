@@ -44,18 +44,17 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 <body>
 
     
-    <header name="header sm:px-6 py-6">
+    <header class="header sm:w-full bg-white shadow font-sans antialiased">
     @livewire('navigation-dropdown') 
-        <header class="bg-white shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8"> 
-                <h2 class="font-semibold text-xl text-gray-800 leading-tight sm:px-6 lg:px-8"">
+            <div class="sala mx-auto py-6 bg-white "> 
+                    
+                <h2 class="font-semibold text-xl text-gray-800 px-6 mx-auto"">
                             
 
                     {{ __('Salas') }}
                 </h2>
-            </div>
-                
-        </header>
+            </div>              
+        
     </header>
 
     <div class="voceEsta w-full items-center justify-center">
