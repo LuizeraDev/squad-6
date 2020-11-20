@@ -45,7 +45,7 @@
 			<div class="flex flex-col sm:justify-center items-center my-3">
 
 				<label
-					class="corBotoes bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded my-3"
+					class="corBotoes bg-blue-500 hover:bg-blue-700 text-white  py-2 px-4 border border-blue-700 rounded my-3"
 					for="upload-photo">Selecione uma Imagem</label>
 				<input type="file" name="ImagemSala" id="upload-photo" />
 
@@ -75,11 +75,11 @@
 			</div>
 
 			<div class="my-3">
-				<p>Exemplo: Tem 2 controles para jogar fifa, portanto a demanda da sala fifa seria 2.</p>
+				<p>Exemplo: Tem 2 controles para jogar fifa, portanto a demanda da sala fifa seria de 2 pessoas.</p>
 			</div>
 
 			<button type="submit"
-				class="corBotoes text-white font-bold py-2 px-4 border border-blue-700 rounded my-3"
+				class="corBotoes text-white  py-2 px-4 border border-blue-700 rounded my-3"
 				href="salas">Criar Sala</button>
 
 
@@ -136,7 +136,7 @@
 
 		</form> <!-- Fim form -->
 
-		<a class="corBotoes bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded mt-6"
+		<a class="corBotoes bg-blue-500 hover:bg-blue-700 text-white  py-2 px-4 border border-blue-700 rounded mt-6"
 			href="salas">Voltar</a>
 
 	</div>
