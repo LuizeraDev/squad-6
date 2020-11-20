@@ -1,3 +1,11 @@
+/* variável para a cor da animação de pulsação*/
+
+:root {
+    --pulseColor: rgba(94,64,179,.7)
+}
+
+
+/* ======= MEDIA QUERY PARA AJUDAR NA RESPONSIVIDADE DO NAVBAR========*/
 @media only screen and (min-width: 1536px) {
 
     .header {
@@ -84,10 +92,7 @@
 
 }
 
-
-
-
-
+/* ======================= */
 
 .voceEsta {
     margin-top: 4rem;
@@ -149,7 +154,27 @@ input {
     margin-right: 22px;
     width: 130px;
     height: 3rem;
+
+    transform: scale(1);
+    animation: pulse 2s infinite;
     
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 var(--pulseColor);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(94,64,179, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(94,64,179, 0);
+	}
 }
 
 .deleteButton {
