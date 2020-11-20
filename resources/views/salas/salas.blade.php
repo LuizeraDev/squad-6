@@ -46,14 +46,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
     
     <header class="header sm:w-full bg-white shadow font-sans antialiased">
     @livewire('navigation-dropdown') 
-            <div class="sala mx-auto py-6 bg-white "> 
-                    
-                <h2 class="font-semibold text-xl text-gray-800 px-6 mx-auto"">
-                            
-
-                    {{ __('Salas') }}
-                </h2>
-            </div>              
+                        
         
     </header>
 
@@ -71,7 +64,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
 
     <!--- GRID -->
-    <div class="flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
+    <div class="flex flex-col sm:justify-center items-center pt-6 sm:pt-0 ">
 
 
         <section class="salasContainer" id="salasContainer"></section>
@@ -124,8 +117,8 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                 var newSala =
                     $("<div/>")
                         .addClass("criarSala")
-                        .addClass("max-w-sm md:w-1/2 lg:w-1/3 rounded overflow-hidden shadow-lg bg-gray-200 tracking-widest")
-                        .addClass("bg-purple-600 hover:bg-purple-700 text-white font-bold border-none rounded");
+                        .addClass("max-w-sm md:w-1/2 lg:w-1/3 rounded overflow-hidden shadow-lg tracking-widest")
+                        .addClass("text-white font-bold border-none rounded");
 
                 newSala.append("<a href='criarsala'>Criar Sala</a>")
 
@@ -164,9 +157,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                         "<p> Usuários na sala: <b>"
                         + contador
                         + "</b></p>"
-                        + "<p> Demanda da sala: <b>"
-                        + dadosSalas.sala[i].demanda
-                        + "</b></p>"
+                      
                     );
 
                     wrapperSala[i].append("</div>");
@@ -175,7 +166,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                     wrapperSala[i].append(
                         //classes do tailwind css
                         "<button class='corBotoes enterButton inline-flex items-center bg-gray-600  hover:bg-gray-800  border"
-                            + "border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest'>"
+                            + "border-transparent font-semibold text-xs text-white uppercase tracking-widest'>"
                             //rota da sala
                             + "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + "/" +
                             //logica da rota
@@ -188,8 +179,8 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                         );
 
                     wrapperSala[i].append(
-                        '<button class="corbotoesDelete deleteButton inline-flex items-center bg-gray-500 hover:bg-gray-700 border'
-                        + 'border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest">' 
+                        '<button class="corbotoesDelete deleteButton inline-flex items-center border'
+                        + 'border-transparent font-semibold text-xs text-white uppercase tracking-widest">' 
                         // Desta maneira conseguimos passar o parâmetro em formato de String
                         + '<a onClick="modal(\'' + dadosSalas.sala[i].nm_sala + '\')">Excluir Sala</a></button>'
                     );

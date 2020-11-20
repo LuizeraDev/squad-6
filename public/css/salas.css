@@ -125,35 +125,47 @@ input {
 
 
 .wrapper {
+
     min-width: 19rem;
-    min-height: 19rem;
-    max-height: 19rem;
+    min-height: 434px;
+    max-height: 434px;
     max-width: 19rem;
     border-radius: 15px;
-    margin: 2rem 2rem;
+    margin: 1rem;
     
 }
 
 .wrapper img {
-    max-height: 140px;
-    min-height: 140px;
+    max-height: 200px;
+    min-height: 200px;
     height: 140px;
     object-fit: cover;
 
 }
 
-.wrapper h3, p {
+.wrapper h3{
 
-    padding-left: 1rem;
+    font-size: 2rem;
+
+    text-align: center;
 }
+
+.wrapper p {
+
+    text-align: center;
+    font-size: 16px;
+    
+}
+
 
 .enterButton {
 
     margin-top:1rem;
-    margin-left: 10px;
-    margin-right: 22px;
-    width: 130px;
-    height: 3rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    width: 15rem;
+    height: 4rem;
+    border-radius: 10px;
 
     transform: scale(1);
     animation: pulse 2s infinite;
@@ -162,57 +174,78 @@ input {
 
 @keyframes pulse {
 	0% {
-		transform: scale(0.95);
+		transform: scale(1);
 		box-shadow: 0 0 0 0 var(--pulseColor);
 	}
 
 	70% {
-		transform: scale(1);
+		transform: scale(1.025);
 		box-shadow: 0 0 0 10px rgba(94,64,179, 0);
 	}
 
 	100% {
-		transform: scale(0.95);
+		transform: scale(1);
 		box-shadow: 0 0 0 0 rgba(94,64,179, 0);
 	}
 }
 
 .deleteButton {
 
-    margin-top: 1rem;
-    margin-right: 10px;
     
-    width:130px;
+    margin: 1rem 25%;
+    border-radius: 10px;
+    display: inline-block;
+    
+    width:10rem;
     height: 3rem;
     text-align: center;
+
 }
 
-.enterButton a,
 .deleteButton a {
 
     line-height: 3rem;
-    width: 130px;
+    width: 100%;
     text-align: center;
 }
+
+.enterButton a {
+
+    line-height: 4rem;
+    width: 14rem;
+    text-align: center;
+}
+
+
 
 .criarSala {
 
     border-radius: 20px;
 
-    margin: 2rem 2rem;
+    margin: 1rem;
     min-width: 19rem;
-    min-height: 19rem;
+    min-height: 434px;
     max-width: 19rem;
-    max-height: 19rem;
+    max-height: 434px;
     align-items: center;
+    background-color:  rgba(0,0,0,0);
+
+    background: linear-gradient(to left, transparent 50%, rgb(74, 50, 139) 50%) right;
+    background-size: 200%;
+    transition: .5s ease-out;
 }
+
+.criarSala:hover {
+    background-position: left;
+}
+
 
 .criarSala a {
 
     display: block;
-    height: 19rem;
+    height: 0;
     width: 19rem;
-    line-height: 19rem;
+    line-height: 434px;
     text-align: center;
 
     text-decoration: none;
@@ -241,7 +274,7 @@ input {
     position: absolute;
     top: 0;
 
-    height: 100%;
+    height: 500%;
     width: 100%;
 
     background-color: rgba(0, 0, 0, 0.5);
