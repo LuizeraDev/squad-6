@@ -128,7 +128,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
                 // Exibe informações sobre os usuários cadastrados / online / ausente / offline, sala em que está
                 for (i = 0; i < dadosSalas.usuarios.length; i++) {
-                    console.log(dadosSalas.usuarios[i]);
+                    //console.log(dadosSalas.usuarios[i]);
                 }
 
                 for (i = 0; i < dadosSalas.sala.length; i++) {
@@ -210,7 +210,8 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
 <!-- Funções do Modal -->
 <script>
-    function modal(nome_sala) { 
+    function modal(nome_sala) 
+    { 
         $("#nomeSala").html(nome_sala);
         $(".deleteRoom").addClass("active");
         $(".active").css("display", "block");
@@ -230,9 +231,60 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                 resposta.innerHTML = "O valor informado não confere";
             }
         }); 
-        
-         
     } 
+
+    function modalOnline()
+    {
+        function onlineAgora() {
+                $.ajax({
+                    url: "{{ route('salasConteudo') }}",
+                    dataType: "json",
+                    cache: false,
+                }).done(function (dadosSalas) {
+
+                    // Exibe informações sobre os usuários cadastrados / online / ausente / offline, sala em que está
+                    for (i = 0; i < dadosSalas.usuarios.length; i++) 
+                    {       
+
+                        if (dadosSalas.usuarios[i].nm_sala) {
+
+                            if (dadosSalas.usuarios[i].unidade == "santos") {
+
+                                alert(
+                                    "Nome do usuário: " + dadosSalas.usuarios[i].name + "\n" +
+                                    "Status: " + dadosSalas.usuarios[i].status + "\n" +
+                                    "Nome da sala em que o usuário está: " + dadosSalas.usuarios[i].nm_sala + "\n" +
+                                    "Código da sala em que o usuário está: " + dadosSalas.usuarios[i].cd_sala_santos
+                                );
+
+                            } else {
+                                alert(
+                                    "Nome do usuário: " + dadosSalas.usuarios[i].name + "\n" +
+                                    "Status: " + dadosSalas.usuarios[i].status + "\n" +
+                                    "Nome da sala em que está: " + dadosSalas.usuarios[i].nm_sala + "\n" +
+                                    "Código da sala em que o usuário está: " + dadosSalas.usuarios[i].cd_sala_sao_paulo
+                                );
+                            }
+                          
+                        } else {
+                            alert(
+                                "Nome do usuário: " + dadosSalas.usuarios[i].name + "\n" + 
+                                "Status: " + dadosSalas.usuarios[i].status + "\n" 
+                            );
+                        }
+                       
+                    }
+
+                setTimeout("atualizarSalas()", 3000) // 3 segundos / Tempo de espera de atualização dos dados
+            });     
+        }   
+
+        // Requisitar a função
+        $(function () {
+            // Faz a primeira atualização
+            onlineAgora();
+        });   
+    }
 
     function fecharModal()
     {
