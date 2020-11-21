@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php 
+session_start(); 
+$_SESSION['dashboard'] = true;
+?>
 
 <x-app-layout>
 <div class="flex flex-col sm:justify-center items-center mb-4">

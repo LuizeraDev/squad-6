@@ -2,6 +2,10 @@
 if (!isset($_SESSION))
 session_start();
 $url='http://localhost:8080/squad-6/storage/app/public/';
+
+// Essa Session aqui é para controlar o que aparece no menu
+$_SESSION['dashboard'] = false;
+
 // Verifica se o usuário já entrou em alguma sala
 if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION['entrou_sala']) {
     // pega o Id da sala que ele deixou pelo botão voltar do browser

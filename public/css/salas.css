@@ -153,7 +153,7 @@ input {
 .wrapper p {
 
     text-align: center;
-    font-size: 16px;
+    font-size: 17px;
     
 }
 
@@ -228,15 +228,17 @@ input {
     max-width: 19rem;
     max-height: 434px;
     align-items: center;
-    color: rgba(0, 0, 0, 0.5);
+    color: black;
 
-    background: linear-gradient(to left, transparent 50%, rgb(74, 50, 139) 50%) right;
+    background: linear-gradient(to right, transparent 50%, rgb(74, 50, 139) 50%) left;
     background-size: 200%;
-    transition: .5s ease-out;
+    transition: .3s ease-out;
+
+    border: 1px solid black;
 }
 
 .criarSala:hover {
-    background-position: left;
+    background-position: right;
     color: white;
 }
 
