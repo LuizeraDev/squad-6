@@ -4,6 +4,13 @@ img {
     margin-top: -13px;
 }
 
+
+.corBotoes {
+    font-size: 14px;
+    padding: 10px 18px;
+    margin-right: 10px;
+}
+
 #conteudo {
     font-size: 18px;
 }

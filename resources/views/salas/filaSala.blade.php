@@ -54,8 +54,8 @@ $_SESSION['entrou_sala'] = true;
 
                 <br><br>
                 <div id="conteudo3"></div>
-                <!-- <div id="conteudo4"></div> -->
-                <a class="corBotoes items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest"
+                
+                <a class="corBotoes items-center border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest"
                     href="{{$salaId}}/desistente">Desistir</a>
 
             </section>
@@ -161,7 +161,7 @@ $_SESSION['entrou_sala'] = true;
                     var espaco = dadosFila.dadosUsuario[0].demanda - dadosFila.Utilizando.length;
                     if (dadosFila.dadosUsuario[0].cd_fila_usuario <= espaco &&
                         dadosFila.Utilizando.length < dadosFila.dadosUsuario[0].demanda) {
-                        $('#conteudo3').html("<a  class='corBotoes items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest' href='{{$salaId}}/voujogar'>Minha Vez</a><br><br>");
+                        $('#conteudo3').html("<a  class='corBotoes items-center border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest' href='{{$salaId}}/voujogar'>Minha Vez</a>");
                     }
                     setTimeout("atualizarFila()", 3000) // 3 segundos / Tempo de espera de atualização dos dados
                 })

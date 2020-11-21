@@ -9,7 +9,16 @@ h3 {
     margin-bottom: 10px;
 }
 
+.corBotoes {
+    font-size: 14px;
+    padding: 10px 70px;
+    margin-left: 100px;
+}
 
+#conteudo3 {
+    display: inline-block;
+    margin-left: -100px;
+}
 
 #conteudo, #conteudo1, #conteudo2,
 #conteudo3, #conteudo4 {

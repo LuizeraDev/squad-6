@@ -1,5 +1,6 @@
 <?php 
 $url='http://localhost:8080/squad-6/storage/app/public/';
+$_SESSION['dashboard'] = true;
 ?>
 <x-jet-form-section submit="updateProfileInformation">
     <x-slot name="title">

@@ -33,17 +33,11 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
             <br>
             <h3>Selecione um botão após terminar</h3>
             <br>
+            <a href="Voltar" class="corBotoes items-center border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest">
+            Voltar para o final da fila</a>
 
-            <div class="grid gap-6">
-                <div>
-                    <a href="Voltar" class="corBotoes items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest">
-                    Voltar para o final da fila</a>
-                </div>
-                <div>
-                    <a class="corBotoes items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest" href="Acabei">Sair da sala</a>
-                </div>
-            </div>
-            
+            <a href="Acabei" class="corBotoes items-center border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest">
+                Sair da sala</a>
         </section>
     </main>
 </div>
