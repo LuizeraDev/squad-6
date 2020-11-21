@@ -49,7 +49,6 @@ $_SESSION['entrou_sala'] = true;
 
                 <div id="Timer"></div>
                 <div id="conteudo4"></div>
-                <div id="conteudo4"></div>
 
                 <div id="conteudo2"></div>
 
