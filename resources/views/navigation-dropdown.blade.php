@@ -20,13 +20,13 @@ $_SESSION['usuario'] = Auth::user()->email;
                         {{ __('Unidades') }}
                     </x-jet-nav-link>
 
-                    @if (isset($_SESSION['santos']) || isset($_SESSION['sao_paulo']))
+                    @if ($_SESSION['dashboard'] == false)
                         <x-jet-nav-link href="{{ route('salas') }}" :active="request()->routeIs('salas')">
                             {{ __('Salas') }}
                         </x-jet-nav-link>
-                    @else 
-                        <x-jet-nav-link href="{{ route('salas') }}" >
-                            {{ __('Salas') }}
+
+                        <x-jet-nav-link onclick="modalOnline()">
+                            {{ __('Online Agora') }}
                         </x-jet-nav-link>
                     @endif
                 </div>
@@ -141,9 +141,16 @@ $_SESSION['usuario'] = Auth::user()->email;
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Unidades') }}
             </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="{{ route('salas') }}" :active="request()->routeIs('salas')">
-                {{ __('Salas') }}
-            </x-jet-responsive-nav-link>
+
+            @if ($_SESSION['dashboard'] == false)
+                <x-jet-responsive-nav-link href="{{ route('salas') }}" :active="request()->routeIs('salas')">
+                    {{ __('Salas') }}
+                </x-jet-responsive-nav-link>
+
+                <x-jet-responsive-nav-link onclick="modalOnline()">
+                    {{ __('Online Agora') }}
+                </x-jet-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->

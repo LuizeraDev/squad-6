@@ -4,6 +4,10 @@ img {
     margin-top: -13px;
 }
 
+#conteudo {
+    font-size: 18px;
+}
+
 .container{
     border: 1px solid black;
     background: white;
