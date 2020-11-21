@@ -24,6 +24,10 @@ $_SESSION['usuario'] = Auth::user()->email;
                         <x-jet-nav-link href="{{ route('salas') }}" :active="request()->routeIs('salas')">
                             {{ __('Salas') }}
                         </x-jet-nav-link>
+
+                        <x-jet-nav-link onclick="modalOnline()">
+                            {{ __('Online Agora') }}
+                        </x-jet-nav-link>
                     @endif
                 </div>
             </div>
@@ -141,6 +145,10 @@ $_SESSION['usuario'] = Auth::user()->email;
             @if ($_SESSION['dashboard'] == false)
                 <x-jet-responsive-nav-link href="{{ route('salas') }}" :active="request()->routeIs('salas')">
                     {{ __('Salas') }}
+                </x-jet-responsive-nav-link>
+
+                <x-jet-responsive-nav-link onclick="modalOnline()">
+                    {{ __('Online Agora') }}
                 </x-jet-responsive-nav-link>
             @endif
         </div>

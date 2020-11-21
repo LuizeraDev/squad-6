@@ -5,11 +5,6 @@ $_SESSION['dashboard'] = true;
 
 <x-app-layout>
 <div class="flex flex-col sm:justify-center items-center mb-4">
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Unidades') }}
-        </h2>
-    </x-slot>
 
     <div class="greetings sm:justify-center items-center">
         <h3>Bem-vindo ao FIFO</h3>
