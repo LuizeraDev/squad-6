@@ -57,6 +57,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
     <div class="voceEsta w-full items-center justify-center">
         @if ($_SESSION['santos'])
         <h3>Você esta conectado a unidade de Santos</h3>
+        <button onclick="modalUserList()" value="ativar modal"></button>
         @else
         <h3>Você esta conectado a unidade de São Paulo</h3>
         @endif
@@ -79,7 +80,16 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
     </div>
 
-    <button onclick="modal()" value="ativar modal"></button>
+    
+    <div class="">
+        
+        <div class="modalUser toggleActive">
+    <!-- DIV QUE RECEBE A LISTA DE USUÁRIOS ONLINE-->
+        </div>
+
+    </div>
+    
+    
 
     <div class="deleteRoom active ">
        <div class="modal max-w-sm">
@@ -98,7 +108,8 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
        </div>
     </div>
-    
+
+  
 
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.js" defer></script>
 <!-- Este script é necessário para fazer a conexão assíncrona com o AJAX -->
@@ -208,8 +219,11 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
         });
 </script>
 
-<!-- Funções do Modal -->
+
+
 <script>
+
+    //MODAL DA JANELA DE DELETAR SALAS
     function modal(nome_sala) 
     { 
         $("#nomeSala").html(nome_sala);
@@ -233,64 +247,100 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
         }); 
     } 
 
-    function modalOnline()
-    {
-        function onlineAgora() {
-                $.ajax({
-                    url: "{{ route('salasConteudo') }}",
-                    dataType: "json",
-                    cache: false,
-                }).done(function (dadosSalas) {
-
-                    // Exibe informações sobre os usuários cadastrados / online / ausente / offline, sala em que está
-                    for (i = 0; i < dadosSalas.usuarios.length; i++) 
-                    {       
-
-                        if (dadosSalas.usuarios[i].nm_sala) {
-
-                            if (dadosSalas.usuarios[i].unidade == "santos") {
-
-                                alert(
-                                    "Nome do usuário: " + dadosSalas.usuarios[i].name + "\n" +
-                                    "Status: " + dadosSalas.usuarios[i].status + "\n" +
-                                    "Nome da sala em que o usuário está: " + dadosSalas.usuarios[i].nm_sala + "\n" +
-                                    "Código da sala em que o usuário está: " + dadosSalas.usuarios[i].cd_sala_santos
-                                );
-
-                            } else {
-                                alert(
-                                    "Nome do usuário: " + dadosSalas.usuarios[i].name + "\n" +
-                                    "Status: " + dadosSalas.usuarios[i].status + "\n" +
-                                    "Nome da sala em que está: " + dadosSalas.usuarios[i].nm_sala + "\n" +
-                                    "Código da sala em que o usuário está: " + dadosSalas.usuarios[i].cd_sala_sao_paulo
-                                );
-                            }
-                          
-                        } else {
-                            alert(
-                                "Nome do usuário: " + dadosSalas.usuarios[i].name + "\n" + 
-                                "Status: " + dadosSalas.usuarios[i].status + "\n" 
-                            );
-                        }
-                       
-                    }
-
-                setTimeout("atualizarSalas()", 3000) // 3 segundos / Tempo de espera de atualização dos dados
-            });     
-        }   
-
-        // Requisitar a função
-        $(function () {
-            // Faz a primeira atualização
-            onlineAgora();
-        });   
-    }
-
+    
     function fecharModal()
     {
         $(".active").css("display", "none");
         $(".active").removeClass("active");
         $("body").css("overflow-y","visible");
+    }
+
+
+
+
+    //MODAL DOS USUARIOS ONLINE
+
+    function onlineAgora() {
+            $.ajax({
+                url: "{{ route('salasConteudo') }}",
+                dataType: "json",
+                cache: false,
+            }).done(function (dadosSalas) {
+                $(".modalUser").html("");
+
+                const statusUsuario = [];
+                // Exibe informações sobre os usuários cadastrados / online / ausente / offline, sala em que está
+
+                for (i = 0; i < dadosSalas.usuarios.length; i++) {       
+
+                    if (dadosSalas.usuarios[i].nm_sala) {
+
+                        if (dadosSalas.usuarios[i].unidade == "santos") {
+
+                            statusUsuario[i] = $("<div/>").addClass("userStatus");
+
+                                statusUsuario[i].append("<p1/>" + dadosSalas.usuarios[i].name);
+                                statusUsuario[i].append("<p2/>Status: " + dadosSalas.usuarios[i].status)
+                                statusUsuario[i].append("<p3/>Está em:" + dadosSalas.usuarios[i].nm_sala)
+                                statusUsuario[i].append("<p4/>Código da sala" + dadosSalas.usuarios[i].cd_sala_santos)
+                                statusUsuario[i].append("<button/>Juntar-se: " + dadosSalas.usuarios[i].cd_sala_santos)
+                                
+
+                        } else {
+
+                            statusUsuario[i] = $("<div/>").addClass("userStatus");
+
+                                statusUsuario[i].append("<p1/>" + dadosSalas.usuarios[i].name);
+                                statusUsuario[i].append("<p2/>Status: " + dadosSalas.usuarios[i].status)
+                                statusUsuario[i].append("<p3/>Está em:" + dadosSalas.usuarios[i].nm_sala)
+                                statusUsuario[i].append("<p4/>Código da Sala" + dadosSalas.usuarios[i].cd_sala_sao_paulo)
+                                statusUsuario[i].append("<button/>Juntar-se: " + dadosSalas.usuarios[i].cd_sala_sao_paulo)
+                        }
+                        
+                    } else {
+
+                            statusUsuario[i] = $("<div/>").addClass("userStatus");
+
+                                statusUsuario[i].append("<p1/>" + dadosSalas.usuarios[i].name);
+                                statusUsuario[i].append("<p2/>Status: " + dadosSalas.usuarios[i].status)
+                    }
+                    
+                    
+                }
+            
+                $(".modalUser").append("<button class='fecharUserList' onClick='closeUserList()'> TESTE FECHAR USERLIST </button>");
+                $(".modalUser").append(statusUsuario);            
+
+            setTimeout("onlineAgora()", 3000); // 3 segundos / Tempo de espera de atualização dos dados
+        });     
+    }   
+
+    // Requisitar a função
+    $(function () {
+        // Faz a primeira atualização
+        onlineAgora();
+    });   
+    
+
+
+    function modalUserList() {
+
+       
+        $(".modalUser").addClass("toggleActive");
+        $(".toggleActive").css("display", "grid");
+        $(".modalUser").css("display", "grid");
+       
+
+
+    }
+
+    function closeUserList() {
+
+        $(".modalUser").css("display", "none");
+        $(".toggleActive").css("display", "none");
+        $(".modalUser").removeClass("toggleActive");
+        
+
     }
 </script>
 

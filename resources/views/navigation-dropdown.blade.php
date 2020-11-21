@@ -25,7 +25,7 @@ $_SESSION['usuario'] = Auth::user()->email;
                             {{ __('Salas') }}
                         </x-jet-nav-link>
 
-                        <x-jet-nav-link onclick="modalOnline()">
+                        <x-jet-nav-link onclick="modalUserList()" style="cursor:pointer">
                             {{ __('Online Agora') }}
                         </x-jet-nav-link>
                     @endif

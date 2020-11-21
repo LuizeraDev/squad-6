@@ -37,10 +37,6 @@ body {
     transition: background-color 1s ease-in-out;
 }
 
-.corbotoesDelete:hover {
-    background-color: rgb(99, 68, 187);
-    color: white;
-}
 
 /* Mudar a cor do input */
 .min-h-screen.flex.flex-col.justify-center.items-center.pt-6.pt-0.bg-gray-100 {

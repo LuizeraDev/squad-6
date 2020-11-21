@@ -254,6 +254,7 @@ input {
     text-decoration: none;
 }
 
+/* ========= MODAL ===========*/
 .active {
 
     height: 100%;
@@ -266,9 +267,6 @@ input {
 
     display: none;
 }
-
-
-/* ========= MODAL ===========*/
 
 .deleteRoom {
 
@@ -301,9 +299,63 @@ input {
 
     display: grid;
     grid-template-columns: 1fr;
-
     
 }
+
+
+.modalUser{
+
+
+    display:none;
+
+}
+
+.toggleActive {
+    height: 60vh;
+    background:  #f2efe9;
+    position: absolute;   
+    top: 0;
+    left: 0;
+    margin: 20vh 25vw;
+    width: 50vw;
+
+    display: none;
+    filter: drop-shadow(2px 5px 10px rgba(0,0,0,0.5));
+    border-radius: 10px;
+}
+
+
+.fecharUserList{
+
+    border-radius: 10px 10px 0 0;
+    background-color: rgb(74, 50, 139);
+
+    position: relative;
+    top: 0;
+    right: 0;
+
+    color: white;
+    font-weight: bold;
+
+}
+
+.userStatus {
+
+    position: relative;
+    height: 5vh;
+    width: 20vw;
+    padding: 1rem;
+
+    background-color: #ebebebeb;
+    color:black;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    
+
+
+}
+
 
 
 /*=== animação do fade in ====*/
