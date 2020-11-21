@@ -229,6 +229,7 @@ input {
     max-height: 434px;
     align-items: center;
     color: rgba(0, 0, 0, 0.5);
+    rotate: (-11deg);
 
     background: linear-gradient(to left, transparent 50%, rgb(74, 50, 139) 50%) right;
     background-size: 200%;
