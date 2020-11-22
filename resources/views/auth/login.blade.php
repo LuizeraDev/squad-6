@@ -4,16 +4,18 @@
              LOGO
         </x-slot>
 
-        <x-jet-validation-errors class="mb-4" />
-
         @if (session('status'))
             <div class="mb-4 font-medium text-sm">
                 {{ session('status') }}
             </div>
         @endif
+
         <div class="painel w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
         <form method="POST" action="{{ route('login') }}">
             @csrf
+
+            <!-- Os erros serão mostrados aonde esta tag estiver -->
+            <x-jet-validation-errors class="mb-4" />
 
             <div class="mt-4 wrapperNome">
                 <input id="email" class="shadow appearance-none border border-blue-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" type="email" name="email" :value="old('email')" required  />
