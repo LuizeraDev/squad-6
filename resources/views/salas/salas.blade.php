@@ -137,12 +137,6 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
                 newSala.append("<a href='criarsala'>Criar Sala</a>")
 
-                // Exibe informações sobre os usuários cadastrados / online / ausente / offline, sala em que está
-                for (i = 0; i < dadosSalas.usuarios.length; i++) 
-                {
-                    //console.log(dadosSalas.usuarios[i]);
-                }
-
                 for (i = 0; i < dadosSalas.sala.length; i++) 
                 {
                     //cria sala individual baseada nas salas do DB
@@ -268,7 +262,6 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                 $(".modalUser").html("");
 
                 const statusUsuario = [];
-                // Exibe informações sobre os usuários cadastrados / online / ausente / offline, sala em que está
 
                 for (i = 0; i < dadosSalas.usuarios.length; i++) 
                 {  

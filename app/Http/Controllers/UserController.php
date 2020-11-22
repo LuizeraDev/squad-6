@@ -21,7 +21,7 @@ class UserController extends Controller
         DB::table('users')
             ->where('email', $email)
             ->update(['status' => 'offline','unidade' => NULL, 'report' => NULL,
-            'cd_fila_usuario' => NULL,'cd_sala_santos' => NULL,  'cd_sala_sao_paulo' => NULL]);
+            'utilizando_sala' => NULL,'cd_fila_usuario' => NULL,'cd_sala_santos' => NULL,  'cd_sala_sao_paulo' => NULL]);
 
         Auth::logout();
 

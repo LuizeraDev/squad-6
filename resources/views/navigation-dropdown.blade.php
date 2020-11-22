@@ -110,10 +110,9 @@ $_SESSION['usuario'] = Auth::user()->email;
                         @endif
 
                         <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
+                        <form method="GET" action="{{ route('sair') }}">
 
-                            <x-jet-dropdown-link href="{{ route('logout') }}"
+                            <x-jet-dropdown-link href="{{ route('sair') }}"
                                                 onclick="event.preventDefault();
                                                             this.closest('form').submit();">
                                 {{ __('Sair') }}
