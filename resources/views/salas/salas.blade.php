@@ -138,11 +138,13 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                 newSala.append("<a href='criarsala'>Criar Sala</a>")
 
                 // Exibe informações sobre os usuários cadastrados / online / ausente / offline, sala em que está
-                for (i = 0; i < dadosSalas.usuarios.length; i++) {
+                for (i = 0; i < dadosSalas.usuarios.length; i++) 
+                {
                     //console.log(dadosSalas.usuarios[i]);
                 }
 
-                for (i = 0; i < dadosSalas.sala.length; i++) {
+                for (i = 0; i < dadosSalas.sala.length; i++) 
+                {
                     //cria sala individual baseada nas salas do DB
                     wrapperSala[i] = $("<div/>").addClass("wrapper").addClass("max-w-sm lg:w-1/3 md:1/2 rounded overflow-hidden shadow-lg bg-white");
                     wrapperSala[i].append(
@@ -155,7 +157,8 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                     var contador = 0; // contador de usuários para a sala
 
                     // Conta a quantidade de pessoas em uma determinada sala.
-                    for (c = 0; c < dadosSalas.qt_usuarios.length; c++) {
+                    for (c = 0; c < dadosSalas.qt_usuarios.length; c++) 
+                    {
 
                         /*
                         * Faz uma verificação se o nome da sala 
@@ -255,11 +258,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
         $("body").css("overflow-y","visible");
     }
 
-
-
-
     //MODAL DOS USUARIOS ONLINE
-
     function onlineAgora() {
             $.ajax({
                 url: "{{ route('salasConteudo') }}",
@@ -271,41 +270,44 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                 const statusUsuario = [];
                 // Exibe informações sobre os usuários cadastrados / online / ausente / offline, sala em que está
 
-                for (i = 0; i < dadosSalas.usuarios.length; i++) {       
+                for (i = 0; i < dadosSalas.usuarios.length; i++) 
+                {  
+                    // esse código é necessário para descobrirmos se o usuário entrou na unidade de Santos ou São Paulo
+                    <?php  
+                        if ($_SESSION['santos']) { 
+                           echo "var unidade = 'santos'";
+                        } else {
+                            echo "var unidade = 'sao_paulo'";
+                        }
+                    ?>
 
-                    if (dadosSalas.usuarios[i].nm_sala) {
+                    if (dadosSalas.usuarios[i].unidade == unidade) {
 
-                        if (dadosSalas.usuarios[i].unidade == "santos") {
-
+                        if (dadosSalas.usuarios[i].nm_sala && unidade === "santos") {
                             statusUsuario[i] = $("<div/>").addClass("userStatus");
 
-                                statusUsuario[i].append("<p1/>" + dadosSalas.usuarios[i].name);
-                                statusUsuario[i].append("<p2/>Status: " + dadosSalas.usuarios[i].status)
-                                statusUsuario[i].append("<p3/>Está em:" + dadosSalas.usuarios[i].nm_sala)
-                                statusUsuario[i].append("<p4/>Código da sala" + dadosSalas.usuarios[i].cd_sala_santos)
-                                statusUsuario[i].append("<button/>Juntar-se: " + dadosSalas.usuarios[i].cd_sala_santos)
-                                
+                                statusUsuario[i].append("<p1/> <b>" + dadosSalas.usuarios[i].name + "</b>");
+                                statusUsuario[i].append("<p2/>Status: <b>" + dadosSalas.usuarios[i].status + "</b>")
+                                statusUsuario[i].append("<p3/>Está em: <b>" + dadosSalas.usuarios[i].nm_sala + "</b>")
+                                statusUsuario[i].append("<button><a href='/salas/sala/"+dadosSalas.usuarios[i].nm_sala+"/"+dadosSalas.usuarios[i].cd_sala_santos+"' >Seguir Usuário</a></button>")
+
+                        } else if (dadosSalas.usuarios[i].nm_sala && unidade === "sao_paulo") {
+                            statusUsuario[i] = $("<div/>").addClass("userStatus");
+
+                                statusUsuario[i].append("<p1/> <b>" + dadosSalas.usuarios[i].name + "</b>");
+                                statusUsuario[i].append("<p2/>Status: <b>" + dadosSalas.usuarios[i].status + "</b>")
+                                statusUsuario[i].append("<p3/>Está em: <b>" + dadosSalas.usuarios[i].nm_sala + "</b>")
+                                statusUsuario[i].append("<button><a href='/salas/sala/"+dadosSalas.usuarios[i].nm_sala+"/"+dadosSalas.usuarios[i].cd_sala_sao_paulo+"' >Seguir Usuário</a></button>")
 
                         } else {
-
                             statusUsuario[i] = $("<div/>").addClass("userStatus");
 
-                                statusUsuario[i].append("<p1/>" + dadosSalas.usuarios[i].name);
-                                statusUsuario[i].append("<p2/>Status: " + dadosSalas.usuarios[i].status)
-                                statusUsuario[i].append("<p3/>Está em:" + dadosSalas.usuarios[i].nm_sala)
-                                statusUsuario[i].append("<p4/>Código da Sala" + dadosSalas.usuarios[i].cd_sala_sao_paulo)
-                                statusUsuario[i].append("<button/>Juntar-se: " + dadosSalas.usuarios[i].cd_sala_sao_paulo)
+                                statusUsuario[i].append("<p1/><b>" + dadosSalas.usuarios[i].name + "</b>");
+                                statusUsuario[i].append("<p2/>Status: <b>" + dadosSalas.usuarios[i].status + "</b>")
                         }
-                        
-                    } else {
-
-                            statusUsuario[i] = $("<div/>").addClass("userStatus");
-
-                                statusUsuario[i].append("<p1/>" + dadosSalas.usuarios[i].name);
-                                statusUsuario[i].append("<p2/>Status: " + dadosSalas.usuarios[i].status)
-                    }
-                    
-                    
+                            
+                    } 
+                         
                 }
             
                 $(".modalUser").append("<button class='fecharUserList' onClick='closeUserList()'> TESTE FECHAR USERLIST </button>");
@@ -324,14 +326,11 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
 
     function modalUserList() {
-
-       
+    
         $(".modalUser").addClass("toggleActive");
         $(".toggleActive").css("display", "grid");
         $(".modalUser").css("display", "grid");
-       
-
-
+    
     }
 
     function closeUserList() {
@@ -339,8 +338,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
         $(".modalUser").css("display", "none");
         $(".toggleActive").css("display", "none");
         $(".modalUser").removeClass("toggleActive");
-        
-
+     
     }
 </script>
 
