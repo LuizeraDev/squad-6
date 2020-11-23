@@ -157,7 +157,7 @@ $_SESSION['entrou_sala'] = true;
                         }
                     }
 
-                    // Exibe o botão vou jogar se a posição da fila do usuário for igual a 1
+                    // Exibe o botão vou jogar de acordo com os espaços da sala.
                     var espaco = dadosFila.dadosUsuario[0].demanda - dadosFila.Utilizando.length;
                     if (dadosFila.dadosUsuario[0].cd_fila_usuario <= espaco &&
                         dadosFila.Utilizando.length < dadosFila.dadosUsuario[0].demanda) {
