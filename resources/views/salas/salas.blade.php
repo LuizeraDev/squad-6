@@ -48,7 +48,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 <body>
 @livewire('navigation-dropdown') 
 <div class="bgimage w-full  rounded overflow-hidden">
-<img class="background" src="{{ asset('assets/bck_1.png') }}" alt="">
+<img class="background w-full" src="{{ asset('assets/bck_1.png') }}" alt="">
 <div class="mensagem">
         <h2>SELECIONE SUA ATIVIDADE</h2>
         <p>No momento estas são as atividades que estão rolando.</p>
@@ -56,7 +56,6 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 </div>
 </img>
    
-
 
     <!--- GRID -->
 

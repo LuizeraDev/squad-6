@@ -42,7 +42,7 @@
   
     background-color: black;
     height: 450px;
-    width: 100%;
+    width: ;
 }
 .logo {
     position: absolute;
@@ -74,12 +74,11 @@
 }
 .salasContainer{
     margin: auto;
-    width: 90rem;
+    width: 100%;
 }
 
 .conteudoContainer {
-    width: 90rem;
-    padding: 0 2rem;
+    margin: 0;
 }
 
 .voceEsta {
@@ -92,7 +91,6 @@
     color: white;
     
 }
-
 
 
 input {
@@ -126,7 +124,7 @@ input {
     max-width: 19rem;
     border-radius: 15px;
     background-color: #1C252E;
-    margin: 1rem;
+    margin: 1rem auto;
     color: var(--cardLetters);
     
 }
