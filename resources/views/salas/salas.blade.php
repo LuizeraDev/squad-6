@@ -146,7 +146,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                         + "' width=200>"
                     );
                     wrapperSala[i].append("<div class='px-6'>");
-                    wrapperSala[i].append("<h3 class='font-bold text-xl mb-2'><b>" + dadosSalas.sala[i].nm_sala + "</b></h3>");
+                    wrapperSala[i].append("<h3 class='font-bold text-xl'><b>" + dadosSalas.sala[i].nm_sala + "</b></h3>");
                     
                     var contador = 0; // contador de usuários para a sala
 
@@ -279,7 +279,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                         if (dadosSalas.usuarios[i].nm_sala && unidade === "santos") {
                             statusUsuario[i] = $("<div/>").addClass("userStatus");
 
-                                statusUsuario[i].append("<p1/> <b>" + dadosSalas.usuarios[i].name + "</b>");
+                                statusUsuario[i].append("<h3/> <b>" + dadosSalas.usuarios[i].name + "</b>");
                                 statusUsuario[i].append("<p2/>Status: <b>" + dadosSalas.usuarios[i].status + "</b>")
                                 statusUsuario[i].append("<p3/>Está em: <b>" + dadosSalas.usuarios[i].nm_sala + "</b>")
                                 statusUsuario[i].append("<button><a href='/salas/sala/"+dadosSalas.usuarios[i].nm_sala+"/"+dadosSalas.usuarios[i].cd_sala_santos+"' >Seguir Usuário</a></button>")
@@ -287,7 +287,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                         } else if (dadosSalas.usuarios[i].nm_sala && unidade === "sao_paulo") {
                             statusUsuario[i] = $("<div/>").addClass("userStatus");
 
-                                statusUsuario[i].append("<p1/> <b>" + dadosSalas.usuarios[i].name + "</b>");
+                                statusUsuario[i].append("<h3/> <b>" + dadosSalas.usuarios[i].name + "</b>");
                                 statusUsuario[i].append("<p2/>Status: <b>" + dadosSalas.usuarios[i].status + "</b>")
                                 statusUsuario[i].append("<p3/>Está em: <b>" + dadosSalas.usuarios[i].nm_sala + "</b>")
                                 statusUsuario[i].append("<button><a href='/salas/sala/"+dadosSalas.usuarios[i].nm_sala+"/"+dadosSalas.usuarios[i].cd_sala_sao_paulo+"' >Seguir Usuário</a></button>")
@@ -295,7 +295,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                         } else {
                             statusUsuario[i] = $("<div/>").addClass("userStatus");
 
-                                statusUsuario[i].append("<p1/><b>" + dadosSalas.usuarios[i].name + "</b>");
+                                statusUsuario[i].append("<h3/><b>" + dadosSalas.usuarios[i].name + "</b>");
                                 statusUsuario[i].append("<p2/>Status: <b>" + dadosSalas.usuarios[i].status + "</b>")
                         }
                             

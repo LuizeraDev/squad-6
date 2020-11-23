@@ -144,8 +144,9 @@ input {
 }
 
 .wrapper h3{
-
+    margin-top: 1rem;
     font-size: 2rem;
+    line-height: 2rem;
 
     text-align: center;
 }
@@ -189,6 +190,13 @@ input {
 	}
 }
 
+.enterButton a {
+
+    line-height: 4rem;
+    width: 19rem;
+    text-align: center;
+}
+
 .deleteButton {
 
     
@@ -207,16 +215,24 @@ input {
     line-height: 3rem;
     width: 100%;
     text-align: center;
+    display: inline-block;
+    color: rgba(0, 0, 0, 0.5);
+    text-decoration: none;
 }
 
-.enterButton a {
-
-    line-height: 4rem;
-    width: 14rem;
-    text-align: center;
+.deleteButton a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: rgba(94,64,179, 0.5);
+    transition: width .3s;
 }
 
-
+.deleteButton a:hover::after {
+    width: 100%;
+    transition: width .3s;
+}
 
 .criarSala {
 
@@ -246,7 +262,7 @@ input {
 .criarSala a {
 
     display: block;
-    height: 0;
+    height: 434px;
     width: 19rem;
     line-height: 434px;
     text-align: center;
