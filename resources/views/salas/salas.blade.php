@@ -46,40 +46,35 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 </head>
 
 <body>
-
-    
-    <header class="header sm:w-full bg-white shadow font-sans antialiased">
-    @livewire('navigation-dropdown') 
-                        
-        
-    </header>
-
-    <div class="voceEsta w-full items-center justify-center">
-        @if ($_SESSION['santos'])
-        <h3>Você esta conectado a unidade de Santos</h3>
-        <button onclick="modalUserList()" value="ativar modal"></button>
-        @else
-        <h3>Você esta conectado a unidade de São Paulo</h3>
-        @endif
-
-        @if (isset($erro)) 
-            <p style="color: red;">{{ $erro }}</p>
-        @endif
-    </div>
+@livewire('navigation-dropdown') 
+<div class="bgimage w-full  rounded overflow-hidden">
+<img class="background" src="{{ asset('assets/bck_1.png') }}" alt="">
+<div class="mensagem">
+        <h2>SELECIONE SUA ATIVIDADE</h2>
+        <p>No momento estas são as atividades que estão rolando.</p>
+        <p>Está esperando o que? Aproveite e entre já em uma!</p>
+</div>
+</img>
+   
 
 
     <!--- GRID -->
-    <div class="flex flex-col sm:justify-center items-center pt-6 sm:pt-0 ">
 
 
-        <section class="salasContainer" id="salasContainer"></section>
 
-        <a class="voltarUnidade font-bold text-sm text-blue-500 text-lg hover:text-blue-800" href="dashboard">Voltar a
-            escolha da unidade</a>
+   
+    <div class="bodyContainer w-full">
 
+
+        <section class="salasContainer w-full sm:justify-center items-center" id="salasContainer"></section>
+
+        <a class="voltarUnidade font-bold text-sm" href="dashboard">Voltar a escolha da unidade</a>
 
     </div>
 
+    
+
+</div>
     
     <div class="">
         
@@ -125,16 +120,17 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
             }).done(function (dadosSalas) {
                 //cria container para inserir as salas
                 $('#salasContainer').html("");
-                var conteudo_salas = $("<div/>").addClass("conteudoContainer").addClass("grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-4").appendTo("section");
+                var conteudo_salas = $("<div/>").addClass("conteudoContainer").addClass("grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-4 sm:justify-center items-center ").appendTo("section");
                 conteudo_salas.innerHTML = "";
                 //cria array das salas
                 var wrapperSala = []
                 var newSala =
                     $("<div/>")
                         .addClass("criarSala")
-                        .addClass("max-w-sm md:w-1/2 lg:w-1/3 rounded overflow-hidden shadow-lg tracking-widest")
-                        .addClass("text-white font-bold border-none rounded");
-
+                        .addClass("max-w-sm md:w-1/2 rounded overflow-hidden shadow-lg tracking-widest")
+                        .addClass("text-white font-bold");
+                
+                newSala.append("<div class='addBox'><img src='{{ asset('assets/add_img.png') }}' alt=''></div>")
                 newSala.append("<a href='criarsala'>Criar Sala</a>")
 
                 for (i = 0; i < dadosSalas.sala.length; i++) 
