@@ -191,7 +191,7 @@ class filasController extends Controller
                             ->where('email', $email)
                             ->value('cd_fila_usuario');
             
-        if ($_SESSION['santos'] && $posicao_usuario == 1) {
+        if ($_SESSION['santos']) {
             // Pegando todas as pessoas da fila
             $fila = DB::table('users')
                             ->select('name', 'cd_fila_usuario',  'profile_photo_path')
@@ -220,7 +220,6 @@ class filasController extends Controller
                 ->where('email', $email)
                 ->update(['utilizando_sala' => true, 'cd_fila_usuario' => null, 'report' => null]);
         } else {
-            if ($posicao_usuario == 1) {
                 // Pegando todas as pessoas da fila
                 $fila = DB::table('users')
                         ->select('name', 'cd_fila_usuario',  'profile_photo_path')
@@ -248,7 +247,7 @@ class filasController extends Controller
                 DB::table('users')
                     ->where('email', $email)
                     ->update(['utilizando_sala' => true, 'cd_fila_usuario' => null, 'report' => null]);
-            }
+            
         }
         
         return view('salas/utilizandoSala');
