@@ -127,7 +127,7 @@ input {
     background-color: #1C252E;
     margin: 1rem auto;
     color: var(--cardLetters);
-    
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);    
 }
 
 .wrapper img {
@@ -241,7 +241,7 @@ input {
     max-height: 434px;
     align-items: center;
     color: rgba(0, 0, 0, 0.5);
-
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);    
     background: linear-gradient(to right, rgba(235, 235, 235, .4) 50%, rgb(255, 255, 246) 50%) left;
     background-size: 200%;
     transition: .3s ease-out;
