@@ -1,16 +1,38 @@
 
 :root {
-    --pulseColor: rgba(94,64,179,.7)
+
+    --cardLetters: #ffffff;
+    --pageLinks: rgba(0,0,0,.5);
+    --cardBG: #1C252E;
+    --buttonBG: #E63F67;
+    --blackoutColor: rgba(230, 63, 103, .8);
+
 }
 
+.background {
+
+    height: 400px;
+    background-color: var(--blackoutColor);
+}
 
 .greetings{
+
+    color: var(--cardLetters);
+    font-weight: bold;
     margin: 2rem auto;
     text-align: center;
 }
 
+.body{
+    position: absolute;
+    top: 20vh;
+    left: 25vw;
+}
+
 .option {
 
+    color: var(--cardLetters);
+    background-color: var(--cardBG);
     min-width: 19rem;
     min-height: 434px;
     max-width: 19rem;
@@ -35,11 +57,17 @@
 
 70% {
     transform: scale(1.025);
-    box-shadow: 0 0 0 10px rgba(94,64,179, 0);
+    box-shadow: 0 0 0 5px var(--cardBG);
 }
 
 100% {
     transform: scale(1);
     box-shadow: 0 0 0 0 rgba(94,64,179, 0);
 }
+}
+
+.option:hover {
+    
+    background-color: var(--cardBG);
+    color: var(--buttonBG);
 }

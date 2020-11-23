@@ -3,7 +3,8 @@
 :root {
     
     --cardLetters: #ffffff;
-    --pageLinks: rgba(0,0,0,.5)
+    --pageLinks: rgba(0,0,0,.5);
+    --cardBG: #1C252E;
 }
 
 
