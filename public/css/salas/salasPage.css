@@ -45,13 +45,13 @@
     height: 450px;
     width: ;
 }
-.logo {
-    position: absolute;
-    left: 0;
-    top: 0;
-    margin: 10vh auto;
-    height: 30vh;
+
+.logoNav{
+
+    height: 50px;
+    width: 50px;
 }
+
 
 .mensagem {
     position: absolute;

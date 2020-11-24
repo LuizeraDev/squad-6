@@ -10,7 +10,7 @@ $_SESSION['usuario'] = Auth::user()->email;
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                       <img class="logo flex-shrink-0 flex items-center" src="{{ asset('assets/Logo1.png') }}" alt="LOGO">
+                       <img class="logoNav flex-shrink-0 flex items-center" src="{{ asset('assets/Logo1.png') }}" alt="LOGO">
                     </a>
                 </div>
 
