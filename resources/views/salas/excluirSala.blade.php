@@ -28,7 +28,7 @@
 
         <!-- No php, pegamos dados através do campo "name" dos inputs -->
         <section
-            class="painel w-full sm:max-w-md bg-gray-100 sm:justify-center items-center shadow-md overflow-hidden sm:rounded-lg">
+            class="painel w-full sm:max-w-md  sm:justify-center items-center shadow-md overflow-hidden sm:rounded-lg">
             <h1>Digite <span id="aleatorio"></span> para excluir a sala <b>{{$nomeSala}}</b></h1>
             <input class="input" type="text" id="numero_aleatorio" maxlength="3">
             <input type="button" onclick="excluir()" value="Apagar Sala"

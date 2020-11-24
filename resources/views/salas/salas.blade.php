@@ -32,6 +32,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
         crossorigin="anonymous" />
 
     <!-- Styles -->
+
     <link rel="stylesheet" href="{{ asset('css/salas/salasPage.css') }}">
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
     <link rel="stylesheet" href="{{ asset('css/salas/modal.css') }}">
@@ -121,7 +122,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
             }).done(function (dadosSalas) {
                 //cria container para inserir as salas
                 $('#salasContainer').html("");
-                var conteudo_salas = $("<div/>").addClass("conteudoContainer").addClass("grid sm:grid-cols-1 md:grid-cols-3 xl:grid-cols-4 mb-4 sm:justify-center items-center ").appendTo("section");
+                var conteudo_salas = $("<div/>").addClass("conteudoContainer").addClass("grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-4 sm:justify-center items-center ").appendTo("section");
                 conteudo_salas.innerHTML = "";
                 //cria array das salas
                 var wrapperSala = []
