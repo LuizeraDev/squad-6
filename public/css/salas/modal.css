@@ -1,0 +1,202 @@
+/* variável para a cor da animação de pulsação*/
+
+:root {
+    
+    --cardLetters: #ffffff;
+    --pageLinks: rgba(0,0,0,.5);
+    --cardBG: #1C252E;
+}
+
+
+.active {
+
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+    top: 0;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    display: none;
+}
+
+.deleteRoom {
+
+    overflow-y: hidden;
+
+    position: absolute;
+    top: 0;
+
+    height: 500%;
+    width: 100%;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.modal {
+
+    overflow-y: hidden;
+
+    position:relative;
+    display: block;
+    margin: 35vh auto;
+    height: 300px;
+    width: 600px;
+
+
+    background-color: #ebebeb;
+    border-radius: 5px;
+    color:black;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    
+}
+
+
+.modalUser{
+
+
+    display:none;
+
+}
+
+.toggleActive {
+    height: 60vh;
+    background:  #f2efe9;
+    position: absolute;   
+    top: 0;
+    left: 0;
+    margin: 20vh 25vw;
+    width: 50vw;
+
+    display: none;
+    filter: drop-shadow(2px 5px 10px rgba(0,0,0,0.5));
+    border-radius: 10px;
+}
+
+
+.fecharUserList{
+
+    border-radius: 10px 10px 0 0;
+    background-color: rgb(74, 50, 139);
+
+    position: relative;
+    top: 0;
+    right: 0;
+
+    color: white;
+    font-weight: bold;
+
+}
+
+.userStatus {
+
+    position: relative;
+    height: 5vh;
+    width: 20vw;
+    padding: 1rem;
+
+    background-color: #ebebebeb;
+    color:black;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    
+
+
+}
+
+
+
+/*=== animação do fade in ====*/
+.modal {
+
+    animation-name: fadeIn;
+    animation-duration:  0.2s;
+    animation-timing-function: ease-in;
+}
+
+    @keyframes fadeIn{
+
+        from {
+            transform: translateY(-5%);
+            opacity: 0
+        }
+        to {
+            transform: translateY(0%);
+            opacity: 1;
+        }
+
+    }
+
+
+.closeButton {
+
+    position: absolute;
+    right: 0;
+    padding: 5px 1rem 5px;
+
+    font-size: 1rem;
+    font-weight: bold;
+    grid-row: 1;
+
+    cursor: pointer;
+
+  
+    border-radius: 0 0 0 5px;
+
+    color: rgb(0, 0, 0);
+    box-shadow: rgba(0, 0, 0, 0.5);
+
+    transition: background-color 0.2s ease-in;
+}
+
+.closeButton:hover {
+
+    color: whitesmoke;
+    background-color: rgba(255, 60, 60, 0.5);
+}
+
+.message {
+
+    text-align: center;
+    grid-row: 2;
+}
+
+.input {
+    grid-row: 3;
+    margin: 0 auto;
+}
+
+.input span {
+
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+
+.delButton {
+
+    font-size: medium;
+    font-family: 'Nunito', sans-serif;
+    
+
+    margin: 0 auto;
+    height: 3rem;
+    width: 7rem;
+    grid-row: 4;
+    font-weight: bold;
+    
+    border-radius: 10px;
+
+    background-color: rgba(107, 114, 128, 0.5);
+    color: whitesmoke;
+    
+}
+
+.delButton:hover {
+
+    background-color: rgba(107, 114, 128, 1);
+}

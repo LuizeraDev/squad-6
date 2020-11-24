@@ -12,11 +12,12 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/login/tela.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/login/inputs.css') }}">
         <link rel="stylesheet" href="{{ asset('css/global.css') }}">
     </head>
     <body>
-        <div class="grid min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 ">
+        <div class="grid sm:grid-cols-1 md:grid-cols-2 sm:justify-center items-center">
             {{ $slot }}
         </div>
             <!-- Scripts -->

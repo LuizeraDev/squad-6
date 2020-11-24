@@ -1,0 +1,124 @@
+/* variável para a cor da animação de pulsação*/
+
+:root {
+    
+    --cardLetters: #ffffff;
+    --pageLinks: rgba(0,0,0,.5);
+    --cardBG: #1C252E;
+}
+
+
+/* ======= MEDIA QUERY PARA AJUDAR NA RESPONSIVIDADE DO NAVBAR========*/
+
+@media screen (max-width: 450) {
+  
+
+    .voceEsta {
+        position: absolute;
+        bottom: 0;
+        text-align: left;
+        font-size: large;
+        margin: 0;
+    }
+
+    .sala {
+    
+        padding-left: 0;
+        padding-right: 12rem ;  
+        width: 100%;
+    }
+    
+    .sala h2{
+    
+        padding-left: 1rem;
+        width: 100%;
+      
+    }
+
+}
+
+/* ======================= */
+
+.background{
+  
+    background-color: black;
+    height: 450px;
+    width: ;
+}
+.logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 10vh auto;
+    height: 30vh;
+}
+
+.mensagem {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: white;
+    margin: 30vh 20vw 30vh 0;
+}
+
+.mensagem h2 {
+    font-weight: bold;
+}
+
+.bodyContainer {
+
+    position: absolute;
+    top:0;
+    margin-top: 45vh;
+    
+    
+}
+.salasContainer{
+    margin: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 10vw 80vw 10vw;
+}
+
+.conteudoContainer {
+    margin: 0;
+    grid-column: 2/3;
+}
+
+.voceEsta {
+    position: absolute;
+    top:0;
+    margin-top:35rem;
+    margin-left: 75vw;
+    text-align: left;
+    font-size: large;
+    color: white;
+    
+}
+
+
+input {
+    border: 1px solid black;
+    border-radius: 30px;
+    outline: none;
+    text-align: center;
+}
+
+
+.voltarUnidade{
+
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding-top: 3rem;
+    color: var(--pageLinks);
+}
+
+.voltarUnidade:hover{
+    color: rgb(80, 56, 146);
+}
+
+
+/* ========= MODAL ===========*/
+

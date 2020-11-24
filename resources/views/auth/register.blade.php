@@ -1,11 +1,12 @@
 <x-guest-layout>
     <x-jet-authentication-card  >
         <x-slot name="logo">
-            LOGO
+           
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
 
+        
         <form method="POST" action="{{ route('register') }}">
             @csrf
             <div class="mt-4 wrapperNome">
@@ -40,4 +41,9 @@
             </div>
         </form>
     </x-jet-authentication-card>
+
+    <div class="logoDiv max-w-sm md:w-1/2 ">
+            <img class="logo md:1/2" src="{{ asset('assets/Logo1.png') }}" alt="">
+    </div>
+      
 </x-guest-layout>

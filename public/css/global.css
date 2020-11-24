@@ -17,13 +17,6 @@ body {
     font-family: 'MontSerrat', sans-serif;
 } 
 
-.logo{
-
-    width: 50px;
-    height: 50px;
-    margin: 6px 1rem;
-}
-
 .corBotoes {
     background:#E63F67;
     border:none;
@@ -44,77 +37,3 @@ body {
 
 
 /* Mudar a cor do input */
-.min-h-screen.flex.flex-col.justify-center.items-center.pt-6.pt-0.bg-gray-100 {
-    opacity: 100%;
-    background: orange;
-}
-
-.painel {
-
-    min-width: 30rem;
-    min-height: 20rem;
-}
-
-.wrapperNome{
-
-    height: 3rem;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-}
-
-.wrapperNome input {
-     
-    border: none;
-    height: 100%;
-    width: 100%;
-    outline: none;
-    padding-top: 25px;
-}
-
-.wrapperNome label {
-    
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    pointer-events: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    color: black;
-}
-
-.wrapperNome label::after {
-
-    content: "";
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    border-bottom: 3px solid #5e40b3;
-    bottom: -2px;
-    left: 0;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-}
-
-.contentNome {
-
-    position: absolute;
-    bottom: 0px;
-    left: 0;
-    transition: all 0.3s ease;
-    color: rgb(156, 154, 154);
-}
-
-.wrapperNome input:focus + .labelNome .contentNome,
-.wrapperNome input:valid + .labelNome .contentNome{
-
-    transform: translateY(-120%);
-    color:#5e40b3;
-}
-
-.wrapperNome input:focus + .labelNome::after,
-.wrapperNome input:valid + .labelNome::after{
-
-    transform: translateX(0%);
-}

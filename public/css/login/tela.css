@@ -1,0 +1,46 @@
+
+:root {
+
+    --fontColor: white;   
+}
+
+.painel {
+
+    color: white;
+    padding: 2rem 1rem;
+
+}
+
+.faixa {
+
+    height: 100vh;
+    background-color: black;
+    width: 28rem;
+    color: var(--fontColor);
+    margin: 0 auto;
+}
+
+.faixa h3 {
+    margin-top: 30vh;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+.faixa p {
+
+    font-size: 1rem;
+    text-align: center;
+}
+
+.logoDiv {
+
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.logoDiv img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}

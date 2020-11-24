@@ -1,12 +1,7 @@
-.min-h-screen.flex.flex-col.justify-center.items-center.pt-6.pt-0.bg-gray-100 {
-    opacity: 100%;
-    background: orange;
-}
+:root {
 
-.painel {
-
-    min-width: 30rem;
-    min-height: 20rem;
+    --fontColor: white;
+    --inputColor: #E63F67;
 }
 
 .wrapperNome{
@@ -24,6 +19,7 @@
     width: 100%;
     outline: none;
     padding-top: 25px;
+    padding-left: .5rem;
 }
 
 .wrapperNome label {
@@ -44,7 +40,7 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    border-bottom: 3px solid rgb(72, 84, 241);
+    border-bottom: 3px solid var(--inputColor);
     bottom: -2px;
     left: 0;
     transform: translateX(-100%);
@@ -63,12 +59,44 @@
 .wrapperNome input:focus + .labelNome .contentNome,
 .wrapperNome input:valid + .labelNome .contentNome{
 
-    transform: translateY(-120%);
-    color:rgb(72, 84, 241);
+    transform: translateY(-110%);
+    color:var(--inputColor);
 }
 
 .wrapperNome input:focus + .labelNome::after,
 .wrapperNome input:valid + .labelNome::after{
 
     transform: translateX(0%);
+}
+
+.enterButton{
+
+    background-color: var(--inputColor);
+    height: 3rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.remember_me {
+    
+  
+    color: var(--fontColor);
+}
+
+.register {
+
+    grid-column: 1/2;
+    text-align: left;
+    color: var(--fontColor);
+}
+
+
+.forgotPW {
+    grid-column: 2/3;
+    text-align: right;
+    color: var(--fontColor);
 }

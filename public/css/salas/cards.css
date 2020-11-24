@@ -1,0 +1,198 @@
+/* variável para a cor da animação de pulsação*/
+
+:root {
+    
+    --cardLetters: #ffffff;
+    --pageLinks: rgba(0,0,0,.5);
+    --cardBG: #1C252E;
+}
+
+
+.wrapper {
+
+    min-width: 19rem;
+    min-height: 434px;
+    max-height: 434px;
+    max-width: 19rem;
+    border-radius: 15px;
+    background-color: #1C252E;
+    margin: 1rem auto;
+    color: var(--cardLetters);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);    
+}
+
+.wrapper img {
+
+    max-height: 200px;
+    min-height: 200px;
+    height: 140px;
+    object-fit: cover;
+}
+
+.wrapper h3{
+
+    margin-top: 2rem;
+    font-size: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    
+}
+
+.wrapper p {
+
+    text-align: center;
+    font-size: 17px;
+   
+}
+
+
+.enterButton {
+
+    margin-top:1rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    width: 15rem;
+    height: 4rem;
+    border-radius: 10px;
+
+    transform: scale(1);
+    animation: pulse 1s ;
+    animation-duration: 1s;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(1);
+		box-shadow: 0 0 0 0  rgba(168, 39, 70, 0.5);
+	}
+
+	40% {
+		transform: scale(1.025);
+		box-shadow: 0 0 0 10px rgba(168, 39, 70, 0.5);
+	}
+
+	100% {
+		transform: scale(1);
+		box-shadow: 0 0 0 0 rgba(94,64,179, 0);
+	}
+}
+
+.enterButton a {
+
+    line-height: 4rem;
+    width: 19rem;
+    text-align: center;
+}
+
+.deleteButton {
+
+    
+    margin: 1.5rem 34%;
+    border-radius: 10px;
+    display: inline-block;
+    width:6rem;
+    height: 1rem;
+    text-align: center;
+
+}
+
+.deleteButton a {
+
+    line-height: 1rem;
+    font-size: 10px;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--cardLetters);
+}
+
+.deleteButton a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: width .3s;
+}
+
+.deleteButton a:hover::after {
+    width: 100%;
+    transition: width .3s;
+}
+
+.criarSala {
+
+    border-radius: 20px;
+
+    margin: 1rem auto;
+    min-width: 19rem;
+    min-height: 434px;
+    max-width: 19rem;
+    max-height: 434px;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);    
+    background: linear-gradient(to right, rgba(235, 235, 235, .4) 50%, rgb(255, 255, 246) 50%) left;
+    background-size: 200%;
+    transition: .3s ease-out;
+
+    border: none;
+    position: relative;
+}
+
+.criarSala:hover {
+    background-position: right;
+    
+}
+
+.criarSala a {
+
+    display: block;
+    height: 434px;
+    width: 19rem;
+    line-height: 434px;
+    text-align: center;
+
+    text-decoration: none;
+    position: absolute;
+}
+
+.addBox {
+
+    position: absolute;
+    margin: 100px 82px;
+    height: 140px;
+    width: 140px;
+  
+    border-radius: 15px;
+    
+
+}
+
+.addBox p{
+
+    padding: 2rem 20px;
+    text-align: center;
+
+}
+
+.addBox img{
+
+    margin:32px auto;
+    height: 50%;
+    width: 50%;
+    opacity: 50%;
+}
+
+
+.addBox:hover {
+
+    position: absolute;
+    margin: 150px 82px;
+    height: 140px;
+    width: 140px;
+    border: 2px solid rgba(228, 228, 228, 0.2);
+    border-radius: 15px;
+
+}
