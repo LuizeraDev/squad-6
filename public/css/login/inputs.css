@@ -2,6 +2,7 @@
 
     --fontColor: white;
     --inputColor: #E63F67;
+    --inputColorHover: #A82746;
 }
 
 .wrapperNome{
@@ -77,6 +78,10 @@
     height: 3rem;
     width: 100%;
     margin-bottom: 1rem;
+}
+
+.enterButton:hover{
+    background-color: var(--inputColorHover);
 }
 
 .links {

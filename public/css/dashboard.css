@@ -1,10 +1,10 @@
 
 :root {
-
     --cardLetters: #ffffff;
     --pageLinks: rgba(0,0,0,.5);
     --cardBG: #1C252E;
     --buttonBG: #E63F67;
+    --buttonBGHover:#A82746;
     --blackoutColor: rgba(230, 63, 103, .8);
 
 }
@@ -18,7 +18,17 @@
 .background {
 
     height: 400px;
-    background-color: var(--blackoutColor);
+    background-image: url("../assets/bck_1.png");
+}
+
+p {
+    font-weight: 100;
+    margin-top: -50px;
+    padding-bottom: 50px;
+}
+
+h3 {
+    font-size: 24px;
 }
 
 .greetings{
@@ -38,13 +48,13 @@
 .option {
 
     color: var(--cardLetters);
-    background-color: var(--cardBG);
+    background-color: var(--buttonBG);
     min-width: 19rem;
-    min-height: 434px;
+    min-height: 280px;
     max-width: 19rem;
-    max-height: 434px;
+    max-height: 304px;
 
-    line-height: 434px;
+    line-height: 300px;
     margin: 2rem;
     width: 19rem;
     text-align: center;
@@ -63,7 +73,7 @@
 
 70% {
     transform: scale(1.025);
-    box-shadow: 0 0 0 5px var(--cardBG);
+    box-shadow: 0 0 0 5px var(--blackoutColor);
 }
 
 100% {
@@ -73,7 +83,5 @@
 }
 
 .option:hover {
-    
-    background-color: var(--cardBG);
-    color: var(--buttonBG);
+    background-color: var(--buttonBGHover);
 }
