@@ -16,16 +16,22 @@ $_SESSION['usuario'] = Auth::user()->email;
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Unidades') }}
-                    </x-jet-nav-link>
+                    @if ($_SESSION['dashboard'] == true)
+                        <x-jet-nav-link href="{{ route('dashboard') }}" style="color: #E63F67; font-weight: bold;">
+                            {{ __('Unidades') }}
+                        </x-jet-nav-link>
+                    @endif 
 
                     @if ($_SESSION['dashboard'] == false)
-                        <x-jet-nav-link href="{{ route('salas') }}" :active="request()->routeIs('salas')">
+                        <x-jet-nav-link href="{{ route('dashboard') }}" style="color: #1C252E; font-weight: bold;">
+                            {{ __('Unidades') }}
+                        </x-jet-nav-link>
+
+                        <x-jet-nav-link href="{{ route('salas') }}" style="color: #E63F67; font-weight: bold;">
                             {{ __('Salas') }}
                         </x-jet-nav-link>
 
-                        <x-jet-nav-link onclick="modalUserList()" style="cursor:pointer">
+                        <x-jet-nav-link onclick="modalUserList()" style="cursor:pointer; color: #1C252E; font-weight: bold;">
                             {{ __('Online Agora') }}
                         </x-jet-nav-link>
                     @endif
