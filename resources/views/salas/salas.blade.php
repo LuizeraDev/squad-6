@@ -89,20 +89,21 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
     
 
     <div class="deleteRoom active ">
-       <div class="modal max-w-sm">
+       <div class="modal">
 
             <a class="closeButton" onclick="fecharModal()"> x </a>
             <div class="message">
-                <h2 class="warning">Você está prestes a excluir a sala <b><label id="nomeSala"></label></b></h2>
+                <h2 class="warning">TEM CERTEZA QUE DESEJA EXCLUIR? </h2>
                 <p style="color:red;" id="resposta"></p>
             </div>
             <div class="input">
-                <p> digite <span id="aleatorio"></span> para excluir </p>
+                <p class="confirmMessage"> Para confirmar a exclusão digite a senha "<label id="aleatorio"></label>" no campo abaixo</p>
                 <input class="input" type="text" id="numero_aleatorio" maxlength="3">
             </div>
-
-            <button class="corbotoesDelete delButton" id="confirma-excluir">Excluir</button>
-
+            <div class="buttons">
+                <a class="cancelButton" onclick="fecharModal()"> Cancelar </a>
+                <button class="corbotoesDelete delButton" id="confirma-excluir">Excluir</button>
+            </div>
        </div>
     </div>
 
@@ -227,8 +228,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
         $("body").css("overflow-y","hidden");
 
         var aleatorio = Math.floor(Math.random() * (999 - 100) + 100);
-        var exibir = document.all["aleatorio"];
-        exibir.innerHTML = aleatorio;
+        $("#aleatorio").html(aleatorio);
         // Essa função realiza a exclusão da sala
         $( "#confirma-excluir" ).click(function(){
             var valor_digitado = document.all("numero_aleatorio").value;

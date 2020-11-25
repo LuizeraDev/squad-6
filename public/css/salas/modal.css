@@ -5,55 +5,12 @@
     --cardLetters: #ffffff;
     --pageLinks: rgba(0,0,0,.5);
     --cardBG: #1C252E;
+    --sucessColor: #E63F67;
+    --sucessColorHover: #A82746;
+    --dangerColor: rgb(250, 101, 101);
+    --dangerColorHover: rgb(196, 1, 1);
 }
 
-
-.active {
-
-    height: 100%;
-    width: 100%;
-
-    position: absolute;
-    top: 0;
-
-    background-color: rgba(0, 0, 0, 0.5);
-
-    display: none;
-}
-
-.deleteRoom {
-
-    overflow-y: hidden;
-
-    position: absolute;
-    top: 0;
-
-    height: 500%;
-    width: 100%;
-
-    background-color: rgba(0, 0, 0, 0.5);
-
-}
-
-.modal {
-
-    overflow-y: hidden;
-
-    position:relative;
-    display: block;
-    margin: 35vh auto;
-    height: 300px;
-    width: 600px;
-
-
-    background-color: #ebebeb;
-    border-radius: 5px;
-    color:black;
-
-    display: grid;
-    grid-template-columns: 1fr;
-    
-}
 
 
 .modalUser{
@@ -70,7 +27,7 @@
     top: 0;
     left: 0;
     margin: 20vh 25vw;
-    width: 50vw;
+    
 
     display: none;
     filter: drop-shadow(2px 5px 10px rgba(0,0,0,0.5));
@@ -106,6 +63,49 @@
     grid-template-columns: 1fr;
     
 
+
+}
+
+
+/* modal de exclusão da sala*/
+
+/* painel com inputs */
+.modal {
+
+    position:relative;
+    display: block;
+
+    margin: 30vh auto;
+    width: 600px;
+    height: 400px;
+    
+
+
+    background-color: #ebebeb;
+    border-radius: 5px;
+    color:black;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    
+}
+
+.active {
+
+    display: block;
+}
+
+/*escurecimento da tela*/
+.deleteRoom {
+
+    overflow-y: hidden;
+    position: fixed;
+    top: 0;
+
+    height: 100%;
+    width: 100%;
+
+    background-color: rgba(0, 0, 0, 0.5);
 
 }
 
@@ -162,41 +162,106 @@
 
 .message {
 
+    font-weight: bold;
+    height: 100px;
+    padding: 1rem 2rem;
     text-align: center;
-    grid-row: 2;
+    grid-row: 1;
 }
 
-.input {
-    grid-row: 3;
-    margin: 0 auto;
+.message h2{
+
+    font-size: 22px;
+    line-height: 50px;
+    padding: 50px 2rem;
+    
 }
 
-.input span {
+
+.confirmMessage {
+
+    padding: 0 8rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+.confirmMessage span {
 
     font-weight: bold;
     color: rgb(0, 0, 0);
 }
 
+.input {
+    height: 3rem;
+    grid-row: 2;
+    border-radius: 0;
+}
+
+.input input{
+    
+    position: relative;
+    height: 3rem;
+    width: 70%;
+    margin: 1rem 5.5rem;
+}
+
+.buttons {
+    margin-top: 1.5rem;
+    grid-row: 3;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
 .delButton {
 
-    font-size: medium;
-    font-family: 'Nunito', sans-serif;
     
+    grid-column: 2/3;  
 
-    margin: 0 auto;
     height: 3rem;
-    width: 7rem;
-    grid-row: 4;
+    width: 12rem;
+
+    margin-left: 1rem;
+    grid-row: 1;
     font-weight: bold;
     
-    border-radius: 10px;
-
-    background-color: rgba(107, 114, 128, 0.5);
-    color: whitesmoke;
+    background-color: var(--dangerColor);
+    color: var(--cardLetters);
+    transition: background-color .4s ease-in;
     
 }
 
 .delButton:hover {
 
+    background-color:var(--dangerColorHover);
+}
+
+.cancelButton{
+
+    
+    grid-column: 1/2;  
+
+    height: 3rem;
+    width: 12rem;
+
+    line-height: 3rem;
+    text-align: center;
+
+    margin-right: 1rem;
+    margin-left: 5.5rem;
+    grid-row: 1;
+    font-weight: bold;
+    
+    background-color: rgba(107, 114, 128, 0.5);
+    color: var(--cardLetters);
+    transition: background-color .4s ease-in;
+    
+}
+
+.cancelButton:hover {
+
+    cursor: pointer;
     background-color: rgba(107, 114, 128, 1);
 }
