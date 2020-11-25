@@ -48,6 +48,7 @@
     
     }
 }
+
 .painel {
 
     color: white;
@@ -78,12 +79,16 @@
 
 .logoDiv {
 
+    margin-right: 0;
     height: 100%;
     width: 100%;
 
 }
 
-.logo img {
+.logo {
+
+    margin-right: 0;
+    padding-left: 10rem;
     object-fit: contain;
     height: 100%;
     width: 100%;
