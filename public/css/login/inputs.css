@@ -3,6 +3,7 @@
     --fontColor: white;
     --inputColor: #E63F67;
     --inputColorHover: #A82746;
+    --checkBox: black;
 }
 
 /* remove background do autocomplete do chrome */
@@ -115,7 +116,8 @@ input:-webkit-autofill {
     height: 1rem;
     margin-right: 5px;
     border: none;
-    color: var(--fontColor);
+    color: var(--checkBox);
+    
 }
 
 .register {
