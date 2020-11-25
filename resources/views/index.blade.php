@@ -10,16 +10,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Fifo - Squad 6</title>
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 </head>
-<style>
-    .container{
-        margin-top: 15%;
-    }
-</style>
+
 <body>
     <main>
         <section class="container" align="center">
-            <h2>Logotipo - Fifo</h2>
+            <img src="../assets/logo1.png" alt="Logo">
         </section>
     </main>
 </body>
