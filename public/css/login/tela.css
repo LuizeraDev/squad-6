@@ -53,7 +53,7 @@
 .painel {
 
     color: white;
-    padding: 2rem 1rem;
+    padding: 2rem 2rem;
 
 }
 
@@ -61,7 +61,7 @@
 
     height: 100vh;
     background-color: black;
-    width: 28rem;
+    width: 30rem;
     color: var(--fontColor);
     margin: 0 auto;
 }
