@@ -63,3 +63,20 @@
     transform: translateX(0%);
 }
 
+.logoDivReg {
+
+    margin-right: 0;
+    height: 100%;
+    width: 100%;
+
+}
+
+.logoReg {
+
+    margin-right: 10rem;
+    padding-left: 0;
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+    
+}

@@ -6,31 +6,31 @@
 
         <x-jet-validation-errors class="mb-4" />
 
-        
-        <form method="POST" action="{{ route('register') }}">
+   
+        <form class="formReg max-w-sm md:w-1/2 " method="POST" action="{{ route('register') }}">
             @csrf
-            <div class="mt-4 wrapperNome">
+            <div class="Reg wrapperNome">
                 <input id="name" type="text" name="name" :value="old('name')" required autofocus autocomplete="off" />
                 <label class="labelNome" for="name" value="{{ __('Nome') }}"><span class="contentNome">Nome</span></label>
             </div>
 
-            <div class="mt-4 wrapperNome">
+            <div class="Reg wrapperNome ">
                 <input id="email" type="email" name="email" :value="old('email')" required />
                 <label class="labelNome" for="email" value="{{ __('Email') }}"><span class="contentNome">Email</span></label>
             </div>
 
-            <div class="mt-4 wrapperNome">
+            <div class="Reg wrapperNome">
                 <input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
                 <label class="labelNome" for="password" value="{{ __('Senha') }}"><span class="contentNome">Senha</span> </label>
             </div>
 
-            <div class="mt-4 wrapperNome">
+            <div class="Reg wrapperNome">
                 <input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
                 <label class="labelNome" for="password_confirmation" value="{{ __('Confirmar Senha') }}"><span class="contentNome">Repetir Senha</span> </label>
             </div>
 
             <div class="flex items-center justify-end mt-6">
-                <a class="text-sm text-gray-600 hover:underline" href="{{ route('login') }}">
+                <a class="text-sm text-white-600 hover:underline" href="{{ route('login') }}">
                     {{ __('Já possui uma conta?') }}
                 </a>
 
@@ -40,10 +40,13 @@
                 <button>
             </div>
         </form>
+   
+ 
+
     </x-jet-authentication-card>
 
-    <div class="logoDiv max-w-sm md:w-1/2 ">
-            <img class="logo md:1/2" src="{{ asset('assets/Logo1.png') }}" alt="">
+    <div class="logoDivReg max-w-sm md:w-1/2 ">
+            <img class="logoReg md:1/2" src="{{ asset('assets/Logo1.png') }}" alt="">
     </div>
       
 </x-guest-layout>

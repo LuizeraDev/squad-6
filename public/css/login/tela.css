@@ -28,6 +28,7 @@
     }
 
     .faixa h3 {
+
         margin-top: 5vh;
         font-size: 2rem;
         font-weight: bold;
@@ -66,15 +67,17 @@
 }
 
 .faixa h3 {
-    margin-top: 30vh;
-    font-size: 2rem;
-    font-weight: bold;
+    margin-top: 20vh;
+    
+    font-size: 2.4rem;
+    font-weight: bolder;
     text-align: center;
 }
 .faixa p {
 
-    font-size: 1rem;
+    font-size: 1.4rem;
     text-align: center;
+    font-weight: lighter;
 }
 
 .logoDiv {
@@ -87,10 +90,30 @@
 
 .logo {
 
-    margin-right: 0;
+   
     padding-left: 10rem;
     object-fit: contain;
     height: 100%;
     width: 100%;
     
 }
+
+.logoDivReg {
+
+    margin-right: 0;
+    height: 100%;
+    width: 100%;
+
+}
+
+.logoReg {
+
+    padding-bottom: 10rem;
+    padding-right: 10rem;
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+    
+}
+
+

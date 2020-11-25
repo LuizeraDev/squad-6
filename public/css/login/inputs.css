@@ -5,6 +5,17 @@
     --inputColorHover: #A82746;
 }
 
+/* remove background do autocomplete do chrome */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px black inset !important;
+}
+/*muda cor da fonte no autocomplete*/
+input:-webkit-autofill {
+    -webkit-text-fill-color: var(--fontColor) !important;
+}
 .wrapperNome{
 
    
@@ -96,6 +107,15 @@
     padding-top: 1rem;
     padding-bottom: 2rem;
     color: var(--fontColor);
+    line-height: 1rem;
+}
+
+.remember_me input{
+    
+    height: 1rem;
+    margin-right: 5px;
+    border: none;
+    color: var(--fontColor);
 }
 
 .register {
@@ -111,3 +131,13 @@
     text-align: right;
     color: var(--fontColor);
 }
+
+.formReg {
+
+   
+    margin: 2.5rem;
+    padding-top: 25vh;
+    height: 100vh;
+    width: 80%;
+}
+
