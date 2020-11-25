@@ -99,7 +99,7 @@
 }
 
 .logoDivReg {
-
+    
     margin-right: 0;
     height: 100%;
     width: 100%;
@@ -108,6 +108,7 @@
 
 .logoReg {
 
+    
     padding-bottom: 10rem;
     padding-right: 10rem;
     object-fit: contain;

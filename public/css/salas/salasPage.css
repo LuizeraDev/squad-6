@@ -5,6 +5,7 @@
     --cardLetters: #ffffff;
     --pageLinks: rgba(0,0,0,.5);
     --cardBG: #1C252E;
+    --pageLinksHover: #E63F67;
 }
 
 
@@ -39,11 +40,11 @@
 
 /* ======================= */
 
-.background{
-  
-    background-color: black;
+.bgimage{
+    position: relative;
+    background-image: url("../../assets/bck_1.png");
     height: 450px;
-    width: ;
+    
 }
 
 .logoNav{
@@ -54,15 +55,25 @@
 
 
 .mensagem {
+
     position: absolute;
-    right: 0;
-    top: 0;
-    color: white;
-    margin: 30vh 20vw 30vh 0;
+    margin-top: 20vh;
+    margin-left: 35vw;
+    text-align: center;
+    color: var(--cardLetters);
+    
 }
 
 .mensagem h2 {
+
+    font-size: 2rem;
     font-weight: bold;
+}
+
+.mensagem p {
+
+    font-size: 1rem;
+    font-weight: lighter;
 }
 
 .bodyContainer {
@@ -116,7 +127,7 @@ input {
 }
 
 .voltarUnidade:hover{
-    color: rgb(80, 56, 146);
+    color: var(--pageLinksHover);
 }
 
 
