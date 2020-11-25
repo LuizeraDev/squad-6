@@ -66,7 +66,7 @@
 .faixa {
 
     height: 100vh;
-    background-color: black;
+    background-image: url("../../assets/bck_1.png");
     width: 30rem;
     color: var(--fontColor);
     margin: 0 auto;
