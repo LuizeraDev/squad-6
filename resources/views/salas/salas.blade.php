@@ -78,7 +78,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
 
     
-    <div class="">
+    <div class="modaUser">
         
         <div class="modalUser toggleActive">
     <!-- DIV QUE RECEBE A LISTA DE USUÁRIOS ONLINE-->
