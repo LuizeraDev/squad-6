@@ -82,7 +82,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
         
         <div class="modalUser toggleActive">
     <!-- DIV QUE RECEBE A LISTA DE USUÁRIOS ONLINE-->
-        </div>
+        
 
     </div>
     
@@ -165,9 +165,9 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                     }
 
                     wrapperSala[i].append(
-                        "<p> Usuários na sala: <b>"
+                        "<p class='quantPessoas'> Há <b>"
                         + contador
-                        + "</b></p>"
+                        + "</b> pessoas nesta atividade.</p>"
                       
                     );
 

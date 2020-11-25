@@ -77,12 +77,11 @@
 
     margin: 30vh auto;
     width: 600px;
-    height: 400px;
-    
+    height: 400px;   
 
 
     background-color: #ebebeb;
-    border-radius: 5px;
+    border-radius: 20px;
     color:black;
 
     display: grid;
@@ -91,7 +90,7 @@
 }
 
 .active {
-
+    border-radius: 20px;
     display: none;
 }
 

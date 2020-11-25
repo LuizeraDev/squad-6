@@ -1,4 +1,6 @@
 /* variável para a cor da animação de pulsação*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;700&display=swap');
+
 
 :root {
     
@@ -10,6 +12,7 @@
 
 .wrapper {
 
+    font-family: 'Montserrat';
     min-width: 19rem;
     min-height: 434px;
     max-height: 434px;
@@ -40,8 +43,10 @@
 
 .wrapper p {
 
+    margin-top: 4px;
+    font-weight: lighter;
     text-align: center;
-    font-size: 17px;
+    font-size: 14px;
    
 }
 
@@ -88,7 +93,7 @@
 
     
     margin: 1.5rem 34%;
-    border-radius: 10px;
+ 
     display: inline-block;
     width:6rem;
     height: 1rem;
