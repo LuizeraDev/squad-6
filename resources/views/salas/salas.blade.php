@@ -57,7 +57,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
         <p>No momento estas são as atividades que estão rolando.</p>
         <p>Está esperando o que? Aproveite e entre já em uma!</p>
         @if($errors->any())
-            <h4>{{$errors->first()}}</h4>
+            <h4 style="color:red;">{{$errors->first()}}</h4>
         @endif
 </div>
 </div>

@@ -1,18 +1,41 @@
-h2 {
-    font-size: 32px;
+h3 {
+    margin-top: 30px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+img {
+    margin-top: 30px;
+    max-width: 200px;
+    max-height: 200px;
 }
 
 label {
     cursor: pointer;
-    
- }
+}
 
 svg {
     color: white;
 }
 
 form {
+    background-image: url("../assets/bck_1.png");
     border: 1px solid black;
+    color: white;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+input {
+    color: black;
+}
+
+.ajuste {
+    margin-top: -40px;
+}
+
+.corCadastrar{
+    background-color:#1B9D42;
 }
  
  #upload-photo {
@@ -56,7 +79,7 @@ form {
     position: absolute;
     height: 100%;
     width: 100%;
-    border-bottom: 3px solid rgb(72, 84, 241);
+    border-bottom: 3px solid #E63F67;
     bottom: -2px;
     left: 0;
     transform: translateX(-100%);
@@ -76,7 +99,7 @@ form {
 .wrapperNome input:valid + .labelNome .contentNome{
 
     transform: translateY(-120%);
-    color:rgb(72, 84, 241);
+    color:#E63F67;
 }
 
 .wrapperNome input:focus + .labelNome::after,

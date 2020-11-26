@@ -26,26 +26,28 @@
 
 <body>
 
-	<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
-
-		<!--- GRID -->
-		<h2>Criar Sala</h2>
+	<!--- GRID -->
+	<div class="ajuste min-h-screen flex flex-col items-center pt-6 sm:pt-0">
 
 		<!-- form que aceita arquivos -->
 		<form
-			class="flex flex-col sm:justify-center items-center w-full sm:max-w-md mt-6 px-10 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg"
+			class="flex flex-col sm:justify-center items-center w-full sm:max-w-md mt-6 px-10 py-4 bg-white shadow-md overflow-hidden"
 			action='cadastrandosala' method="post" enctype="multipart/form-data">
-			@csrf
+			@csrf	
+
+			<img src="../assets/Logo3.png" alt="Logo">
+
+			<h3>CADASTRO DE NOVA ATIVIDADE</h3>
 
 			<div class="wrapperNome">
 				<input type="text" id="nome" name="nomeSala" autocomplete="off" required>
-				<label class="labelNome" for="nome"><span class="contentNome">Nome</span></label>
+				<label class="labelNome" for="nome"><span class="contentNome">Nome da atividade</span></label>
 			</div>
 
 			<div class="flex flex-col sm:justify-center items-center my-3">
 
 				<label
-					class="corBotoes bg-blue-500 hover:bg-blue-700 text-white  py-2 px-4 border border-blue-700 rounded my-3"
+					class="corBotoes bg-blue-500 hover:bg-blue-700 text-white  py-2 px-4 border border-blue-700 my-3"
 					for="upload-photo">Selecione uma Imagem</label>
 				<input type="file" name="ImagemSala" id="upload-photo" />
 
@@ -55,18 +57,18 @@
 
 			<div class="inline-block relative w-64 my-3">
 				<select
-					class="corBotoes block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+					class="corBotoes text-white block appearance-none w-full border border-gray-400 hover:border-gray-500 px-10 py-2 pr-8 shadow leading-tight focus:outline-none focus:shadow-outline"
 					name="demanda">
-					<option value="1">1 pessoa</option>
-					<option value="2">2 pessoas</option>
-					<option value="3">3 pessoas</option>
-					<option value="4">4 pessoas</option>
-					<option value="5">5 pessoas</option>
-					<option value="6">6 pessoas</option>
-					<option value="7">7 pessoas</option>
-					<option value="8">8 pessoas</option>
-					<option value="9">9 pessoas</option>
-					<option value="10">10 pessoas</option>
+					<option value="1">1 PESSOA - ATIVIDADE INDIVIDUAL</option>
+					<option value="2">2 PESSOAS</option>
+					<option value="3">3 PESSOAS</option>
+					<option value="4">4 PESSOAS</option>
+					<option value="5">5 PESSOAS</option>
+					<option value="6">6 PESSOAS</option>
+					<option value="7">7 PESSOAS</option>
+					<option value="8">8 PESSOAS</option>
+					<option value="9">9 PESSOAS</option>
+					<option value="10">10 PESSOAS</option>
 				</select>
 				<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
 					<svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -75,12 +77,15 @@
 			</div>
 
 			<div class="my-3">
-				<p>Exemplo: Tem 2 controles para jogar fifa, portanto a demanda da sala fifa seria de 2 pessoas.</p>
+				<p>A "demanda de pessoas da sala" deve corresponder a quantidade de pessoas "por vez".</p>
+				<p>Exemplo: ao jogar FIFA, há duas pessoas por vez.</p>
 			</div>
 
-			<button type="submit"
-				class="corBotoes text-white  py-2 px-4 border border-blue-700 rounded my-3"
-				href="salas">Criar Sala</button>
+			<button type="submit" class="corCadastrar text-white py-2 px-4 border border-none my-3"
+				href="salas">Cadastrar Atividade</button>
+			
+			<a class="corBotoes bg-blue-500 hover:bg-blue-700 text-white  py-2 px-4 border border-none mt-6"
+			href="salas">Voltar</a>
 
 
 			<!-- validação dos dados -->
@@ -136,8 +141,6 @@
 
 		</form> <!-- Fim form -->
 
-		<a class="corBotoes bg-blue-500 hover:bg-blue-700 text-white  py-2 px-4 border border-blue-700 rounded mt-6"
-			href="salas">Voltar</a>
 
 	</div>
 
