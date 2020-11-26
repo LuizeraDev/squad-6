@@ -36,16 +36,12 @@ $_SESSION['entrou_sala'] = true;
 
                 <hr>
 
-                <h2>Logotipo - Fifo</h2>
-
 
 
                 <div id="conteudo1"></div>
 
                 <hr>
                 <br>
-
-                <h3>Pessoas na fila</h3>
 
                 <div id="Timer"></div>
                 <div id="conteudo4"></div>
@@ -55,7 +51,7 @@ $_SESSION['entrou_sala'] = true;
                 <br><br>
                 <div id="conteudo3"></div>
                 
-                <a class="corBotoes items-center border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest"
+                <a class="corBotoes desistir items-center border border-transparent font-semibold text-xs text-white uppercase tracking-widest"
                     href="{{$salaId}}/desistente">Desistir</a>
 
             </section>
@@ -95,7 +91,7 @@ $_SESSION['entrou_sala'] = true;
 
                         // Exibe usuários que estão utilizando a sala
                         $('#conteudo').append(
-                            "Nome: <b>" + dadosFila.Utilizando[i].name + "</b>&nbsp;&nbsp;" +
+                            "<b>" + dadosFila.Utilizando[i].name + "</b>&nbsp;&nbsp;" +
                             "Status: <b>Em andamento</b><br><br>"
                         );
                     }
@@ -141,16 +137,14 @@ $_SESSION['entrou_sala'] = true;
                             // Exibe os usuários da fila da sala em questão
                             if (dadosFila.dadosUsuario[0].name != dadosFila.dadosFila[i].name) {
                                 $('#conteudo2').append(
-                                    "Nome: <b>" + dadosFila.dadosFila[i].name + "</b> " +
-                                    "Posição na fila: <b>" + dadosFila.dadosFila[i].cd_fila_usuario + "</b> " +
-                                    "Status usuário: <b>" + dadosFila.dadosFila[i].status + "</b> " +
+                                    "<b>" + dadosFila.dadosFila[i].name + "</b> - " +
+                                    "Posição:&nbsp;&nbsp;<b>" + dadosFila.dadosFila[i].cd_fila_usuario + "</b> " +
                                     "<a href='#" + i + "' onclick=reportar(this.href)>Reportar</a><br><br>"
                                 );
                             } else {
                                 $('#conteudo2').append(
-                                    "Nome: <b>" + dadosFila.dadosFila[i].name + "</b> " +
-                                    "Posição na fila: <b>" + dadosFila.dadosFila[i].cd_fila_usuario + "</b> " +
-                                    "Status usuário: <b>" + dadosFila.dadosFila[i].status + "</b>" +
+                                    "<b>" + dadosFila.dadosFila[i].name + "</b> - " +
+                                    "Posição:&nbsp;&nbsp;<b>" + dadosFila.dadosFila[i].cd_fila_usuario + "</b> " +
                                     "<a href='#" + i + "'</a><br><br>"
                                 );
                             }
@@ -161,7 +155,7 @@ $_SESSION['entrou_sala'] = true;
                     var espaco = dadosFila.dadosUsuario[0].demanda - dadosFila.Utilizando.length;
                     if (dadosFila.dadosUsuario[0].cd_fila_usuario <= espaco &&
                         dadosFila.Utilizando.length < dadosFila.dadosUsuario[0].demanda) {
-                        $('#conteudo3').html("<a  class='corBotoes items-center border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest' href='{{$salaId}}/voujogar'>Minha Vez</a>");
+                        $('#conteudo3').html("<a  class='corBotoes items-center border border-none font-semibold text-xs text-white uppercase tracking-widest' href='{{$salaId}}/voujogar'>Minha Vez</a>");
                     }
                     setTimeout("atualizarFila()", 3000) // 3 segundos / Tempo de espera de atualização dos dados
                 })

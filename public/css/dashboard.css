@@ -17,11 +17,12 @@
 
 .background {
 
-    height: 400px;
+    height: 26rem;
     background-image: url("../assets/bck_1.png");
 }
 
 p {
+    font-size: 26px;
     font-weight: 100;
     margin-top: -50px;
     padding-bottom: 50px;
@@ -50,11 +51,11 @@ h3 {
     color: var(--cardLetters);
     background-color: var(--buttonBG);
     min-width: 19rem;
-    min-height: 280px;
+    min-height: 310px;
     max-width: 19rem;
     max-height: 304px;
 
-    line-height: 300px;
+    line-height: 310px;
     margin: 2rem;
     width: 19rem;
     text-align: center;

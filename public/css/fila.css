@@ -1,18 +1,32 @@
 img {
-    border-radius: 50%;
+    border-radius: 10px;
+    width: 60px;
+    height: 60px;
     display: inline-block;
-    margin-top: -13px;
-    margin-left: -20px;
 }
 
 h3 {
+    font-size: 22px;
     margin-bottom: 10px;
 }
 
 .corBotoes {
+    background-color: #1B9D42;
     font-size: 14px;
     padding: 10px 70px;
     margin-left: 100px;
+}
+
+.corBotoes:hover {
+    background-color: rgb(20, 117, 49);
+}
+
+.desistir {
+    background-color: red;
+}
+
+.desistir:hover{
+    background-color: rgb(196, 4, 4);
 }
 
 #conteudo3 {
@@ -27,7 +41,8 @@ h3 {
 
 .container{
     border: 1px solid black;
-    background: white;
+    color: white;
+    background-image: url("../assets/bck_1.png");
     padding: 60px;
     border-radius: 30px;
 }
@@ -37,5 +52,6 @@ hr {
     height: 3px;
     margin-top: 30px;
     margin-bottom: 30px;
-    background: #5e40b3;
+    background: white;
+    border-radius: 30px;
 }
