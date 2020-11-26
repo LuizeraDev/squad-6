@@ -6,14 +6,28 @@
     --pageLinks: rgba(0,0,0,.5);
     --cardBG: #1C252E;
     --pageLinksHover: #E63F67;
+    --onlineAgora: #e63f66be;
+    --onlineAgoraHover: #cc4464be;
+    
 }
 
 /* ======================= */
 
 .onlineAgora{
-    padding-left: 60vw;
 
+    color: var(--cardLetters);
+    padding: 1rem;
+    background-color: var(--onlineAgora);
+    margin-left: 60vw;
+
+    transition: background-color 1s ease-in-out;
 }
+
+.onlineAgora:hover{
+    font-weight: bolder;
+    background-color: var(--onlineAgoraHover);
+}
+
 .bgimage{
     position: relative;
     background-image: url("../../assets/bck_1.png");
@@ -156,7 +170,7 @@ input {
 
     .onlineAgora{
 
-        padding-left: 55vw;
+        margin-left: 55vw;
     }
 
 }
@@ -166,7 +180,7 @@ input {
 
     .onlineAgora{
 
-        padding-left: 45vw;
+        margin-left: 45vw;
     }
 
 }
@@ -175,7 +189,7 @@ input {
 
     .onlineAgora{
 
-        padding-left: 35vw;
+        margin-left: 35vw;
     }
 }
 
@@ -183,6 +197,6 @@ input {
 
     .onlineAgora{
 
-        padding-left: 25vw;
+        margin-left: 25vw;
     }
 }

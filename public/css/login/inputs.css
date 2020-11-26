@@ -17,6 +17,17 @@ input:-webkit-autofill:active  {
 input:-webkit-autofill {
     -webkit-text-fill-color: var(--fontColor) !important;
 }
+/* remove background do autocomplete do chrome da pag registro */
+.Reg input:-webkit-autofill,
+.Reg input:-webkit-autofill:hover, 
+.Reg input:-webkit-autofill:focus, 
+.Reg input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+/*muda cor da fonte no autocomplete*/
+.Reg input:-webkit-autofill {
+    -webkit-text-fill-color: black !important;
+}
 .wrapperNome{
 
    
@@ -36,6 +47,7 @@ input:-webkit-autofill {
     padding-top: 25px;
     padding-left: .5rem;
     background: none;
+    padding-bottom: 2px;
     color: var(--fontColor);
 }
 
@@ -127,6 +139,18 @@ input:-webkit-autofill {
     color: var(--fontColor);
 }
 
+.Reg input {
+     
+    padding-bottom: 2px;
+    border: none;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding-top: 25px;
+    padding-left: .5rem;
+    background: none;
+    color: black;
+}
 
 .forgotPW {
     grid-column: 2/3;
@@ -141,5 +165,6 @@ input:-webkit-autofill {
     padding-top: 25vh;
     height: 100vh;
     width: 80%;
+   
 }
 

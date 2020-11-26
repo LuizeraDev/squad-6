@@ -18,53 +18,82 @@
 
     display:none;
 
+    top: 0;
+    height: 100%;
+    width: 100%;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    
+
 }
 
 .toggleActive {
-    height: 60vh;
-    background:  #f2efe9;
+    
     position: absolute;   
     top: 0;
     left: 0;
-    margin: 20vh 25vw;
     
+}
 
-    display: none;
-    filter: drop-shadow(2px 5px 10px rgba(0,0,0,0.5));
-    border-radius: 10px;
+.usersWindow {
+
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 30vh 35vw;
+
+    height: 400px;
+    width: 600px;
+    background: #ebebeb;
 }
 
 
 .fecharUserList{
 
-    border-radius: 10px 10px 0 0;
-    background-color: rgb(74, 50, 139);
+   
+    background-color: var(--dangerColor);
 
-    position: relative;
+    position: absolute;
     top: 0;
     right: 0;
+
+    width: 2rem;
+    height: 2rem;
 
     color: white;
     font-weight: bold;
 
 }
 
-.userStatus {
+.cancelButtonUserModal{
+  
+    position: fixed;
 
-    position: relative;
-    height: 5vh;
-    width: 20vw;
-    padding: 1rem;
+    height: 3rem;
+    width: 12rem;
 
-    background-color: #ebebebeb;
-    color:black;
+    line-height: 3rem;
+    text-align: center;
 
-    display: grid;
-    grid-template-columns: 1fr;
+    margin-right: 12rem;
+    margin-left: 12rem;
+    margin-top: 8rem;
     
-
-
+    font-weight: bold;
+    
+    background-color: rgba(107, 114, 128, 0.5);
+    color: var(--cardLetters);
+    transition: background-color .4s ease-in;
+    
 }
+
+.cancelButtonUserModal:hover {
+
+    cursor: pointer;
+    background-color: rgba(107, 114, 128, 1);
+}
+
 
 
 /* modal de exclusão da sala*/

@@ -37,6 +37,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
     <link rel="stylesheet" href="{{ asset('css/salas/modal.css') }}">
     <link rel="stylesheet" href="{{ asset('css/salas/cards.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/salas/users.css') }}">
 
     @livewireStyles
 
@@ -81,11 +82,12 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
 
     
-    <div class="modaUser">
+    <div class="onlineUsers">
         
         <div class="modalUser toggleActive">
-    <!-- DIV QUE RECEBE A LISTA DE USUÁRIOS ONLINE-->
-        
+            <div class="usersWindow">
+                <!-- DIV QUE RECEBE A LISTA DE USUÁRIOS ONLINE-->
+            </div>
 
     </div>
     
@@ -261,7 +263,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                 dataType: "json",
                 cache: false,
             }).done(function (dadosSalas) {
-                $(".modalUser").html("");
+                $(".usersWindow").html("");
 
                 const statusUsuario = [];
 
@@ -281,32 +283,34 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                         if (dadosSalas.usuarios[i].nm_sala && unidade === "santos") {
                             statusUsuario[i] = $("<div/>").addClass("userStatus");
 
+                               
                                 statusUsuario[i].append("<h3/> <b>" + dadosSalas.usuarios[i].name + "</b>");
-                                statusUsuario[i].append("<p2/>Status: <b>" + dadosSalas.usuarios[i].status + "</b>")
-                                statusUsuario[i].append("<p3/>Está em: <b>" + dadosSalas.usuarios[i].nm_sala + "</b>")
-                                statusUsuario[i].append("<button><a href='/salas/sala/"+dadosSalas.usuarios[i].nm_sala+"/"+dadosSalas.usuarios[i].cd_sala_santos+"' >Seguir Usuário</a></button>")
-
+                                statusUsuario[i].append("<p2/> <b>" + dadosSalas.usuarios[i].status + "</b>")
+                                statusUsuario[i].append("<p3/> em: <b>" + dadosSalas.usuarios[i].nm_sala + "</b>")
+                                statusUsuario[i].append("<button class='follow'><a href='/salas/sala/"+dadosSalas.usuarios[i].nm_sala+"/"+dadosSalas.usuarios[i].cd_sala_santos+"' >Seguir Usuário</a></button>")
+                                
                         } else if (dadosSalas.usuarios[i].nm_sala && unidade === "sao_paulo") {
                             statusUsuario[i] = $("<div/>").addClass("userStatus");
 
                                 statusUsuario[i].append("<h3/> <b>" + dadosSalas.usuarios[i].name + "</b>");
-                                statusUsuario[i].append("<p2/>Status: <b>" + dadosSalas.usuarios[i].status + "</b>")
-                                statusUsuario[i].append("<p3/>Está em: <b>" + dadosSalas.usuarios[i].nm_sala + "</b>")
-                                statusUsuario[i].append("<button><a href='/salas/sala/"+dadosSalas.usuarios[i].nm_sala+"/"+dadosSalas.usuarios[i].cd_sala_sao_paulo+"' >Seguir Usuário</a></button>")
+                                statusUsuario[i].append("<p2/><b>" + dadosSalas.usuarios[i].status + "</b>")
+                                statusUsuario[i].append("<p3/>em: <b>" + dadosSalas.usuarios[i].nm_sala + "</b>")
+                                statusUsuario[i].append("<button class='follow'><a href='/salas/sala/"+dadosSalas.usuarios[i].nm_sala+"/"+dadosSalas.usuarios[i].cd_sala_sao_paulo+"' >Juntar-se</a></button>")
 
                         } else {
                             statusUsuario[i] = $("<div/>").addClass("userStatus");
 
                                 statusUsuario[i].append("<h3/><b>" + dadosSalas.usuarios[i].name + "</b>");
-                                statusUsuario[i].append("<p2/>Status: <b>" + dadosSalas.usuarios[i].status + "</b>")
+                                statusUsuario[i].append("<p2/><b>" + dadosSalas.usuarios[i].status + "</b>")
                         }
                             
                     } 
                          
                 }
             
-                $(".modalUser").append("<button class='fecharUserList' onClick='closeUserList()'> TESTE FECHAR USERLIST </button>");
-                $(".modalUser").append(statusUsuario);            
+                $(".usersWindow").append("<button class='fecharUserList' onClick='closeUserList()'> x </button>");
+                $(".usersWindow").append(statusUsuario);
+                $(".usersWindow").append("<button class='cancelButtonUserModal' onClick='closeUserList()'> Cancelar </button>");            
 
             setTimeout("onlineAgora()", 3000); // 3 segundos / Tempo de espera de atualização dos dados
         });     
@@ -325,6 +329,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
         $(".modalUser").addClass("toggleActive");
         $(".toggleActive").css("display", "grid");
         $(".modalUser").css("display", "grid");
+        $("body").css("overflow-y","hidden");
     
     }
 
@@ -333,6 +338,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
         $(".modalUser").css("display", "none");
         $(".toggleActive").css("display", "none");
         $(".modalUser").removeClass("toggleActive");
+        $("body").css("overflow-y","visible");
      
     }
 </script>
