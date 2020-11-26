@@ -208,7 +208,7 @@ class salasController extends Controller
 
             if ($pessoas_na_sala > 0) { 
                 $erro = "Não é possível excluir salas que tenham pessoas dentro.";
-                return redirect()->route('salas' , ['erro1' => $erro]);
+                return back()->withErrors([$erro, ' ']);
             } else { 
                      // Verifica o nome da foto no banco para ser deletada em seguida
                     $img = DB::table('tb_sala_sao_paulo')
