@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;700&display=swap');
+
 :root {
     --cardLetters: #ffffff;
     --pageLinks: rgba(0,0,0,.5);
@@ -6,6 +8,12 @@
     --buttonBG: #E63F67;
     --buttonBGHover:#A82746;
     --blackoutColor: rgba(230, 63, 103, .8);
+
+    --fontSizeTitle: 22px ;
+    --fontSizeBody: 16px;
+    --fontFamily: 'Montserrat';
+    --fontWeight_H3: bold;
+    --fontWeight_p: 400;
 
 }
 
@@ -15,48 +23,77 @@
     width: 50px;
 }
 
-.background {
-
-    height: 26rem;
-    background-image: url("../assets/bck_1.png");
-}
-
-p {
-    font-size: 26px;
-    font-weight: 100;
-    margin-top: -50px;
-    padding-bottom: 50px;
-}
-
-h3 {
-    font-size: 24px;
-}
-
 .greetings{
 
+    grid-column: 1/4;
+    grid-row: 1;
     color: var(--cardLetters);
-    font-weight: bold;
-    margin: 2rem auto;
+    margin:10vh auto 0;
     text-align: center;
 }
 
-.body{
-    position: absolute;
-    top: 0;
-    margin: 20vh 30vw;
+.greetings h3 {
+
+    font-weight: var(--fontWeight_H3);
+    font-size: var(--var(--fontSizeTitle)) ;
+    font-family: var(--fontFamily);
 }
 
-.option {
+.greetings p {
+
+    font-weight: var(--fontWeight_p);
+    font-size: var(--fontSizeBody);
+    font-family: var(--fontFamily) ;
+}
+
+.body{
+
+    background-image: url("../assets/bck_1.png");
+    position: relative;
+    height: 50vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1em;
+    grid-row-gap: 100px;
+}
+
+.option1 {
+
+    
+    color: var(--cardLetters);
+    background-color: var(--buttonBG);
+    min-width: 15rem;
+    min-height: 19rem;
+    max-width: 19rem;
+    max-height: 19rem;
+
+    line-height: 19rem;
+    margin-left:auto;
+    margin-right: 2rem;
+    margin-top: 1rem;
+    width: 19rem;
+    text-align: center;
+
+    border-radius: 10px;
+
+    transform: scale(1);
+    animation: pulse 2s infinite;
+}
+
+.option2 {
 
     color: var(--cardLetters);
     background-color: var(--buttonBG);
-    min-width: 19rem;
-    min-height: 310px;
+    min-width: 15rem;
+    min-height: 19rem;
     max-width: 19rem;
-    max-height: 304px;
+    max-height: 19rem;
 
-    line-height: 310px;
-    margin: 2rem;
+    line-height: 19rem;
+    margin-left:2rem;
+    margin-right: auto;
+    margin-top: 1rem;
     width: 19rem;
     text-align: center;
 
@@ -85,4 +122,31 @@ h3 {
 
 .option:hover {
     background-color: var(--buttonBGHover);
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    .body {
+
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 1em;
+        grid-gap: 1rem;
+
+    }
+
+    .greetings {
+
+        grid-column: 1/2;
+    }
+    
+    .option1,
+    .option2 {
+
+        margin: 2rem auto;
+        
+        grid-column: 1/2;
+    }
+
 }
