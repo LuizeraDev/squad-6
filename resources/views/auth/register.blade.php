@@ -1,14 +1,18 @@
+
 <x-guest-layout>
-    <x-jet-authentication-card  >
+
+    <x-jet-authentication-card>
+
         <x-slot name="logo" >
            
         </x-slot>
 
-        <x-jet-validation-errors class="mb-4" />
-
-   
         <form class="formReg max-w-sm md:w-1/2 " method="POST" action="{{ route('register') }}">
             @csrf
+            
+            <!-- Mensagens de erro -->
+            <x-jet-validation-errors class="mb-4" />
+
             <div class="Reg wrapperNome">
                 <input id="name" type="text" name="name" :value="old('name')" required autofocus autocomplete="off" />
                 <label class="labelNome" for="name" value="{{ __('Nome') }}"><span class="contentNome">Nome</span></label>
@@ -40,13 +44,11 @@
                 <button>
             </div>
         </form>
-   
- 
 
     </x-jet-authentication-card>
-
-    <div class="logoDivReg max-w-sm md:w-1/2 ">
-            <img class="logoReg md:1/2" src="{{ asset('assets/Logo1.png') }}" alt="">
-    </div>
       
+    <div class="logoDivReg max-w-sm md:w-1/2 ">
+            <img class="logoReg md:1/2" src="{{ asset('assets/Registro.svg') }}" alt="Foto Registro">
+    </div>
+  
 </x-guest-layout>
