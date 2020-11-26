@@ -8,36 +8,6 @@
     --pageLinksHover: #E63F67;
 }
 
-
-/* ======= MEDIA QUERY PARA AJUDAR NA RESPONSIVIDADE DO NAVBAR========*/
-
-@media screen (max-width: 450) {
-  
-
-    .voceEsta {
-        position: absolute;
-        bottom: 0;
-        text-align: left;
-        font-size: large;
-        margin: 0;
-    }
-
-    .sala {
-    
-        padding-left: 0;
-        padding-right: 12rem ;  
-        width: 100%;
-    }
-    
-    .sala h2{
-    
-        padding-left: 1rem;
-        width: 100%;
-      
-    }
-
-}
-
 /* ======================= */
 
 .bgimage{
@@ -131,5 +101,36 @@ input {
 }
 
 
-/* ========= MODAL ===========*/
+/* ======= MEDIA QUERY PARA AJUDAR NA RESPONSIVIDADE DO NAVBAR========*/
 
+@media screen (max-width: 450px) {
+  
+
+    .voceEsta {
+        position: absolute;
+        bottom: 0;
+        text-align: left;
+        font-size: large;
+        margin: 0;
+    }
+
+    .sala {
+    
+        padding-left: 0;
+        padding-right: 12rem ;  
+        width: 100%;
+    }
+    
+    .sala h2{
+    
+        padding-left: 1rem;
+        width: 100%;
+      
+    }
+
+}
+
+@media only screen and ( max-width: 768px) {
+
+    
+}
