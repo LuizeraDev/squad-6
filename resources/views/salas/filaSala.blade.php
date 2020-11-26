@@ -20,7 +20,7 @@ $_SESSION['entrou_sala'] = true;
 </head>
 
 <body>
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 ">
+    <div class="min-h-screen flex flex-col items-center pt-6 sm:pt-0 ">
         <!--- GRID -->
 
         <main>
@@ -107,7 +107,8 @@ $_SESSION['entrou_sala'] = true;
 
                     if (dadosFila.dadosUsuario[0].report) {
                         $('#conteudo4').html(
-                            "Você ainda está ai? <button id='estouaqui' type='button' onClick='clicksim()'>Sim</button>"
+                            "Você ainda está ai? <button id='estouaqui' type='button' onClick='clicksim()'>Sim</button>" +
+                            "<hr>"
                         );
 
                         if (temporizador == 11) {
@@ -137,14 +138,14 @@ $_SESSION['entrou_sala'] = true;
                             // Exibe os usuários da fila da sala em questão
                             if (dadosFila.dadosUsuario[0].name != dadosFila.dadosFila[i].name) {
                                 $('#conteudo2').append(
-                                    "<b>" + dadosFila.dadosFila[i].name + "</b> - " +
-                                    "Posição:&nbsp;&nbsp;<b>" + dadosFila.dadosFila[i].cd_fila_usuario + "</b> " +
-                                    "<a href='#" + i + "' onclick=reportar(this.href)>Reportar</a><br><br>"
+                                    "<div class='info'><b>" + dadosFila.dadosFila[i].name + "</b> - " +
+                                    "Posição:&nbsp;&nbsp;<b>" + dadosFila.dadosFila[i].cd_fila_usuario + "</b></div>" +
+                                    "<a class='reportar' href='#" + i + "' onclick=reportar(this.href)>Reportar</a><br><br>"
                                 );
                             } else {
                                 $('#conteudo2').append(
-                                    "<b>" + dadosFila.dadosFila[i].name + "</b> - " +
-                                    "Posição:&nbsp;&nbsp;<b>" + dadosFila.dadosFila[i].cd_fila_usuario + "</b> " +
+                                    "<div class='info'><b>" + dadosFila.dadosFila[i].name + "</b> - " +
+                                    "Posição:&nbsp;&nbsp;<b>" + dadosFila.dadosFila[i].cd_fila_usuario + "</b></div>" +
                                     "<a href='#" + i + "'</a><br><br>"
                                 );
                             }

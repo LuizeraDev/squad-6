@@ -21,7 +21,7 @@ img {
 }
 
 .desistir:hover{
-    background-color: rgb(196, 4, 4);
+    background-color: rgb(184, 2, 2);
 }
 
 #conteudo {
@@ -38,4 +38,34 @@ img {
 
 .corBotoes {
     margin-top: 30px;
+}
+
+.reportar {
+    background-color: #E63F67;
+    padding: 9px; 
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.reportar:hover {
+    background-color: rgb(173, 48, 77);
+}
+
+.info {
+    display: inline-block;
+    background-color: rgb(243, 241, 241);
+    color: rgb(70, 70, 70);
+    padding: 5px;
+    margin-left: -10px;
+    width: 300px
+}
+
+#estouaqui {
+    background-color: #E63F67;
+    padding: 3px 10px;
+    margin-top: 10px;
+}
+
+#estouaqui:hover {
+    background-color: rgb(173, 48, 77);
 }

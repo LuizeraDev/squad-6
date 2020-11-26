@@ -75,14 +75,12 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                         if (dadosFila.dadosUsuario[0].name != dadosFila.Utilizando[i].name) {
                             // Exibe usuários que estão utilizando a sala
                             $('#conteudo').append(
-                                "Nome: <b>" + dadosFila.Utilizando[i].name+"</b>&nbsp;&nbsp;" +
-                                "Status: <b>Em andamento</b>&nbsp;&nbsp;"+
-                                "<a href='#"+i+"' onclick=reportar(this.href)>Reportar</a><br><br>"
+                                "<div class='info'><b>" + dadosFila.Utilizando[i].name+"</b></div>" +
+                                "<a class='reportar' href='#"+i+"' onclick=reportar(this.href)>Reportar</a><br><br>"
                             );
                         } else {
                             $('#conteudo').append(
-                                "Nome: <b>" + dadosFila.Utilizando[i].name+"</b>&nbsp;&nbsp;" +
-                                "Status: <b>Em andamento</b>&nbsp;&nbsp;"+
+                                "<div class='info'><b>" + dadosFila.Utilizando[i].name+"</b></div>" +
                                 "<a href='#"+i+"'</a><br><br>"
                             );
                         }
