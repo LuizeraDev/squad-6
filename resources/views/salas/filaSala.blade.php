@@ -61,7 +61,7 @@ $_SESSION['entrou_sala'] = true;
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
         <script>
-            var temporizador = 11;
+            var temporizador = 10;
             // Função responsável por atualizar as filas
             function atualizarFila() {
 
@@ -111,7 +111,7 @@ $_SESSION['entrou_sala'] = true;
                             "<hr>"
                         );
 
-                        if (temporizador == 11) {
+                        if (temporizador == 10) {
                             setInterval(function () {
                                 temporizador -= 1;
                                 $('#Timer').text(temporizador + " segundos")
@@ -121,7 +121,7 @@ $_SESSION['entrou_sala'] = true;
                         setInterval(function () {
                             window.location.href = "{{$salaId}}/desistente";
                             alert("Você não confirmou que está na sala, estamos te redirecionando para o dashboard");
-                        }, 12000);
+                        }, 14000);
                     }
 
                     // Exibe usuários da fila
