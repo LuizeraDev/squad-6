@@ -32,7 +32,7 @@ $_SESSION['usuario'] = Auth::user()->email;
                         </x-jet-nav-link>
 
                         <x-jet-nav-link onclick="modalUserList()" style="cursor:pointer; color: #1C252E; font-weight: bold;">
-                            {{ __('Online Agora') }}
+                            <div class="onlineAgora"> {{ __('Online Agora') }} </div>
                         </x-jet-nav-link>
                     @endif
                 </div>
