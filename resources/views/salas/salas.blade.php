@@ -52,7 +52,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 @livewire('navigation-dropdown') 
 <div class="bgimage grid w-full  rounded overflow-hidden">
 
-<div class="mensagem">
+<div class="mensagem ">
         <h2>SELECIONE SUA ATIVIDADE</h2>
         <p>No momento estas são as atividades que estão rolando.</p>
         <p>Está esperando o que? Aproveite e entre já em uma!</p>

@@ -130,7 +130,20 @@ input {
 
 }
 
-@media only screen and ( max-width: 768px) {
+@media only screen and ( max-width: 800px) {
 
-    
+
+    .mensagem {
+
+        margin: 8rem 10rem;
+       
+        
+    }
+
+    .mensagem p{
+
+        padding: 0 5rem;
+       
+        
+    }
 }
