@@ -1,14 +1,27 @@
 img {
-    border-radius: 50%;
+    border-radius: 10px;
+    width: 60px;
+    height: 60px;
     display: inline-block;
-    margin-top: -13px;
 }
 
-
 .corBotoes {
+    background-color: #1B9D42;
     font-size: 14px;
     padding: 10px 18px;
     margin-right: 10px;
+}
+
+.corBotoes:hover {
+    background-color: rgb(20, 117, 49);
+}
+
+.desistir {
+    background-color: red;
+}
+
+.desistir:hover{
+    background-color: rgb(196, 4, 4);
 }
 
 #conteudo {
@@ -17,9 +30,10 @@ img {
 
 .container{
     border: 1px solid black;
-    background: white;
+    background-image: url("../assets/bck_1.png");
     padding: 50px;
     border-radius: 30px;
+    color: white;
 }
 
 .corBotoes {
