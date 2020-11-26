@@ -176,13 +176,14 @@ class salasController extends Controller
             $usuarios_na_sala = DB::table('users')
                                 ->join('tb_sala_santos', 'tb_sala_santos.cd_sala_santos', '=', 'users.cd_sala_santos')
                                 ->select('tb_sala_santos.nm_sala','users.cd_fila_usuario')
+                                ->where('tb_sala_santos.nm_sala', $nomeSala)
                                 ->get(); 
 
             $pessoas_na_sala = count($usuarios_na_sala);
 
-            if ($pessoas_na_sala > 0) { 
+            if ($pessoas_na_sala > 0) {
                 $erro = "Não é possível excluir salas com usuários dentro.";
-                return view('salas/salas', ['erro' => $erro]);
+                return back()->withErrors([$erro, ' ']);
             } else {            
                 // Verifica o nome da foto no banco para ser deletada em seguida
                 $img = DB::table('tb_sala_santos')
@@ -207,7 +208,7 @@ class salasController extends Controller
 
             if ($pessoas_na_sala > 0) { 
                 $erro = "Não é possível excluir salas que tenham pessoas dentro.";
-                return view('salas/salas', ['erro' => $erro]);
+                return redirect()->route('salas' , ['erro1' => $erro]);
             } else { 
                      // Verifica o nome da foto no banco para ser deletada em seguida
                     $img = DB::table('tb_sala_sao_paulo')
