@@ -56,6 +56,9 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
         <h2>SELECIONE SUA ATIVIDADE</h2>
         <p>No momento estas são as atividades que estão rolando.</p>
         <p>Está esperando o que? Aproveite e entre já em uma!</p>
+        @if($errors->any())
+            <h4>{{$errors->first()}}</h4>
+        @endif
 </div>
 </div>
    
@@ -200,7 +203,8 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
         conteudo_salas.append(wrapperSala);
 
         conteudo_salas.append(newSala)
-
+        
+        
         setTimeout("atualizarSalas()", 3000) // 3 segundos / Tempo de espera de atualização dos dados
 
                 });
