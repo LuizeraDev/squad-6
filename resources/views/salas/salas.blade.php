@@ -51,9 +51,9 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
 <body>
 @livewire('navigation-dropdown') 
-<div class="bgimage grid w-full  rounded overflow-hidden">
 
-<div class="mensagem ">
+<div class="background">
+<div class="mensagem">
         <h2>SELECIONE SUA ATIVIDADE</h2>
         <p>No momento estas são as atividades que estão rolando.</p>
         <p>Está esperando o que? Aproveite e entre já em uma!</p>
@@ -69,14 +69,14 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
 
    
-    <div class="bodyContainer w-full">
+  
 
 
-        <section class="salasContainer w-full sm:justify-center items-center" id="salasContainer"></section>
+        <section class="salasContainer" id="salasContainer"></section>
 
-        <a class="voltarUnidade font-bold text-sm" href="dashboard">Voltar a escolha da unidade</a>
+        <a class="voltarUnidade" href="dashboard">Voltar a escolha da unidade</a>
 
-    </div>
+
 
     
 
@@ -128,15 +128,15 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
             }).done(function (dadosSalas) {
                 //cria container para inserir as salas
                 $('#salasContainer').html("");
-                var conteudo_salas = $("<div/>").addClass("conteudoContainer").addClass("grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 mb-4 sm:justify-center items-center ").appendTo("section");
+                var conteudo_salas = $("<div/>").addClass("conteudoContainer").appendTo("section");
                 conteudo_salas.innerHTML = "";
                 //cria array das salas
                 var wrapperSala = []
                 var newSala =
                     $("<div/>")
                         .addClass("criarSala")
-                        .addClass("max-w-sm md:w-1/2 rounded overflow-hidden shadow-lg tracking-widest")
-                        .addClass("text-white font-bold");
+                        .addClass("")
+                        .addClass("");
                 
                 newSala.append("<div class='addBox'><img src='{{ asset('assets/add_img.png') }}' alt=''></div>")
                 newSala.append("<a href='criarsala'>Criar Sala</a>")
@@ -144,12 +144,12 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                 for (i = 0; i < dadosSalas.sala.length; i++) 
                 {
                     //cria sala individual baseada nas salas do DB
-                    wrapperSala[i] = $("<div/>").addClass("wrapper").addClass("max-w-sm lg:w-1/3 md:1/2 rounded overflow-hidden shadow-lg bg-white");
+                    wrapperSala[i] = $("<div/>").addClass("wrapper").addClass(" ");
                     wrapperSala[i].append(
                         "<img class='w-full' src='{{ $url }}" + dadosSalas.sala[i].img_sala
                         + "' width=200>"
                     );
-                    wrapperSala[i].append("<div class='px-6'>");
+                    wrapperSala[i].append("<div class=''>");
                     wrapperSala[i].append("<h3 class='font-bold text-xl'><b>" + dadosSalas.sala[i].nm_sala + "</b></h3>");
                     
                     var contador = 0; // contador de usuários para a sala
@@ -342,6 +342,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
      
     }
 </script>
+
 
 </body>
 

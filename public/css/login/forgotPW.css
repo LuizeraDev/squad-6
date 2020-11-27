@@ -1,0 +1,71 @@
+
+
+.wrapperNomeFPW{
+
+   
+    height: 3rem;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.wrapperNomeFPW input {
+     
+    
+    border: none;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding-top: 25px;
+    padding-left: .5rem;
+    background: none;
+    padding-bottom: 2px;
+    color: black;
+}
+
+.wrapperNomeFPW label {
+    
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid rgba(255, 251, 251, 0.5);
+    color: black;
+}
+
+.wrapperNomeFPW label::after {
+
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-bottom: 3px solid var(--inputColor);
+    bottom: -2px;
+    left: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.contentNome {
+
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    transition: all 0.3s ease;
+    color: rgb(156, 154, 154);
+}
+
+.wrapperNomeFPW input:focus + .labelNome .contentNome,
+.wrapperNomeFPW input:valid + .labelNome .contentNome{
+
+    transform: translateY(-110%);
+    color:var(--inputColor);
+}
+
+.wrapperNomeFPW input:focus + .labelNome::after,
+.wrapperNomeFPW input:valid + .labelNome::after{
+
+    transform: translateX(0%);
+}

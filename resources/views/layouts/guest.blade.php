@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/login/tela.css') }}">
         <link rel="stylesheet" href="{{ asset('css/login/inputs.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/login/forgotPW.css') }}">
         <link rel="stylesheet" href="{{ asset('css/global.css') }}">
     </head>
     <body>

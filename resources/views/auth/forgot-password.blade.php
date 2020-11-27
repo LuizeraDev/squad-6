@@ -20,7 +20,7 @@
         <form method="POST" action="{{ route('password.email') }}">
             @csrf
 
-            <div class="wrapperNome">
+            <div class="wrapperNomeFPW">
                 <input id="email" class="shadow appearance-none border border-blue-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" type="email" name="email" :value="old('email')" required  />
                 <label class=" labelNome" for="email" value="{{ __('Email') }}"><span class="contentNome">Email</span></>
             </div>

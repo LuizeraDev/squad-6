@@ -15,9 +15,10 @@
 
     font-family: 'Montserrat';
     min-width: 19rem;
+    max-width: 19rem;
     min-height: 434px;
     max-height: 434px;
-    max-width: 19rem;
+    
     border-radius: 15px;
     background-color: #1C252E;
     margin: 1rem auto;
@@ -29,7 +30,7 @@
 
     max-height: 200px;
     min-height: 200px;
-    height: 140px;
+    height: 40%;
     object-fit: cover;
 }
 
@@ -57,7 +58,7 @@
     margin-top:1rem;
     margin-right: 2rem;
     margin-left: 2rem;
-    width: 15rem;
+    width: 80%;
     height: 4rem;
     border-radius: 10px;
     background:var(--buttonColor);
@@ -204,3 +205,129 @@
     border-radius: 15px;
 
 }
+
+
+@media only screen and (max-width: 1280){
+    
+.wrapper {
+
+    font-family: 'Montserrat';
+    min-width: 19rem;
+    max-width: 19rem;
+    min-height: 434px;
+    max-height: 434px;
+    
+    border-radius: 15px;
+    background-color: #1C252E;
+    margin: 1rem auto;
+    color: var(--cardLetters);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);    
+}
+
+.wrapper img {
+
+    max-height: 200px;
+    min-height: 200px;
+    height: 40%;
+    object-fit: cover;
+}
+
+.wrapper h3{
+
+    margin-top: 2rem;
+    font-size: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    
+}
+
+.wrapper p {
+
+    margin-top: 4px;
+    font-weight: lighter;
+    text-align: center;
+    font-size: 14px;
+   
+}
+
+
+.enterButton {
+
+    margin-top:1rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    width: 80%;
+    height: 4rem;
+    border-radius: 10px;
+    background:var(--buttonColor);
+    border:none;
+
+    transform: scale(1);
+    animation: pulse 1s ;
+    animation-duration: 1s;
+}
+
+}
+
+
+@media only screen and (max-width: 1080){
+    
+    .wrapper {
+    
+        font-family: 'Montserrat';
+        min-width: 19rem;
+        max-width: 19rem;
+        min-height: 434px;
+        max-height: 434px;
+        
+        border-radius: 15px;
+        background-color: #1C252E;
+        margin: 1rem auto;
+        color: var(--cardLetters);
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);    
+    }
+    
+    .wrapper img {
+    
+        max-height: 200px;
+        min-height: 200px;
+        height: 40%;
+        object-fit: cover;
+    }
+    
+    .wrapper h3{
+    
+        margin-top: 2rem;
+        font-size: 2rem;
+        line-height: 2rem;
+        text-align: center;
+        
+    }
+    
+    .wrapper p {
+    
+        margin-top: 4px;
+        font-weight: lighter;
+        text-align: center;
+        font-size: 14px;
+       
+    }
+    
+    
+    .enterButton {
+    
+        margin-top:1rem;
+        margin-right: 2rem;
+        margin-left: 2rem;
+        width: 80%;
+        height: 4rem;
+        border-radius: 10px;
+        background:var(--buttonColor);
+        border:none;
+    
+        transform: scale(1);
+        animation: pulse 1s ;
+        animation-duration: 1s;
+    }
+    
+    }

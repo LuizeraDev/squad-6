@@ -8,7 +8,7 @@ input:-webkit-autofill:active  {
 }
 /*muda cor da fonte no autocomplete*/
 input:-webkit-autofill {
-    -webkit-text-fill-color: var(--fontColor) !important;
+    -webkit-text-fill-color: white !important;
 }
 
 h3 {
@@ -39,9 +39,6 @@ form {
     border-bottom-left-radius: 30px;
 }
 
-input {
-    color: black;
-}
 
 p     {
     text-align: center;
@@ -81,6 +78,10 @@ p     {
 
 .corCadastrar{
     background-color:#1B9D42;
+}
+
+.corCadastrar:hover{
+    background-color:#12642b;
 }
  
  #upload-photo {

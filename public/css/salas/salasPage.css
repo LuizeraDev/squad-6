@@ -13,13 +13,13 @@
 
 /* ======================= */
 
+
+
 .onlineAgora{
 
     color: var(--cardLetters);
     padding: 1rem;
     background-color: var(--onlineAgora);
-    margin-left: 60vw;
-
     transition: background-color 1s ease-in-out;
 }
 
@@ -28,10 +28,11 @@
     background-color: var(--onlineAgoraHover);
 }
 
-.bgimage{
+.background{
     position: relative;
     background-image: url("../../assets/bck_1.png");
     height: 450px;
+    width: 100%;
     
 }
 
@@ -44,9 +45,8 @@
 
 .mensagem {
 
+    display: inline-block;
     position: absolute;
-    margin-top: 20vh;
-    margin-left: 35vw;
     text-align: center;
     color: var(--cardLetters);
     
@@ -59,7 +59,7 @@
 }
 
 .mensagem p {
-    margin-top: 10px;
+
     font-size: 18px;
     font-weight: lighter;
 }
@@ -73,15 +73,15 @@
     
 }
 .salasContainer{
-    margin: auto;
+    margin: 0 auto;
     width: 100%;
-    display: grid;
-    grid-template-columns: 10vw 80vw 10vw;
 }
 
 .conteudoContainer {
-    margin: 0;
-    grid-column: 2/3;
+    
+    margin: auto;
+    display: grid;
+    grid-gap: 1rem;
 }
 
 .voceEsta {
@@ -123,50 +123,52 @@ input {
 
 @media screen (max-width: 450px) {
   
+    .conteudoContainer {
 
-    .voceEsta {
-        position: absolute;
-        bottom: 0;
-        text-align: left;
-        font-size: large;
-        margin: 0;
+        grid-template-columns: 1fr;
     }
 
-    .sala {
-    
-        padding-left: 0;
-        padding-right: 12rem ;  
-        width: 100%;
-    }
-    
-    .sala h2{
-    
-        padding-left: 1rem;
-        width: 100%;
+    .onlineAgora{
       
     }
+    
+    .mensagem{
 
-}
-
-@media only screen and ( max-width: 800px) {
-
-
-    .mensagem {
-
-        margin: 8rem 10rem;
-       
+        margin: auto;
         
     }
 
-    .mensagem p{
 
-        padding: 0 5rem;
-       
-        
-    }
 }
 
-@media only screen and ( max-width: 1280px) {
+
+@media only screen and ( min-width: 640px) {
+
+    .gridTela {
+
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media only screen and ( min-width: 854px) {
+
+    .conteudoContainer {
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+@media only screen and ( min-width: 1080px) {
+
+    .conteudoContainer {
+
+        grid-template-columns: 1fr 1fr 1fr;
+        
+    }
 
     .onlineAgora{
 
@@ -176,7 +178,23 @@ input {
 }
 
 
-@media only screen and ( max-width: 1105px) {
+@media only screen and ( min-width: 1280px) {
+
+    .conteudoContainer {
+
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 1rem;
+    }
+
+    .onlineAgora{
+
+        margin-left: 55vw;
+    }
+
+}
+
+
+@media only screen and ( min-width: 1281px) {
 
     .onlineAgora{
 
@@ -185,18 +203,3 @@ input {
 
 }
 
-@media only screen and ( max-width: 850px) {
-
-    .onlineAgora{
-
-        margin-left: 35vw;
-    }
-}
-
-@media only screen and ( max-width: 722px) {
-
-    .onlineAgora{
-
-        margin-left: 25vw;
-    }
-}
