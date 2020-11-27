@@ -21,6 +21,7 @@
     padding: 1rem;
     background-color: var(--onlineAgora);
     transition: background-color 1s ease-in-out;
+    
 }
 
 .onlineAgora:hover{
@@ -116,6 +117,8 @@
     }
 
     .onlineAgora{
+
+        right: 0;
       
     }
     
@@ -137,6 +140,15 @@
 
 }
 
+@media only screen and ( min-width: 640px){
+
+    .onlineAgora{
+
+        position: absolute;
+        right: 5rem;
+      
+    }
+}
 
 @media only screen and ( min-width: 854px) {
 
@@ -144,7 +156,6 @@
 
         grid-template-columns: 1fr 1fr;
     }
-
        
     .mensagem h2{
 
@@ -160,6 +171,7 @@
          color: var(--cardLetters);
          text-align: center;
      }
+
 
 }
 

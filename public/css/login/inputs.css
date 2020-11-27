@@ -115,11 +115,12 @@ input:-webkit-autofill {
 
 .enterButtonReg{
 
+    
     padding: 1rem;
     background-color: var(--inputColor);
     height: 3rem;
     width: 100%;
-    margin: 1rem auto;
+    margin: 2rem auto;
 }
 
 .enterButtonReg:hover{
@@ -158,18 +159,36 @@ input:-webkit-autofill {
     color: var(--fontColor);
 }
 
+.regLogoPreto {
+
+    margin-bottom: 1rem;
+}
 .Reg {
 
     margin-top: 1rem;
 }
+
 .Reg input {
-     
-    padding-bottom: 2px;
+    
+    
+    padding-bottom: 5px;
     border: none;
     height: 100%;
     width: 100%;
     outline: none;
     background: none;
+    color: black;
+}
+
+.Reg label {
+    
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid rgba(70, 70, 70, 0.5);
     color: black;
 }
 
@@ -183,7 +202,7 @@ input:-webkit-autofill {
 
     
     margin: 2.5rem;
-    padding-top: 25vh;
+    padding-top: vh;
     height: 100vh;
     width: 80%;
    
