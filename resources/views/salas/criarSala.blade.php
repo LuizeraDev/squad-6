@@ -24,7 +24,7 @@
 	</script>
 </head>
 
-<body>
+<body class="logoBG"> 
 
 	<!--- GRID -->
 	<div class="ajuste min-h-screen flex flex-col items-center pt-6 sm:pt-0">
@@ -47,7 +47,7 @@
 			<div class="flex flex-col sm:justify-center items-center my-3">
 
 				<label
-					class="corBotoes bg-blue-500 hover:bg-blue-700 text-white  py-2 px-4 border border-blue-700 my-3"
+					class="corBotoes"
 					for="upload-photo">Selecione uma Imagem</label>
 				<input type="file" name="ImagemSala" id="upload-photo" />
 
@@ -55,9 +55,9 @@
 
 			<p>Demanda de pessoas da sala</p>
 
-			<div class="inline-block relative w-64 my-3">
+			<div class="">
 				<select
-					class="corBotoes text-white block appearance-none w-full border border-gray-400 hover:border-gray-500 px-10 py-2 pr-8 shadow leading-tight focus:outline-none focus:shadow-outline"
+					class="corBotoes"
 					name="demanda">
 					<option value="1">1 PESSOA - ATIVIDADE INDIVIDUAL</option>
 					<option value="2">2 PESSOAS</option>
@@ -81,10 +81,10 @@
 				<p>Exemplo: ao jogar FIFA, há duas pessoas por vez.</p>
 			</div>
 
-			<button type="submit" class="corCadastrar text-white py-2 px-4 border border-none my-3"
+			<button type="submit" class="corBotoes corCadastrar"
 				href="salas">Cadastrar Atividade</button>
 			
-			<a class="corBotoes bg-blue-500 hover:bg-blue-700 text-white  py-2 px-4 border border-none mt-6"
+			<a class="corBotoes voltar"
 			href="salas">Voltar</a>
 
 
@@ -127,6 +127,7 @@
 			</div>
 			@endif
 
+			
 
 			<!-- Jquery necessário para validação do campo -->
 			<script src="https://code.jquery.com/jquery-3.5.1.slim.js"></script>
@@ -140,6 +141,7 @@
 
 
 		</form> <!-- Fim form -->
+
 
 
 	</div>

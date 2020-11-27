@@ -17,19 +17,6 @@ body {
     font-family: 'MontSerrat', sans-serif;
 } 
 
-.corBotoes {
-    background:#E63F67;
-    border:none;
-}
-
-.corBotoes:hover {
-    background: #A82746;
-}
-
-.corBotoes:active {
-    border:none;
-}
-
 .corbotoesDelete {
 
     transition: background-color 1s ease-in-out;

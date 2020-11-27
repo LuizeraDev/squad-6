@@ -181,7 +181,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
                     wrapperSala[i].append(
                         //classes do tailwind css
-                        "<button class='corBotoes enterButton inline-flex items-center bg-gray-600  hover:bg-gray-800  border"
+                        "<button class='enterButton inline-flex items-center "
                             + "border-transparent font-semibold text-xs text-white uppercase tracking-widest'>"
                             //rota da sala
                             + "<a href='salas/sala/" + dadosSalas.sala[i].nm_sala + "/" +

@@ -7,6 +7,7 @@
     --cardLetters: #ffffff;
     --pageLinks: rgba(0,0,0,.5);
     --cardBG: #1C252E;
+    --buttonColor:#E63F67;
 }
 
 
@@ -59,6 +60,8 @@
     width: 15rem;
     height: 4rem;
     border-radius: 10px;
+    background:var(--buttonColor);
+    border:none;
 
     transform: scale(1);
     animation: pulse 1s ;

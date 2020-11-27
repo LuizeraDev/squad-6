@@ -72,7 +72,24 @@
     
 }
 
+.logoForgotPW{
 
+  
+}
+
+.logoForgotPW img{
+
+""
+    
+}
+
+@media only screen and (max-width: 1280px){
+
+    .logoForgotPW img{
+
+       
+    }
+}
 
 @media only screen and (max-width: 763px) {
 
