@@ -50,7 +50,7 @@
 
     background-image: url("../assets/bck_1.png");
     position: relative;
-    height: 50vh;
+    height: 40vh;
     width: 100vw;
     display: grid;
     grid-template-columns: 1fr 1fr;
