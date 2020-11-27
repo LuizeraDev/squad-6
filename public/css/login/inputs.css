@@ -111,10 +111,27 @@ input:-webkit-autofill {
     background-color: var(--inputColorHover);
 }
 
+.enterButtonReg{
+
+    padding: 1rem;
+    background-color: var(--inputColor);
+    height: 3rem;
+    width: 100%;
+    margin: 1rem auto;
+}
+
+.enterButtonReg:hover{
+    background-color: var(--inputColorHover);
+}
+
+
+
 .links {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+
+
 .remember_me {
     
     padding-top: 1rem;
@@ -139,6 +156,10 @@ input:-webkit-autofill {
     color: var(--fontColor);
 }
 
+.Reg {
+
+    margin-top: 1rem;
+}
 .Reg input {
      
     padding-bottom: 2px;
@@ -146,8 +167,6 @@ input:-webkit-autofill {
     height: 100%;
     width: 100%;
     outline: none;
-    padding-top: 25px;
-    padding-left: .5rem;
     background: none;
     color: black;
 }
@@ -168,3 +187,9 @@ input:-webkit-autofill {
    
 }
 
+.voltarLink {
+
+    height: 2rem;
+    width: 100%;
+    text-align: center;
+}

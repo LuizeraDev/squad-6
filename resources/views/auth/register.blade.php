@@ -33,16 +33,18 @@
                 <label class="labelNome" for="password_confirmation" value="{{ __('Confirmar Senha') }}"><span class="contentNome">Repetir Senha</span> </label>
             </div>
 
-            <div class="flex items-center justify-end mt-6">
-                <a class="text-sm text-white-600 hover:underline" href="{{ route('login') }}">
-                    {{ __('Já possui uma conta?') }}
-                </a>
-
-                <button class="corBotoes transform motion-reduce:transform-none hover:-translate-y-1 hover:scale-110 transition ease-in-out duration-300
+            <button class="enterButtonReg transform motion-reduce:transform-none hover:-translate-y-1 hover:scale-110 transition ease-in-out duration-300
                 ml-4 items-center px-4 py-2 bg-gray-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest">
                     {{ __('Registrar-se') }}
-                <button>
-            </div>
+            <button>
+
+          
+                <a class="voltarLink" href="{{ route('login') }}">
+                    {{ __('Já possui uma conta?') }}
+                </a>
+           
+              
+           
         </form>
 
     </x-jet-authentication-card>

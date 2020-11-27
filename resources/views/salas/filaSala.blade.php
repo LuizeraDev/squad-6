@@ -27,28 +27,18 @@ $_SESSION['entrou_sala'] = true;
             <!-- No php, pegamos dados através do campo "name" dos inputs -->
             <section class="container" align="center">
 
-                <br>
-                <h3>Utilizando a Sala</h3>
-                <div id="demanda"></div>
-                <br>
-
-                <div id="conteudo"></div>
-
-                <hr>
-
+             
 
 
                 <div id="conteudo1"></div>
-
                 <hr>
-                <br>
+                <div id="conteudo"></div>
+
 
                 <div id="Timer"></div>
                 <div id="conteudo4"></div>
 
                 <div id="conteudo2"></div>
-
-                <br><br>
                 <div id="conteudo3"></div>
                 
                 <a class="corBotoes desistir items-center border border-transparent font-semibold text-xs text-white uppercase tracking-widest"
