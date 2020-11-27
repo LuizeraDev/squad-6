@@ -4,58 +4,6 @@
     --fontColor: white;   
 }
 
-@media only screen and (max-width: 763px) {
-
-
-    .logoDiv {
-        background-color: black;
-
-    }
-
-    .logo {
-        
-       
-        padding-right: 10rem;
-        width: 100%;
-        height: 90%;
-        background-color: black;
-        object-fit: contain;
-    }
-
-    .faixa {
-
-        height: 100vh;
-        background-color: black;
-        width: 20rem;
-        color: var(--fontColor);
-        margin: 0 auto;
-    }
-
-    .faixa h3 {
-
-
-        margin-top: 5vh;
-        font-size: 2rem;
-        font-weight: bold;
-        text-align: center;
-        width: 100%;
-    }
-    .faixa p {
-        
-        padding: 2rem;
-        font-size: 1rem;
-        text-align: center;
-        width: 100%;
-    }
-    .painel {
-
-        color: white;
-        padding: 2rem 2rem;
-        width: 100%;
-    
-    }
-}
-
 .painel {
 
     color: white;
@@ -124,4 +72,57 @@
     
 }
 
+
+
+@media only screen and (max-width: 763px) {
+
+
+    .logoDiv {
+        background-color: black;
+
+    }
+
+    .logo {
+        
+       
+        padding-right: 10rem;
+        width: 100%;
+        height: 90%;
+        background-color: black;
+        object-fit: contain;
+    }
+
+    .faixa {
+
+        height: 100vh;
+        background-color: black;
+        width: 20rem;
+        color: var(--fontColor);
+        margin: 0 auto;
+    }
+
+    .faixa h3 {
+
+
+        margin-top: 5vh;
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+        width: 100%;
+    }
+    .faixa p {
+        
+        padding: 2rem;
+        font-size: 1rem;
+        text-align: center;
+        width: 100%;
+    }
+    .painel {
+
+        color: white;
+        padding: 2rem 2rem;
+        width: 100%;
+    
+    }
+}
 
