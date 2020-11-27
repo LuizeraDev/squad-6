@@ -45,15 +45,10 @@
 
 .mensagem {
 
-    display: inline-block;
-    position: absolute;
-    text-align: center;
-    color: var(--cardLetters);
-    
 }
 
 .mensagem h2 {
-
+   
     font-size: 2rem;
     font-weight: bold;
 }
@@ -95,15 +90,6 @@
     
 }
 
-
-input {
-    border: 1px solid black;
-    border-radius: 30px;
-    outline: none;
-    text-align: center;
-}
-
-
 .voltarUnidade{
 
     position: relative;
@@ -121,10 +107,11 @@ input {
 
 /* ======= MEDIA QUERY PARA AJUDAR NA RESPONSIVIDADE DO NAVBAR========*/
 
-@media screen (max-width: 450px) {
+@media only screen and (min-width: 200px) {
   
     .conteudoContainer {
 
+        margin-top: 2rem;
         grid-template-columns: 1fr;
     }
 
@@ -132,22 +119,21 @@ input {
       
     }
     
-    .mensagem{
+    .mensagem h2{
 
-        margin: auto;
+       padding-top: 2rem;
+       text-align: center;
+       color: var(--cardLetters);
         
     }
 
+    .mensagem p {
 
-}
-
-
-@media only screen and ( min-width: 640px) {
-
-    .gridTela {
-
-        grid-template-columns: 1fr;
+        padding: 0 2rem;
+        color: var(--cardLetters);
+        text-align: center;
     }
+
 
 }
 
@@ -158,6 +144,22 @@ input {
 
         grid-template-columns: 1fr 1fr;
     }
+
+       
+    .mensagem h2{
+
+        padding-top: 10rem;
+        text-align: center;
+        color: var(--cardLetters);
+         
+     }
+ 
+     .mensagem p {
+ 
+         padding: 0 2rem;
+         color: var(--cardLetters);
+         text-align: center;
+     }
 
 }
 
@@ -177,13 +179,43 @@ input {
 
 }
 
-
 @media only screen and ( min-width: 1280px) {
 
     .conteudoContainer {
 
+        grid-template-columns: 1fr 1fr 1fr;
+       
+    }
+
+    .onlineAgora{
+
+        margin-left: 55vw;
+    }
+
+}
+
+@media only screen and ( min-width: 1556px) {
+
+    .conteudoContainer {
+
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-gap: 1rem;
+
+    }
+
+    .onlineAgora{
+
+        margin-left: 55vw;
+    }
+
+}
+
+@media only screen and ( min-width: 1920px) {
+
+    .conteudoContainer {
+
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin: 0 10vw;
+
     }
 
     .onlineAgora{
@@ -194,12 +226,4 @@ input {
 }
 
 
-@media only screen and ( min-width: 1281px) {
-
-    .onlineAgora{
-
-        margin-left: 45vw;
-    }
-
-}
 

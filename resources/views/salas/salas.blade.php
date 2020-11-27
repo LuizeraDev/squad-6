@@ -61,10 +61,10 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
             <h4 style="color:red;">{{$errors->first()}}</h4>
         @endif
 </div>
-</div>
+
    
 
-    <!--- GRID -->
+   
 
 
 
@@ -80,8 +80,15 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
 
     
 
+<!--- fechamento da tag de background --> 
+</div>    
 
-    
+
+
+
+
+<!-- MODAIS -->
+
     <div class="onlineUsers">
         
         <div class="modalUser toggleActive">
