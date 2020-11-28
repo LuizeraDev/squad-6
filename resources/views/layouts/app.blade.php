@@ -21,7 +21,7 @@
     <body>
         <div class="navBar">
             @livewire('navigation-dropdown')
-            
+        </div>
             <!-- Page Heading -->
         
 
@@ -31,7 +31,7 @@
             </main>
             
            
-        </div>
+        
 
         @stack('modals')
 

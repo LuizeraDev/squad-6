@@ -58,6 +58,13 @@ hr {
     background-color: rgb(184, 2, 2);
 }
 
+#conteudo2 {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+
 #conteudo3 {
     display: inline-block;
     margin-left: -100px;

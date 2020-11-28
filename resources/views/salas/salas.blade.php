@@ -62,23 +62,9 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
         @endif
 </div>
 
-   
-
-   
-
-
-
-   
-  
-
 
         <section class="salasContainer" id="salasContainer"></section>
 
-        <a class="voltarUnidade" href="dashboard">Voltar a escolha da unidade</a>
-
-
-
-    
 
 <!--- fechamento da tag de background --> 
 </div>    
@@ -146,7 +132,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                         .addClass("");
                 
                 newSala.append("<div class='addBox'><img src='{{ asset('assets/add_img.png') }}' alt=''></div>")
-                newSala.append("<a href='criarsala'>Criar Sala</a>")
+                newSala.append("<a href='criarsala'>CRIAR SALA</a>")
 
                 for (i = 0; i < dadosSalas.sala.length; i++) 
                 {

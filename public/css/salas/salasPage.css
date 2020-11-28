@@ -32,7 +32,7 @@
 .background{
     position: relative;
     background-image: url("../../assets/bck_1.png");
-    height: 40vh;
+    height: 50vh;
     width: 100%;
     
 }
@@ -46,6 +46,7 @@
 
 .mensagem {
 
+    padding-top: 3rem;
 }
 
 .mensagem h2 {
@@ -75,7 +76,7 @@
 
 .conteudoContainer {
     
-    margin: auto;
+
     display: grid;
     grid-gap: 1rem;
 }
@@ -112,8 +113,10 @@
   
     .conteudoContainer {
 
-        margin-top: 2rem;
+        margin-top: 8rem;
         grid-template-columns: 1fr;
+        margin-left: 10vw;
+        margin-right: 10vw;
     }
 
     .onlineAgora{
@@ -154,7 +157,10 @@
 
     .conteudoContainer {
 
+        margin-top: 8rem;
         grid-template-columns: 1fr 1fr;
+        margin-left: 10vw;
+        margin-right: 10vw;
     }
        
     .mensagem h2{
@@ -180,7 +186,10 @@
 
     .conteudoContainer {
 
+        margin-top: 8rem;
         grid-template-columns: 1fr 1fr 1fr;
+        margin-left: 10vw;
+        margin-right: 10vw;
         
     }
 
@@ -195,7 +204,10 @@
 
     .conteudoContainer {
 
+        margin-top: 8rem;
         grid-template-columns: 1fr 1fr 1fr;
+        margin-left: 10vw;
+        margin-right: 10vw;
        
     }
 
@@ -210,7 +222,10 @@
 
     .conteudoContainer {
 
+        margin-top: 8rem;
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin-left: 10vw;
+        margin-right: 10vw;
 
     }
 
@@ -225,8 +240,10 @@
 
     .conteudoContainer {
 
+        margin-top: 8rem;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        margin: 0 10vw;
+        margin-left: 10vw;
+        margin-right: 10vw;
 
     }
 

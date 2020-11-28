@@ -9,13 +9,14 @@
     --buttonBGHover:#A82746;
     --blackoutColor: rgba(230, 63, 103, .8);
 
-    --fontSizeTitle: 22px ;
-    --fontSizeBody: 16px;
+    --fontSizeTitle: 30px ;
+    --fontSizeBody: 30px;
     --fontFamily: 'Montserrat';
-    --fontWeight_H3: bold;
-    --fontWeight_p: 400;
+    --fontWeight_H3: 400;
+    --fontWeight_p: bold
 
 }
+
 
 .logoNav{
 
@@ -35,8 +36,10 @@
 .greetings h3 {
 
     font-weight: var(--fontWeight_H3);
-    font-size: var(--var(--fontSizeTitle)) ;
+    font-size: var(--fontSizeTitle);
     font-family: var(--fontFamily);
+    width: 40rem;
+    padding: 0 2rem;
 }
 
 .greetings p {
@@ -44,13 +47,14 @@
     font-weight: var(--fontWeight_p);
     font-size: var(--fontSizeBody);
     font-family: var(--fontFamily) ;
+    padding-top: 3rem;
 }
 
 .body{
 
     background-image: url("../assets/bck_1.png");
     position: relative;
-    height: 40vh;
+    height: 50vh;
     width: 100vw;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -63,17 +67,20 @@
     
     color: var(--cardLetters);
     background-color: var(--buttonBG);
+    font-size: var(--fontSizeTitle);
+    font-weight: var(--fontWeight_p);
     min-width: 15rem;
-    min-height: 19rem;
+    min-height: 20rem;
     max-width: 19rem;
-    max-height: 19rem;
+    max-height: 20rem;
 
     line-height: 19rem;
     margin-left:auto;
     margin-right: 2rem;
-    margin-top: 1rem;
+
     width: 19rem;
     text-align: center;
+    
 
     border-radius: 10px;
 
@@ -85,15 +92,17 @@
 
     color: var(--cardLetters);
     background-color: var(--buttonBG);
+    font-size: var(--fontSizeTitle);
+    font-weight: var(--fontWeight_p);
     min-width: 15rem;
-    min-height: 19rem;
+    min-height: 20rem;
     max-width: 19rem;
-    max-height: 19rem;
+    max-height: 20rem;
 
     line-height: 19rem;
     margin-left:2rem;
     margin-right: auto;
-    margin-top: 1rem;
+  
     width: 19rem;
     text-align: center;
 

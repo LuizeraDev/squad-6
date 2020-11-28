@@ -31,6 +31,9 @@
     max-height: 200px;
     min-height: 200px;
     height: 40%;
+
+    border-radius: 20px 20px 0 0;
+
     object-fit: cover;
 }
 
@@ -142,7 +145,7 @@
     align-items: center;
     color: rgba(0, 0, 0, 0.5);
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);    
-    background: linear-gradient(to right, rgba(235, 235, 235, .4) 50%, rgb(255, 255, 246) 50%) left;
+    background: linear-gradient(to right, rgba(235, 235, 235, .8) 50%, rgba(233, 115, 143) 50%) left;
     background-size: 200%;
     transition: .3s ease-out;
 
@@ -160,6 +163,7 @@
     display: block;
     height: 434px;
     width: 19rem;
+    font-weight: bold;
     line-height: 434px;
     text-align: center;
 
@@ -173,6 +177,7 @@
     margin: 100px 82px;
     height: 140px;
     width: 140px;
+    padding-bottom: 1rem;
   
     border-radius: 15px;
     

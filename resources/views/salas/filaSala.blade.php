@@ -129,8 +129,8 @@ $_SESSION['entrou_sala'] = true;
                             if (dadosFila.dadosUsuario[0].name != dadosFila.dadosFila[i].name) {
                                 $('#conteudo2').append(
                                     "<div class='info'><b>" + dadosFila.dadosFila[i].name + "</b> - " +
-                                    "Posição:&nbsp;&nbsp;<b>" + dadosFila.dadosFila[i].cd_fila_usuario + "</b></div>" +
-                                    "<a class='reportar' href='#" + i + "' onclick=reportar(this.href)>Reportar</a><br><br>"
+                                    "Posição:&nbsp;&nbsp;<b>" + dadosFila.dadosFila[i].cd_fila_usuario + "</b>" +
+                                    "<a class='reportar' href='#" + i + "' onclick=reportar(this.href)>Reportar</a></div>"
                                 );
                             } else {
                                 $('#conteudo2').append(
