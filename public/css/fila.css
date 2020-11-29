@@ -1,9 +1,4 @@
-img {
-    border-radius: 10px;
-    width: 60px;
-    height: 60px;
-    display: inline-block;
-}
+
 
 h3 {
     font-size: 22px;
@@ -19,69 +14,134 @@ hr {
     border-radius: 30px;
 }
 
+.user {
+
+   
+}
+
+.user img{
+
+    height: 60px;
+    width: 60px;
+    object-fit: contain;
+    margin: 10px 0;
+    grid-column: 1/2;
+}
+
 .info {
-    display: inline-block;
+  
     background-color: rgb(243, 241, 241);
     color: rgb(70, 70, 70);
-    padding: 5px;
-    margin-left: -10px;
-    width: 300px
+    grid-column: 2/4;
+    margin: auto 0;
+    height: 3rem;
+    min-width: 200px;
+    max-width: 400px;
+    
+    line-height: 3rem;
+}
+
+.infoAndamento {
+  
+    background-color: rgb(117, 226, 44);
+    color: rgb(70, 70, 70);
+    grid-column: 3/4;
+    margin: auto 0;
+    height: 3rem;
+    min-width: 200px;
+    max-width: 400px;
+    
+    line-height: 3rem;
 }
 
 .reportar {
+
     background-color: #E63F67;
-    padding: 7.7px; 
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+    height: 4rem;
+    grid-column: 3/4;
+ 
+    
+    line-height: 3rem;
 }
+
 
 .reportar:hover {
     background-color: rgb(173, 48, 77);
 }
 
-.corBotoes {
+.minhaVez {
     background-color: #1B9D42;
-    font-size: 14px;
-    padding: 10px 70px;
-    margin-left: 100px;
+    width: 100%;
+    display: inline-block;
 }
 
-.corBotoes:hover {
+.minhaVez:hover {
     background-color: rgb(20, 117, 49);
 }
 
-.desistir {
+.botaoDesistir {
+
+    width: 20rem;
+    height: 3rem;
+    margin: 1rem auto;
+    line-height: 3rem;
+    color: white;
     background-color: red;
 }
 
-.desistir:hover{
+.botaoDesistir:hover{
     background-color: rgb(184, 2, 2);
 }
 
 #conteudo2 {
 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 60px 400px 60px;
+    width: 550px;
+    grid-row-gap: 1rem;
+    grid-column-gap: 5px;
+    
+    margin: 1rem auto;
 }
 
+#conteudo {
+
+    display: grid;
+    grid-template-columns: 60px 500px;
+    width: 550px;
+    grid-row-gap: 1rem;
+    grid-column-gap: 5px;
+
+    margin: 0 auto;
+}
+
+#conteudo1{
+
+    width: 100%;
+    margin-top:4rem;
+}
 
 #conteudo3 {
-    display: inline-block;
-    margin-left: -100px;
+    width: 100%;
 }
 
 #conteudo, #conteudo1, #conteudo2,
 #conteudo3, #conteudo4 {
+    
     font-size: 18px;
 }
 
 .container{
-    border: 1px solid black;
+
+    display: grid;
+    grid-template-columns: 1fr;
     color: white;
     background-image: url("../assets/bck_1.png");
-    padding: 60px;
+    width: 70vw;
     border-radius: 30px;
-    margin-top: 36.8%
+    margin: 10vh auto 10vh;
 }
 
 #estouaqui {
@@ -93,3 +153,155 @@ hr {
 #estouaqui:hover {
     background-color: rgb(173, 48, 77);
 }
+
+@media only screen and (max-width: 450px){
+
+    .container{
+
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+  
+
+    }
+
+    
+    #conteudo2 {
+
+        display: grid;
+        grid-template-columns: 60px 1fr 1fr;
+        width: 100%;
+        grid-row-gap: 1rem;
+        grid-column-gap: 5px;
+        margin: 1rem auto;
+    }
+
+    #conteudo {
+
+        display: grid;
+        grid-template-columns: 60px 1fr 1fr;
+        width: 100%;
+        grid-row-gap: 1rem;
+        grid-column-gap: 5px;
+        margin: 0 auto;
+    }
+
+    
+    .user {
+
+    }
+
+    .user img{
+
+        grid-column: 1/2;
+    }
+
+    .info {
+    
+        background-color: rgb(243, 241, 241);
+        color: rgb(70, 70, 70);
+        grid-column: 2/3;
+        margin: auto 0;
+        height: 3rem;
+        max-width: 400px;        
+        line-height: 3rem;
+    }
+
+    .infoAndamento {
+  
+        background-color: rgb(117, 226, 44);
+        color: rgb(70, 70, 70);
+        grid-column: 2/3;
+        height: 3rem;
+        min-width: 200px;
+        max-width: 400px;
+        
+        line-height: 3rem;
+    }
+
+    .botaoDesistir {
+
+        width: 50%;
+        height: 3rem;
+        margin: 1rem auto;
+        line-height: 3rem;
+        color: white;
+        background-color: red;
+
+        grid-row: 7;
+    }
+
+
+}
+
+
+@media only screen and (max-width: 738px){
+
+    .container{
+
+        padding: 0;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+
+        
+
+    }
+
+    
+    #conteudo2 {
+
+        display: grid;
+        grid-template-columns: 60px 1fr 100px;
+        width: 80%;
+        grid-row-gap: 1rem;
+        grid-column-gap: 5px;
+        margin: 1rem auto;
+    }
+
+    #conteudo {
+
+        display: grid;
+        grid-template-columns: 60px 1fr 100px ;
+        width: 80%;
+        grid-row-gap: 1rem;
+        grid-column-gap: 5px;
+        margin: 0 auto;
+    }
+
+    
+    .user {
+
+    }
+
+    .user img{
+
+        grid-column: 1/2;
+    }
+
+    .info {
+    
+        background-color: rgb(243, 241, 241);
+        color: rgb(70, 70, 70);
+        grid-column: 2/3;
+        margin: auto 0;
+        height: 3rem;
+        max-width: 400px;        
+        line-height: 3rem;
+    }
+
+    .infoAndamento {
+  
+        background-color: rgb(117, 226, 44);
+        color: rgb(70, 70, 70);
+        grid-column: 2/3;
+        height: 3rem;
+        min-width: 200px;
+        max-width: 400px;
+        
+        line-height: 3rem;
+    }
+
+
+}
+
