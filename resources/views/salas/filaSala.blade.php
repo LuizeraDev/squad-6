@@ -47,7 +47,7 @@ $_SESSION['entrou_sala'] = true;
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
         <script>
-            var temporizador = 10;
+            var temporizador = 11;
             // Função responsável por atualizar as filas
             function atualizarFila() {
                 $.ajax({
@@ -80,13 +80,17 @@ $_SESSION['entrou_sala'] = true;
                             "e sua posição é <b>" + dadosFila.dadosUsuario[i].cd_fila_usuario
                         );
                     }
+                    
+                    
                     if (dadosFila.dadosUsuario[0].report) {
+                        
                         $('#conteudo4').html(
                             "Você ainda está ai? <button id='estouaqui' type='button' onClick='clicksim()'>Sim</button>" +
                             "<hr>"
                         );
-                        if (temporizador == 10) {
-                            setInterval(function () {
+                        
+                        if (temporizador == 11) {
+                            contagemregressiva = setInterval(function () {
                                 temporizador -= 1;
                                 $('#Timer').text(temporizador + " segundos")
                             }, 1000);
@@ -95,6 +99,8 @@ $_SESSION['entrou_sala'] = true;
                             window.location.href = "{{$salaId}}/desistente";
                             alert("Você não confirmou que está na sala, estamos te redirecionando para o dashboard");
                         }, 12000);
+
+                        
                     }
                     // Exibe usuários da fila
                     for (i = 0; i < dadosFila.dadosFila.length; i++) {
@@ -154,6 +160,7 @@ $_SESSION['entrou_sala'] = true;
                     dataType: "json",
                     cache: false,
                 }).done(function (dadosFila) {
+                    clearInterval(contagemregressiva);
                     window.location.href = "/estouaqui/" + dadosFila.dadosUsuario[0].id;
                 });
             }
