@@ -193,16 +193,16 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                         // Desta maneira conseguimos passar o parâmetro em formato de String
                         + '<a onClick="modal(\'' + dadosSalas.sala[i].nm_sala + '\')">Excluir Sala</a></button>'
                     );
-        } // Endfor 
+                } // Endfor 
 
-        conteudo_salas.append(wrapperSala);
+                conteudo_salas.append(wrapperSala);
 
-        conteudo_salas.append(newSala)
+                conteudo_salas.append(newSala)
+                
         
-        
-        setTimeout("atualizarSalas()", 3000) // 3 segundos / Tempo de espera de atualização dos dados
+                setTimeout("atualizarSalas()", 3000) // 3 segundos / Tempo de espera de atualização dos dados
 
-                });
+            });
                            
         }
         // Definindo intervalo que a função será chamada no caso 10 em 10 segundos

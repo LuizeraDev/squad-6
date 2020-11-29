@@ -20,10 +20,9 @@ $_SESSION['entrou_sala'] = true;
 </head>
 
 <body>
-    <div class="min-h-screen flex flex-col items-center pt-6 sm:pt-0 ">
-        <!--- GRID -->
 
-        <main>
+    <div class="background">
+     
             <!-- No php, pegamos dados através do campo "name" dos inputs -->
             <section class="container" align="center">
 
@@ -41,7 +40,7 @@ $_SESSION['entrou_sala'] = true;
             </section>
 
             <a class="botaoDesistir" href="{{$salaId}}/desistente">Desistir</a>
-        </main>
+    </div>
 
         <!-- Este script é necessário para fazer a conexão assíncrona com o AJAX -->
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -84,7 +83,7 @@ $_SESSION['entrou_sala'] = true;
                     
                     if (dadosFila.dadosUsuario[0].report) {
                         
-                        $('#conteudo4').html(
+                        $('#conteudo4').html( 
                             "Você ainda está ai? <button id='estouaqui' type='button' onClick='clicksim()'>Sim</button>" +
                             "<hr>"
                         );
@@ -99,34 +98,72 @@ $_SESSION['entrou_sala'] = true;
                             window.location.href = "{{$salaId}}/desistente";
                             alert("Você não confirmou que está na sala, estamos te redirecionando para o dashboard");
                         }, 12000);
-
                         
                     }
                     // Exibe usuários da fila
+             
                     for (i = 0; i < dadosFila.dadosFila.length; i++) {
-                        // Verifica se o usuário tem um código de fila
+
+                        let userDiv = []
+                    
                         if (dadosFila.dadosFila[i].cd_fila_usuario) {
-                            // Verifica se o usuário tem um caminho de imagem, se ele tiver a imagem é exibida.
+                        
+                            userDiv[i] = $("<div/>").addClass("userDiv").appendTo("#conteudo2");
+
                             if (dadosFila.dadosFila[i].profile_photo_path) {
-                                $('#conteudo2').append(
-                                    "<div class='user'><img src='{{ $url }}" + dadosFila.dadosFila[i].profile_photo_path + "' width='40'>"
-                                );
-                            }
-                            // Exibe os usuários da fila da sala em questão
-                            if (dadosFila.dadosUsuario[0].name != dadosFila.dadosFila[i].name) {
-                                $('#conteudo2').append(
-                                    "<div class='info'><b>" + dadosFila.dadosFila[i].name + "</b> - " +
-                                    "Posição: <b>" + dadosFila.dadosFila[i].cd_fila_usuario + "</b>" +
-                                    "<a class='reportar' href='#" + i + "' onclick=reportar(this.href)>Reportar</a></div></div>"
-                                );
+
+                                let userAvatar = $("<div/>").addClass("userAvatar");
+                                userAvatar.append("<img src='{{ $url }}" + dadosFila.dadosFila[i].profile_photo_path + "' width='40'>");
+
+                                userDiv[i].append(userAvatar);
+
                             } else {
-                                $('#conteudo2').append(
-                                    "<div class='info'><b>" + dadosFila.dadosFila[i].name + "</b> - " +
-                                    "Posição: <b>" + dadosFila.dadosFila[i].cd_fila_usuario + "</b></div></div>" +
-                                    "<a href='#" + i + "'</a>"
-                                );
+
+                                let userAvatar = $("<div/>").addClass("userAvatar");
+                                userAvatar.append("<img src= '{{ asset('assets/defaultPic.jpg') }}' alt='default picture'>");
+                                userDiv[i].append(userAvatar);
+                                
+
+                            }
+                      
+                           
+
+                            if (dadosFila.dadosUsuario[0].name != dadosFila.dadosFila[i].name) {
+                                
+                                let userName = $("<h3/>");
+                                let userStatus = $("<p/>");
+                                let reportButton = $("<div/>").addClass("reportButton");
+
+                                
+                                userName.append( dadosFila.dadosFila[i].name );
+                                userStatus.append("Posição: " + dadosFila.dadosFila[i].cd_fila_usuario);
+                                reportButton.append( "<a class='reportar' href='#" + i + "' onclick=reportar(this.href)>Reportar</a>");
+                                
+                                
+                                userDiv[i].append(userName);
+                                userDiv[i].append(userStatus);
+                                userDiv[i].append(reportButton);
+
+                                
+                            } else {
+
+                                let userName = $("<h3/>");
+                                let userStatus = $("<p/>");
+                                let reportButton = $("<div/>").addClass("reportButton");
+
+                                
+                                userName.append( dadosFila.dadosFila[i].name );
+                                userStatus.append("Posição: " + dadosFila.dadosFila[i].cd_fila_usuario);
+                                reportButton.append("<a href='#" + i + "'</a>");
+                                
+                                userDiv[i].append(userName);
+                                userDiv[i].append(userStatus);
+                                userDiv[i].append(reportButton);
+
                             }
                         }
+
+               
                     }
                     // Exibe o botão vou jogar de acordo com os espaços da sala.
                     var espaco = dadosFila.dadosUsuario[0].demanda - dadosFila.Utilizando.length;
@@ -137,7 +174,6 @@ $_SESSION['entrou_sala'] = true;
                     setTimeout("atualizarFila()", 3000) // 3 segundos / Tempo de espera de atualização dos dados
                 })
             }
-
             function reportar(pos) {
                 $.ajax({
                     url: "{{ route('filaConteudo') }}",
@@ -150,10 +186,8 @@ $_SESSION['entrou_sala'] = true;
                     url = this.locate
                     if (confirm("Você está reportando " + dadosFila.dadosFila[tamanho].name))
                         window.location.href = "/reportar/" + url + "/" + id;
-
                 });
             }
-
             function clicksim() {
                 $.ajax({
                     url: "{{ route('filaConteudo') }}",
@@ -164,13 +198,11 @@ $_SESSION['entrou_sala'] = true;
                     window.location.href = "/estouaqui/" + dadosFila.dadosUsuario[0].id;
                 });
             }
-
             // Quando carregar a página
             $(function () {
                 // Faz a primeira atualização
                 atualizarFila();
             });
-
         </script>
 
 </body>
