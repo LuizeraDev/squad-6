@@ -176,7 +176,7 @@ $_SESSION['entrou_sala'] = true;
                                 
                                 userName.append( dadosFila.dadosFila[i].name );
                                 userStatus.append("Posição: " + dadosFila.dadosFila[i].cd_fila_usuario);
-                                reportButton.append( "<a class='reportar' href='#" + i + "' onclick=reportar(this.href)>Reportar</a>");
+                                reportButton.append( "<a href='#" + i + "' onclick=reportar(this.href)>Reportar</a>");
                                 
                                 
                                 userDiv[i].append(userName);
@@ -188,7 +188,7 @@ $_SESSION['entrou_sala'] = true;
 
                                 let userName = $("<h3/>");
                                 let userStatus = $("<p/>");
-                                let reportButton = $("<div/>").addClass("reportButton");
+                                let reportButton = $("<p/>").addClass("noReport");
 
                                 
                                 userName.append( dadosFila.dadosFila[i].name );
