@@ -39,7 +39,9 @@ $_SESSION['entrou_sala'] = true;
 
 
                 <div id="Timer"></div>
-                <div id="conteudo4"></div>
+                <div id="conteudo4">
+                <audio id='audio' src='../assets/NewCritical_01.mp3' autoplay>
+                </div>
                 
             </section>
 
@@ -120,13 +122,20 @@ $_SESSION['entrou_sala'] = true;
                     
                     
                     if (dadosFila.dadosUsuario[0].report) {
+
+
                         
                         $('#conteudo4').html( 
+                            
+                            
 
-                            "Você ainda está ai? <button id='estouaqui' type='button' onClick='clicksim()'>Sim</button>" +
-                            "<hr>"
+                            "Você ainda está ai? <button id='estouaqui' type='button' onClick='clicksim()'>Sim</button>"
+                             +"<hr>"
+
+                           
                         );
                         
+                     
                         if (temporizador == 11) {
                             contagemregressiva = setInterval(function () {
                                 temporizador -= 1;
@@ -254,6 +263,14 @@ $_SESSION['entrou_sala'] = true;
                 // Faz a primeira atualização
                 atualizarFila();
             });
+
+            $('#conteudo4').delay(1000).fadeIn('slow', function() {
+            // play your audio
+                audio.play();
+            });
+
+            $('#conteudo4').hide();
+                audio.pause();
         </script>
 
 </body>
