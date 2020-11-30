@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Repositório do SQUAD 6
-=======
 # Repositório do SQUAD 6 #SangueLaranja
->>>>>>> front-dev
 
 ## Projeto 
 
