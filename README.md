@@ -4,6 +4,10 @@
 
 Página Web Responsiva realizada na intenção de auxiliar na organização de filas para jogos de vídeo game e tarefas rotineiras as quais demandem o enfileiramento de pessoas.
 
+### Branch Back-end
+
+A branch do back-end é a branch **MVC**.
+
 ## Tecnologias usadas
 
 - HTML5 
