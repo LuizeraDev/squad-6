@@ -24,7 +24,8 @@
 .nowPlayingTag {
 
     border-radius: 0 10px 10px 0;
-    background-color: cornflowerblue;
+    font-size: 10px;
+    background-color: rgb(32, 194, 32);
     grid-column: 4/5;
 
 }
@@ -39,6 +40,7 @@
 
     background-color: #E63F67;
     border-radius: 0 10px 10px 0;
+    color: white;
     height: 4rem;
     grid-column: 3/4;
  
@@ -78,6 +80,7 @@
         
 
     }
+
     #conteudo,
     #conteudo2 {
 
@@ -591,7 +594,7 @@
         grid-column: 1/2;
     
         display: grid;
-        grid-template-columns: 60px 1fr 1fr 80px;
+        grid-template-columns: 60px 1fr 1fr 100px;
     
         min-width: 400px;
         max-width: 500px;
