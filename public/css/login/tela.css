@@ -6,7 +6,7 @@
 
 .painel {
 
-    color: white;
+    color: var(--fontColor);
     padding: 2rem 2rem;
 
 }
@@ -95,6 +95,7 @@
 
 
     .logoDiv {
+
         background-color: black;
 
     }
@@ -114,7 +115,6 @@
         height: 100vh;
         background-color: black;
         width: 20rem;
-        color: var(--fontColor);
         margin: 0 auto;
     }
 

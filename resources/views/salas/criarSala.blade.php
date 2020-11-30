@@ -26,7 +26,8 @@
 
 <body class="logoBG"> 
 
-	<!--- GRID -->
+<div class="logoBG">
+	<!--- GRID -->	
 	<div class="ajuste min-h-screen flex flex-col items-center pt-6 sm:pt-0">
 
 		<!-- form que aceita arquivos -->
@@ -144,8 +145,8 @@
 
 
 
-	</div>
 
+</div>
 </body>
 
 </html>

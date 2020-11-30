@@ -80,7 +80,7 @@ $_SESSION['entrou_sala'] = true;
                             let userNowPlayingTag = $("<div/>").addClass("nowPlayingTag");
 
                                 userAvatar.append("<img src='{{ $url }}" + dadosFila.dadosFila[i].profile_photo_path + "' width='40'>");
-                                userStatus.append("<p> Em progresso <p/>");
+                                userStatus.append("<h3>" + dadosFila.dadosFila[i].name  + "<h3/>");
                                 userNowPlayingTag.append("<h3> UTILIZANDO <h3/>")
 
                                 userDiv[i].append(userAvatar);
@@ -96,7 +96,7 @@ $_SESSION['entrou_sala'] = true;
                             let userNowPlayingTag = $("<div/>").addClass("nowPlayingTag");
 
                                 userAvatar.append("<img src= '{{ asset('assets/defaultPic.jpg') }}' alt='default picture' width='40'>");
-                                userStatus.append("<p> Em progresso <p/>");
+                                userStatus.append("<h3>" + dadosFila.dadosFila[i].name  + "<h3/>");
                                 userNowPlayingTag.append("<h3> UTILIZANDO <h3/>")
 
                                 userDiv[i].append(userAvatar);

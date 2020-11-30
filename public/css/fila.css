@@ -228,14 +228,15 @@
         width: 100%;
     }
     
-    .background{
+    .background {
+        
         background-image: url('../assets/Logo1.png');
+        object-fit: cover;
         background-size: cover;
         background-repeat: no-repeat;
         background-position-x: center;
         background-position-y: 40vh;
- 
-    }
+     }
 
     .container{
 
@@ -343,12 +344,16 @@
         margin: auto 0;
     }
         
+    .buttons{
+
+        grid-template-columns: 1fr;
+    }
     .leaveButton {
 
-        grid-column: 2/3;
-        grid-row: 1;
+        grid-column: 1/2;
+        grid-row: 2;
 
-        width: 40%;
+        width: 90%;
         height: 3rem;
         margin: 1rem auto;
         line-height: 3rem;
@@ -365,8 +370,8 @@
 
         grid-column: 1/2;
         grid-row: 1;
-
-        width: 40%;
+        overflow-y: hidden;
+        width: 90%;
         height: 3rem;
         margin: 1rem auto;
         line-height: 3rem;
@@ -503,7 +508,7 @@
         grid-column: 2/3;
         grid-row: 1;
 
-        width: 40%;
+        width: 60%;
         height: 3rem;
         margin: 1rem auto;
         line-height: 3rem;
@@ -521,7 +526,7 @@
         grid-column: 1/2;
         grid-row: 1;
 
-        width: 40%;
+        width: 60%;
         height: 3rem;
         margin: 1rem auto;
         line-height: 3rem;
@@ -559,7 +564,7 @@
         height: 650px;
         max-height: fit-content;
         width: 50%;
-        margin: 30vh auto 5vh;
+        margin: 20vh auto 5vh;
         
     }
 
@@ -596,8 +601,8 @@
         display: grid;
         grid-template-columns: 60px 1fr 1fr 100px;
     
-        min-width: 400px;
-        max-width: 500px;
+        min-width: 500px;
+        max-width: 600px;
         height: 60px;
 
         overflow-x: hidden;

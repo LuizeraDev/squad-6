@@ -1,4 +1,5 @@
-/* variável para a cor da animação de pulsação*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;700&display=swap');
+
 
 :root {
     
@@ -8,6 +9,9 @@
     --pageLinksHover: #E63F67;
     --onlineAgora: #e63f66be;
     --onlineAgoraHover: #cc4464be;
+
+    --fontFamily: 'Montserrat';
+    --fontSize: 30px;
     
 }
 
@@ -45,19 +49,20 @@
 
 
 .mensagem {
-
+    
+    font-family: var(--fontFamily);
     padding-top: 3rem;
 }
 
 .mensagem h2 {
    
-    font-size: 2rem;
+    font-size: var(--fontSize);
     font-weight: bold;
 }
 
 .mensagem p {
 
-    font-size: 18px;
+    font-size: var(--fontSize);
     font-weight: lighter;
 }
 
@@ -70,13 +75,15 @@
     
 }
 .salasContainer{
+
+    position: absolute;
+    top: 30vh;
     margin: 0 auto;
     width: 100%;
 }
 
 .conteudoContainer {
     
-
     display: grid;
     grid-gap: 1rem;
 }
@@ -130,11 +137,13 @@
        padding-top: 2rem;
        text-align: center;
        color: var(--cardLetters);
+       font-size: 25px;
         
     }
 
     .mensagem p {
 
+        font-size: 25px;
         padding: 0 2rem;
         color: var(--cardLetters);
         text-align: center;
@@ -168,6 +177,7 @@
         padding-top: 10rem;
         text-align: center;
         color: var(--cardLetters);
+        font-size: var(--fontSize);
          
      }
  
@@ -176,6 +186,7 @@
          padding: 0 2rem;
          color: var(--cardLetters);
          text-align: center;
+         font-size: var(--fontSize);
      }
 
 

@@ -20,7 +20,7 @@
     max-height: 434px;
     
     border-radius: 15px;
-    background-color: #1C252E;
+    background-color: var(--cardBG);
     margin: 1rem auto;
     color: var(--cardLetters);
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);    
