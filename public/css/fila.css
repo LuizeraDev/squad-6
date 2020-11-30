@@ -1,0 +1,755 @@
+
+
+.buttons {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1;
+}
+
+.modal {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 30vh 35vw;
+    align-items: center;
+    height: 400px;
+    width: 600px;
+    background-image: url("../../assets/pattern_2.jpg");
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);  
+}
+
+.reportAlert{
+
+    position: absolute;
+    width: 83%;
+    height: 75%;
+    background-color: rgb(255, 255, 255, 0.7);
+    align-items: center;
+
+    margin: 3rem;
+    
+}
+
+.modal .Timer{
+    margin: 2rem;
+    color:red;
+    font-size: 30px;
+    
+}
+
+.modal .alerta{
+
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 2rem;
+    color:rgb(92, 27, 27);
+
+}
+
+.modal #estouaqui{
+    width: 60%;
+    height: 4rem;
+
+    background-color: rgb(32, 194, 32);
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+
+    border-radius: 10px;
+    border: none;
+
+    margin-top: 2rem;
+
+}
+
+.modal #estouaqui:hover{
+
+    background-color: rgb(20, 117, 49);
+}
+
+.minhaVezButton,
+.leaveButton {
+
+    border-radius: 10px;
+}
+
+.greetMessage {
+    font-size: 30px;
+    font-family: ;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    border-bottom: 2px solid rgb(255, 255, 255, 0.5);
+}
+
+.nowPlayingTag {
+
+    border-radius: 0 10px 10px 0;
+    font-size: 10px;
+    background-color: rgb(32, 194, 32);
+    grid-column: 4/5;
+
+}
+
+.userPlayingStatus{
+
+    grid-column: 2/4;
+}
+
+
+.reportButton,
+.reportButton a {
+
+    background-color: #E63F67;
+    border-radius: 0 10px 10px 0;
+    line-height: 3rem;
+    text-decoration: none;
+    color: white;
+}
+
+.reportar:hover {
+    background-color: rgb(173, 48, 77);
+}
+
+
+@media only screen and (max-width: 450px){
+
+    body {
+        background-image: url("../assets/bck_1.png");
+        width: 450px;
+    }
+    #conteudo1{
+        width: 100%;
+    }
+    .greetings {
+
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .container{
+
+        color: white;  
+        background-image: url("../assets/bck_1.png");
+        background-size: cover;
+        margin-top: 30vh;
+        width: 100%;
+        height: 100%;
+        
+
+    }
+
+    #conteudo,
+    #conteudo2 {
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row-gap: 1rem;
+
+    }
+    
+    .userPlayingDiv,
+    .userDiv{
+    
+        grid-column: 1/2;
+    
+        display: grid;
+        grid-template-columns: 60px 1fr 80px;
+
+        margin: 0 auto;
+      
+    }
+    
+    .userPlayingAvatar img,
+    .userDiv img{
+    
+        height: 60px;
+        width: 60px;
+        border-radius: 10px;
+    }
+    
+
+    .userDiv h3,
+    .userDiv p {
+    
+        height: 3rem;
+        line-height: 3rem;
+        background-color: white;
+        color: black;
+        min-width: fit-content;
+        overflow-y: hidden;
+        margin: auto 0;
+    }
+
+    .userDiv p{
+        display:none;
+    }
+
+    .userPlayingStatus{
+
+        grid-column: 2/3;
+    }
+
+    .nowPlayingTag{
+
+        grid-column: 3/4;
+    }
+    .userDiv h3 {
+
+        grid-column: 2/4;
+    }
+    
+ 
+    .reportButton, 
+    .reportButton a, {
+    
+        display: inline-block;
+        min-width: fit-content;
+        max-width: 80px;
+        height: 3rem;
+        line-height: 3rem;
+        padding-left: 0;
+        margin: auto 0;
+    }
+    
+    #conteudo {
+
+        display: grid;
+        grid-template-columns: 60px 1fr 1fr;
+        width: 100%;
+        grid-row-gap: 1rem;
+        grid-column-gap: 5px;
+        margin: 0 auto;
+    }
+
+    .buttons{
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1;
+        width: 100%;
+        
+    }
+    
+    .leaveButton {
+    
+        grid-column: 2/3;
+        grid-row: 1;
+    
+        width: 40%;
+        height: 3rem;
+        
+        margin-right: 0rem;
+        margin-left: 1rem;
+        margin-top: auto;
+        line-height: 3rem;
+        color: white;
+        background-color: red;
+    
+    }
+    
+    .leaveButton:hover{
+        background-color: rgb(184, 2, 2);
+    }
+    
+    .minhaVezButton {
+    
+        grid-column: 1/2;
+        grid-row: 1;
+    
+        width: 40%;
+        height: 3rem;
+        
+      
+        margin-left: 0;
+        margin-top: auto;
+
+        line-height: 3rem;
+        color: white;
+        background-color:  #1B9D42;
+    }
+    
+    .minhaVezButton:hover {
+        background-color: rgb(20, 117, 49);
+    }
+    
+    
+    
+
+}
+
+
+@media only screen and (max-width: 737px){
+
+    body {
+        background-image: url("../assets/bck_1.png");
+        width: 100%;
+    }
+    
+    .background {
+        
+        background-image: url('../assets/Logo1.png');
+        object-fit: cover;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: 40vh;
+     }
+
+    .container{
+
+        display: grid;
+        grid-template-columns: 1fr;
+        color: white;
+        background-image: url("../assets/bck_1.png");
+
+        width: 100%;
+        margin: 20vh auto;
+     
+    }
+
+    .greetMessage{
+
+        font-size: 20px;
+        font-family: ;
+        padding-top: 5rem;
+
+    }
+
+
+    #conteudo,
+    #conteudo2 {
+
+        margin: 1rem auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row-gap: 1rem;
+        
+    }
+    
+    .userPlayingDiv {
+
+        grid-column: 1/2;
+    
+        display: grid;
+        grid-template-columns: 60px 1fr 100px;
+        grid-row-gap: 1rem ;
+    
+        width: 400px;
+        margin: 1rem auto;
+
+    }
+
+    .userDiv{
+     
+        grid-column: 1/2;
+    
+        display: grid;
+        grid-template-columns: 60px 1fr 1fr 100px;
+        grid-row-gap: 1rem ;
+    
+        width: 400px;
+        margin: 1rem auto;
+    }
+    
+    .userPlayingAvatar,
+    .userPlayingAvatar img,
+    .userDiv img{
+    
+        height: 60px;
+        width: 60px;
+        border-radius: 10px;
+    }
+    
+    .userPlayingStatus,
+    .userPlayingStatus p{
+
+        height: 3rem;
+        line-height: 3rem;
+        background-color: white;
+        color: black;
+        min-width: fit-content;
+
+        overflow-y: hidden;
+        margin: auto 0;
+    }
+
+    .userDiv h3,
+    .userDiv p {
+    
+        height: 3rem;
+        line-height: 3rem;
+        background-color: white;
+        color: black;
+        min-width: fit-content;
+        padding: 0 .5rem;
+
+        overflow-y: hidden;
+        margin: auto 0;
+    }
+    
+    .nowPlayingTag,
+    .nowPlayingTag h3,
+    .reportButton, 
+    .reportButton a {
+    
+        min-width: fit-content;
+        max-width: 100%;
+        height: 3rem;
+        line-height: 3rem;
+        padding-left: 0;
+        margin: auto 0;
+    }
+        
+    .buttons{
+
+        grid-template-columns: 1fr;
+    }
+    .leaveButton {
+
+        grid-column: 1/2;
+        grid-row: 2;
+
+        width: 90%;
+        height: 3rem;
+        margin: 1rem auto;
+        line-height: 3rem;
+        color: white;
+        background-color: red;
+
+    }
+
+    .leaveButton:hover{
+        background-color: rgb(184, 2, 2);
+    }
+
+    .minhaVezButton {
+
+        grid-column: 1/2;
+        grid-row: 1;
+        overflow-y: hidden;
+        width: 90%;
+        height: 3rem;
+        margin: 1rem auto;
+        line-height: 3rem;
+        color: white;
+        background-color:  #1B9D42;
+    }
+
+    .minhaVezButton:hover {
+        background-color: rgb(20, 117, 49);
+    }
+
+    
+
+}
+
+@media screen and (min-width: 738px){
+
+    body{
+
+        width: 100%;
+    }
+    .background{
+        position: absolute;
+        background-image: url("../assets/logo1.png");
+        background-repeat: no-repeat;
+        background-position: top;
+        height: 100%;
+        width: 100%;
+    }
+
+    .container{
+
+        display: grid;
+        grid-template-columns: 1fr;
+        color: white;
+        background-image: url("../assets/bck_1.png");
+        border-radius: 30px;
+
+        height: 700px;
+        width: 75%;
+        padding: 2rem;
+        margin: 30vh auto;
+        
+    }
+
+    #conteudo,
+    #conteudo2 {
+
+        margin: 1rem auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row-gap: 1rem;
+        
+    }
+    
+    .userPlayingDiv {
+
+        grid-column: 1/2;
+    
+        display: grid;
+        grid-template-columns: 60px 1fr 1fr 100px;
+        grid-row-gap: 1rem ;
+        height: 60px;
+        width: 400px;
+        margin: 1rem auto;
+
+    }
+
+    .userDiv{
+     
+        grid-column: 1/2;
+    
+        display: grid;
+        grid-template-columns: 60px 1fr 1fr 100px;
+        grid-row-gap: 1rem ;
+        height: 60px;
+        width: 400px;
+        margin: 1rem auto;
+    }
+    
+    .userPlayingAvatar,
+    .userPlayingAvatar img,
+    .userDiv img{
+    
+        height: 60px;
+        width: 60px;
+        border-radius: 10px;
+    }
+    
+    .userPlayingStatus,
+    .userPlayingStatus p{
+
+        height: 3rem;
+        line-height: 3rem;
+        background-color: white;
+        color: black;
+        min-width: fit-content;
+
+        overflow-y: hidden;
+        margin: auto 0;
+    }
+
+    .userDiv h3,
+    .userDiv p {
+    
+        height: 3rem;
+        line-height: 3rem;
+        background-color: white;
+        color: black;
+        min-width: fit-content;
+        padding: 0 .5rem;
+
+        overflow-y: hidden;
+        margin: auto 0;
+    }
+    
+    .nowPlayingTag,
+    .nowPlayingTag h3,
+    .reportButton, 
+    .reportButton a {
+        
+        display: block;
+        overflow-y: hidden;
+        min-width: fit-content;
+        max-width: 100%;
+        height: 3rem;
+        line-height: 3rem;
+        padding-left: 0;
+        margin: auto 0;
+    }
+        
+    .leaveButton {
+
+        grid-column: 2/3;
+        grid-row: 1;
+
+        width: 60%;
+        height: 3rem;
+        margin: 1rem auto;
+        line-height: 3rem;
+        color: white;
+        background-color: red;
+
+    }
+
+    .leaveButton:hover{
+        background-color: rgb(184, 2, 2);
+    }
+
+    .minhaVezButton {
+
+        grid-column: 1/2;
+        grid-row: 1;
+
+        width: 60%;
+        height: 3rem;
+        margin: 1rem auto;
+        line-height: 3rem;
+        color: white;
+        background-color:  #1B9D42;
+    }
+
+    .minhaVezButton:hover {
+        background-color: rgb(20, 117, 49);
+    }
+    
+
+}
+
+
+
+@media only screen and (min-width: 1080px){
+    
+    .background{
+        position: absolute;
+        background-image: url("../assets/logo1.png");
+        background-repeat: no-repeat;
+        background-position: top;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .container{
+
+        display: grid;
+        grid-template-columns: 1fr;
+        color: white;
+        background-image: url("../assets/bck_1.png");
+        border-radius: 30px;
+        height: 650px;
+        max-height: fit-content;
+        width: 50%;
+        margin: 20vh auto 5vh;
+        
+    }
+
+    #conteudo,
+    #conteudo2 {
+
+        display: grid;
+        grid-template-columns: 1fr;
+
+        grid-row-gap: 1rem;
+        min-height: 3rem;
+        
+    }
+
+    .userPlayingTag,
+    .userPlayingTag h3 {
+
+        display: inline-block;
+        background-color: cornflowerblue;
+        min-width: fit-content;
+        max-width: 80px;
+        height: 3rem;
+        line-height: 3rem;
+        padding-left: 0;
+        margin: auto 0;
+
+    }
+ 
+    .userPlayingDiv,
+    .userDiv{
+    
+        grid-column: 1/2;
+    
+        display: grid;
+        grid-template-columns: 60px 1fr 1fr 100px;
+    
+        min-width: 500px;
+        max-width: 600px;
+        height: 60px;
+
+        overflow-x: hidden;
+        overflow-y: hidden;
+        margin: 0 auto;
+    }
+    
+    .userPlayingAvatar,
+    .userPlayingAvatar img,
+    .userAvatar,
+    .userDiv img{
+        display: block;
+        text-align: center;
+        height: 60px;
+        width: 60px;
+        border-radius: 10px;
+    }
+    
+    .userPlayingStatus,
+    .userPlayingStatus p,
+    .userDiv h3,
+    .userDiv p {
+        display: inline-block;
+        height: 3rem;
+        line-height: 3rem;
+        background-color: white;
+        color: black;
+        min-width: fit-content;
+        padding: 0 .5rem;
+
+        overflow-y: hidden;
+        margin: auto 0;
+    }
+
+    .nowPlayingTag,
+    .nowPlayingTag h3,
+    .reportButton, 
+    .reportButton a {
+    
+        
+        min-width: fit-content;
+        max-width: 100%;
+        height: 3rem;
+        line-height: 3rem;
+        padding-left: 0;
+        margin: auto 0;
+    }
+
+
+        
+    .leaveButton {
+
+        grid-column: 2/3;
+        grid-row: 1;
+
+        width: 60%;
+        height: 3rem;
+        margin: 1rem auto;
+        line-height: 3rem;
+        color: white;
+        background-color: red;
+
+    }
+
+    .leaveButton:hover{
+        background-color: rgb(184, 2, 2);
+    }
+
+    .minhaVezButton {
+
+        grid-column: 1/2;
+        grid-row: 1;
+
+        width: 60%;
+        height: 3rem;
+        margin: 1rem auto;
+        line-height: 3rem;
+        color: white;
+        background-color:  #1B9D42;
+    }
+
+    .minhaVezButton:hover {
+        background-color: rgb(20, 117, 49);
+    }
+
+    
+
+}
+
+
+

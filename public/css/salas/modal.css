@@ -1,0 +1,295 @@
+/* variável para a cor da animação de pulsação*/
+
+:root {
+    
+    --cardLetters: #ffffff;
+    --pageLinks: rgba(0,0,0,.5);
+    --cardBG: #1C252E;
+    --sucessColor: #E63F67;
+    --sucessColorHover: #A82746;
+    --dangerColor: rgb(250, 101, 101);
+    --dangerColorHover: rgb(196, 1, 1);
+}
+
+
+
+.modalUser{
+
+
+    display:none;
+
+    top: 0;
+    height: 100%;
+    width: 100%;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    
+
+}
+
+.toggleActive {
+    
+    position: absolute;   
+    top: 0;
+    left: 0;
+    
+}
+
+.usersWindow {
+
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 30vh 35vw;
+
+    height: 400px;
+    width: 600px;
+    background: #ebebeb;
+}
+
+
+.fecharUserList{
+
+   
+    background-color: var(--dangerColor);
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 2rem;
+    height: 2rem;
+
+    color: white;
+    font-weight: bold;
+
+}
+
+.cancelButtonUserModal{
+  
+    position: fixed;
+
+    height: 3rem;
+    width: 12rem;
+
+    line-height: 3rem;
+    text-align: center;
+
+    margin-right: 12rem;
+    margin-left: 12rem;
+    margin-top: 8rem;
+    
+    font-weight: bold;
+    
+    background-color: rgba(107, 114, 128, 0.5);
+    color: var(--cardLetters);
+    transition: background-color .4s ease-in;
+    
+}
+
+.cancelButtonUserModal:hover {
+
+    cursor: pointer;
+    background-color: rgba(107, 114, 128, 1);
+}
+
+
+
+/* modal de exclusão da sala*/
+
+/* painel com inputs */
+.modal {
+
+    position:relative;
+    display: block;
+
+    margin: 30vh auto;
+    width: 600px;
+    height: 400px;   
+
+
+    background-color: #ebebeb;
+    border-radius: 20px;
+    color:black;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    
+}
+
+.active {
+    border-radius: 20px;
+    display: none;
+}
+
+/*escurecimento da tela*/
+.deleteRoom {
+
+    overflow-y: hidden;
+    position: fixed;
+    top: 0;
+
+    height: 100%;
+    width: 100%;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+
+
+/*=== animação do fade in ====*/
+.modal {
+
+    animation-name: fadeIn;
+    animation-duration:  0.2s;
+    animation-timing-function: ease-in;
+}
+
+    @keyframes fadeIn{
+
+        from {
+            transform: translateY(-5%);
+            opacity: 0
+        }
+        to {
+            transform: translateY(0%);
+            opacity: 1;
+        }
+
+    }
+
+
+.closeButton {
+
+    position: absolute;
+    right: 0;
+    padding: 5px 1rem 5px;
+
+    font-size: 1rem;
+    font-weight: bold;
+    grid-row: 1;
+
+    cursor: pointer;
+
+  
+    border-radius: 0 15px 0 0;
+
+    color: rgb(0, 0, 0);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);  
+
+    transition: background-color 0.2s ease-in;
+}
+
+.closeButton:hover {
+
+    color: whitesmoke;
+    background-color: rgba(255, 60, 60, 0.5);
+}
+
+.message {
+
+    font-weight: bold;
+    height: 100px;
+    padding: 1rem 2rem;
+    text-align: center;
+    grid-row: 1;
+}
+
+.message h2{
+
+    font-size: 22px;
+    line-height: 50px;
+    padding: 50px 2rem;
+    
+}
+
+
+.confirmMessage {
+
+    padding: 0 8rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+.confirmMessage span {
+
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+
+.input {
+    height: 3rem;
+    grid-row: 2;
+    border-radius: 0;
+}
+
+.input input{
+    
+    position: relative;
+    height: 3rem;
+    width: 70%;
+    margin: 1rem 5.5rem;
+}
+
+.buttons {
+    margin-top: 1.5rem;
+    grid-row: 3;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.delButton {
+
+    
+    grid-column: 2/3;  
+
+    height: 3rem;
+    width: 12rem;
+
+    margin-left: 1rem;
+    grid-row: 1;
+    font-weight: bold;
+    
+    background-color: var(--dangerColor);
+    color: var(--cardLetters);
+    transition: background-color .4s ease-in;
+    
+}
+
+.delButton:hover {
+
+    background-color:var(--dangerColorHover);
+}
+
+.cancelButton{
+
+    
+    grid-column: 1/2;  
+
+    height: 3rem;
+    width: 12rem;
+
+    line-height: 3rem;
+    text-align: center;
+
+    margin-right: 1rem;
+    margin-left: 5.5rem;
+    grid-row: 1;
+    font-weight: bold;
+    
+    background-color: rgba(107, 114, 128, 0.5);
+    color: var(--cardLetters);
+    transition: background-color .4s ease-in;
+    
+}
+
+.cancelButton:hover {
+
+    cursor: pointer;
+    background-color: rgba(107, 114, 128, 1);
+}

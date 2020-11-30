@@ -1,0 +1,20 @@
+.painel {
+
+    text-align: center;
+    padding: 2rem;
+}
+
+.input {
+    height: 3rem;
+    width: 100%;
+    margin: 2rem auto;
+    border: 1px solid rgb(208, 208, 209);
+    text-align: center;
+    font-size: large;
+}
+
+.deleteButton {
+    cursor: pointer;
+    margin: 1rem auto;
+    width: 10rem;
+}

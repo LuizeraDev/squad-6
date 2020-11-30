@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;700&display=swap');
+
+
+:root {
+    
+    --cardLetters: #ffffff;
+    --pageLinks: rgba(0,0,0,.5);
+    --cardBG: #1C252E;
+    --pageLinksHover: #E63F67;
+    --onlineAgora: #e63f66be;
+    --onlineAgoraHover: #cc4464be;
+
+    --fontFamily: 'Montserrat';
+    --fontSize: 30px;
+    
+}
+
+/* ======================= */
+
+
+
+.onlineAgora{
+
+    color: var(--cardLetters);
+    padding: 1rem;
+    background-color: var(--onlineAgora);
+    transition: background-color 1s ease-in-out;
+    
+}
+
+.onlineAgora:hover{
+    font-weight: bolder;
+    background-color: var(--onlineAgoraHover);
+}
+
+.background{
+    position: relative;
+    background-image: url("../../assets/bck_1.png");
+    height: 50vh;
+    width: 100%;
+    
+}
+
+.logoNav{
+
+    height: 50px;
+    width: 50px;
+}
+
+
+.mensagem {
+    
+    font-family: var(--fontFamily);
+    padding-top: 3rem;
+}
+
+.mensagem h2 {
+   
+    font-size: var(--fontSize);
+    font-weight: bold;
+}
+
+.mensagem p {
+
+    font-size: var(--fontSize);
+    font-weight: lighter;
+}
+
+.bodyContainer {
+
+    position: absolute;
+    top:0;
+    margin-top: 45vh;
+    
+    
+}
+.salasContainer{
+
+    position: absolute;
+    top: 30vh;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.conteudoContainer {
+    
+    display: grid;
+    grid-gap: 1rem;
+}
+
+.voceEsta {
+    position: absolute;
+    top:0;
+    margin-top:35rem;
+    margin-left: 75vw;
+    text-align: left;
+    font-size: large;
+    color: white;
+    
+}
+
+.voltarUnidade{
+
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding-top: 3rem;
+    color: var(--pageLinks);
+}
+
+.voltarUnidade:hover{
+    color: var(--pageLinksHover);
+}
+
+
+/* ======= MEDIA QUERY PARA AJUDAR NA RESPONSIVIDADE DO NAVBAR========*/
+
+@media only screen and (min-width: 200px) {
+  
+    .conteudoContainer {
+
+        margin-top: 8rem;
+        grid-template-columns: 1fr;
+        margin-left: 10vw;
+        margin-right: 10vw;
+    }
+
+    .onlineAgora{
+
+        right: 0;
+      
+    }
+    
+    .mensagem h2{
+
+       padding-top: 2rem;
+       text-align: center;
+       color: var(--cardLetters);
+       font-size: 25px;
+        
+    }
+
+    .mensagem p {
+
+        font-size: 25px;
+        padding: 0 2rem;
+        color: var(--cardLetters);
+        text-align: center;
+    }
+
+
+}
+
+@media only screen and ( min-width: 640px){
+
+    .onlineAgora{
+
+        position: absolute;
+        right: 5rem;
+      
+    }
+}
+
+@media only screen and ( min-width: 854px) {
+
+    .conteudoContainer {
+
+        margin-top: 8rem;
+        grid-template-columns: 1fr 1fr;
+        margin-left: 10vw;
+        margin-right: 10vw;
+    }
+       
+    .mensagem h2{
+
+        padding-top: 10rem;
+        text-align: center;
+        color: var(--cardLetters);
+        font-size: var(--fontSize);
+         
+     }
+ 
+     .mensagem p {
+ 
+         padding: 0 2rem;
+         color: var(--cardLetters);
+         text-align: center;
+         font-size: var(--fontSize);
+     }
+
+
+}
+
+
+@media only screen and ( min-width: 1080px) {
+
+    .conteudoContainer {
+
+        margin-top: 8rem;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-left: 10vw;
+        margin-right: 10vw;
+        
+    }
+
+    .onlineAgora{
+
+        margin-left: 55vw;
+    }
+
+}
+
+@media only screen and ( min-width: 1280px) {
+
+    .conteudoContainer {
+
+        margin-top: 8rem;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-left: 10vw;
+        margin-right: 10vw;
+       
+    }
+
+    .onlineAgora{
+
+        margin-left: 55vw;
+    }
+
+}
+
+@media only screen and ( min-width: 1556px) {
+
+    .conteudoContainer {
+
+        margin-top: 8rem;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin-left: 10vw;
+        margin-right: 10vw;
+
+    }
+
+    .onlineAgora{
+
+        margin-left: 55vw;
+    }
+
+}
+
+@media only screen and ( min-width: 1920px) {
+
+    .conteudoContainer {
+
+        margin-top: 8rem;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin-left: 10vw;
+        margin-right: 10vw;
+
+    }
+
+    .onlineAgora{
+
+        margin-left: 55vw;
+    }
+
+}
+
+
+

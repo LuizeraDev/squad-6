@@ -1,0 +1,145 @@
+
+:root {
+
+    --fontColor: white;   
+}
+
+.painel {
+
+    color: var(--fontColor);
+    padding: 2rem 2rem;
+
+}
+
+.faixa {
+
+    height: 100vh;
+    background-image: url("../../assets/bck_1.png");
+    width: 30rem;
+    color: var(--fontColor);
+    margin: 0 auto;
+}
+
+.faixa h3 {
+    margin-top: 20vh;
+    
+    font-size: 2.4rem;
+    font-weight: bolder;
+    text-align: center;
+}
+.faixa p {
+
+    font-size: 1.4rem;
+    text-align: center;
+    font-weight: lighter;
+    padding: 0 2rem;
+}
+
+.logoDiv {
+
+    margin-right: 0;
+    height: 100%;
+    width: 100%;
+
+}
+
+.logo {
+
+   
+    padding-left: 10rem;
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+    
+}
+
+.logoDivReg {
+    
+    margin-right: 0;
+    height: 100%;
+    width: 100%;
+
+}
+
+.logoReg {
+
+    
+    padding-bottom: 10rem;
+    padding-right: 10rem;
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+    
+}
+
+.logoForgotPW{
+
+  
+}
+
+.logoForgotPW img{
+
+
+    
+}
+
+@media only screen and (max-width: 1280px){
+
+    .logoForgotPW img{
+
+       
+    }
+}
+
+@media only screen and (max-width: 763px) {
+
+
+    .logoDiv {
+
+        background-color: black;
+
+    }
+
+    .logo {
+        
+       
+        padding-right: 10rem;
+        width: 100%;
+        height: 90%;
+        background-color: black;
+        object-fit: contain;
+    }
+
+    .faixa {
+
+        height: 100vh;
+        background-color: black;
+        width: 20rem;
+        margin: 0 auto;
+    }
+
+    .faixa h3 {
+
+
+        margin-top: 5vh;
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+        width: 100%;
+    }
+    .faixa p {
+        
+        padding: 2rem;
+        font-size: 1rem;
+        text-align: center;
+        width: 100%;
+    }
+    .painel {
+
+        color: white;
+        padding: 2rem 2rem;
+        width: 100%;
+    
+    }
+}
+

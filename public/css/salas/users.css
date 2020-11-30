@@ -1,0 +1,51 @@
+:root {
+    --cardLetters: #ffffff;
+    --pageLinks: rgba(0,0,0,.5);
+    --cardBG: #1C252E;
+    --buttonBG: #E63F67;
+    --buttonBGHover:#A82746;
+    --blackoutColor: rgba(230, 63, 103, 1);
+
+    --fontSizeTitle: 22px ;
+    --fontSizeBody: 16px;
+    --fontFamily: 'Montserrat';
+    --fontWeight_H3: bold;
+    --fontWeight_p: 400;
+
+}
+
+.userStatus {
+
+    padding: 1rem;
+    margin: 1rem 1rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
+    border-bottom:1px solid rgba(0, 0, 0, 0.5);
+}
+
+.userStatus:nth-child(odd){
+
+  
+}
+
+.userStatus h3{
+
+    color: var(--buttonBG);
+    font-weight: var(--fontWeight_H3);
+    font-size: var(--fontSizeTitle);
+    
+}
+
+.userStatus p2, p3{
+
+   
+    padding-left:.5rem;
+}
+
+.follow {
+    color: var(--cardLetters);
+    padding: 2px;
+    margin-left: 2rem;
+    border-radius: 20px;
+    background-color: rgba(53, 185, 0, 0.637);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);  
+}

@@ -1,0 +1,161 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;700&display=swap');
+
+:root {
+    --cardLetters: #ffffff;
+    --pageLinks: rgba(0,0,0,.5);
+    --cardBG: #1C252E;
+    --buttonBG: #E63F67;
+    --buttonBGHover:#A82746;
+    --blackoutColor: rgba(230, 63, 103, .8);
+
+    --fontSizeTitle: 30px ;
+    --fontSizeBody: 30px;
+    --fontFamily: 'Montserrat';
+    --fontWeight_H3: 400;
+    --fontWeight_p: bold
+
+}
+
+
+.logoNav{
+
+    height: 50px;
+    width: 50px;
+}
+
+.greetings{
+
+    grid-column: 1/4;
+    grid-row: 1;
+    color: var(--cardLetters);
+    margin:10vh auto 0;
+    text-align: center;
+}
+
+.greetings h3 {
+
+    font-weight: var(--fontWeight_H3);
+    font-size: var(--fontSizeTitle);
+    font-family: var(--fontFamily);
+    width: 40rem;
+    padding: 0 2rem;
+}
+
+.greetings p {
+
+    font-weight: var(--fontWeight_p);
+    font-size: var(--fontSizeBody);
+    font-family: var(--fontFamily) ;
+    padding-top: 3rem;
+}
+
+.body{
+
+    background-image: url("../assets/bck_1.png");
+    position: relative;
+    height: 50vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1em;
+    grid-row-gap: 100px;
+}
+
+.option1 {
+
+    
+    color: var(--cardLetters);
+    background-color: var(--buttonBG);
+    font-size: var(--fontSizeTitle);
+    font-weight: var(--fontWeight_p);
+    min-width: 15rem;
+    min-height: 20rem;
+    max-width: 19rem;
+    max-height: 20rem;
+
+    line-height: 19rem;
+    margin-left:auto;
+    margin-right: 2rem;
+
+    width: 19rem;
+    text-align: center;
+    
+
+    border-radius: 10px;
+
+    transform: scale(1);
+    animation: pulse 2s infinite;
+}
+
+.option2 {
+
+    color: var(--cardLetters);
+    background-color: var(--buttonBG);
+    font-size: var(--fontSizeTitle);
+    font-weight: var(--fontWeight_p);
+    min-width: 15rem;
+    min-height: 20rem;
+    max-width: 19rem;
+    max-height: 20rem;
+
+    line-height: 19rem;
+    margin-left:2rem;
+    margin-right: auto;
+  
+    width: 19rem;
+    text-align: center;
+
+    border-radius: 10px;
+
+    transform: scale(1);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 var(--pulseColor);
+}
+
+70% {
+    transform: scale(1.025);
+    box-shadow: 0 0 0 5px var(--blackoutColor);
+}
+
+100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(94,64,179, 0);
+}
+}
+
+.option:hover {
+    background-color: var(--buttonBGHover);
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    .body {
+
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 1em;
+        grid-gap: 1rem;
+
+    }
+
+    .greetings {
+
+        grid-column: 1/2;
+    }
+    
+    .option1,
+    .option2 {
+
+        margin: 2rem auto;
+        
+        grid-column: 1/2;
+    }
+
+}

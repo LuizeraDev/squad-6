@@ -1,0 +1,240 @@
+:root {
+
+    --fontColor: white;
+    --inputColor: #E63F67;
+    --inputColorHover: #A82746;
+    --checkBox: black;
+}
+
+/* remove background do autocomplete do chrome */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px black inset !important;
+}
+/*muda cor da fonte no autocomplete*/
+input:-webkit-autofill {
+    -webkit-text-fill-color: var(--fontColor) !important;
+}
+/* remove background do autocomplete do chrome da pag registro */
+.Reg input:-webkit-autofill,
+.Reg input:-webkit-autofill:hover, 
+.Reg input:-webkit-autofill:focus, 
+.Reg input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+/*muda cor da fonte no autocomplete*/
+.Reg input:-webkit-autofill {
+    -webkit-text-fill-color: black !important;
+}
+
+
+.wrapperNome{
+
+   
+    height: 3rem;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.wrapperNome input {
+     
+    
+    border: none;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding-top: 25px;
+    padding-left: .5rem;
+    background: none;
+    padding-bottom: 2px;
+    color: var(--fontColor);
+}
+
+.wrapperNome label {
+    
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid rgba(255, 251, 251, 0.5);
+    color: black;
+}
+
+.wrapperNome label::after {
+
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-bottom: 3px solid var(--inputColor);
+    bottom: -2px;
+    left: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.contentNome {
+
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    transition: all 0.3s ease;
+    color: rgb(156, 154, 154);
+}
+
+.wrapperNome input:focus + .labelNome .contentNome,
+.wrapperNome input:valid + .labelNome .contentNome{
+
+    transform: translateY(-110%);
+    color:var(--inputColor);
+}
+
+.wrapperNome input:focus + .labelNome::after,
+.wrapperNome input:valid + .labelNome::after{
+
+    transform: translateX(0%);
+}
+
+.enterButton{
+
+    padding: 1rem;
+    background-color: var(--inputColor);
+    height: 4rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    border:none;
+
+
+    transform: scale(1);
+    animation: pulse 1s ;
+    animation-duration: 1s infinite;
+}
+
+@keyframes pulse {
+
+	0% {
+		transform: scale(1);
+		box-shadow: 0 0 0 0  rgba(168, 39, 70, 0.5);
+	}
+
+	40% {
+		transform: scale(1.025);
+		box-shadow: 0 0 0 10px rgba(168, 39, 70, 0.5);
+	}
+
+	100% {
+		transform: scale(1);
+		box-shadow: 0 0 0 0 rgba(168, 39, 70, 0.5);
+	}
+}
+
+.enterButton:hover{
+    background-color: var(--inputColorHover);
+}
+
+.enterButtonReg{
+
+    
+    padding: 1rem;
+    background-color: var(--inputColor);
+    height: 3rem;
+    width: 100%;
+    margin: 2rem auto;
+}
+
+.enterButtonReg:hover{
+    background-color: var(--inputColorHover);
+}
+
+
+
+.links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+.remember_me {
+    
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    color: var(--fontColor);
+    line-height: 1rem;
+}
+
+.remember_me input{
+    
+    height: 1rem;
+    margin-right: 5px;
+    border: none;
+    color: var(--checkBox);
+    
+}
+
+.register {
+
+    grid-column: 1/2;
+    text-align: left;
+    color: var(--fontColor);
+}
+
+.regLogoPreto {
+
+    margin-bottom: 1rem;
+}
+.Reg {
+
+    margin-top: 1rem;
+}
+
+.Reg input {
+    
+    
+    padding-bottom: 5px;
+    border: none;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    background: none;
+    color: black;
+}
+
+.Reg label {
+    
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid rgba(70, 70, 70, 0.5);
+    color: black;
+}
+
+.forgotPW {
+    grid-column: 2/3;
+    text-align: right;
+    color: var(--fontColor);
+}
+
+.formReg {
+
+    
+    margin: 2.5rem;
+    padding-top: vh;
+    height: 100vh;
+    width: 80%;
+   
+}
+
+.voltarLink {
+
+    height: 2rem;
+    width: 100%;
+    text-align: center;
+}

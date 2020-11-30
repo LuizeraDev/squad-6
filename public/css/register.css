@@ -1,0 +1,84 @@
+
+.wrapperNome{
+
+    height: 3rem;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: black;
+}
+
+.wrapperNome input {
+     
+    border: none;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding-top: 25px;
+    color: black;
+}
+
+.wrapperNome label {
+    
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+.wrapperNome label::after {
+
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-bottom: 3px solid rgb(72, 84, 241);
+    bottom: -2px;
+    left: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.contentNome {
+
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    transition: all 0.3s ease;
+    color: rgb(156, 154, 154);
+}
+
+.wrapperNome input:focus + .labelNome .contentNome,
+.wrapperNome input:valid + .labelNome .contentNome{
+
+    transform: translateY(-120%);
+    color:rgb(72, 84, 241);
+}
+
+.wrapperNome input:focus + .labelNome::after,
+.wrapperNome input:valid + .labelNome::after{
+
+    transform: translateX(0%);
+}
+
+.logoDivReg {
+
+    margin-right: 0;
+    height: 100%;
+    width: 100%;
+
+}
+
+.logoReg {
+
+    margin-right: 10rem;
+    padding-left: 0;
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+    
+}

@@ -1,0 +1,71 @@
+img {
+    border-radius: 10px;
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+}
+
+.corBotoes {
+    background-color: #1B9D42;
+    font-size: 14px;
+    padding: 10px 18px;
+    margin-right: 10px;
+}
+
+.corBotoes:hover {
+    background-color: rgb(20, 117, 49);
+}
+
+.desistir {
+    background-color: red;
+}
+
+.desistir:hover{
+    background-color: rgb(184, 2, 2);
+}
+
+#conteudo {
+    font-size: 18px;
+}
+
+.container{
+    border: 1px solid black;
+    background-image: url("../assets/bck_1.png");
+    padding: 50px;
+    border-radius: 30px;
+    color: white;
+}
+
+.corBotoes {
+    margin-top: 30px;
+}
+
+.reportar {
+    background-color: #E63F67;
+    padding: 9px; 
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.reportar:hover {
+    background-color: rgb(173, 48, 77);
+}
+
+.info {
+    display: inline-block;
+    background-color: rgb(243, 241, 241);
+    color: rgb(70, 70, 70);
+    padding: 5px;
+    margin-left: -10px;
+    width: 300px
+}
+
+#estouaqui {
+    background-color: #E63F67;
+    padding: 3px 10px;
+    margin-top: 10px;
+}
+
+#estouaqui:hover {
+    background-color: rgb(173, 48, 77);
+}
