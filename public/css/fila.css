@@ -7,8 +7,23 @@
     grid-template-rows: 1;
 }
 
+.minhaVezButton,
+.leaveButton {
+
+    border-radius: 10px;
+}
+
+.greetMessage{
+    font-size: 30px;
+    font-family: ;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    border-bottom: 2px solid rgb(255, 255, 255, 0.5);
+}
+
 .nowPlayingTag {
 
+    border-radius: 0 10px 10px 0;
     background-color: cornflowerblue;
     grid-column: 4/5;
 
@@ -23,8 +38,7 @@
 .reportar {
 
     background-color: #E63F67;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-radius: 0 10px 10px 0;
     height: 4rem;
     grid-column: 3/4;
  
@@ -228,9 +242,16 @@
         background-image: url("../assets/bck_1.png");
 
         width: 100%;
-        margin: 30vh auto;
+        margin: 20vh auto;
      
-        
+    }
+
+    .greetMessage{
+
+        font-size: 20px;
+        font-family: ;
+        padding-top: 5rem;
+
     }
 
 

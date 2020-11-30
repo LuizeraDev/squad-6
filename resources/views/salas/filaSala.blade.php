@@ -113,8 +113,8 @@ $_SESSION['entrou_sala'] = true;
                         let greetings = $("<div/>").addClass("greetMessage").appendTo("#conteudo1");
 
                         greetings.append("<h3> E aê " + dadosFila.dadosUsuario[i].name + "</h3>");
-                        greetings.append("<p> Você está na fila da sala " + dadosFila.dadosUsuario[i].nm_sala + "</p>");
-                        greetings.append("<p2> e a sua posição é" + dadosFila.dadosUsuario[i].cd_fila_usuario + "</p2>");
+                        greetings.append("<p> Você está na fila do " + dadosFila.dadosUsuario[i].nm_sala + "</p>");
+                        greetings.append("<p2> e sua posição é a <b>" + dadosFila.dadosUsuario[i].cd_fila_usuario + "</b></p2>");
                      
                     }
                     
