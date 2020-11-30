@@ -17,6 +17,11 @@
 
 }
 
+.main {
+
+    width: 100vw;
+   
+}
 
 .logoNav{
 
@@ -144,9 +149,18 @@
         grid-gap: 1rem;
 
     }
-
     .greetings {
+        margin-top: 10rem;
+    }
 
+    .greetings,
+    .greetings h3,
+    .greetings p {
+
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 20px;
+        width: fit-content;
         grid-column: 1/2;
     }
     

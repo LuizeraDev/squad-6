@@ -120,6 +120,7 @@
         background-image: url("../assets/bck_1.png");
         width: 450px;
     }
+
     #conteudo1{
         width: 100%;
     }
@@ -136,8 +137,7 @@
         background-size: cover;
         margin-top: 30vh;
         width: 100%;
-        height: 100%;
-        
+        height: 100%; 
 
     }
 
@@ -402,7 +402,20 @@
         padding-left: 0;
         margin: auto 0;
     }
-        
+
+    .modal {
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: center;
+        height: 400px;
+        width: 600px;
+        background-image: url("../../assets/pattern_2.jpg");
+        border-radius: 20px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);  
+    }
+
     .buttons{
 
         grid-template-columns: 1fr;
