@@ -7,6 +7,19 @@
     grid-template-rows: 1;
 }
 
+.nowPlayingTag {
+
+    background-color: cornflowerblue;
+    grid-column: 4/5;
+
+}
+
+.userPlayingStatus{
+
+    grid-column: 2/4;
+}
+
+
 .reportar {
 
     background-color: #E63F67;
@@ -51,6 +64,7 @@
         
 
     }
+    #conteudo,
     #conteudo2 {
 
         display: grid;
@@ -59,6 +73,7 @@
 
     }
     
+    .userPlayingDiv,
     .userDiv{
     
         grid-column: 1/2;
@@ -70,6 +85,7 @@
       
     }
     
+    .userPlayingAvatar img,
     .userDiv img{
     
         height: 60px;
@@ -77,6 +93,7 @@
         border-radius: 10px;
     }
     
+
     .userDiv h3,
     .userDiv p {
     
@@ -93,11 +110,21 @@
         display: none;
     }
 
+    .userPlayingStatus{
+
+        grid-column: 2/3;
+    }
+
+    .nowPlayingTag{
+
+        grid-column: 3/4;
+    }
     .userDiv h3 {
 
         grid-column: 2/4;
     }
     
+ 
     .reportButton, 
     .reportButton a {
     
@@ -109,6 +136,7 @@
         padding-left: 0;
         margin: auto 0;
     }
+    
     #conteudo {
 
         display: grid;
@@ -206,26 +234,43 @@
     }
 
 
-
+    #conteudo,
     #conteudo2 {
 
+        margin: 1rem auto;
         display: grid;
         grid-template-columns: 1fr;
         grid-row-gap: 1rem;
         
     }
     
-    .userDiv{
-    
+    .userPlayingDiv {
+
         grid-column: 1/2;
     
         display: grid;
-        grid-template-columns: 60px 1fr 1fr 80px;
+        grid-template-columns: 60px 1fr 100px;
+        grid-row-gap: 1rem ;
     
         width: 400px;
-        margin: 0 auto;
+        margin: 1rem auto;
+
+    }
+
+    .userDiv{
+     
+        grid-column: 1/2;
+    
+        display: grid;
+        grid-template-columns: 60px 1fr 1fr 100px;
+        grid-row-gap: 1rem ;
+    
+        width: 400px;
+        margin: 1rem auto;
     }
     
+    .userPlayingAvatar,
+    .userPlayingAvatar img,
     .userDiv img{
     
         height: 60px;
@@ -233,6 +278,19 @@
         border-radius: 10px;
     }
     
+    .userPlayingStatus,
+    .userPlayingStatus p{
+
+        height: 3rem;
+        line-height: 3rem;
+        background-color: white;
+        color: black;
+        min-width: fit-content;
+
+        overflow-y: hidden;
+        margin: auto 0;
+    }
+
     .userDiv h3,
     .userDiv p {
     
@@ -247,10 +305,12 @@
         margin: auto 0;
     }
     
+    .nowPlayingTag,
+    .nowPlayingTag h3,
     .reportButton, 
     .reportButton a {
     
-        display: inline-block;
+        width: ;
         min-width: fit-content;
         max-width: 80px;
         height: 3rem;
@@ -258,16 +318,6 @@
         padding-left: 0;
         margin: auto 0;
     }
-    #conteudo {
-
-        display: grid;
-        grid-template-columns: 60px 1fr 1fr;
-        width: 100%;
-        grid-row-gap: 1rem;
-        grid-column-gap: 5px;
-        margin: 0 auto;
-    }
-
         
     .leaveButton {
 
@@ -311,6 +361,7 @@
 @media screen and (min-width: 738px){
 
     body{
+
         width: 100%;
     }
     .background{
@@ -337,29 +388,43 @@
         
     }
 
+    #conteudo,
     #conteudo2 {
 
+        margin: 1rem auto;
         display: grid;
         grid-template-columns: 1fr;
         grid-row-gap: 1rem;
         
     }
     
-    .userDiv{
-    
+    .userPlayingDiv {
+
         grid-column: 1/2;
     
         display: grid;
-        grid-template-columns: 60px 1fr 1fr 80px;
-    
-        min-width: 400px;
-        max-width: 500px;
+        grid-template-columns: 60px 1fr 1fr 100px;
+        grid-row-gap: 1rem ;
+        height: 60px;
+        width: 400px;
+        margin: 1rem auto;
 
-        overflow-x: hidden;
-        overflow-y: hidden;
-        margin: 0 auto;
+    }
+
+    .userDiv{
+     
+        grid-column: 1/2;
+    
+        display: grid;
+        grid-template-columns: 60px 1fr 1fr 100px;
+        grid-row-gap: 1rem ;
+        height: 60px;
+        width: 400px;
+        margin: 1rem auto;
     }
     
+    .userPlayingAvatar,
+    .userPlayingAvatar img,
     .userDiv img{
     
         height: 60px;
@@ -367,6 +432,19 @@
         border-radius: 10px;
     }
     
+    .userPlayingStatus,
+    .userPlayingStatus p{
+
+        height: 3rem;
+        line-height: 3rem;
+        background-color: white;
+        color: black;
+        min-width: fit-content;
+
+        overflow-y: hidden;
+        margin: auto 0;
+    }
+
     .userDiv h3,
     .userDiv p {
     
@@ -381,10 +459,13 @@
         margin: auto 0;
     }
     
+    .nowPlayingTag,
+    .nowPlayingTag h3,
     .reportButton, 
     .reportButton a {
-    
-        display: inline-block;
+        
+        display: block;
+        overflow-y: hidden;
         min-width: fit-content;
         max-width: 80px;
         height: 3rem;
@@ -392,22 +473,13 @@
         padding-left: 0;
         margin: auto 0;
     }
-    #conteudo {
-
-        display: grid;
-        grid-template-columns: 60px 1fr 1fr;
-        width: 100%;
-        grid-row-gap: 1rem;
-        grid-column-gap: 5px;
-        margin: 0 auto;
-    }
         
     .leaveButton {
 
         grid-column: 2/3;
         grid-row: 1;
 
-        width: 60%;
+        width: 40%;
         height: 3rem;
         margin: 1rem auto;
         line-height: 3rem;
@@ -425,7 +497,7 @@
         grid-column: 1/2;
         grid-row: 1;
 
-        width: 60%;
+        width: 40%;
         height: 3rem;
         margin: 1rem auto;
         line-height: 3rem;
@@ -436,8 +508,6 @@
     .minhaVezButton:hover {
         background-color: rgb(20, 117, 49);
     }
-
-
     
 
 }
@@ -469,14 +539,32 @@
         
     }
 
+    #conteudo,
     #conteudo2 {
 
         display: grid;
         grid-template-columns: 1fr;
+
         grid-row-gap: 1rem;
+        min-height: 3rem;
         
     }
-    
+
+    .userPlayingTag,
+    .userPlayingTag h3 {
+
+        display: inline-block;
+        background-color: cornflowerblue;
+        min-width: fit-content;
+        max-width: 80px;
+        height: 3rem;
+        line-height: 3rem;
+        padding-left: 0;
+        margin: auto 0;
+
+    }
+ 
+    .userPlayingDiv,
     .userDiv{
     
         grid-column: 1/2;
@@ -486,22 +574,29 @@
     
         min-width: 400px;
         max-width: 500px;
+        height: 60px;
 
         overflow-x: hidden;
         overflow-y: hidden;
         margin: 0 auto;
     }
     
+    .userPlayingAvatar,
+    .userPlayingAvatar img,
+    .userAvatar,
     .userDiv img{
-    
+        display: block;
+        text-align: center;
         height: 60px;
         width: 60px;
         border-radius: 10px;
     }
     
+    .userPlayingStatus,
+    .userPlayingStatus p,
     .userDiv h3,
     .userDiv p {
-    
+        display: inline-block;
         height: 3rem;
         line-height: 3rem;
         background-color: white;
@@ -512,11 +607,13 @@
         overflow-y: hidden;
         margin: auto 0;
     }
-    
+
+    .nowPlayingTag,
+    .nowPlayingTag h3,
     .reportButton, 
     .reportButton a {
     
-        display: inline-block;
+        
         min-width: fit-content;
         max-width: 80px;
         height: 3rem;
@@ -524,15 +621,7 @@
         padding-left: 0;
         margin: auto 0;
     }
-    #conteudo {
 
-        display: grid;
-        grid-template-columns: 60px 1fr 1fr;
-        width: 100%;
-        grid-row-gap: 1rem;
-        grid-column-gap: 5px;
-        margin: 0 auto;
-    }
 
         
     .leaveButton {

@@ -66,11 +66,13 @@ $_SESSION['entrou_sala'] = true;
                     $('#conteudo4').html("");
                     // Atualiza a quantidade de pessoas na demanda.
                     $('#demanda').text("Espaços: " + dadosFila.Utilizando.length + "\\" + dadosFila.dadosUsuario[0].demanda);
+
                     for (i = 0; i < dadosFila.Utilizando.length; i++) {
                         // Exibe foto do usuário se existir
                         let userDiv = []
 
                         if (dadosFila.Utilizando[i].profile_photo_path) {
+
                             userDiv[i] = $("<div/>").addClass("userPlayingDiv").appendTo("#conteudo");
 
                             let userAvatar = $("<div/>").addClass("userPlayingAvatar");
@@ -78,13 +80,30 @@ $_SESSION['entrou_sala'] = true;
                             let userNowPlayingTag = $("<div/>").addClass("nowPlayingTag");
 
                                 userAvatar.append("<img src='{{ $url }}" + dadosFila.dadosFila[i].profile_photo_path + "' width='40'>");
-                                userStatus.append("<p> Em progresso <p/>");
+                                userStatus.append("<p> Usando <p/>");
                                 userNowPlayingTag.append("<h3> LIVE <h3/>")
 
                                 userDiv[i].append(userAvatar);
                                 userDiv[i].append(userStatus);
                                 userDiv[i].append(userNowPlayingTag);
                         
+                        } else {
+
+                            userDiv[i] = $("<div/>").addClass("userPlayingDiv").appendTo("#conteudo");
+
+                            let userAvatar = $("<div/>").addClass("userPlayingAvatar");
+                            let userStatus = $("<div/>").addClass("userPlayingStatus");
+                            let userNowPlayingTag = $("<div/>").addClass("nowPlayingTag");
+
+                                userAvatar.append("<img src= '{{ asset('assets/defaultPic.jpg') }}' alt='default picture' width='40'>");
+                                userStatus.append("<p> Em progresso <p/>");
+                                userNowPlayingTag.append("<h3> LIVE <h3/>")
+
+                                userDiv[i].append(userAvatar);
+                                userDiv[i].append(userStatus);
+                                userDiv[i].append(userNowPlayingTag);
+
+
                         }
                        
                     }
@@ -181,6 +200,7 @@ $_SESSION['entrou_sala'] = true;
                                 userDiv[i].append(reportButton);
 
                             }
+
                         }
 
                
@@ -189,12 +209,17 @@ $_SESSION['entrou_sala'] = true;
                     
                     let buttons = $('<div/>').addClass('buttons').appendTo('#conteudo2')
 
+
                     var espaco = dadosFila.dadosUsuario[0].demanda - dadosFila.Utilizando.length;
 
                     if (dadosFila.dadosUsuario[0].cd_fila_usuario <= espaco && dadosFila.Utilizando.length < dadosFila.dadosUsuario[0].demanda) {
 
                         buttons.append("<a class='leaveButton' href='{{$salaId}}/desistente'>Desistir</a>");
                         buttons.append("<a class='minhaVezButton' href='{{$salaId}}/voujogar'>Minha Vez</a>");
+
+                    }else {
+
+                        buttons.append("<a class='leaveButton' href='{{$salaId}}/desistente'>Desistir</a>");
 
                     }
                     setTimeout("atualizarFila()", 3000) // 3 segundos / Tempo de espera de atualização dos dados
