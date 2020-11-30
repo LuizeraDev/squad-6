@@ -7,6 +7,69 @@
     grid-template-rows: 1;
 }
 
+.modal {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 30vh 35vw;
+    align-items: center;
+    height: 400px;
+    width: 600px;
+    background-image: url("../../assets/pattern_2.jpg");
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);  
+}
+
+.reportAlert{
+
+    position: absolute;
+    width: 83%;
+    height: 75%;
+    background-color: rgb(255, 255, 255, 0.7);
+    align-items: center;
+
+    margin: 3rem;
+    
+}
+
+.modal .Timer{
+    margin: 2rem;
+    color:red;
+    font-size: 30px;
+    
+}
+
+.modal .alerta{
+
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 2rem;
+    color:rgb(92, 27, 27);
+
+}
+
+.modal #estouaqui{
+    width: 60%;
+    height: 4rem;
+
+    background-color: rgb(32, 194, 32);
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+
+    border-radius: 10px;
+    border: none;
+
+    margin-top: 2rem;
+
+}
+
+.modal #estouaqui:hover{
+
+    background-color: rgb(20, 117, 49);
+}
+
 .minhaVezButton,
 .leaveButton {
 

@@ -38,9 +38,9 @@ $_SESSION['entrou_sala'] = true;
               
 
 
-                <div id="Timer"></div>
+                
                 <div id="conteudo4">
-                <audio id='audio' src='../assets/NewCritical_01.mp3' autoplay>
+               
                 </div>
                 
             </section>
@@ -123,23 +123,23 @@ $_SESSION['entrou_sala'] = true;
                     
                     if (dadosFila.dadosUsuario[0].report) {
 
-
-                        
-                        $('#conteudo4').html( 
-                            
-                            
-
-                            "Você ainda está ai? <button id='estouaqui' type='button' onClick='clicksim()'>Sim</button>"
-                             +"<hr>"
-
-                           
-                        );
-                        
+                        let modal = $("<div/>").addClass("modal").appendTo("#conteudo4");
+                        let reportAlert = $("<div/>").addClass("reportAlert");
+                        let mensagem = $("<p/>").addClass("alerta");
+                        let timer = $("<h3/>").addClass("Timer");
                      
+                        timer.append("")
+                        mensagem.append("Você ainda está ai?");
+
+                        reportAlert.append(timer)
+                        reportAlert.append(mensagem)
+                        reportAlert.append("<button id='estouaqui' type='button' onClick='clicksim()'>Sim</button>")                      
+                        
+                        modal.append(reportAlert)
                         if (temporizador == 11) {
                             contagemregressiva = setInterval(function () {
                                 temporizador -= 1;
-                                $('#Timer').text(temporizador + " segundos")
+                                $('.Timer').text(temporizador + " segundos")
                             }, 1000);
                         }
                         setInterval(function () {
