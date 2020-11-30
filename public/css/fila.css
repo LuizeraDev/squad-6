@@ -1,111 +1,11 @@
 
 
-h3 {
-    font-size: 22px;
-    margin-bottom: 10px;
-}
-
-hr {
-    width:100%;
-    height: 3px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    background: rgb(243, 241, 241, 0.1);
-    border-radius: 30px;
-}
-
-.minhaVez {
-    background-color: #1B9D42;
-    width: 100%;
-    display: inline-block;
-}
-
-.minhaVez:hover {
-    background-color: rgb(20, 117, 49);
-}
-
-.botaoDesistir {
-
-    width: 20rem;
-    height: 3rem;
-    margin: 1rem auto;
-    line-height: 3rem;
-    color: white;
-    background-color: red;
-}
-
-.botaoDesistir:hover{
-    background-color: rgb(184, 2, 2);
-}
-
-
-#conteudo2 {
+.buttons{
 
     display: grid;
-    grid-template-columns: 1fr;
-    grid-row-gap: 1rem;
-    
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1;
 }
-
-.userDiv{
-
-    grid-column: 1/2;
-
-    display: grid;
-    grid-template-columns: 60px 1fr 1fr 100px;
-    min-width: fit-content;
-    width: 70%;
-    margin: 0 auto;
-}
-
-.userDiv img{
-
-    height: 60px;
-    width: 60px;
-    border-radius: 10px;
-}
-
-.userDiv h3,
-.userDiv p {
-
-    height: 3rem;
-    line-height: 3rem;
-    background-color: white;
-    color: black;
-
-    margin: auto 0;
-}
-
-.reportButton, 
-.reportButton a {
-
-    display: inline-block;
-    width: 100%;
-    height: 3rem;
-    line-height: 3rem;
-    padding-left: 0;
-    margin: auto 0;
-}
-
-
-
-#conteudo {
-
-    display: grid;
-    grid-template-columns: 60px 500px;
-    width: 550px;
-    grid-row-gap: 1rem;
-    grid-column-gap: 5px;
-
-    margin: 0 auto;
-}
-
-#conteudo1{
-
-    width: 100%;
-    margin-top:4rem;
-}
-
 
 .reportar {
 
@@ -124,28 +24,31 @@ hr {
 }
 
 
-#estouaqui {
-    background-color: #E63F67;
-    padding: 3px 10px;
-    margin-top: 10px;
-}
-
-#estouaqui:hover {
-    background-color: rgb(173, 48, 77);
-}
-
 
 @media only screen and (max-width: 450px){
 
+    body {
+        background-image: url("../assets/bck_1.png");
+        width: 450px;
+    }
+    #conteudo1{
+        width: 100%;
+    }
+    .greetings {
+
+        width: 100%;
+        margin: 0 auto;
+    }
+
     .container{
 
-        display: grid;
-        grid-template-columns: 1fr;
-        color: white;
+        color: white;  
         background-image: url("../assets/bck_1.png");
-        
+        background-size: cover;
+        margin-top: 30vh;
         width: 100%;
-        border-radius: 30px;
+        height: 100%;
+        
 
     }
     #conteudo2 {
@@ -154,8 +57,6 @@ hr {
         grid-template-columns: 1fr;
         grid-row-gap: 1rem;
 
-   
-        
     }
     
     .userDiv{
@@ -163,7 +64,9 @@ hr {
         grid-column: 1/2;
     
         display: grid;
-        grid-template-columns: 60px 1fr 1fr 80px;
+        grid-template-columns: 60px 1fr 80px;
+
+        margin: 0 auto;
       
     }
     
@@ -184,6 +87,15 @@ hr {
         min-width: fit-content;
         overflow-y: hidden;
         margin: auto 0;
+    }
+
+    .userDiv p{
+        display: none;
+    }
+
+    .userDiv h3 {
+
+        grid-column: 2/4;
     }
     
     .reportButton, 
@@ -207,20 +119,77 @@ hr {
         margin: 0 auto;
     }
 
+    .buttons{
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1;
+        width: 100%;
+        
+    }
+    
+    .leaveButton {
+    
+        grid-column: 2/3;
+        grid-row: 1;
+    
+        width: 40%;
+        height: 3rem;
+        
+        margin-right: 0rem;
+        margin-left: 1rem;
+        margin-top: auto;
+        line-height: 3rem;
+        color: white;
+        background-color: red;
+    
+    }
+    
+    .leaveButton:hover{
+        background-color: rgb(184, 2, 2);
+    }
+    
+    .minhaVezButton {
+    
+        grid-column: 1/2;
+        grid-row: 1;
+    
+        width: 40%;
+        height: 3rem;
+        
+      
+        margin-left: 0;
+        margin-top: auto;
+
+        line-height: 3rem;
+        color: white;
+        background-color:  #1B9D42;
+    }
+    
+    .minhaVezButton:hover {
+        background-color: rgb(20, 117, 49);
+    }
+    
+    
     
 
 }
 
 
-@media only screen and (max-width: 738px){
+@media only screen and (max-width: 737px){
+
+    body {
+        background-image: url("../assets/bck_1.png");
+        width: 100%;
+    }
     
     .background{
-        position: absolute;
-        background-image: url("../assets/logo1.png");
+        background-image: url('../assets/Logo1.png');
+        background-size: cover;
         background-repeat: no-repeat;
-        background-position: top;
-        height: 100%;
-        width: 100%;
+        background-position-x: center;
+        background-position-y: 40vh;
+ 
     }
 
     .container{
@@ -229,10 +198,14 @@ hr {
         grid-template-columns: 1fr;
         color: white;
         background-image: url("../assets/bck_1.png");
-        height: fit-content;
-        border-radius: 30px;
+
+        width: 100%;
+        margin: 30vh auto;
+     
         
     }
+
+
 
     #conteudo2 {
 
@@ -295,12 +268,51 @@ hr {
         margin: 0 auto;
     }
 
+        
+    .leaveButton {
+
+        grid-column: 2/3;
+        grid-row: 1;
+
+        width: 40%;
+        height: 3rem;
+        margin: 1rem auto;
+        line-height: 3rem;
+        color: white;
+        background-color: red;
+
+    }
+
+    .leaveButton:hover{
+        background-color: rgb(184, 2, 2);
+    }
+
+    .minhaVezButton {
+
+        grid-column: 1/2;
+        grid-row: 1;
+
+        width: 40%;
+        height: 3rem;
+        margin: 1rem auto;
+        line-height: 3rem;
+        color: white;
+        background-color:  #1B9D42;
+    }
+
+    .minhaVezButton:hover {
+        background-color: rgb(20, 117, 49);
+    }
+
     
 
 }
 
 @media screen and (min-width: 738px){
 
+    body{
+        width: 100%;
+    }
     .background{
         position: absolute;
         background-image: url("../assets/logo1.png");
@@ -319,7 +331,8 @@ hr {
         border-radius: 30px;
 
         height: 700px;
-        width: 70vw;
+        width: 75%;
+        padding: 2rem;
         margin: 30vh auto;
         
     }
@@ -388,6 +401,42 @@ hr {
         grid-column-gap: 5px;
         margin: 0 auto;
     }
+        
+    .leaveButton {
+
+        grid-column: 2/3;
+        grid-row: 1;
+
+        width: 60%;
+        height: 3rem;
+        margin: 1rem auto;
+        line-height: 3rem;
+        color: white;
+        background-color: red;
+
+    }
+
+    .leaveButton:hover{
+        background-color: rgb(184, 2, 2);
+    }
+
+    .minhaVezButton {
+
+        grid-column: 1/2;
+        grid-row: 1;
+
+        width: 60%;
+        height: 3rem;
+        margin: 1rem auto;
+        line-height: 3rem;
+        color: white;
+        background-color:  #1B9D42;
+    }
+
+    .minhaVezButton:hover {
+        background-color: rgb(20, 117, 49);
+    }
+
 
     
 
@@ -483,6 +532,42 @@ hr {
         grid-row-gap: 1rem;
         grid-column-gap: 5px;
         margin: 0 auto;
+    }
+
+        
+    .leaveButton {
+
+        grid-column: 2/3;
+        grid-row: 1;
+
+        width: 60%;
+        height: 3rem;
+        margin: 1rem auto;
+        line-height: 3rem;
+        color: white;
+        background-color: red;
+
+    }
+
+    .leaveButton:hover{
+        background-color: rgb(184, 2, 2);
+    }
+
+    .minhaVezButton {
+
+        grid-column: 1/2;
+        grid-row: 1;
+
+        width: 60%;
+        height: 3rem;
+        margin: 1rem auto;
+        line-height: 3rem;
+        color: white;
+        background-color:  #1B9D42;
+    }
+
+    .minhaVezButton:hover {
+        background-color: rgb(20, 117, 49);
     }
 
     

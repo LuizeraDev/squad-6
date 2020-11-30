@@ -27,19 +27,23 @@ $_SESSION['entrou_sala'] = true;
             <section class="container" align="center">
 
                 <div id="conteudo1"></div>
-                <hr>
+            
+            
                 <div id="conteudo"></div>
+                <div id="conteudo2"></div>
+                
+                <div id="conteudo3"></div>
+                
+
+              
 
 
                 <div id="Timer"></div>
                 <div id="conteudo4"></div>
-
-                <div id="conteudo2"></div>
-                <div id="conteudo3"></div>
                 
             </section>
 
-            <a class="botaoDesistir" href="{{$salaId}}/desistente">Desistir</a>
+            
     </div>
 
         <!-- Este script é necessário para fazer a conexão assíncrona com o AJAX -->
@@ -64,26 +68,42 @@ $_SESSION['entrou_sala'] = true;
                     $('#demanda').text("Espaços: " + dadosFila.Utilizando.length + "\\" + dadosFila.dadosUsuario[0].demanda);
                     for (i = 0; i < dadosFila.Utilizando.length; i++) {
                         // Exibe foto do usuário se existir
+                        let userDiv = []
+
                         if (dadosFila.Utilizando[i].profile_photo_path) {
-                            $('#conteudo').append("<div class='user'> <img src='{{ $url }}" + dadosFila.Utilizando[i].profile_photo_path + "' width='40'>");
-                            $('#conteudo').append("<div class='infoAndamento'> <b>" + dadosFila.Utilizando[i].name + "</b>" + "Status: <b>Em andamento</b></div>");
+                            userDiv[i] = $("<div/>").addClass("userPlayingDiv").appendTo("#conteudo");
+
+                            let userAvatar = $("<div/>").addClass("userPlayingAvatar");
+                            let userStatus = $("<div/>").addClass("userPlayingStatus");
+                            let userNowPlayingTag = $("<div/>").addClass("nowPlayingTag");
+
+                                userAvatar.append("<img src='{{ $url }}" + dadosFila.dadosFila[i].profile_photo_path + "' width='40'>");
+                                userStatus.append("<p> Em progresso <p/>");
+                                userNowPlayingTag.append("<h3> LIVE <h3/>")
+
+                                userDiv[i].append(userAvatar);
+                                userDiv[i].append(userStatus);
+                                userDiv[i].append(userNowPlayingTag);
                         
                         }
                        
                     }
                     // Informações do usuário que entrou na sala
                     for (i = 0; i < dadosFila.dadosUsuario.length; i++) {
-                        $('#conteudo1').append(
-                            "E aew <b>" + dadosFila.dadosUsuario[i].name + "</b><br><br>" +
-                            "Você está na fila da sala <b>" + dadosFila.dadosUsuario[i].nm_sala + "</b> " +
-                            "e sua posição é <b>" + dadosFila.dadosUsuario[i].cd_fila_usuario
-                        );
+
+                        let greetings = $("<div/>").addClass("greetMessage").appendTo("#conteudo1");
+
+                        greetings.append("<h3> E aê " + dadosFila.dadosUsuario[i].name + "</h3>");
+                        greetings.append("<p> Você está na fila da sala " + dadosFila.dadosUsuario[i].nm_sala + "</p>");
+                        greetings.append("<p2> e a sua posição é" + dadosFila.dadosUsuario[i].cd_fila_usuario + "</p2>");
+                     
                     }
                     
                     
                     if (dadosFila.dadosUsuario[0].report) {
                         
                         $('#conteudo4').html( 
+
                             "Você ainda está ai? <button id='estouaqui' type='button' onClick='clicksim()'>Sim</button>" +
                             "<hr>"
                         );
@@ -166,10 +186,16 @@ $_SESSION['entrou_sala'] = true;
                
                     }
                     // Exibe o botão vou jogar de acordo com os espaços da sala.
+                    
+                    let buttons = $('<div/>').addClass('buttons').appendTo('#conteudo2')
+
                     var espaco = dadosFila.dadosUsuario[0].demanda - dadosFila.Utilizando.length;
-                    if (dadosFila.dadosUsuario[0].cd_fila_usuario <= espaco &&
-                        dadosFila.Utilizando.length < dadosFila.dadosUsuario[0].demanda) {
-                        $('#conteudo3').html("<a  class='minhaVez' href='{{$salaId}}/voujogar'>Minha Vez</a>");
+
+                    if (dadosFila.dadosUsuario[0].cd_fila_usuario <= espaco && dadosFila.Utilizando.length < dadosFila.dadosUsuario[0].demanda) {
+
+                        buttons.append("<a class='leaveButton' href='{{$salaId}}/desistente'>Desistir</a>");
+                        buttons.append("<a class='minhaVezButton' href='{{$salaId}}/voujogar'>Minha Vez</a>");
+
                     }
                     setTimeout("atualizarFila()", 3000) // 3 segundos / Tempo de espera de atualização dos dados
                 })
