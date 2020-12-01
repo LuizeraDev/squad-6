@@ -129,7 +129,7 @@ $_SESSION['entrou_sala'] = true;
                         let timer = $("<h3/>").addClass("Timer");
                      
                         timer.append("")
-                        mensagem.append("Você ainda está ai?");
+                        mensagem.append("Você ainda está conosco?");
 
                         reportAlert.append(timer)
                         reportAlert.append(mensagem)

@@ -7,7 +7,7 @@
         @endif
 
         <div class="logoDiv max-w-sm md:w-1/2 ">
-            <img class="logo md:1/2" src="{{ asset('assets/Logo1.png') }}" alt="">
+            <img class="logo md:1/2" src="{{ asset('assets/Logo1.png') }}" alt="Logo">
         </div>
 
         <div class="faixa sm:w-full">

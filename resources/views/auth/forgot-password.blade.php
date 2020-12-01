@@ -44,7 +44,7 @@
     </x-jet-authentication-card>
     
     <div class="logoForgotPW">
-        <img src="../../assets/logo1.png" alt="">
+        <img src="{{ asset('assets/esqueceuSenha.svg') }}" alt="Logo">
     </div>
 
 </x-guest-layout>

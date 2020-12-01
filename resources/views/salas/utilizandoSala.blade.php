@@ -37,7 +37,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
 
             <div class="buttons">
                 <a href="Voltar" class="minhaVezButton">
-                Voltar para o final da fila</a>
+                Voltar à fila</a>
 
                 <a href="Acabei" class="leaveButton ">
                     Sair da sala</a>

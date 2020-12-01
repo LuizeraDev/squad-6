@@ -10,7 +10,7 @@
         <form class="formReg max-w-sm md:w-1/2 " method="POST" action="{{ route('register') }}">
             @csrf
             
-            <img class="regLogoPreto" src="../assets/logo2.png" alt="">
+            <img class="regLogoPreto" src="{{ asset('assets/Logo2.png') }}" alt="Logo">
             <!-- Mensagens de erro -->
             <x-jet-validation-errors class="mb-4" />
 

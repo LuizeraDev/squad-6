@@ -1,6 +1,9 @@
 <?php 
 $url='http://localhost:8080/squad-6/storage/app/public/';
 $_SESSION['usuario'] = Auth::user()->email;
+
+if (!isset($_SESSION))
+session_start();
 ?>
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
@@ -16,13 +19,13 @@ $_SESSION['usuario'] = Auth::user()->email;
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    @if ($_SESSION['dashboard'] == true)
+                    @if (isset($_SESSION['dashboard']) && $_SESSION['dashboard'] === true)
                         <x-jet-nav-link href="{{ route('dashboard') }}" style="color: #E63F67; font-weight: bold;">
                             {{ __('Unidades') }}
                         </x-jet-nav-link>
                     @endif 
 
-                    @if ($_SESSION['dashboard'] == false)
+                    @if (isset($_SESSION['dashboard']) && $_SESSION['dashboard'] === false)
                         <x-jet-nav-link href="{{ route('dashboard') }}" style="color: #1C252E; font-weight: bold;">
                             {{ __('Unidades') }}
                         </x-jet-nav-link>

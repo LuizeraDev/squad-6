@@ -16,7 +16,7 @@
 <body>
     <main>
         <section class="container" align="center">
-            <img src="../assets/logo1.png" alt="Logo">
+            <img src="{{ asset('assets/Logo1.png') }}"alt="Logo">
         </section>
     </main>
 </body>

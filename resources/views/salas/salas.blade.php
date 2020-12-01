@@ -165,7 +165,7 @@ if (isset($_SESSION['entrou_sala']) && isset($_SESSION['cd_sala']) && $_SESSION[
                     wrapperSala[i].append(
                         "<p class='quantPessoas'> Há <b>"
                         + contador
-                        + "</b> pessoas nesta atividade.</p>"
+                        + "</b> pessoa(s) nesta atividade.</p>"
                       
                     );
 
