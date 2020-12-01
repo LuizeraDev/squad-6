@@ -26,7 +26,7 @@
 
 <body class="logoBG"> 
 
-<div class="logoBG">
+<div class="">
 	<!--- GRID -->	
 	<div class="ajuste min-h-screen flex flex-col items-center pt-6 sm:pt-0">
 

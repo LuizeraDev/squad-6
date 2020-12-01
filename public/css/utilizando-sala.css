@@ -69,3 +69,91 @@ img {
 #estouaqui:hover {
     background-color: rgb(173, 48, 77);
 }
+
+.buttons{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.leaveButton {
+
+    grid-column: 1/2;
+    grid-row: 1;
+
+    width: 90%;
+    height: 3rem;
+    margin: 1rem auto;
+    line-height: 3rem;
+    color: white;
+    background-color: red;
+
+}
+
+.leaveButton:hover{
+    background-color: rgb(184, 2, 2);
+}
+
+.minhaVezButton {
+
+    grid-column: 2/3;
+    grid-row: 1;
+    overflow-y: hidden;
+    width: 90%;
+    height: 3rem;
+    margin: 1rem auto;
+    line-height: 3rem;
+    color: white;
+    background-color:  #1B9D42;
+}
+
+.minhaVezButton:hover {
+    background-color: rgb(20, 117, 49);
+}
+
+@media only screen and (max-width: 600px){
+
+    
+    .info {
+      
+        width: fit-content
+    }
+
+    .buttons{
+   
+        grid-template-columns: 1fr ;
+    }
+    .leaveButton {
+    
+        grid-column: 1/2;
+        grid-row: 2;
+    
+        width: 90%;
+        height: 3rem;
+        margin: 1rem auto;
+        line-height: 3rem;
+        color: white;
+        background-color: red;
+    
+    }
+    
+    .leaveButton:hover{
+        background-color: rgb(184, 2, 2);
+    }
+    
+    .minhaVezButton {
+    
+        grid-column: 1/2;
+        grid-row: 1;
+        overflow-y: hidden;
+        width: 90%;
+        height: 3rem;
+        margin: 1rem auto;
+        line-height: 3rem;
+        color: white;
+        background-color:  #1B9D42;
+    }
+    
+    .minhaVezButton:hover {
+        background-color: rgb(20, 117, 49);
+    }
+
+}

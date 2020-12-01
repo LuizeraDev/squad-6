@@ -16,6 +16,7 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
     <link rel="stylesheet" href="{{ asset('css/utilizando-sala.css') }}">
+    
 </head>
 
 
@@ -33,11 +34,14 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
             <br>
             <h3>Selecione um botão após terminar</h3>
             <br>
-            <a href="Voltar" class="corBotoes items-center border border-transparent font-semibold text-xs text-white uppercase tracking-widest">
-            Voltar para o final da fila</a>
 
-            <a href="Acabei" class="corBotoes desistir items-center border border-transparent font-semibold text-xs text-white uppercase tracking-widest">
-                Sair da sala</a>
+            <div class="buttons">
+                <a href="Voltar" class="minhaVezButton">
+                Voltar para o final da fila</a>
+
+                <a href="Acabei" class="leaveButton ">
+                    Sair da sala</a>
+            </div>
         </section>
     </main>
 </div>
@@ -68,6 +72,11 @@ $url='http://localhost:8080/squad-6/storage/app/public/';
                         if (dadosFila.Utilizando[i].profile_photo_path) {
                             $('#conteudo').append(
                                 "<img src='{{ $url }}" + dadosFila.Utilizando[i].profile_photo_path+"' width='40'>&nbsp;&nbsp;"
+                            );
+                        }else{
+                            
+                            $('#conteudo').append(
+                                "<img src= '{{ asset('assets/defaultPic.jpg') }}' alt='default picture' width='40'>&nbsp;&nbsp;"
                             );
                         }
 
