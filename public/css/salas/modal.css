@@ -118,6 +118,14 @@
     
 }
 
+input {
+    text-align: center;
+}
+
+#resposta {
+    margin-top: -40px;
+}
+
 .active {
     border-radius: 20px;
     display: none;
