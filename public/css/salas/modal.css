@@ -68,7 +68,7 @@
 
 .cancelButtonUserModal{
   
-    position: fixed;
+    position: absolute;
 
     height: 3rem;
     width: 12rem;
