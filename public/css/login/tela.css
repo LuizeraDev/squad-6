@@ -104,10 +104,11 @@
         
        
         padding-right: 10rem;
-        width: 100%;
+        width: 20rem;
         height: 90%;
         background-color: black;
         object-fit: contain;
+        margin: 0 auto;
     }
 
     .faixa {

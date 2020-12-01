@@ -55,6 +55,7 @@ p     {
     padding: 0 6.1rem;
     height: 3rem;
     line-height: 3rem;
+    overflow-y: hidden;
 }
 
 .corBotoes a, option{
