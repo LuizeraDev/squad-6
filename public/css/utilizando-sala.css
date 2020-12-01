@@ -109,6 +109,10 @@ img {
     background-color: rgb(20, 117, 49);
 }
 
+h3 {
+    font-size: 30px;
+}
+
 @media only screen and (max-width: 600px){
 
     
