@@ -69,3 +69,7 @@
 
     transform: translateX(0%);
 }
+
+.espacamento {
+    margin-top: 10px;
+}
